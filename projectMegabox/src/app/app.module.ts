@@ -1,14 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+
+import { SharedModule } from './shared/shared.module';
+
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { MainPageComponent } from './main/main-page/main-page.component';
 import { MyPageComponent } from './main/my-page/my-page.component';
-import { QuickBookingComponent } from './main/quick-booking/quick-booking.component';
 import { ScreeningScheduleComponent } from './main/screening-schedule/screening-schedule.component';
 import { CarouselComponent } from './main/main-page/carousel/carousel.component';
 import { MegaboxNewsComponent } from './main/main-page/megabox-news/megabox-news.component';
@@ -20,12 +19,9 @@ import { SidebarComponent } from './main/main-page/sidebar/sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    HeaderComponent,
     MainComponent,
     MainPageComponent,
     MyPageComponent,
-    QuickBookingComponent,
     ScreeningScheduleComponent,
     CarouselComponent,
     MegaboxNewsComponent,
@@ -36,7 +32,8 @@ import { SidebarComponent } from './main/main-page/sidebar/sidebar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
