@@ -8,14 +8,12 @@
   overflow: auto;
   overflow-y: scroll;
   background-color: #fff;
-  // opacity: 0.04;
 }
 
 .movie-modal-wrapper {
   width: 970px;
   margin: 0 auto;
   padding: 88px 0 30px 0;
-  // background-color: orange;
   z-index: 1080;
 }
 
@@ -23,20 +21,12 @@
   position: relative;
   min-height: 554px;
   border: 1px solid #cdcdcd;
-  // background-color: #fff;
-  // background-color: red;
 }
 
-.movie-modal, .movie-modal-contents, .movie-modal-wrapper {
+.movie-modal-contents {
   box-shadow: 0 6px 10px rgba(0,0,0,0.5);
 }
 
-// .movie-modal, .movie-modal-contents, .movie-modal-wrapper, .movie-modal-header {
-//   overflow: hidden;
-//   padding: 13px 20px 12px 20px;
-//   background-color: #f9f9f9;
-//   border-bottom: 1px solid #e0e0e0;
-// }
 .movie-modal-header {
   overflow: hidden;
   padding: 13px 20px 12px 20px;
@@ -54,7 +44,6 @@
 .util {
   height: 42px;
   padding: 9px 19px 0 19px;
-  // background-color: green;
 }
 
 .selected {
@@ -77,8 +66,7 @@
 .movie-sort {
   float: right;
   overflow: hidden;
-  padding-right: 6px;
-  padding: 0;
+  padding-right: 8px;
   margin: 0;
   list-style: none;
 }
@@ -102,10 +90,15 @@
   background: transparent;
 }
 
+.movie-sort > li.release > a {
+  padding-right: 0;
+  border: none;
+}
+
 // 영화 리스트
 .movie-list-wrapper {
   position: relative;
-  padding: 0 18px;
+  padding-left: 18px;
   overflow: auto;
   width: 966px;
   left: 1px;
@@ -118,24 +111,19 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding-inline-start: 40px;
 }
 
 .moivie-list-li {
   position: relative;
   float: left;
-  width: 132px;
+  width: 131px;
   height: 227px;
   cursor: pointer;
-  padding: 0;
-  margin: 0;
-  list-style: none;
   display: list-item;
   text-align: -webkit-match-parent;
+  margin-right: 1px;
 }
 
 .moivie-list-li > a {
@@ -174,7 +162,8 @@
   overflow: hidden;
   padding-top: 10px;
   padding-left: 7px;
-  padding: 0;
+  // padding: 0;
+  border-left: 1px solid #e5e5e5;
   margin: 0;
   list-style: none;
   cursor: pointer;
@@ -182,7 +171,6 @@
 
 .movie-age {
   background: url(http://image2.megabox.co.kr/mop/home/bg_age2.png) -60px 0 no-repeat;
-  // background: url(http://image2.megabox.co.kr/mop/home/bg_age2.png) 0 -999px no-repeat;
   display: inline-block;
   width: 17px;
   height: 18px;

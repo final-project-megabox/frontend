@@ -13,12 +13,12 @@
         <ul class="movie-sort">
           <li><a href="#" data-sorttype="rank">예매율순</a></li>
           <li><a href="#" data-sorttype="title">가나다순</a></li>
-          <li><a href="#" data-sorttype="release">개봉일순</a></li>
+          <li class="release"><a href="#" data-sorttype="release">개봉일순</a></li>
         </ul>
       </div>
       <div class="movie-list-wrapper">
         <ul class="movie-list">
-          <li class="moivie-list-li">
+          <li class="moivie-list-li" *ngFor="let movie of movies">
             <a href="#" title="스파이더맨: 파 프롬 홈 선택">
               <span class="blind">스파이더맨: 파 프롬 홈</span>
             </a>
