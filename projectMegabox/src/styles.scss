@@ -1,3 +1,5 @@
+@import "https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap";
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -40,4 +43,20 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* 본문 기본 스타일 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: none;
+	color: inherit;
+	background: none;
+	cursor: pointer;
 }
