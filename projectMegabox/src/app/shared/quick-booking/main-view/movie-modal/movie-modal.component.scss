@@ -7,8 +7,21 @@
   z-index: 1040;
   overflow: auto;
   overflow-y: scroll;
-  background-color: #fff;
+  // background-color: #b1b0b0;
+  // opacity: 0.15;
+  // background-color: #b8b8b8;
+  background-color: rgba(0,0,0);
+  opacity: 0.8;
 }
+
+// .fade.in {
+//   opacity: 1;
+// }
+
+// .fade {
+//   transition: opacity 0.15s linear;
+// }
+
 
 .movie-modal-wrapper {
   width: 970px;
@@ -21,6 +34,7 @@
   position: relative;
   min-height: 554px;
   border: 1px solid #cdcdcd;
+  background-color: #fff;
 }
 
 .movie-modal-contents {
@@ -170,7 +184,7 @@
 }
 
 .movie-age {
-  background: url(http://image2.megabox.co.kr/mop/home/bg_age2.png) -60px 0 no-repeat;
+  background: url(http://image2.megabox.co.kr/mop/home/bg_age2.png) 0 -999px no-repeat;
   display: inline-block;
   width: 17px;
   height: 18px;
@@ -180,8 +194,20 @@
   vertical-align: middle;
 }
 
-.age_12 {
+.age-all {
+  background-position: 0 0;
+}
+
+.age-12 {
   background-position: -60px 0;
+}
+
+.age-15 {
+  background-position: -90px 0;
+}
+
+.age-19 {
+  background-position: -30px 0;
 }
 
 .movie-btns-wrapper {
@@ -196,10 +222,11 @@
   float: left;
   margin-left: 10px;
   outline: 0;
-  border: 0;
+  border: 1px solid #b1b0b0;
 }
 
 .booking-cancel {
+  background-color: #ecebeb;
 }
 
 .booking-confirm {
