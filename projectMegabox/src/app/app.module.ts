@@ -28,7 +28,7 @@ import { SidebarComponent } from './main/main-page/sidebar/sidebar.component';
     MovieRankComponent,
     NewEventComponent,
     NoticeComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
