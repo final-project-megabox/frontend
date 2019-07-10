@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-view.component.scss']
 })
 export class MainViewComponent implements OnInit {
+  movieModal: false;
 
   constructor() { }
 
