@@ -26,7 +26,7 @@
           <div class="all-movie">
             <p>모든 영화</p>
           </div>
-          <button class="select-movie">
+          <button class="select-movie" (click)="movieModal = !movieModal">
             <span>영화 선택</span>
           </button>
         </div>
@@ -43,4 +43,4 @@
     <div class="advertisement"></div>
   </div>
 </div>
-<!-- <app-movie-modal></app-movie-modal> -->
+<app-movie-modal *ngIf="movieModal"></app-movie-modal>
