@@ -1,26 +1,47 @@
+.
 <div class="quick-booking">
   <div class="bg"></div>
   <div class="main-container">
     <div class="left-tab">
       <div class="date box-padding">
         <div class="title">
-          <span>날짜</span>
+          <h2>날짜</h2>
+          <button class="hidden-text">달력버튼</button>
         </div>
       </div>
       <div class="theater box-padding">
         <div class="title">
-          <span>극장</span>
+          <h2>극장</h2>
+          <button class="reload">
+            <span class="hidden-text">새로고침</span>
+          </button>
         </div>
         <div class="place">
-          <button><img src="http://image2.megabox.co.kr/mop/home/btns/btn_add.png" alt="플러스"></button>
-          <button><img src="http://image2.megabox.co.kr/mop/home/btns/btn_add.png" alt="플러스"></button>
-          <button><img src="http://image2.megabox.co.kr/mop/home/btns/btn_add.png" alt="플러스"></button>
-          <button><img src="http://image2.megabox.co.kr/mop/home/btns/btn_add.png" alt="플러스"></button>
+          <button class="add-movie">
+            <span class="hidden-text">영화 추가 버튼</span>
+          </button>
+          <button class="add-movie">
+            <span class="hidden-text">영화 추가 버튼</span>
+          </button>
+          <button class="add-movie">
+            <span class="hidden-text">영화 추가 버튼</span>
+          </button>
+          <button class="add-movie">
+            <span class="hidden-text">영화 추가 버튼</span>
+          </button>
         </div>
       </div>
       <div class="movie box-padding">
         <div class="title">
-          <span>영화</span>
+          <h2>영화</h2>
+          <div class="button-container">
+            <button class="select-all-movie">
+              <span class="hidden-text">선택 영화 전체 지우기</span>
+            </button>
+            <button class="reload">
+              <span class="hidden-text">새로고침</span>
+            </button>
+          </div>
         </div>
         <div class="movie-select">
           <div class="all-movie">
@@ -35,10 +56,27 @@
     <div class="right-tab">
       <div class="time box-padding">
         <div class="title">
-          <span>시간</span>
+          <h2>시간</h2>
+        </div>
+        <div class="time-table">
+          <button>
+            <i class="fas fa-caret-left" (click)="prevTime(ulTime)"></i>
+          </button>
+          <div class="time-table-list">
+            <ul #ulTime>
+              <li *ngFor="let item of timeTable">
+                <button [class.active]="item === currentTime">{{item}}</button>
+              </li>
+            </ul>
+          </div>
+          <button>
+            <i class="fas fa-caret-right" (click)="nextTime(ulTime)"></i>
+          </button>
         </div>
       </div>
-      <div class="advertising"></div>
+      <div class="time-list">
+        <div class="empty-list"></div>
+      </div>
     </div>
     <div class="advertisement"></div>
   </div>
