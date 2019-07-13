@@ -9,16 +9,20 @@
       <div class="util">
         <div class="selected">
           <button class="all-btn">All</button>
+          <p class="selected-movie" *ngFor="let selected of selectMoive">
+            <span>{{selected}}</span>
+            <button class="deleted-moive">X</button>
+          </p>
         </div>
         <ul class="movie-sort">
-          <li><a href="#" data-sorttype="rank">예매율순</a></li>
-          <li><a href="#" data-sorttype="title">가나다순</a></li>
-          <li class="release"><a href="#" data-sorttype="release">개봉일순</a></li>
+          <li *ngFor="let sortItem of sortItems" (click)="sortState = sortItem">
+            <a href="#" [class.active]="sortItem === sortState">{{ sortItem }}</a>
+          </li>
         </ul>
       </div>
       <div class="movie-list-wrapper">
         <ul class="movie-list">
-          <li class="moivie-list-li" *ngFor="let movie of movies">
+          <li class="moivie-list-li" *ngFor="let movie of movies | moviesSort :sortState" appPosterBackground (click)="addPoster(movie.name, poster)" #poster>
             <a href="#" title="{{movie.name}}">
               <span class="blind">{{movie.name}}</span>
             </a>
@@ -30,22 +34,10 @@
               <span>{{movie.name}}</span>
             </p>
           </li>
-          <!-- <li class="moivie-list-li" *ngFor="let movie of movies">
-            <a href="#" title="스파이더맨: 파 프롬 홈 선택">
-              <span class="blind">스파이더맨: 파 프롬 홈</span>
-            </a>
-            <div class=poster>
-              <img class="movie-poster-img" alt="스파이더맨: 파 프롬 홈" src="http://image2.megabox.co.kr/mop/poster/2019/9F/B762F4-F7EE-48BB-B54F-F9000DCCA155.medium.jpg">
-            </div>
-            <p class="movie-title">
-              <span class="movie-age age-12">12세 관람가</span>
-              <span>스파이더맨: 파 프롬 홈</span>
-            </p>
-          </li> -->
         </ul>
       </div>
       <div class="movie-btns-wrapper">
-        <button type="button" class="booking-btn booking-cancel">취소</button>
+        <button type="button" class="booking-btn booking-cancel" (click)="cancel.emit(false)">취소</button>
         <button type="button" class="booking-btn booking-confirm">확인</button>
       </div>
     </div>
