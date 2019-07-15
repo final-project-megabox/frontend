@@ -1,0 +1,45 @@
+table {
+  width: 265px;
+  height: 350px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+
+  .active {
+    color: #fff;
+    font-weight: bold;
+    background-color: #503396;
+    border-radius: 50%;
+  }
+
+  th, td {
+    vertical-align: middle;
+    height: 40px;
+  }
+
+  thead {
+    .table-head {
+      height: 40px;
+    }
+    
+    caption {
+      display: block;
+    }
+  }
+
+  tbody {
+    .dates {
+      background-color: #f3f3f3;
+      color: #333;
+      font-weight: bold;
+    }
+  }
+
+  .fotter {
+    border: 1px solid #e0e0e0;
+
+    span {
+      display: inline-block;
+      width: 50%;
+    }
+  }
+}

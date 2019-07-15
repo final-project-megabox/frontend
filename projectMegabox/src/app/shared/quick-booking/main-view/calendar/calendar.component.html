@@ -1,0 +1,39 @@
+<table>
+　<thead>
+    <th class="table-head">
+      <i class="fa fa-chevron-left" (click)="prev()"></i>
+    </th>
+    <th colspan="5" class="table-head">
+      <caption>{{month+1}}월 {{year}}</caption>
+    </th>
+    <th class="table-head">
+      <i class="fa fa-chevron-right" (click)="next()"></i>
+    </th>
+  </thead>
+　<tbody>
+    <tr class="dates">
+  　　<th>일</th>
+　　　<th>월</th>
+　　　<th>화</th>
+　　　<th>수</th>
+　　　<th>목</th>
+　　　<th>금</th>
+　　　<th>토</th>
+    </tr>
+    <tr *ngFor="let week of weeks">
+      <td *ngFor="let item of week" [class.active]="today === item.fullDay">{{item.day}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="7" class="fotter">
+        <span>
+          선택한 날짜
+        </span>
+        <span>
+          선택 가능일
+        </span>
+      </th>
+    </tr>
+  </tfoot>
+</table>
