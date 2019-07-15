@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { QuickBookingComponent } from './quick-booking/quick-booking.component';
 import { MainViewComponent } from './quick-booking/main-view/main-view.component';
 import { MovieModalComponent } from './quick-booking/main-view/movie-modal/movie-modal.component';
+import { CalendarComponent } from './quick-booking/main-view/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MovieModalComponent } from './quick-booking/main-view/movie-modal/movie
     FooterComponent,
     QuickBookingComponent,
     MainViewComponent,
-    MovieModalComponent
+    MovieModalComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule

@@ -1,6 +1,40 @@
 $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
 
 .quick-booking {
+  .carousel-table {
+    display: flex;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+
+    .fas {
+      padding: 5px 10px;
+    }
+    .carousel-table-list {
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      width: 445px;
+      overflow: hidden;
+
+      ul {
+        display: flex;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transform: translateX(0);
+        transition-duration: 0.2s;
+
+        .day-button {
+          width: 68px;
+          height: 23px;
+        }
+
+        .time-button {
+          width: 44px;
+          height: 23px;
+        }
+      }
+    }
+  }
   .bg {
     position: fixed;
     top: 0;
@@ -10,194 +44,172 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
     background: gray;
     opacity: 0.1;
   }
- 
-  .main-container {
-    position: absolute;
-    background: #fff;
+  .wrapper {
     width: 970px;
     height: 700px;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -30%);
     margin: 0 auto;
-    border: 1px solid #e0e0e0;
-    background-color: #f9f9f9;
-
-    .title {
-      margin-bottom: 13px;
-      h2 {
-        color: #503396;
-        font-size: 1.5rem;
-        font-weight: 700;
-
-      }
-    }
-
-    .hidden-text {
-      display: block;
-      text-indent: -9999px;
-      overflow: hidden;
-    }
-
-    .box-padding {
-      padding: 18px 18px 0 18px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .active {
-      background-color: #198591;
-      color: #fff;
-    }
-
-    .reload {
-      background: url($sprite) no-repeat -80px -80px;
-      width: 22px;
-      height: 22px;
-    }
-
-    .left-tab {
-      width: 45%;
-      float: left;
-      border-right: 1px solid #e0e0e0;
-      
-      .date {
-        height: 90px;
-
-        .title {
-          display: flex;
-          justify-content: space-between;
-
-          button {
-            background: url($sprite) no-repeat 0px -80px;
-            width: 22px;
-            height: 22px;
-          }
-        }
-      }
-
-      .theater {
-        height: 220px;
-
-        .title {
-          display: flex;
-          justify-content: space-between;
-
-        }
-
-        .place {
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-
-          .add-movie {
-            border: 1px solid #e0e0e0;
-            padding: 20px 85px;
-            margin-bottom: 10px;
-            outline-color: #cdcdcd;
-            background: url('http://image2.megabox.co.kr/mop/home/btns/btn_add.png') 50% 50% no-repeat;
-          }
-        }
-
-      }
-
-      .movie {
-        height: 310px;
-        
-        .title {
-          display: flex;
-          justify-content: space-between;
+    
   
-            .select-all-movie {
-              background: url($sprite) no-repeat -120px -120px;
+    .main-container {
+      position: relative;
+      top: 70px;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      background-color: #f9f9f9;
+
+      .title {
+        margin-bottom: 13px;
+        h2 {
+          color: #503396;
+          font-size: 1.5rem;
+          font-weight: 700;
+
+        }
+      }
+
+      .hidden-text {
+        display: block;
+        text-indent: -9999px;
+        overflow: hidden;
+      }
+
+      .box-padding {
+        padding: 18px 18px 0 18px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .active {
+        background-color: #198591;
+        color: #fff;
+      }
+
+      .reload {
+        background: url($sprite) no-repeat -80px -80px;
+        width: 22px;
+        height: 22px;
+      }
+
+      .left-tab {
+        width: 45%;
+        float: left;
+        border-right: 1px solid #e0e0e0;
+        
+        .date {
+          height: 90px;
+
+          .title {
+            display: flex;
+            justify-content: space-between;
+
+            button {
+              background: url($sprite) no-repeat 0px -80px;
               width: 22px;
               height: 22px;
-              margin-right: 5px;
             }
+          }
         }
 
-        .movie-select {
-          background: #FEFEFE;
-          width: 100%;
-          border: 1px solid #e0e0e0;
+        .theater {
+          height: 220px;
 
-          .all-movie {
-            height: 140px;
-            border-bottom: 1px solid #e0e0e0;
-            p {
-              color: #333;
-              font-size: 2rem;
-              text-align: center;
-              line-height: 139px;
+          .title {
+            display: flex;
+            justify-content: space-between;
+
+          }
+
+          .place {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .add-movie {
+              border: 1px solid #e0e0e0;
+              padding: 20px 85px;
+              margin-bottom: 10px;
+              outline-color: #cdcdcd;
+              background: url('http://image2.megabox.co.kr/mop/home/btns/btn_add.png') 50% 50% no-repeat;
             }
           }
 
-          .select-movie {
-            height: 90px;
+        }
+
+        .movie {
+          height: 310px;
+          
+          .title {
+            display: flex;
+            justify-content: space-between;
+    
+              .select-all-movie {
+                background: url($sprite) no-repeat -120px -120px;
+                width: 22px;
+                height: 22px;
+                margin-right: 5px;
+              }
+          }
+
+          .movie-select {
+            background: #FEFEFE;
             width: 100%;
-            background: url('http://image2.megabox.co.kr/mop/home/btns/select_movie.png') no-repeat 50% 50%;
-            outline-color: #cdcdcd;
+            border: 1px solid #e0e0e0;
 
-            span {
-              display: block;
-              width: 0;
-              overflow: hidden;
+            .all-movie {
+              height: 140px;
+              border-bottom: 1px solid #e0e0e0;
+              p {
+                color: #333;
+                font-size: 2rem;
+                text-align: center;
+                line-height: 139px;
+              }
             }
-          }
-        }
-      }
-    }
 
-    .right-tab {
-      width: 55%;
-      float: right;
+            .select-movie {
+              height: 90px;
+              width: 100%;
+              background: url('http://image2.megabox.co.kr/mop/home/btns/select_movie.png') no-repeat 50% 50%;
+              outline-color: #cdcdcd;
 
-      .time {
-        height: 90px;
-        border-bottom: 1px solid #e0e0e0;
-
-        .time-table {
-          display: flex;
-          width: 100%;
-          border: 1px solid #e0e0e0;
-          background: #fff;
-
-          .fas {
-            padding: 5px 10px;
-          }
-          .time-table-list {
-            border-left: 1px solid #e0e0e0;
-            border-right: 1px solid #e0e0e0;
-            width: 445px;
-            overflow: hidden;
-
-            ul {
-              display: flex;
-              font-size: 1.2rem;
-              font-weight: bold;
-              transform: translateX(0);
-              transition-duration: 0.2s;
-
-              button {
-                width: 44px;
-                height: 23px;
+              span {
+                display: block;
+                width: 0;
+                overflow: hidden;
               }
             }
           }
         }
       }
 
-      .time-list {
-        background: url('http://image2.megabox.co.kr/mop/home/no_movie_list.png') no-repeat 50% 50% #fff;
-        height: 530px;
+      .right-tab {
+        width: 55%;
+        float: right;
+
+        .time {
+          height: 90px;
+          border-bottom: 1px solid #e0e0e0;
+        }
+
+        .time-list {
+          background: url('http://image2.megabox.co.kr/mop/home/no_movie_list.png') no-repeat 50% 50% #fff;
+          height: 530px;
+        }
+      }
+      
+      .advertisement {
+        background: url('http://mlink-cdn.netinsight.co.kr/2019/07/09/a69fdb0cb6ad119dd59f887d3f16e486.jpg') no-repeat;
+        height: 80px;
+        clear: both;
+        border-top: 1px solid #e0e0e0;
+        cursor: pointer;
       }
     }
-    
-    .advertisement {
-      background: url('http://mlink-cdn.netinsight.co.kr/2019/07/09/a69fdb0cb6ad119dd59f887d3f16e486.jpg') no-repeat;
-      height: 80px;
-      clear: both;
-      border-top: 1px solid #e0e0e0;
-      cursor: pointer;
-    }
   }
+}
+
+app-calendar {
+  position: absolute;
+  background: #fff;
+  top: 120px;
+  left: 162px;
 }
