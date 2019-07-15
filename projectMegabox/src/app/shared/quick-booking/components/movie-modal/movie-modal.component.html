@@ -1,0 +1,46 @@
+<div class="movie-modal fade in">
+  <div class="movie-modal-wrapper">
+    <div class="movie-modal-contents">
+      <div class=movie-modal-header>
+        <h3>
+          <a class="all-movie" href="#">모든영화</a>
+        </h3>
+      </div>
+      <div class="util">
+        <div class="selected">
+          <button class="all-btn">All</button>
+          <p class="selected-movie" *ngFor="let selected of selectMoive">
+            <span>{{selected}}</span>
+            <button class="deleted-moive" (click)="deleteMovie(selected)">X</button>
+          </p>
+        </div>
+        <ul class="movie-sort">
+          <li *ngFor="let sortItem of sortItems" (click)="sortState = sortItem">
+            <a [class.active]="sortItem === sortState">{{ sortItem }}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="movie-list-wrapper">
+        <ul class="movie-list">
+          <li id="{{movie.id}}" class="moivie-list-li" *ngFor="let movie of movies | moviesSort :sortState"
+          appPosterBackground (click)="addPoster(movie.name, poster)" #poster>
+            <a href="#" title="{{movie.name}}">
+              <span class="blind">{{movie.name}}</span>
+            </a>
+            <div class=poster>
+              <img class="movie-poster-img" alt="movie.name" src="{{movie.posterUrl}}">
+            </div>
+            <p class="movie-title">
+              <span class="movie-age {{movie.age}}">12세 관람가</span>
+              <span>{{movie.name}}</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="movie-btns-wrapper">
+        <button type="button" class="booking-btn booking-cancel" (click)="bookingService.movieModalState = false">취소</button>
+        <button type="button" class="booking-btn booking-confirm" (click)="bookingService.movieModalState = false">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
