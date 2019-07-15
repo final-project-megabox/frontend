@@ -1,0 +1,1 @@
+export type SortItem = '예매율순' | '가나다순' | '개봉일순';

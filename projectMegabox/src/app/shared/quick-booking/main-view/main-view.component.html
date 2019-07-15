@@ -97,5 +97,5 @@
     </div>
   </div>
 </div>
-<app-movie-modal *ngIf="movieModal"></app-movie-modal>
+<app-movie-modal *ngIf="movieModal" [movieModal]="movieModal" (cancel)="movieModal=$event" (confirm)="movieModal=$event"></app-movie-modal>
 <app-calendar *ngIf="celendarModal"></app-calendar>
