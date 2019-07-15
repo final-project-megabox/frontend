@@ -7,6 +7,7 @@
           <div class="title">
             <h2>날짜</h2>
             <button class="hidden-text" (click)="celendarModal = true">달력버튼</button>
+            <app-calendar *ngIf="celendarModal"></app-calendar>
           </div>
           <div class="carousel-table">
             <button>
@@ -98,4 +99,4 @@
   </div>
 </div>
 <app-movie-modal *ngIf="movieModal" [movieModal]="movieModal" (cancel)="movieModal=$event" (confirm)="movieModal=$event"></app-movie-modal>
-<app-calendar *ngIf="celendarModal"></app-calendar>
+

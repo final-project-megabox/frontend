@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform, ɵisBoundToModule__POST_R3__ } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 import { SortItem } from './sortItem.type';
 
