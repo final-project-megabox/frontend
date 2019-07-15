@@ -11,7 +11,7 @@
           <button class="all-btn">All</button>
           <p class="selected-movie" *ngFor="let selected of selectMoive">
             <span>{{selected}}</span>
-            <button class="deleted-moive">X</button>
+            <button class="deleted-moive" (click)="deleteMovie(selected)">X</button>
           </p>
         </div>
         <ul class="movie-sort">
@@ -22,7 +22,8 @@
       </div>
       <div class="movie-list-wrapper">
         <ul class="movie-list">
-          <li class="moivie-list-li" *ngFor="let movie of movies | moviesSort :sortState" appPosterBackground (click)="addPoster(movie.name, poster)" #poster>
+          <li id="{{movie.id}}" class="moivie-list-li" *ngFor="let movie of movies | moviesSort :sortState"
+          appPosterBackground (click)="addPoster(movie.name, poster)" #poster>
             <a href="#" title="{{movie.name}}">
               <span class="blind">{{movie.name}}</span>
             </a>
@@ -38,7 +39,7 @@
       </div>
       <div class="movie-btns-wrapper">
         <button type="button" class="booking-btn booking-cancel" (click)="cancel.emit(false)">취소</button>
-        <button type="button" class="booking-btn booking-confirm">확인</button>
+        <button type="button" class="booking-btn booking-confirm" (click)="confirm.emit(false)">확인</button>
       </div>
     </div>
   </div>
