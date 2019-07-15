@@ -58,13 +58,13 @@ export class MovieModalComponent implements OnInit {
   // selectMoive 배열의 요소로 이루어진 포스터 위 글(?)의 x 버튼 클릭 시 selectMoive 배열에서 요소가 삭제되고 배경색이 변함.
   deleteMovie(selected: string) {
     this.selectMoive = this.selectMoive.filter((name) => name !== selected);
-    const elems = document.querySelectorAll('.blind');
-    [...elems].forEach(span => {
-      if(span.textContent === selected) {
-        span.parentNode.parentNode.style.backgroundColor = null
-        span.parentNode.nextElementSibling.nextElementSibling.style.color = null
-      }
-    });
+    // const elems = document.querySelectorAll('.blind');
+    // [...elems].forEach(span => {
+    //   if(span.textContent === selected) {
+    //     span.parentNode.parentNode.style.backgroundColor = null
+    //     span.parentNode.nextElementSibling.nextElementSibling.style.color = null
+    //   }
+    // });
   }
 
   constructor() { }
