@@ -82,12 +82,12 @@ export class MovieModalComponent implements OnInit {
   deleteMovie(selected: string) {
     this.selectMoive = this.selectMoive.filter((name) => name !== selected);
     const elems = document.querySelectorAll('.blind');
-    [...elems].forEach(span => {
-      if(span.textContent === selected) {
-        span.parentNode.parentNode.style.backgroundColor = null
-        span.parentNode.nextElementSibling.nextElementSibling.style.color = null
-      }
-    });
+    // [...elems].forEach(span => {
+    //   if(span.textContent === selected) {
+    //     span.parentNode.parentNode.style.backgroundColor = null
+    //     span.parentNode.nextElementSibling.nextElementSibling.style.color = null
+    //   }
+    // });
   }
 
   ngOnInit() {
