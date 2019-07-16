@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, Type } from '@angular/core';
-
-import { SortItem } from './sortItem.type';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SortItem } from '../../models/sortItem.type';
+import { QuickBookingService } from '../../service/quick-booking.service';
 
 @Component({
   selector: 'app-movie-modal',
@@ -9,6 +9,8 @@ import { SortItem } from './sortItem.type';
 })
 
 export class MovieModalComponent implements OnInit {
+  constructor(private bookingService: QuickBookingService) { }
+  
   movies = [
     {id: 0, age: 'age-12', name: '스파이더맨: 파 프롬 홈', reservationRate: '90', releaseDate: '2019-07-03'
     ,posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/9F/B762F4-F7EE-48BB-B54F-F9000DCCA155.large.jpg'
@@ -31,17 +33,26 @@ export class MovieModalComponent implements OnInit {
     {id: 6, age: 'age-15', name: '기방도령', reservationRate: '30', releaseDate: '2018-08-05'
     , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/89/E48867-C962-41A8-A796-63544421A8A7.large.jpg'
     },
-    {id: 6, age: 'age-15', name: '걸캅스', reservationRate: '30', releaseDate: '2018-08-05'
+    {id: 7, age: 'age-15', name: '걸캅스', reservationRate: '30', releaseDate: '2018-08-05'
     , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/69/34A92B-6A66-4BE5-A0B3-A4BDE4D10D41.large.jpg'
     },
-    {id: 6, age: 'age-15', name: '마리아 칼라스: 세기의 디바', reservationRate: '30', releaseDate: '2018-08-05'
+    {id: 8, age: 'age-12', name: '칠드런 액트', reservationRate: '30', releaseDate: '2018-08-05'
+    , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/BD/8B9A17-1A31-4160-920E-5B0A88B9593E.large.jpg'
+    },
+    {id: 9, age: 'age-all', name: '마리아 칼라스: 세기의 디바', reservationRate: '30', releaseDate: '2018-08-05'
     , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/DB/C1D446-456D-4E07-9AB0-6BB8B760A4DA.large.jpg'
     },
-    {id: 6, age: 'age-15', name: '마리아 칼라스: 세기의 디바', reservationRate: '30', releaseDate: '2018-08-05'
-    , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/07/996B6C-3897-4580-B419-36B37F7FB043.large.jpg'
-    },
-    {id: 6, age: 'age-15', name: '나랏말싸미', reservationRate: '30', releaseDate: '2018-08-05'
+    {id: 10, age: 'age-all', name: '나랏말싸미', reservationRate: '30', releaseDate: '2018-08-05'
     , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/F5/A1A99E-025A-4874-B479-1597994D94A8.large.jpg'
+    },
+    {id: 11, age: 'age-12', name: '어벤져스: 엔드게임 선택', reservationRate: '30', releaseDate: '2018-08-05'
+    , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/01/3EA32B-AC6E-444E-ADD8-E3D8C05193CD.large.jpg'
+    },
+    {id: 12, age: 'age-12', name: '행복한 라짜로', reservationRate: '30', releaseDate: '2018-08-05'
+    , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/8B/AD4DE6-D90F-42AA-8BA8-ECF6126CA247.large.jpg'
+    },
+    {id: 13, age: 'age-all', name: '이웃집 토토로', reservationRate: '30', releaseDate: '2018-08-05'
+    , posterUrl:'http://image2.megabox.co.kr/mop/poster/2019/DF/520A19-8CA5-47B8-B0BD-82FA80029FA4.large.jpg'
     }
   ]
 
@@ -79,12 +90,6 @@ export class MovieModalComponent implements OnInit {
     });
   }
 
-  constructor() { }
-
   ngOnInit() {
   }
- 
-  @Input() movieModal: boolean;
-  @Output() cancel = new EventEmitter();
-  @Output() confirm = new EventEmitter();
 }

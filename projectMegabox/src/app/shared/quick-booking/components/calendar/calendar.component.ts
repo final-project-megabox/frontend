@@ -26,6 +26,7 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
     this.calDay();
     this.splitDay();
+    console.log(this.date)
   }
 
   // this.month = a

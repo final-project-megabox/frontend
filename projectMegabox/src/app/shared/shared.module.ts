@@ -1,34 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { QuickBookingComponent } from './quick-booking/quick-booking.component';
-import { MainViewComponent } from './quick-booking/main-view/main-view.component';
-import { MovieModalComponent } from './quick-booking/main-view/movie-modal/movie-modal.component';
-import { CalendarComponent } from './quick-booking/main-view/calendar/calendar.component';
-
-import { MoviesSortPipe } from './quick-booking/main-view/movie-modal/movies-sort.pipe';
-import { PosterBackgroundDirective } from './quick-booking/main-view/movie-modal/poster-background.directive';
+import { QuickBookingModule } from './quick-booking/quick-booking.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MainViewComponent } from './quick-booking/components/main-view/main-view.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    FooterComponent,
-    QuickBookingComponent,
-    MainViewComponent,
-    MovieModalComponent,
-    MoviesSortPipe,
-    PosterBackgroundDirective,
-    CalendarComponent
+    SidebarComponent,
+    NotFoundComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    QuickBookingModule,
   ],
   exports: [
-    HeaderComponent,
-    FooterComponent,
-    QuickBookingComponent
+    SidebarComponent,
+    NotFoundComponent,
+    MainViewComponent
   ]
 })
 export class SharedModule { }

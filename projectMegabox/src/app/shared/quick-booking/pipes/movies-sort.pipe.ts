@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { SortItem } from '../models/sortItem.type';
 
-import { SortItem } from './sortItem.type';
 
 @Pipe({
   name: 'moviesSort'

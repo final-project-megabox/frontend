@@ -6,8 +6,8 @@
         <div class="date box-padding">
           <div class="title">
             <h2>날짜</h2>
-            <button class="hidden-text" (click)="celendarModal = true">달력버튼</button>
-            <app-calendar *ngIf="celendarModal"></app-calendar>
+            <button class="hidden-text" (click)="bookingService.celendarModalState = !bookingService.celendarModalState">달력버튼</button>
+            <app-calendar *ngIf="bookingService.celendarModalState"></app-calendar>
           </div>
           <div class="carousel-table">
             <button>
@@ -63,7 +63,7 @@
             <div class="all-movie">
               <p>모든 영화</p>
             </div>
-            <button class="select-movie" (click)="movieModal = !movieModal">
+            <button class="select-movie" (click)="bookingService.movieModalState = true">
               <span>영화 선택</span>
             </button>
           </div>
@@ -97,6 +97,6 @@
       <div class="advertisement"></div>
     </div>
   </div>
-</div>
-<app-movie-modal *ngIf="movieModal" [movieModal]="movieModal" (cancel)="movieModal=$event" (confirm)="movieModal=$event"></app-movie-modal>
 
+</div>
+<app-movie-modal *ngIf="bookingService.movieModalState"></app-movie-modal>

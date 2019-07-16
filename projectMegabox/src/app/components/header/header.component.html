@@ -1,0 +1,7 @@
+<nav>
+  <a routerLink='home'
+  >메가박스로고</a>
+  <a routerLink='mypage'>마이페이지</a>
+  <button (click)="rootService.quickBookingModalState = true">빠른예매</button>
+</nav>
+<app-main-view *ngIf="rootService.quickBookingModalState"></app-main-view>
