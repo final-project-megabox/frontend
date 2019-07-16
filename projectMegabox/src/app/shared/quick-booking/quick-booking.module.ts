@@ -9,6 +9,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { QuickBookingService } from './service/quick-booking.service';
 
 import { MoviesSortPipe } from './pipes/movies-sort.pipe';
+import { RegionsFilterPipe } from './pipes/regions-filter.pipe';
 
 import { PosterBackgroundDirective } from './directives/poster-background.directive';
 
@@ -20,6 +21,7 @@ import { PosterBackgroundDirective } from './directives/poster-background.direct
     TheaterModalComponent,
     
     MoviesSortPipe,
+    RegionsFilterPipe,
     PosterBackgroundDirective,
   ],
   imports: [

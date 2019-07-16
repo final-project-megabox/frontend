@@ -64,6 +64,25 @@
   clear: both;
 }
 
+// 선호 영화관 등록 부분
+.favorTheater {
+  padding-top: 40px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+.showFavorTheater {
+  width: 130px;
+  padding: 6px 0;
+  float: none;
+  height: 30px;
+  color: #fff;
+  border: 1px solid #351F66;
+  background-color: #503396;
+}
+
 // 리스트 depth1 및 공통 부분
 .theater-list > ul {
   display: block;

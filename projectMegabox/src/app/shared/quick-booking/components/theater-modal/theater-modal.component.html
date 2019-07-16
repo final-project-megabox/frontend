@@ -10,40 +10,24 @@
       <div class="theater-body">
         <div class="theater-list">
           <ul class="theater-list-depth1">
-            <li>
-              <a title="선호 영화관">선호 영화관</a>
-              <span>
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </li>
-            <li class="active">
-              <a title="서울">서울</a>
-              <span>
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </li>
-            <li>
-              <a title="경기">경기</a>
-              <span>
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </li>
-            <li>
-              <a title="부산">부산</a>
+            <li [class.active]="depthOneState === selectRegion" *ngFor="let selectRegion of selectRegions" (click)="depthOneState = selectRegion">
+              <a title="{{ selectRegion }}">{{ selectRegion }}</a>
               <span>
                 <i class="fa fa-angle-right"></i>
               </span>
             </li>
           </ul>
           <ul class="theater-list-depth2">
-            <li>
-              <a title="강남">강남</a>
-            </li>
-            <li>
-            <a title="신촌">신촌</a>
-            </li>
-            <li>
-            <a title="코엑스">코엑스</a>
+            <div class="favorTheater" *ngIf="depthOneState === '선호 영화관'; else regionList">
+              자주 찾는 영화관을
+              <br>
+              선호 영화관으로
+              <br>
+              등록해주세요
+              <button class="showFavorTheater">선호영화관 등록</button>
+            </div>
+            <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState" #regionList>
+              <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
             </li>
           </ul>
         </div>
