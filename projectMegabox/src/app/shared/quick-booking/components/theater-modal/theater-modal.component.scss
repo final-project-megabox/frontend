@@ -1,0 +1,216 @@
+.theater-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.theater-modal-wrapper {
+  width: 970px;
+  margin: 0 auto;
+  padding: 90px 0 30px 0;
+  z-index: 1080;
+}
+
+.theater-modal-contents {
+  position: relative;
+  min-height: 554px;
+  border: 1px solid #cdcdcd;
+  background-color: #fff;
+}
+
+.theater-modal-contents {
+  box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+}
+
+.theater-modal-header {
+  overflow: hidden;
+  padding: 13px 20px 12px 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.all-theater {
+  font-size: 24px;
+  color:  #503396;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+// 선택한 지역이 들어가는 부분
+.util {
+  // background-color: red;
+  height: 42px;
+  padding: 9px 19px 0 19px;
+}
+
+// 리스트와 지도를 감싸는 부분
+.theater-body {
+  display: block;
+  width: 966px;
+  left: 1;
+  position: relative;
+}
+
+.theater-list {
+  display: block;
+  height: 453px;
+  border-top: 1px solid #e5e5e5;
+  background: #FFF;
+  overflow: hidden;
+  clear: both;
+}
+
+// 리스트 depth1 및 공통 부분
+.theater-list > ul {
+  display: block;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 451px;
+  float: left;
+  border-right: 1px solid #e5e5e5;
+}
+
+.theater-list > ul > li {
+  height: 36.4px;
+  font-size: 12px;
+  color: #333;
+  padding: 12px 15px 0 20px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.theater-list-depth1 {
+  width: 178px;
+}
+
+.theater-list-depth1 > li {
+  border-bottom: 1px solid #e5e5e5;
+
+}
+.theater-list-depth1 > li:hover {
+  background-color: #f9f9f9;
+}
+
+.theater-list-depth1 > li > span {
+  display: none;
+}
+
+.theater-list-depth1 .active > span {
+  display: block;
+  float: right;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: -2px;
+}
+
+// 리스트 depth2 부분
+.theater-list-depth2 {
+  width: 201px;
+  background-color: #f9f9f9;
+}
+
+// 지도 부분
+.map {
+  padding: 0;
+  width: 580px;
+  background-color: #eee;
+  border-top: 1px solid #e5e5e5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.mapArea {
+  display: list-item;
+}
+
+.seoul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 508px;
+  height: 450px;
+  margin: 0 auto;
+  background: url(http://image2.megabox.co.kr/mop/home/map/seoul.png);
+}
+
+.marker {
+  display: block;
+  height: 40px;
+  overflow: hidden;
+  position: absolute;
+  width: 185px;
+  padding-top: 40px;
+  background: url(http://image2.megabox.co.kr/mop/home/map/marker.png) 50% 0 no-repeat;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+}
+
+.gangnam {
+  left: 232px;
+  top: 275px;
+  letter-spacing: inherit;
+}
+
+.sinchon {
+  left: 140px;
+  top: 185px;
+  letter-spacing: inherit;
+}
+
+.coex {
+  left: 269px;
+  top: 255px;
+  letter-spacing: inherit;
+}
+
+.mapArea > a {
+  display: none;
+}
+
+//상단 버튼
+.theater-btns-wrapper {
+  position: absolute;
+  top: 6px;
+  right: 13px;
+}
+
+.booking-btn {
+  width: 68px;
+  height: 30px;
+  float: left;
+  margin-left: 10px;
+  outline: 0;
+  border: 1px solid #b1b0b0;
+}
+
+.booking-cancel {
+  background-color: #ecebeb;
+}
+
+.booking-cancel:hover {
+  background-color: #E1E1E1;
+}
+
+.booking-confirm {
+  color: #fff;
+  background-color: #503396;
+}
+
+.booking-confirm:hover {
+  background-color: #351F66;
+}
+
+.active {
+  background-color: #f9f9f9;
+}

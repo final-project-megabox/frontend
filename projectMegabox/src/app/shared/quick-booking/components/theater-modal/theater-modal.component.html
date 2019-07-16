@@ -1,0 +1,78 @@
+<div class="theater-modal fade in">
+  <div class="theater-modal-wrapper">
+    <div class="theater-modal-contents">
+      <div class=theater-modal-header>
+        <h3>
+          <a class="all-theater">지역별</a>
+        </h3>
+      </div>
+      <div class="util"></div>
+      <div class="theater-body">
+        <div class="theater-list">
+          <ul class="theater-list-depth1">
+            <li>
+              <a title="선호 영화관">선호 영화관</a>
+              <span>
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </li>
+            <li class="active">
+              <a title="서울">서울</a>
+              <span>
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </li>
+            <li>
+              <a title="경기">경기</a>
+              <span>
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </li>
+            <li>
+              <a title="부산">부산</a>
+              <span>
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </li>
+          </ul>
+          <ul class="theater-list-depth2">
+            <li>
+              <a title="강남">강남</a>
+            </li>
+            <li>
+            <a title="신촌">신촌</a>
+            </li>
+            <li>
+            <a title="코엑스">코엑스</a>
+            </li>
+          </ul>
+        </div>
+        <!-- 지도 -->
+        <div class="map">
+          <ul>
+            <!-- 이 부분 하나가 서울, 경기, 부산 같은 지역 -->
+            <li class="mapArea">
+              <a title="서울">서울</a>
+              <ul class="seoul"> <!-- 서울 지도가 들어가는 부분 -->
+                <li>
+                  <a class="marker gangnam" title="강남">강남</a>
+                </li>
+                <li>
+                  <a class="marker sinchon" title="신촌">신촌</a>
+                </li>
+                <li>
+                  <a class="marker coex" title="코엑스">코엑스</a>
+                </li>
+              </ul>
+            </li>
+            <!-- 이 부분 하나가 서울, 경기, 부산 같은 지역 -->
+          </ul>
+        </div>
+      </div>
+      <div class="theater-btns-wrapper">
+        <button type="button" class="booking-btn booking-cancel" (click)="bookingService.theaterModalState = false">취소</button>
+        <button type="button" class="booking-btn booking-confirm" (click)="bookingService.theaterModalState = false">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
