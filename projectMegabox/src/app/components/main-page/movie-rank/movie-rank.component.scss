@@ -1,0 +1,133 @@
+$rank-sprite : 'http://image2.megabox.co.kr/mop/home/main/tab_tg.png';
+$wish-sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
+$watch-age: 'http://image2.megabox.co.kr/mop/home/bg_age2.png';
+
+$sub-color: #188591;
+
+.rank-container {
+  position: relative;
+  background: #f2f2f2;
+  height: 700px;
+
+  .rank {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+
+    li {
+      width: 200px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      font-weight: 700;
+      color: #666;
+      background: #fff;
+      border: 1px solid #ccc;
+      cursor: pointer;
+
+      &:nth-child(n+2) {
+        border-left: 0;
+      }
+
+      &:hover {
+        background: #666;
+        color: #fff;
+      }
+
+      &.active {
+        background: #666;
+        color: #fff;
+        border: 1px solid #ccc;
+      }
+
+    }
+
+  }
+
+  .rank-movie-container {
+    width: 970px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 50px;
+    
+    .rank-poster-container {
+      border: 1px solid #f2f2f2;
+      background: white;
+      .rank-poster {
+        width: 228px;
+      }
+      &:nth-child(n+2):nth-child(-n+4) {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .rank-info-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+  }
+  .rank-info {
+    width: 200px;
+    height: 80px;
+    font-weight: 600;
+    font-size: 1.3em;
+    color: #363636;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+
+    span {
+      background: url($watch-age) 0 -999px no-repeat;
+      display: inline-block;
+      width: 17px;
+      height: 18px;
+      margin-right: 4px;
+      text-indent: -99999px;
+      overflow: hidden;
+      vertical-align: middle;
+
+      &.age-all { background-position: 0 0; }
+      &.age-12 { background-position: -60px 0; }
+      &.age-15 { background-position: -90px 0; }
+      &.age-19 { background-position: -30px 0;}
+
+    }
+
+    .rank-info-detail {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+
+      button {
+        width: 95px;
+        height: 45px;
+        background: #f2f2f2;
+        color: #727272;
+        font-weight: 700;
+        font-size: 0.8em;
+  
+        &:hover {
+          background: #fff;
+          border: 1px solid $sub-color;
+          color: $sub-color;
+        }
+        
+        &.infoActive {
+          background: #fff;
+          border: 1px solid $sub-color;
+          color: $sub-color;
+          
+        }
+      }
+    }
+
+  }
+
+}
