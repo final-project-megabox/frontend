@@ -1,1 +1,24 @@
-<p>movie-rank works!</p>
+<!-- 박스 오피스 탭 -->
+<div class="rank-container">
+  <ul class="rank">
+    <li *ngFor="let rank of Ranks" [ngClass]="{active: rankState===rank}" 
+      (click)="rankState=rank">{{rank}}</li>
+  </ul>
+  
+  <!-- 박스 오피스 바디 -->
+  <div class="rank-movie-container">
+    <ul *ngFor="let rankmovie of RankMovies; index as i" class ="rank-poster-container">
+      <div *ngIf="i <= 3">
+        <img class ="rank-poster" src="{{rankmovie.url}}">
+        <div class="rank-info-container">
+          <li class="rank-info"><span class="{{rankmovie.age}}"></span>{{rankmovie.title}}
+            <div class="rank-info-detail">
+              <button class="detail-info">상세정보</button>
+              <button class="rank-booking">예매하기</button>
+            </div>
+          </li>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>
