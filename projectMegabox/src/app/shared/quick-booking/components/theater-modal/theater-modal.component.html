@@ -35,17 +35,35 @@
         <div class="map">
           <ul>
             <!-- 이 부분 하나가 서울, 경기, 부산 같은 지역 -->
-            <li class="mapArea">
+            <li class="mapArea" *ngIf="depthOneState === '서울'">
               <a title="서울">서울</a>
               <ul class="seoul"> <!-- 서울 지도가 들어가는 부분 -->
                 <li>
-                  <a class="marker gangnam" title="강남">강남</a>
+                  <a class="marker gangnam" title="강남" [class.marker-active]="true">강남</a>
                 </li>
                 <li>
                   <a class="marker sinchon" title="신촌">신촌</a>
                 </li>
                 <li>
                   <a class="marker coex" title="코엑스">코엑스</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="mapArea" *ngIf="depthOneState === '경기'">
+              <a title="경기">경기</a>
+              <ul class="kyunggi"> <!-- 경기 지도가 들어가는 부분 -->
+                <li>
+                  <a class="marker goyang" title="고양스타필드">고양스타필드</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="mapArea" *ngIf="depthOneState === '부산'">
+              <a title="부산">부산</a>
+              <ul class="busan"> <!-- 부산 지도가 들어가는 부분 -->
+                <li>
+                  <a class="marker haeundae" title="해운대(정산)">해운대(정산)</a>
                 </li>
               </ul>
             </li>

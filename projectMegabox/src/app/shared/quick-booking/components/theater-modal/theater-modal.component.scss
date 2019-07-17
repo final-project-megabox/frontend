@@ -159,6 +159,28 @@
   background: url(http://image2.megabox.co.kr/mop/home/map/seoul.png);
 }
 
+.kyunggi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 508px;
+  height: 450px;
+  margin: 0 auto;
+  background: url(http://image2.megabox.co.kr/mop/home/map/gyeonggi2.png);
+}
+
+.busan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 508px;
+  height: 450px;
+  margin: 0 auto;
+  background: url(http://image2.megabox.co.kr/mop/home/map/busan.png);
+}
+
 .marker {
   display: block;
   height: 40px;
@@ -173,6 +195,28 @@
   color: transparent;
   font-size: 0;
   line-height: 0;
+}
+
+.marker::before {
+  content: " ";
+  display: inline-block;
+  // *display: inline;
+  zoom: 1;
+  width: 77px;
+  height: 14px;
+  margin-right: 2px;
+  vertical-align: top;
+  background: url(http://image2.megabox.co.kr/mop/home/map/megabox.png) 0 50% no-repeat;
+}
+
+.marker-active {
+  height: 70px;
+  z-index: 10;
+  background-image: url(http://image2.megabox.co.kr/mop/home/map/marker_on.png);
+  color: #503396;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 14px;
 }
 
 .gangnam {
@@ -190,6 +234,18 @@
 .coex {
   left: 269px;
   top: 255px;
+  letter-spacing: inherit;
+}
+
+.goyang {
+  left: 140px;
+  top: 150px;
+  letter-spacing: inherit;
+}
+
+.haeundae {
+  left: 267px;
+  top: 302px;
   letter-spacing: inherit;
 }
 
