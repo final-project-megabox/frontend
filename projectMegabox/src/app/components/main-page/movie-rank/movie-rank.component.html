@@ -7,7 +7,7 @@
   
   <!-- 박스 오피스 바디 -->
   <div class="rank-movie-container">
-    <ul *ngFor="let rankmovie of RankMovies; index as i" class ="rank-poster-container">
+    <ul *ngFor="let rankmovie of RankMovies | rankSort :rankState; index as i" class ="rank-poster-container">
       <div *ngIf="i <= 3">
         <img class ="rank-poster" src="{{rankmovie.url}}">
         <div class="rank-info-container">

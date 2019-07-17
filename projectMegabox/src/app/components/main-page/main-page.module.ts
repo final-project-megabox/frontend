@@ -7,6 +7,7 @@ import { MovieRankComponent } from './movie-rank/movie-rank.component';
 import { NewEventComponent } from './new-event/new-event.component';
 import { NoticeComponent } from './notice/notice.component';
 import { MainPageComponent } from './main-page.component';
+import { RankSortPipe } from './movie-rank/pipes/rank-sort.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MainPageComponent } from './main-page.component';
     MegaboxNewsComponent,
     MovieRankComponent,
     NewEventComponent,
-    NoticeComponent
+    NoticeComponent,
+    RankSortPipe
   ],
   imports: [
     CommonModule
