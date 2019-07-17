@@ -1,0 +1,45 @@
+/* .my-page-container {
+  width: 970px;
+  margin: 0 auto;
+  background: #B4D491;
+
+} */
+
+.inner-container {
+  /* width: 847px; */
+  background: purple;
+  /* margin-left: 61.5px; */
+}
+
+.row1 {
+  background: skyblue;
+
+}
+
+.row1-mainbox {
+  display: flex;
+}
+
+.memberbox-left {
+  background: lightblue;
+  width: 273px;
+  /* margin-right: 50px; */
+  /* background: url(http://image2.megabox.co.kr/mop/home/mypage/main_icon6.png) 100% 50px no-repeat;
+  background-size: 75px; */
+}
+
+.memberbox-middle {
+  background: coral;
+  width: 300px;
+  /* margin-right: 25px; */
+}
+
+.memberbox-right {
+  width: 272px;
+  background: yellow;
+}
+
+.row2 {
+  display: flex;
+  justify-content: space-around;
+}
