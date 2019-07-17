@@ -1,0 +1,26 @@
+/* 마이페이지 네비게이션 */
+
+/* .navi-container {
+  width: 847px;
+  background: greenyellow;
+  margin-left: 61.5px;
+} */
+.mypage-menu {
+  display: flex;
+  align-content: center;
+  background: gray;
+}
+
+.mypage-menu li {
+  list-style: none;
+  width: 121px;
+  height: 110px;
+  background: pink;
+  border: 1px solid #ebebeb;
+  /* margin: 0 auto; */
+}
+
+.mypage-menu :last-child {
+  width: 122px;
+  background: blue;
+}
