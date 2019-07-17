@@ -26,7 +26,8 @@
               등록해주세요
               <button class="showFavorTheater">선호영화관 등록</button>
             </div>
-            <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState" #regionList>
+            <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState"
+                (mouseenter)="enter(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
               <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
             </li>
           </ul>
@@ -39,13 +40,13 @@
               <a title="서울">서울</a>
               <ul class="seoul"> <!-- 서울 지도가 들어가는 부분 -->
                 <li>
-                  <a class="marker gangnam" title="강남" [class.marker-active]="true">강남</a>
+                  <a class="marker gangnam" title="강남" [class.marker-active]="hoverRegion === '강남'">강남</a>
                 </li>
                 <li>
-                  <a class="marker sinchon" title="신촌">신촌</a>
+                  <a class="marker sinchon" title="신촌" [class.marker-active]="hoverRegion === '신촌'">신촌</a>
                 </li>
                 <li>
-                  <a class="marker coex" title="코엑스">코엑스</a>
+                  <a class="marker coex" title="코엑스" [class.marker-active]="hoverRegion === '코엑스'">코엑스</a>
                 </li>
               </ul>
             </li>
@@ -54,7 +55,7 @@
               <a title="경기">경기</a>
               <ul class="kyunggi"> <!-- 경기 지도가 들어가는 부분 -->
                 <li>
-                  <a class="marker goyang" title="고양스타필드">고양스타필드</a>
+                  <a class="marker goyang" title="고양스타필드" [class.marker-active]="hoverRegion === '고양스타필드'">고양스타필드</a>
                 </li>
               </ul>
             </li>
@@ -63,7 +64,7 @@
               <a title="부산">부산</a>
               <ul class="busan"> <!-- 부산 지도가 들어가는 부분 -->
                 <li>
-                  <a class="marker haeundae" title="해운대(정산)">해운대(정산)</a>
+                  <a class="marker haeundae" title="해운대(장산)" [class.marker-active]="hoverRegion === '해운대(장산)'">해운대(장산)</a>
                 </li>
               </ul>
             </li>
