@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { MainViewComponent } from './components/main-view/main-view.component';
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
+import { TheaterModalComponent } from './components/theater-modal/theater-modal.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 
 import { QuickBookingService } from './service/quick-booking.service';
 
 import { MoviesSortPipe } from './pipes/movies-sort.pipe';
+import { RegionsFilterPipe } from './pipes/regions-filter.pipe';
 
 import { PosterBackgroundDirective } from './directives/poster-background.directive';
 
@@ -16,9 +18,11 @@ import { PosterBackgroundDirective } from './directives/poster-background.direct
     MainViewComponent,
     MovieModalComponent,
     CalendarComponent,
+    TheaterModalComponent,
     
     MoviesSortPipe,
-    PosterBackgroundDirective
+    RegionsFilterPipe,
+    PosterBackgroundDirective,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,80 @@
+<div class="theater-modal fade in">
+  <div class="theater-modal-wrapper">
+    <div class="theater-modal-contents">
+      <div class=theater-modal-header>
+        <h3>
+          <a class="all-theater">지역별</a>
+        </h3>
+      </div>
+      <div class="util"></div>
+      <div class="theater-body">
+        <div class="theater-list">
+          <ul class="theater-list-depth1">
+            <li [class.active]="depthOneState === selectRegion" *ngFor="let selectRegion of selectRegions" (click)="depthOneState = selectRegion">
+              <a title="{{ selectRegion }}">{{ selectRegion }}</a>
+              <span>
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </li>
+          </ul>
+          <ul class="theater-list-depth2">
+            <div class="favorTheater" *ngIf="depthOneState === '선호 영화관'; else regionList">
+              자주 찾는 영화관을
+              <br>
+              선호 영화관으로
+              <br>
+              등록해주세요
+              <button class="showFavorTheater">선호영화관 등록</button>
+            </div>
+            <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState" #regionList>
+              <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- 지도 -->
+        <div class="map">
+          <ul>
+            <!-- 이 부분 하나가 서울, 경기, 부산 같은 지역 -->
+            <li class="mapArea" *ngIf="depthOneState === '서울'">
+              <a title="서울">서울</a>
+              <ul class="seoul"> <!-- 서울 지도가 들어가는 부분 -->
+                <li>
+                  <a class="marker gangnam" title="강남" [class.marker-active]="true">강남</a>
+                </li>
+                <li>
+                  <a class="marker sinchon" title="신촌">신촌</a>
+                </li>
+                <li>
+                  <a class="marker coex" title="코엑스">코엑스</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="mapArea" *ngIf="depthOneState === '경기'">
+              <a title="경기">경기</a>
+              <ul class="kyunggi"> <!-- 경기 지도가 들어가는 부분 -->
+                <li>
+                  <a class="marker goyang" title="고양스타필드">고양스타필드</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="mapArea" *ngIf="depthOneState === '부산'">
+              <a title="부산">부산</a>
+              <ul class="busan"> <!-- 부산 지도가 들어가는 부분 -->
+                <li>
+                  <a class="marker haeundae" title="해운대(정산)">해운대(정산)</a>
+                </li>
+              </ul>
+            </li>
+            <!-- 이 부분 하나가 서울, 경기, 부산 같은 지역 -->
+          </ul>
+        </div>
+      </div>
+      <div class="theater-btns-wrapper">
+        <button type="button" class="booking-btn booking-cancel" (click)="bookingService.theaterModalState = false">취소</button>
+        <button type="button" class="booking-btn booking-confirm" (click)="bookingService.theaterModalState = false">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
