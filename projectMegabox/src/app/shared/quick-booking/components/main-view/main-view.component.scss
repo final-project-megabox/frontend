@@ -88,6 +88,7 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
       .active {
         background-color: #198591;
         color: #fff;
+        border-radius: 5%;
       }
 
       .reload {
@@ -219,4 +220,5 @@ app-calendar {
   background: #fff;
   top: 50px;
   left: 152px;
+  z-index: 50;
 }

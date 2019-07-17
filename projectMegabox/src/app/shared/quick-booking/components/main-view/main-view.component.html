@@ -11,17 +11,25 @@
           </div>
           <div class="carousel-table">
             <button>
-              <i class="fas fa-caret-left" (click)="prevTime(ulTime)"></i>
+              <i class="fas fa-caret-left" (click)="prevDay(ulDay)"></i>
             </button>
             <div class="carousel-table-list">
-              <ul #ulTime>
+              <ul #ulDay>
                 <li *ngFor="let item of afterToday">
-                  <button class="day-button" [class.active]="item === currentTime">{{item}}</button>
+                  <button class="day-button" 
+                    *ngIf="bookingService.today !== item.fullDay; else elemToday" 
+                    (click)="checkDayActive(item.fullDay, ulDay)"
+                    [class.active]="item.fullDay === bookingService.activeToday">{{item.day}}({{item.date}})</button>
+                  <ng-template #elemToday>
+                    <button class="day-button" 
+                    (click)="checkDayActive(item.fullDay)"
+                    [class.active]="item.fullDay === bookingService.activeToday">오늘</button>
+                  </ng-template>
                 </li>
               </ul>
             </div>
             <button>
-              <i class="fas fa-caret-right" (click)="nextTime(ulTime)"></i>
+              <i class="fas fa-caret-right" (click)="nextDay(ulDay)"></i>
             </button>
           </div>
         </div>
