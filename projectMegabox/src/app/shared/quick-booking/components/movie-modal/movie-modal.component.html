@@ -9,8 +9,8 @@
       <div class="util">
         <div class="selected">
           <button class="all-btn">All</button>
-          <p class="selected-movie" *ngFor="let selected of selectMoive">
-            <span>{{selected}}</span>
+          <p class="selected-movie" *ngFor="let selected of selectMovie">
+            <span>{{selected["name"]}}</span>
             <button class="deleted-moive" (click)="deleteMovie(selected)">X</button>
           </p>
         </div>
@@ -22,17 +22,17 @@
       </div>
       <div class="movie-list-wrapper">
         <ul class="movie-list">
-          <li id="{{movie.id}}" class="moivie-list-li" *ngFor="let movie of movies | moviesSort :sortState"
-          appPosterBackground (click)="addPoster(movie.name, poster)" #poster>
-            <a href="#" title="{{movie.name}}">
-              <span class="blind">{{movie.name}}</span>
+          <li id="{{movie['id']}}" class="moivie-list-li" *ngFor="let movie of movies | moviesSort :sortState"
+          appPosterBackground (click)="addPoster(movie, poster)" #poster>
+            <a href="#" title="{{movie['name']}}">
+              <span class="blind">{{movie["name"]}}</span>
             </a>
             <div class=poster>
-              <img class="movie-poster-img" alt="movie.name" src="{{movie.posterUrl}}">
+              <img class="movie-poster-img" alt="movie.name" src="{{movie['posterUrl']}}">
             </div>
             <p class="movie-title">
-              <span class="movie-age {{movie.age}}">12세 관람가</span>
-              <span>{{movie.name}}</span>
+              <span class="movie-age {{movie['age']}}">12세 관람가</span>
+              <span>{{movie["name"]}}</span>
             </p>
           </li>
         </ul>

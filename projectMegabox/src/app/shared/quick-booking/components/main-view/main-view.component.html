@@ -33,7 +33,7 @@
             </button>
           </div>
           <div class="place">
-            <button class="add-movie">
+            <button class="add-movie" (click)="bookingService.theaterModalState = true">
               <span class="hidden-text">영화 추가 버튼</span>
             </button>
             <button class="add-movie">
@@ -100,3 +100,4 @@
 
 </div>
 <app-movie-modal *ngIf="bookingService.movieModalState"></app-movie-modal>
+<app-theater-modal *ngIf="bookingService.theaterModalState"></app-theater-modal>
