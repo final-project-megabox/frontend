@@ -27,7 +27,7 @@
               <button class="showFavorTheater">선호영화관 등록</button>
             </div>
             <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState"
-                (mouseenter)="enter(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
+                (mouseenter)="hoverArea(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
               <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
             </li>
           </ul>
