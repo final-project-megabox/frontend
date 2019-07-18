@@ -47,6 +47,9 @@ export class TheaterModalComponent implements OnInit {
 
   deleteTheater(deleteArea: string) {
     this.selectTheaters = this.selectTheaters.filter(theater => theater !== deleteArea);
+    this.detailRegions = this.detailRegions.map(region => {
+      return region.name === deleteArea ? {...region, selected: false} : region
+    })
   }
 
   hoverArea(detailArea: string) {
