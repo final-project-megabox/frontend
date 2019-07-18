@@ -22,8 +22,6 @@ export class TheaterModalComponent implements OnInit {
 
   selectTheaters:string[] = [];
 
-  selectLI:HTMLLIElement[] = [];
-
   hoverRegion: string;
 
   detailRegions: DetailRegion[] = [
@@ -34,7 +32,7 @@ export class TheaterModalComponent implements OnInit {
     { id: 4, name: '해운대(장산)', city: '부산', selected: false }
   ];
 
-  addRegion(detailArea: string, selected:boolean, regionList: HTMLLIElement) {
+  addRegion(detailArea: string, selected:boolean) {
     if(selected && this.selectTheaters.length < 4) {
       this.selectTheaters = [...this.selectTheaters, detailArea];
     } else if(!selected || this.selectTheaters.length < 4) {

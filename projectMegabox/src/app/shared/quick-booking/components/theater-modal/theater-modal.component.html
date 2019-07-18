@@ -36,7 +36,7 @@
             <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState"
                 [class.list-active]="detailRegion.selected"
                 (click)="detailRegion.selected = !detailRegion.selected"
-                (click)="addRegion(detailRegion.name, detailRegion.selected, regionList)"
+                (click)="addRegion(detailRegion.name, detailRegion.selected)"
                 (mouseenter)="hoverArea(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
               <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
             </li>
