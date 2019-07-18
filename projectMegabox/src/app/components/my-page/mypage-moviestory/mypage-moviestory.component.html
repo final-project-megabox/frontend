@@ -1,1 +1,40 @@
-<!-- <app-mypage-navi></app-mypage-navi> -->
+<app-mypage-navi></app-mypage-navi>
+<router-outlet></router-outlet>
+
+<div class= "mypage-mymoviestory">
+    <div>
+      <h3>
+        나의무비스토리
+      </h3>
+    </div>
+
+    <ul class= "mymoviestory-tab">
+      <li (click)="tabActive(button1.textContent)" #button1>보고싶어</li>
+      <li (click)="tabActive(button2.textContent)" #button2>본영화</li>
+    </ul>
+
+
+    <div class="tab-contents movie-interesting" [ngClass]="{active: mymovieTab == '보고싶어'}">
+      <ul class= "interested-tab">
+        <li>최신순</li>
+        <li>인기순</li>
+        <li>평점순</li>
+        <li>가나다순</li>
+      </ul>
+
+      <div class= "interested-content" >
+        <ul class="interested-image">
+          <li>보고싶은 영화를 담아주세요</li>
+          <li>보고싶은 영화를 담아주세요</li>
+          <li>보고싶은 영화를 담아주세요</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class= " tab-contents watched-content" [ngClass]="{active: mymovieTab == '본영화'}">
+      본영화 임시 페이지
+    </div>
+
+
+
+
