@@ -6,7 +6,14 @@
           <a class="all-theater">지역별</a>
         </h3>
       </div>
-      <div class="util"></div>
+      <div class="util">
+        <div class="selected">
+          <p class="selected-theater" *ngFor="let selectTheater of selectTheaters">
+            <span>{{ selectTheater }}</span>
+            <button class="deleted-theater" (click)="deleteTheater(selectTheater)">X</button>
+          </p>
+        </div>
+      </div>
       <div class="theater-body">
         <div class="theater-list">
           <ul class="theater-list-depth1">
@@ -27,6 +34,9 @@
               <button class="showFavorTheater">선호영화관 등록</button>
             </div>
             <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState"
+                [class.list-active]="detailRegion.selected"
+                (click)="detailRegion.selected = !detailRegion.selected"
+                (click)="addRegion(detailRegion.name, detailRegion.selected, regionList)"
                 (mouseenter)="hoverArea(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
               <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
             </li>
