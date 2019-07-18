@@ -1,0 +1,64 @@
+.booking-nav {
+  display: inline-block;
+}
+
+.booking-nav li {
+  display: inline-block;
+  background: blue;
+  width: 114px;
+  height: 35px;
+}
+
+.tab-menu {
+  display: flex;
+}
+
+.tab-menu li {
+  height: 40px;
+  text-align: center;
+  border-top: 2px solid #503396;
+  background: #f2f2f2;
+  border-bottom: 1px solid #666;
+}
+
+.tab-no {
+  width: 80px;
+}
+
+.tab-bookNum {
+  width: 139.56px;
+}
+
+.tab-movieName {
+  width: 352px;
+}
+
+.tab-screen {
+  width: 99.56px;
+}
+
+.tab-screenDate {
+  width: 109.33px;
+}
+
+.tab-bookedDate {
+  width: 80px;
+}
+
+.tab-cancel {
+  width: 109.33px;
+}
+
+.tab-contents ul {
+  display: flex;
+  text-align: center;
+  word-break: break-all;
+}
+
+.tab-contents {
+  display: none;
+}
+
+.active {
+  display: block;
+}
