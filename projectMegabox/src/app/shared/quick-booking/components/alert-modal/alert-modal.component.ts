@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuickBookingService } from '../../service/quick-booking.service';
 
 @Component({
   selector: 'app-alert-modal',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookingService: QuickBookingService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

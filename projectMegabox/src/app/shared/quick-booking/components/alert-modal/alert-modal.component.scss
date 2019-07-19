@@ -21,6 +21,7 @@
 .alert-header > h1 {
   margin: 0;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .alert-body {
@@ -38,7 +39,7 @@
 .alert-footer {
   padding: 20px;
   text-align: center;
-  color: #e1e1e1;
+  color: #fff;
 }
 
 .alert-confirm {
@@ -46,6 +47,7 @@
   display: inline-block;
   width: 68px;
   height: 30px;
+  background-color: #503396;
 }
 
 .fa-times {

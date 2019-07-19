@@ -80,7 +80,8 @@ export class MovieModalComponent implements OnInit {
     }
 
     if(this.selectMovie.length === 4 && !poster.style.backgroundColor) {
-      alert('4개까지만 선택할 수 있습니다.');
+      // alert('4개까지만 선택할 수 있습니다.');
+      this.bookingService.alertModalState = true;
     }
   }
 
