@@ -1,1 +1,19 @@
-<p>login-modal works!</p>
+<div class="login-modal">
+  <header>
+    <button class="close-modal">닫기</button>
+  </header>
+  <main>
+    <h2 class="title">로그인</h2>
+    <form [formGroup]="userForm" (ngSubmit)="submit()">
+      <div class="input-group">
+        <input type="email" formControlName="userId" placeholder="아이디">
+        <input type="password" formControlName="userPassword" placeholder="비밀번호">
+      </div>
+      <button [disabled]="userForm.invalid"
+      [class.active]="userForm.invalid">로그인</button>
+    </form>
+    <pre>{{userForm.value | json}}</pre>
+    <pre>{{userId.errors | json}}</pre>
+    <pre>{{userPassword.errors | json}}</pre>
+  </main>
+</div>
