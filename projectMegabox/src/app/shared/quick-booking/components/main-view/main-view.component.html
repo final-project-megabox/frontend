@@ -70,12 +70,17 @@
             </div>
           </div>
           <div class="movie-select">
-            <div class="all-movie">
-              <p>모든 영화</p>
+            <div *ngIf="quickBookingService.test; else choice">
+              <div class="all-movie">
+                <p>모든 영화</p>
+              </div>
+              <button class="select-movie" (click)="quickBookingService.movieModalState = true">
+                <span>영화 선택</span>
+              </button>
             </div>
-            <button class="select-movie" (click)="quickBookingService.movieModalState = true">
-              <span>영화 선택</span>
-            </button>
+            <ng-template #choice>
+              
+            </ng-template>
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ export class QuickBookingService {
   celendarModalState = false;
   movieModalState = false;
   theaterModalState = false;
+
+  test = true;
   
   
   newDate = new Date();
