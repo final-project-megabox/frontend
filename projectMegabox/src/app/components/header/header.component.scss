@@ -1,0 +1,57 @@
+.top {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background-color: #fff;
+  // border-bottom: 1px solid #e5e5e5;
+  min-width: 970px;
+  z-index: 100030;
+}
+
+.bg {
+  width: 970px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.img-wrapper {
+  display: inline-block;
+  margin-top: 10px;
+  width: 235px;
+  height: 27px;
+  cursor: pointer;
+  background: url('http://image2.megabox.co.kr//mop/home/logo_slogan.png') no-repeat;
+}
+
+.hidden {
+  overflow: hidden;
+  display: inline-block;
+  text-indent: -9999px;
+}
+
+.nav-list {
+  display: flex;
+  float: right;
+  line-height: 50px;
+  border-left: 1px solid #c6c6c6;
+  font-weight: 700;
+}
+
+.nav-list > li {
+  border-right: 1px solid #c6c6c6;
+  width: 82px;
+  text-align: center;
+  cursor: pointer;
+  color: #50504e
+}
+
+#quick-booking {
+  width: 164px;
+  background-color: #503396;
+  color: #fff;
+}
+
+a, a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #50504e;
+}
