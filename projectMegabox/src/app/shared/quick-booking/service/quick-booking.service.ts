@@ -13,6 +13,10 @@ export class QuickBookingService {
   today = `${this.newDate.getFullYear()}${this.newDate.getMonth()}${this.newDate.getDate()}`;
 
   activeToday = this.today;
+  dayTable: HTMLUListElement;
+  dayTableLocation = 0;
+  timeTableLocation = 0;
+  afterToday = [...this.calThisMonth(), ...this.monthAfterToday()];
   
   weeks = [];
   

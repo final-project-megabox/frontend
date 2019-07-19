@@ -7,7 +7,8 @@
           <div class="title">
             <h2>날짜</h2>
             <button class="hidden-text" 
-            (click)="quickBookingService.celendarModalState = !quickBookingService.celendarModalState">달력버튼</button>
+            (click)="quickBookingService.celendarModalState = !quickBookingService.celendarModalState;
+            quickBookingService.dayTable = ulDay">달력버튼</button>
             <app-calendar *ngIf="quickBookingService.celendarModalState"></app-calendar>
           </div>
           <div class="carousel-table">
@@ -16,7 +17,7 @@
             </button>
             <div class="carousel-table-list">
               <ul #ulDay>
-                <li *ngFor="let item of afterToday">
+                <li *ngFor="let item of quickBookingService.afterToday">
                   <button class="day-button" 
                     *ngIf="quickBookingService.today !== item.fullDate; else elemToday" 
                     (click)="checkDayActive(item.fullDate, ulDay)"
