@@ -22,6 +22,7 @@ import { PosterBackgroundDirective } from './directives/poster-background.direct
     
     MoviesSortPipe,
     RegionsFilterPipe,
+    
     PosterBackgroundDirective,
   ],
   imports: [
