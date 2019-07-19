@@ -5,7 +5,7 @@
   background-color: #fff;
   // border-bottom: 1px solid #e5e5e5;
   min-width: 970px;
-  z-index: 100030;
+  z-index: 99;
 }
 
 .bg {
@@ -49,6 +49,12 @@
   width: 164px;
   background-color: #503396;
   color: #fff;
+}
+
+#quick-booking img{
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 a, a:link, a:visited, a:active {
