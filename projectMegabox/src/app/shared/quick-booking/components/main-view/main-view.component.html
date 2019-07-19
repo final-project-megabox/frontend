@@ -6,8 +6,9 @@
         <div class="date box-padding">
           <div class="title">
             <h2>날짜</h2>
-            <button class="hidden-text" (click)="bookingService.celendarModalState = !bookingService.celendarModalState">달력버튼</button>
-            <app-calendar *ngIf="bookingService.celendarModalState"></app-calendar>
+            <button class="hidden-text" 
+            (click)="quickBookingService.celendarModalState = !quickBookingService.celendarModalState">달력버튼</button>
+            <app-calendar *ngIf="quickBookingService.celendarModalState"></app-calendar>
           </div>
           <div class="carousel-table">
             <button>
@@ -17,13 +18,13 @@
               <ul #ulDay>
                 <li *ngFor="let item of afterToday">
                   <button class="day-button" 
-                    *ngIf="bookingService.today !== item.fullDay; else elemToday" 
-                    (click)="checkDayActive(item.fullDay, ulDay)"
-                    [class.active]="item.fullDay === bookingService.activeToday">{{item.day}}({{item.date}})</button>
+                    *ngIf="quickBookingService.today !== item.fullDate; else elemToday" 
+                    (click)="checkDayActive(item.fullDate, ulDay)"
+                    [class.active]="item.fullDate === quickBookingService.activeToday">{{item.day}}({{item.date}})</button>
                   <ng-template #elemToday>
                     <button class="day-button" 
-                    (click)="checkDayActive(item.fullDay)"
-                    [class.active]="item.fullDay === bookingService.activeToday">오늘</button>
+                    (click)="checkDayActive(item.fullDate)"
+                    [class.active]="item.fullDate === quickBookingService.activeToday">오늘</button>
                   </ng-template>
                 </li>
               </ul>
@@ -41,7 +42,7 @@
             </button>
           </div>
           <div class="place">
-            <button class="add-movie" (click)="bookingService.theaterModalState = true">
+            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
               <span class="hidden-text">영화 추가 버튼</span>
             </button>
             <button class="add-movie">
@@ -71,7 +72,7 @@
             <div class="all-movie">
               <p>모든 영화</p>
             </div>
-            <button class="select-movie" (click)="bookingService.movieModalState = true">
+            <button class="select-movie" (click)="quickBookingService.movieModalState = true">
               <span>영화 선택</span>
             </button>
           </div>
@@ -107,5 +108,5 @@
   </div>
 
 </div>
-<app-movie-modal *ngIf="bookingService.movieModalState"></app-movie-modal>
-<app-theater-modal *ngIf="bookingService.theaterModalState"></app-theater-modal>
+<app-movie-modal *ngIf="quickBookingService.movieModalState"></app-movie-modal>
+<app-theater-modal *ngIf="quickBookingService.theaterModalState"></app-theater-modal>

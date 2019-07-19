@@ -10,18 +10,10 @@ export class CalendarComponent implements OnInit {
   constructor(private quickBookingService: QuickBookingService) {}
 
   ngOnInit() {
-    this.quickBookingService.calDay();
+    this.quickBookingService.calThisMonth();
     this.quickBookingService.splitDay();
   }
-
-  prev() {
-    this.quickBookingService.month -= 1;
-  }
-
-  next() {
-    this.quickBookingService.month += 1;
-  }
-
+  
   activeToday(day: string) {
     this.quickBookingService.activeToday = day !== undefined ? day : null;
   }

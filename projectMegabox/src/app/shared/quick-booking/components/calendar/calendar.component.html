@@ -1,13 +1,13 @@
 <table>
 　<thead>
     <th class="table-head">
-      <i class="fa fa-chevron-left" (click)="prev()"></i>
+      <i class="fa fa-chevron-left" (click)="quickBookingService.decreaseMonth()"></i>
     </th>
     <th colspan="5" class="table-head">
       <caption>{{quickBookingService.month+1}}월 {{quickBookingService.year}}</caption>
     </th>
     <th class="table-head">
-      <i class="fa fa-chevron-right" (click)="next()"></i>
+      <i class="fa fa-chevron-right" (click)="quickBookingService.increaseMonth()"></i>
     </th>
   </thead>
 　<tbody>
@@ -22,8 +22,8 @@
     </tr>
     <tr *ngFor="let week of quickBookingService.weeks">
       <td *ngFor="let item of week" class="button-margin">
-        <button [class.active]="quickBookingService.activeToday === item.fullDay"
-        (click)="activeToday(item.fullDay)">{{item.day}}</button>
+        <button [class.active]="quickBookingService.activeToday === item.fullDate"
+        (click)="activeToday(item.fullDate)">{{item.day}}</button>
       </td>
     </tr>
   </tbody>

@@ -6,19 +6,22 @@ import { QuickBookingService } from '../../service/quick-booking.service';
   templateUrl: './main-view.component.html',
   styleUrls: ['./main-view.component.scss']
 })
+
 export class MainViewComponent implements OnInit {
   timeTable = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
   currentTime: number;
   listLocation = 0;
+  today: string;
   afterToday = [];
 
-  constructor(private bookingService: QuickBookingService) {}
+  constructor(private quickBookingService: QuickBookingService) {}
   
   ngOnInit() {
     this.currentTime = new Date().getHours();
-    this.afterTodayMonth();
-    console.log(this.afterToday)
+    this.afterToday = [...this.quickBookingService.calThisMonth(), ...this.quickBookingService.monthAfterToday()];
+    this.today = this.quickBookingService.today
   }
+
 
   nextTime(ulTime: HTMLUListElement) {
     if (this.listLocation === -616) return;
@@ -50,17 +53,13 @@ export class MainViewComponent implements OnInit {
   }
 
   checkDayActive(day: string, elem?: HTMLUListElement) {
-    this.bookingService.activeToday = day;
+    this.quickBookingService.activeToday = day;
     
-    if (this.bookingService.today === day) return;
+    if (this.quickBookingService.today === day) return;
 
-    const idx = this.afterToday.findIndex(item => item.fullDay === day);
+    const idx = this.afterToday.findIndex(item => item.fullDate === day);
     this.listLocation = idx * -68;
-    
-    elem.style.transform = `translateX(${this.listLocation}px)`;
-  }
 
-  afterTodayMonth() {
-    this.afterToday = [...this.bookingService.calDay(), ...this.bookingService.nextMonth];
+    elem.style.transform = `translateX(${this.listLocation}px)`;
   }
 }
