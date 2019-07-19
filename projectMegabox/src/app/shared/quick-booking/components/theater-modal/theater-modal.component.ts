@@ -41,7 +41,7 @@ export class TheaterModalComponent implements OnInit {
       this.detailRegions = this.detailRegions.map(region => {
         return region.name === detailArea ? {...region, selected: false} : region
       })
-      alert('4개까지만 선택할 수 있습니다.');
+      this.bookingService.alertModalState = true;
     }
   }
 

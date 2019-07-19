@@ -1,7 +1,15 @@
-<nav>
-  <a routerLink='home'
-  >메가박스로고</a>
-  <a routerLink='mypage'>마이페이지</a>
-  <button (click)="rootService.quickBookingModalState = true">빠른예매</button>
+<nav class="top">
+  <div class="bg">
+    <a routerLink='home' class="img-wrapper">
+      <span class="hidden">메가박스</span>
+    </a>
+    <ul class="nav-list">
+      <li title="영화 바로가기"><a>영화</a></li>
+      <li title="영화관 바로가기"><a>영화관</a></li>
+      <li title="빠른 예매" id="quick-booking" (click)="rootService.quickBookingModalState = true">빠른 예매 <img src="https://ifh.cc/g/1fQ6F.png"></li>
+      <li title="로그인 바로가기"><a>로그인</a></li>
+      <li title="마이페이지 바로가기"><a routerLink='mypage'>마이페이지</a></li>
+    </ul>
+  </div>
 </nav>
 <app-main-view *ngIf="rootService.quickBookingModalState"></app-main-view>

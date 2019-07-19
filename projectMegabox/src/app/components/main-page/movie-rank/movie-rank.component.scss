@@ -1,6 +1,8 @@
 $rank-sprite : 'http://image2.megabox.co.kr/mop/home/main/tab_tg.png';
 $wish-sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
 $watch-age: 'http://image2.megabox.co.kr/mop/home/bg_age2.png';
+$ranking: 'http://image2.megabox.co.kr/mop/home/movie/rank.png';
+$ranking-left: 245px;
 
 $sub-color: #188591;
 
@@ -34,7 +36,7 @@ $sub-color: #188591;
         color: #fff;
       }
 
-      &.active {
+      &.tabActive {
         background: #666;
         color: #fff;
         border: 1px solid #ccc;
@@ -65,6 +67,49 @@ $sub-color: #188591;
       }
     }
   }
+
+  .ranking-marker-1 {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 44px;
+    height: 39px;
+    top: 10px;
+    left: -2px;
+    padding: 0;
+    margin: 0;
+    text-indent: -9999px;
+    background: url($ranking);
+    background-position: 0 0;
+}
+
+  .ranking-marker-2 {
+    @extend .ranking-marker-1;
+    left: 244px;
+    background-position: 0 -100px;
+}
+
+  .ranking-marker-3 {
+    @extend .ranking-marker-1;
+    left: 244+245px;
+    background-position: 0 -200px;
+}
+
+  .ranking-marker-4 {
+    @extend .ranking-marker-1;
+    left: 244+245+245px;
+    background-position: 0 -300px;
+}
+
+.rank-poster-hover {
+  width: 228px;
+  height: 327px;
+  position: absolute;
+  top: 0;
+  background: black;
+  opacity: 0.7;
+  display: none;
+}
 
   .rank-info-container {
     margin-top: 20px;
