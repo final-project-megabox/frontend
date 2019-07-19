@@ -8,8 +8,34 @@ $auto-stop: 'http://image2.megabox.co.kr/mop/home/main/slide_auto.png';
 $auto-play: 'http://image2.megabox.co.kr/mop/home/main/slide_auto_play.png';
 $arrow: 'http://image2.megabox.co.kr/mop/home/main/arrow.png';
 
+$main-image: 'http://image2.megabox.co.kr//mop/frontbanner/2019/57/79C164-CBF6-446A-B9F9-2AB4ADAE6B74.jpg';
+
 .carousel {
-  background: silver;
+  background: url($main-image);
   width: 100%;
   height: 600px;
+}
+
+.carousel-sentence {
+  // background: black;
+  text-shadow: 1px 1px 1px black;
+  display: inline-block;
+  margin: 200px 0 0 200px;
+  color: white;
+  strong {
+    // font-weight: 800;
+    font-size: 2.5em;
+    em {
+      font-size: 1.3rem;
+      display: block;
+      margin-top: 20px;
+    }
+  }
+  p {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    border-top: 1px solid #e2e2e263;
+    padding-top: 10px;
+    
+  }
 }
