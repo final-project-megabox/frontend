@@ -1,15 +1,19 @@
 <!-- 박스 오피스 탭 -->
 <div class="rank-container">
   <ul class="rank">
-    <li *ngFor="let rank of Ranks" [ngClass]="{active: rankState===rank}" 
+    <li *ngFor="let rank of Ranks" [ngClass]="{tabActive: rankState===rank}" 
       (click)="rankState=rank">{{rank}}</li>
   </ul>
   
   <!-- 박스 오피스 바디 -->
   <div class="rank-movie-container">
+    <!-- 포스터 -->
     <ul *ngFor="let rankmovie of RankMovies | rankSort :rankState; index as i" class ="rank-poster-container">
       <div *ngIf="i <= 3">
+        <span *ngIf="rankState==='박스오피스'" class="ranking-marker-{{rankmovie.id}}"></span>
         <img class ="rank-poster" src="{{rankmovie.url}}">
+        <div class="rank-poster-hover"></div>
+    <!-- 영화제목 및 정보 -->
         <div class="rank-info-container">
           <li class="rank-info"><span class="{{rankmovie.age}}"></span>{{rankmovie.title}}
             <div class="rank-info-detail">
