@@ -1,5 +1,7 @@
+import { AppRoutingModule } from './../../app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 import { MyPageComponent } from './my-page.component';
 import { MypageMoviestoryComponent } from './mypage-moviestory/mypage-moviestory.component';
@@ -18,7 +20,8 @@ import { MypageMainComponent } from './mypage-main/mypage-main.component';
 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ]
 })
 export class MyPageModule { }

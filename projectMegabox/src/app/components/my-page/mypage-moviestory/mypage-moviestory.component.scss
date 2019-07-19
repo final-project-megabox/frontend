@@ -1,0 +1,48 @@
+.mymoviestory-tab {
+  display: flex;
+}
+
+.mymoviestory-tab li {
+  margin-right: 10px;
+  background: yellow;
+}
+/*
+.movie-interesting {
+  background: blue;
+  width: 970px;
+} */
+
+.interested-tab {
+  display: flex;
+  background: purple;
+  float: right;
+}
+
+.interested-tab li {
+  margin-right: 10px;
+  background: lightblue;
+}
+
+.interested-image li {
+  width: 230px;
+  height: 503px;
+  border: 2px solid rgb(228, 228, 228);
+  background: coral;
+}
+
+.interested-image {
+  display: flex;
+  padding-top: 30px;
+}
+
+.interested-image li {
+  margin-right: 20px;
+}
+
+.tab-contents {
+  display: none;
+}
+
+.active {
+  display: block;
+}
