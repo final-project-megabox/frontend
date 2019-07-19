@@ -1,26 +1,106 @@
 /* 마이페이지 네비게이션 */
 
-/* .navi-container {
-  width: 847px;
-  background: greenyellow;
-  margin-left: 61.5px;
-} */
+.navi-container {
+  margin-top: 55px;
+}
+
+.mypage-header {
+  vertical-align: middle;
+  height: 54px;
+  width: 100%;
+  position: relative;
+  background: #f2f2f2;
+  border-bottom: 2.5px solid #503396;
+}
+
+.myheader-box {
+  width: 970px;
+  margin: 0 auto;
+  // background: cornflowerblue;
+}
+
+.myheader-box a {
+  font-family: 'NanumGothic','나눔고딕','맑은 고딕';
+  font-size: 18px;
+  color: #503396;
+  text-decoration: none;
+  font-weight: 700;
+  // background: blue;
+  position: relative;
+  top: 18px;
+  letter-spacing: -2px;
+
+}
+
+.mypage-cupons {
+  width: 970px;
+  margin: 0 auto;
+  padding: 20px 0 30px 0;
+  // background: palegreen;
+}
+
+.mypage-cupons button {
+  background: #503396;
+  border: 1px solid rgb(44, 44, 44);
+  width: 150px;
+  height: 20px;
+  font-family: 'dotum', 'NanumGothic','나눔고딕','맑은 고딕';
+  font-size: 11px;
+  color: white;
+  margin: 0 1px 0 20px;
+  position: relative;
+  margin-bottom: 10px;
+  float: right;
+  outline: none;
+}
+
 .mypage-menu {
+  width: 970px;
+  margin: 0 auto;
   display: flex;
   align-content: center;
-  background: gray;
+
+  // background: gray;
 }
 
 .mypage-menu li {
   list-style: none;
   width: 121px;
   height: 110px;
-  background: pink;
-  border: 1px solid #ebebeb;
+  // background: pink;
+  border: 1px solid #e2e2e2;
   /* margin: 0 auto; */
 }
 
-.mypage-menu :last-child {
+.mypage-menu :hover {
+  background-color: #e2e2e2;
+}
+
+#my-faq {
   width: 122px;
-  background: blue;
+  border-right: 2px solid #e2e2e2;
+  // background: blue;
+}
+
+#my-membership {
+  border-left: 2px solid #e2e2e2;
+}
+
+li img {
+  width: 50px;
+  margin: 19px 0 10px 0;
+
+  // background: peru;
+
+}
+
+li {
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'NanumGothic','나눔고딕','맑은 고딕','Malgun Gothic','돋움','dotum','Apple SD Gothic Neo',sans-serif;
+  font-weight: 700;
+  color: #636364;
+  font-size: 13px;
 }
