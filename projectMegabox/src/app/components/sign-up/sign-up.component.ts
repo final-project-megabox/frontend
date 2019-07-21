@@ -24,11 +24,6 @@ export class SignUpComponent implements OnInit {
       ]],
 
       passwordGroup: this.fb.group({
-        // 왜 안될까?? 자바스크립트 테스트로는 되는데...
-        // password: ['', [
-        //   Validators.required,
-        //   Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$')
-        // ]],
         password: ['', [
           Validators.required,
           Validators.pattern('^[A-Za-z0-9]{6,12}$')
