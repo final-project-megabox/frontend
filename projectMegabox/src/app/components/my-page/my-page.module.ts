@@ -1,7 +1,7 @@
-import { AppRoutingModule } from './../../app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AppRoutingModule } from './../../app-routing.module';
 
 import { MyPageComponent } from './my-page.component';
 import { MypageMoviestoryComponent } from './mypage-moviestory/mypage-moviestory.component';

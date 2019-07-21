@@ -8,6 +8,7 @@ import { MypageMainComponent } from './components/my-page/mypage-main/mypage-mai
 import { MypageBookingComponent } from './components/my-page/mypage-booking/mypage-booking.component';
 import { MypageMoviestoryComponent } from './components/my-page/mypage-moviestory/mypage-moviestory.component';
 import { MyPageComponent } from './components/my-page/my-page.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
 },
   { path: 'booking', component: MypageBookingComponent},
   { path: 'my-movie-story', component: MypageMoviestoryComponent},
+  { path: 'sign-up', component: SignUpComponent},
   { path: '**', component: NotFoundComponent},
 
 ];

@@ -7,9 +7,12 @@
       <li title="영화 바로가기"><a>영화</a></li>
       <li title="영화관 바로가기"><a>영화관</a></li>
       <li title="빠른 예매" id="quick-booking" (click)="rootService.quickBookingModalState = true">빠른 예매 <img src="https://ifh.cc/g/1fQ6F.png"></li>
-      <li title="로그인 바로가기"><a>로그인</a></li>
+      <li title="로그인 바로가기" 
+      (click)="rootService.loginModalState = !rootService.loginModalState"><a>로그인</a></li>
       <li title="마이페이지 바로가기"><a routerLink='mypage'>마이페이지</a></li>
+      <li title="회원가입 바로가기"><a routerLink='sign-up'>회원가입</a></li>
     </ul>
+    <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
   </div>
 </nav>
 <app-main-view *ngIf="rootService.quickBookingModalState"></app-main-view>
