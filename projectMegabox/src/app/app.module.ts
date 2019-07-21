@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { MainPageModule } from './components/main-page/main-page.module';
 import { MyPageModule } from './components/my-page/my-page.module';
 import { ComponentsModule } from './components/components.module';
+import { SignUpModule } from './components/sign-up/sign-up.module';
 
 import { AppComponent } from './app.component';
 
@@ -24,6 +25,7 @@ import { AppComponent } from './app.component';
     MyPageModule,
     SharedModule,
     ComponentsModule,
+    SignUpModule,
 
     AppRoutingModule
   ],
