@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class RootService {
   quickBookingModalState = false;
   loginModalState = false;
+  
   constructor() { }
 
 }

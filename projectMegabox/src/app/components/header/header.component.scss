@@ -9,6 +9,7 @@
 }
 
 .bg {
+  position: relative;
   width: 970px;
   margin: 0 auto;
   background: #fff;
@@ -65,5 +66,5 @@ a, a:link, a:visited, a:active {
 app-login-modal {
   position: absolute;
   top: 50px;
-  right: 68px;
+  right: 0;
 }

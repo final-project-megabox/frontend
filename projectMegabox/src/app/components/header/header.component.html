@@ -11,7 +11,7 @@
       (click)="rootService.loginModalState = !rootService.loginModalState"><a>로그인</a></li>
       <li title="마이페이지 바로가기"><a routerLink='mypage'>마이페이지</a></li>
     </ul>
+    <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
   </div>
 </nav>
-<app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
 <app-main-view *ngIf="rootService.quickBookingModalState"></app-main-view>

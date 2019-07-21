@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RootService } from '../../core/service/root.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginModalComponent implements OnInit {
   userForm: FormGroup;
   inputId = '';
-  constructor() { }
+  constructor(private rootService: RootService) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({

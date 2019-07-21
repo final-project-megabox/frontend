@@ -8,6 +8,26 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
   bottom: 0;
   z-index: 100;
 
+  .wrapper {
+    position: relative;
+   
+    .close {
+      position: absolute;
+      top: 53px;
+      right: 0;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #cdcdcd;
+      background: #ffffff url(http://image2.megabox.co.kr/mop/home/btns/btn_close.png) 9px 9px no-repeat;
+
+      span {
+        display: inline-block;
+        text-indent: -9999px;
+        overflow: hidden;
+      }
+    }
+  }
+
   .carousel-table {
     display: flex;
     width: 100%;
@@ -48,8 +68,7 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
     left: 0;
     bottom: 0;
     right: 0;
-    background: gray;
-    opacity: 0.1;
+    background: rgba(255, 255, 255, 50%);
   }
   .wrapper {
     width: 970px;
@@ -59,9 +78,9 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
   
     .main-container {
       position: relative;
+      border: 1px solid #cdcdcd;
       top: 90px;
       background: #fff;
-      border: 1px solid #e0e0e0;
       background-color: #f9f9f9;
 
       .title {

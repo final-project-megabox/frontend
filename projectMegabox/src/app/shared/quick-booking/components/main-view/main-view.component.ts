@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuickBookingService } from '../../service/quick-booking.service';
+import { RootService } from '../../../../core/service/root.service';
 
 @Component({
   selector: 'app-main-view',
@@ -14,7 +15,10 @@ export class MainViewComponent implements OnInit {
   today: string;
   
 
-  constructor(private quickBookingService: QuickBookingService) {}
+  constructor(
+    private quickBookingService: QuickBookingService,
+    private rootService: RootService
+  ) {}
   
   ngOnInit() {
     this.currentTime = new Date().getHours();
