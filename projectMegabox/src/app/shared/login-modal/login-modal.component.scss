@@ -1,0 +1,71 @@
+.login-modal {
+  width: 380px;
+  height: 345px;
+  padding: 10px 35px 30px 35px;
+  border-radius: 2% 2% 0 0;
+  background: skyblue;
+
+  input {
+    border: 1px solid #d9d9d9;
+    background-color: #f8f8f8;
+  }
+
+  header {
+    text-align: right;
+    .close-modal {
+      background: url('http://image2.megabox.co.kr/mop/home/btns/btn_close.png') no-repeat;
+      text-indent: -9999px;
+      overflow: hidden;
+      width: 17px;
+    }
+  }
+
+  main {
+    padding-top: 25px;
+    .title {
+      background: url('http://image2.megabox.co.kr/mop/home/btns/socialLogin_bg.png') no-repeat 0 -9px;
+      padding-left: 80px;
+    }
+
+    form {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      .input-group {
+        width: 235px;
+
+        input {
+          margin-bottom: 10px;
+          padding: 3px 5px;
+          width: 100%;
+        }
+      }
+
+      .active {
+        background: #666666;
+      }
+
+      button {
+        background: #351F66;
+        color: #fff;
+        width: 65px;
+        height: 60px;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+    }
+
+    .saveId-container {
+      label {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .checked {        
+        background: url('http://image2.megabox.co.kr/mop/home/bg_input.png') no-repeat 1px 1px;
+      }
+    }
+  }
+}
