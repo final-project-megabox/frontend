@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginModalComponent implements OnInit {
   userForm: FormGroup;
-  inputId: string;
+  inputId = '';
   constructor() { }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class LoginModalComponent implements OnInit {
         Validators.pattern('.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*')
       ])
     });
-    
+
     this.getCookie();
   }
 
@@ -35,12 +35,12 @@ export class LoginModalComponent implements OnInit {
   }
 
   submit(state: boolean) {
-    if (state) {
-      console.log('아이디 저장 없이 전송', this.userForm.value);
-      this.setCookie(this.userId.value, 0);
+    if (!state) {
+      console.log('아이디 안함 전송');
+      this.setCookie('', 0);
       this.userForm.reset();
     } else {
-      console.log('아이디 저장 했음 전송', this.userForm.value);
+      console.log('아이디 했음 전송', this.userForm.value);
       this.setCookie(this.userId.value, 7);
       this.userForm.reset();
     }
@@ -53,6 +53,15 @@ export class LoginModalComponent implements OnInit {
   }
 
   setCookie(value: string, day: number) {
+    if (!day) {
+      const cookies = document.cookie.split('; ');
+
+      cookies.forEach(item => {
+        if(item.split('id=').length !== 2) {
+          document.cookie = '';
+        }
+      })
+    }
     const today = new Date();
 
     today.setDate(today.getDate() + day);
@@ -60,7 +69,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   getCookie() {
-    if (document.cookie.length <= 0) return;
+    if (!document.cookie.length) return;
 
     const cookies = document.cookie.split('; ');
 
