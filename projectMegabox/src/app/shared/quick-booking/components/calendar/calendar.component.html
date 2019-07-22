@@ -1,13 +1,13 @@
 <table>
 　<thead>
     <th class="table-head">
-      <i class="fa fa-chevron-left" (click)="quickBookingService.decreaseMonth()"></i>
+      <i class="fa fa-chevron-left" (click)="calendarService.decreaseMonth()"></i>
     </th>
     <th colspan="5" class="table-head">
-      <caption>{{quickBookingService.month+1}}월 {{quickBookingService.year}}</caption>
+      <caption>{{calendarService.month+1}}월 {{calendarService.year}}</caption>
     </th>
     <th class="table-head">
-      <i class="fa fa-chevron-right" (click)="quickBookingService.increaseMonth()"></i>
+      <i class="fa fa-chevron-right" (click)="calendarService.increaseMonth()"></i>
     </th>
   </thead>
 　<tbody>
@@ -20,11 +20,11 @@
 　　　<th>금</th>
 　　　<th>토</th>
     </tr>
-    <tr *ngFor="let week of quickBookingService.weeks">
+    <tr *ngFor="let week of calendarService.splitThisDays">
       <td *ngFor="let item of week" class="button-margin">
-        <button [class.active]="quickBookingService.activeToday === item.fullDate" #dayTable
+        <button [class.active]="calendarService.activeToday === item.fullDate" #dayTable
+        (click)="activeToday(item.fullDate); calendarService.checkDayActive(item.fullDate)"
         [class.disable]="checkBeforeToday(item.fullDate)"
-        (click)="activeToday(item.fullDate); checkDayActive(item.fullDate)"
         [disabled]="checkBeforeToday(item.fullDate)">{{item.day}}</button>
       </td>
     </tr>

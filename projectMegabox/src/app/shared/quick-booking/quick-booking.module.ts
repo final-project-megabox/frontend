@@ -13,6 +13,8 @@ import { MoviesSortPipe } from './pipes/movies-sort.pipe';
 import { RegionsFilterPipe } from './pipes/regions-filter.pipe';
 
 import { PosterBackgroundDirective } from './directives/poster-background.directive';
+import { CarouselDirective } from './directives/carousel.directive';
+import { CalendarService } from './service/calendar.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { PosterBackgroundDirective } from './directives/poster-background.direct
     
     MoviesSortPipe,
     RegionsFilterPipe,
-    PosterBackgroundDirective
+    PosterBackgroundDirective,
+    CarouselDirective
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { PosterBackgroundDirective } from './directives/poster-background.direct
     MainViewComponent
   ],
   providers: [
-    QuickBookingService
+    QuickBookingService,
+    CalendarService
   ],
 })
 export class QuickBookingModule { }
