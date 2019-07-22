@@ -1,1 +1,59 @@
-<p>notice works!</p>
+<div class="notice-container">
+  <div class="notice-board">
+
+    <!-- theater tab -->
+    <div class="theater-notice">
+      <header class="notice-header">공지사항</header>
+      <ul class="theater">
+        <li *ngFor="let theater of Theaters" [ngClass]="{theaterActive: theaterState===theater}" 
+        (click)="theaterState=theater">{{theater}}</li>
+      </ul>
+
+      <!-- theater body -->
+      <ul class="theaterNotice" *ngIf="theaterState==='전체 공지'">
+        <li *ngFor="let theaterNotice of TheaterNotices">
+          <span class="theater-category">{{theaterNotice.category}}</span>
+          <span class="theater-date">{{theaterNotice.date}}</span>
+          <p class="theater-title">{{theaterNotice.title}}</p>
+        </li>
+      </ul>
+      <ul class="branchNotice" *ngIf="theaterState==='영화관 공지'">
+        <li *ngFor="let branchNotice of BranchNotices">
+          <span class="theater-category">{{branchNotice.category}}</span>
+          <span class="theater-date">{{branchNotice.date}}</span>
+          <p class="theater-title">{{branchNotice.title}}</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- cardList -->
+    <div class="cardList-notice">
+      <header class="cardList-header">메가박스 할인카드</header>
+      <ul class="cardList">
+        <li *ngFor="let cardList of CardLists">
+          <img src="{{cardList.url}}" alt="{{cardList.title}}">
+          <div class="cardList-contents">
+            <p class="cardList-title">{{cardList.title}}</p>
+            <p class="cardList-detail">{{cardList.detail}}</p>
+            <p class="cardList-constraint">{{cardList.constraint}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- customer -->
+    <div class="customer-notice">
+      <header class="customer-header">고객센터</header>
+      <ul class="customer">
+        <li *ngFor="let customer of Customers; index as i">
+          <span class="customer-{{i}}"></span>
+          {{customer}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- banner -->
+  <div class="vip-pick">
+    <img src="http://mlink-cdn.netinsight.co.kr/2019/07/18/ff2f07e136c7fffb7a383cc9c8748b75.jpg">
+  </div>
+</div>

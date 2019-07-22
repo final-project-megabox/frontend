@@ -6,10 +6,11 @@ $ranking-left: 245px;
 
 $sub-color: #188591;
 
+// box office tab
 .rank-container {
   position: relative;
   background: #f2f2f2;
-  height: 700px;
+  height: 680px;
 
   .rank {
     display: flex;
@@ -41,13 +42,14 @@ $sub-color: #188591;
         color: #fff;
         border: 1px solid #ccc;
       }
-
     }
-
   }
 
+  // box office body
+  // box office poster
   .rank-movie-container {
     width: 970px;
+    height: 452px;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
@@ -57,17 +59,19 @@ $sub-color: #188591;
     margin-top: 50px;
     
     .rank-poster-container {
-      border: 1px solid #f2f2f2;
+      border: 1px solid #d9d9d9;
       background: white;
+
       .rank-poster {
         width: 228px;
       }
-      &:nth-child(n+2):nth-child(-n+4) {
+      &:nth-child(n+2):nth-child(-n+5) {
         margin-left: 15px;
       }
     }
   }
 
+  // box office marker
   .ranking-marker-1 {
     position: absolute;
     display: block;
@@ -81,36 +85,38 @@ $sub-color: #188591;
     text-indent: -9999px;
     background: url($ranking);
     background-position: 0 0;
-}
+  }
 
   .ranking-marker-2 {
     @extend .ranking-marker-1;
     left: 244px;
     background-position: 0 -100px;
-}
+  }
 
   .ranking-marker-3 {
     @extend .ranking-marker-1;
     left: 244+245px;
     background-position: 0 -200px;
-}
+  }
 
   .ranking-marker-4 {
     @extend .ranking-marker-1;
     left: 244+245+245px;
     background-position: 0 -300px;
-}
+  }
 
-.rank-poster-hover {
-  width: 228px;
-  height: 327px;
-  position: absolute;
-  top: 0;
-  background: black;
-  opacity: 0.7;
-  display: none;
-}
+  // poster hover
+  .rank-poster-hover {
+    width: 228px;
+    height: 327px;
+    position: absolute;
+    top: 0;
+    background: black;
+    opacity: 0.7;
+    display: none;
+  }
 
+  // information
   .rank-info-container {
     margin-top: 20px;
     display: flex;
@@ -119,7 +125,7 @@ $sub-color: #188591;
   }
   .rank-info {
     width: 200px;
-    height: 80px;
+    height: 100px;
     font-weight: 600;
     font-size: 1.3em;
     color: #363636;
@@ -148,7 +154,7 @@ $sub-color: #188591;
     .rank-info-detail {
       display: flex;
       justify-content: space-between;
-      margin-top: 10px;
+      margin-top: 20px;
 
       button {
         width: 95px;
@@ -157,7 +163,7 @@ $sub-color: #188591;
         color: #727272;
         font-weight: 700;
         font-size: 0.8em;
-  
+
         &:hover {
           background: #fff;
           border: 1px solid $sub-color;
@@ -172,7 +178,6 @@ $sub-color: #188591;
         }
       }
     }
-
   }
 
 }
