@@ -9,7 +9,7 @@
       <div class="util">
         <div class="selected">
           <button class="all-btn">All</button>
-          <p class="selected-movie" *ngFor="let selected of selectMovie">
+          <p class="selected-movie" *ngFor="let selected of bookingService.selectMovie">
             <span>{{selected['title']}}</span>
             <button class="deleted-moive" (click)="deleteMovie(selected)">X</button>
           </p>
@@ -22,7 +22,7 @@
       </div>
       <div class="movie-list-wrapper">
         <ul class="movie-list">
-          <li id="{{movie['movie_id']}}" class="moivie-list-li" *ngFor="let movie of movies | moviesSort :sortState"
+          <li id="{{movie['movie_id']}}" class="moivie-list-li" *ngFor="let movie of bookingService.movies | moviesSort :sortState"
           appPosterBackground (click)="addPoster(movie, poster)" #poster>
             <a href="#" title="{{movie['title']}}">
               <span class="blind">{{movie['title']}}</span>

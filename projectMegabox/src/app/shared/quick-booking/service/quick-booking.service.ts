@@ -1,4 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+
+import { Movies } from '../models/movies.interface';
+
 import { environment } from 'src/environments/environment';
 
 export class QuickBookingService {
@@ -6,6 +9,9 @@ export class QuickBookingService {
   movieModalState = false;
   theaterModalState = false;
   alertModalState = false;
+
+  movies:Movies[]=[];
+  selectMovie:Movies[]=[];
   
   test = true;
   constructor(private http: HttpClient) { }
@@ -13,7 +19,7 @@ export class QuickBookingService {
   ngOnInit() {}
   
   getAll() {
-    return this.http.get(environment.appUrl);
+    return this.http.get<Movies[]>(environment.appUrl);
   }
   
 }
