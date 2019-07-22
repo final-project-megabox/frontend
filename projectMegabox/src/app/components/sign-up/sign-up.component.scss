@@ -154,3 +154,21 @@ button.confirm-btn {
   color: #fff;
   font-weight: 700; 
 }
+
+i.fa-check {
+  color: blueviolet;
+}
+
+// 메일 추천
+ul.mail-recommendation {
+  position: absolute;
+  border-radius: 3px;
+  margin: 3px;
+  background-color: #fff;
+  border: 1px solid #333;
+  width: 200px;
+}
+
+ul.mail-recommendation li:hover {
+  background-color: #503396;
+}
