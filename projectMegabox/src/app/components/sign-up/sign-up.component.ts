@@ -26,9 +26,9 @@ export class SignUpComponent implements OnInit {
       passwordGroup: this.fb.group({
         password: ['', [
           Validators.required,
-          Validators.pattern('^[A-Za-z0-9]{6,12}$')
+          Validators.pattern('^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$')
         ]],
-        confirmPassword : ['']
+        confirmPassword : ['', Validators.required]
       }, { validator: PasswordValidator.match}),
 
       name: ['', Validators.required],
@@ -78,4 +78,24 @@ export class SignUpComponent implements OnInit {
   get phoneGroup() {
     return this.userForm.get('phoneGroup');
   }
+
+  content:string;
+
+  emailRecommendation = false;
+  
+  emailValue(){
+    const bang ='@';
+    console.log(this.content);   
+    if(this.content.includes(bang)) {
+      this.emailRecommendation = true;
+    } else {
+      this.emailRecommendation = false;
+    }
+  }
+
+  emailContent() {
+    this.content = this.content + 'gmail.com';
+    this.emailRecommendation = false;
+  }
+
 }
