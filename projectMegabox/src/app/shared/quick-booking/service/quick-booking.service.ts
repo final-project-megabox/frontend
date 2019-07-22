@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Days } from '../models/days.interface';
+import { environment } from 'src/environments/environment';
 
 export class QuickBookingService {
   celendarModalState = false;
@@ -29,6 +30,10 @@ export class QuickBookingService {
   constructor(private http: HttpClient) { }
   
   ngOnInit() {}
+
+  getAll() {
+    return this.http.get(environment.appUrl);
+  }
 
 
   // setter month
