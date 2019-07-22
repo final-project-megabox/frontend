@@ -68,4 +68,35 @@
       }
     }
   }
+
+  footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f2f2;
+    border-top: 1px solid #d7d7d7;
+    margin-top: 30px;
+    height: 70px;
+
+    .wrapper {
+      padding: 15px 35px 0 35px;
+
+      ul {
+        display: flex;
+
+        li::before {
+          content: "";
+          display: inline-block;
+          background: url('http://image2.megabox.co.kr/mop/home/dot.png') no-repeat 0 0;
+          width: 5px;
+          height: 7px;
+        }
+
+        li {
+          width: 50%;
+        }
+      }
+    }
+  }
 }
