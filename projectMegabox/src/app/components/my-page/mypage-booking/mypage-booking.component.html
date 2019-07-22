@@ -1,63 +1,87 @@
-<div class="mypage-booking">
-  <app-mypage-navi></app-mypage-navi>
-  <router-outlet></router-outlet>
+<app-mypage-navi></app-mypage-navi>
+<router-outlet></router-outlet>
 
-  <div>
+<div class="mypage-booking">
+
+  <div class= "booking-title">
     <h3>예매 확인/취소</h3>
     <span>예매하신 영화 내역과 취소 내역을 확인할 수 있습니다.</span>
   </div>
 
   <ul class= "booking-nav">
-    <li class="nav-booked" (click)="tabActive(button1.textContent)" #button1>예매 내역</li>
-    <li class="nav-watched" (click)="tabActive(button2.textContent)" #button2>지난 내역</li>
-    <li class="nav-canceled" (click)="tabActive(button3.textContent)" #button3>취소 내역</li>
+    <li class="nav-booked" (click)="tabActive(button1.textContent)" #button1 [ngClass]="{tabactive: navState == '예매 내역'}"><a>예매 내역</a></li>
+    <li class="nav-watched" (click)="tabActive(button2.textContent)" #button2 [ngClass]="{tabactive: navState == '지난 내역'}"><a>지난 내역</a></li>
+    <li class="nav-canceled" (click)="tabActive(button3.textContent)" #button3 [ngClass]="{tabactive: navState == '취소 내역'}"><a>취소 내역</a></li>
+    <div class= "nav-line"></div>
   </ul>
 
   <ul class= "tab-menu">
-    <li class="tab-no">NO</li>
-    <li class="tab-bookNum">예매번호</li>
-    <li class="tab-movieName">영화명</li>
-    <li class="tab-screen">영화관</li>
-    <li class="tab-screenDate">상영일시</li>
-    <li class="tab-bookedDate">예매일</li>
-    <li class="tab-cancel">예매취소</li>
+    <li class="tab-no"><a>NO</a></li>
+    <li class="tab-bookNum"><a>예매번호</a></li>
+    <li class="tab-movieName"><a>영화명</a></li>
+    <li class="tab-screen"><a>영화관</a></li>
+    <li class="tab-screenDate"><a>상영일시</a></li>
+    <li class="tab-bookedDate"><a>예매일</a></li>
+    <li class="tab-cancel"><a>예매취소</a></li>
   </ul>
 
   <div class= "tab-contents booked" [ngClass]="{active: navState == '예매 내역'}">
     <ul>
-      <li class="tab-no" style="background: hotpink">1</li>
-      <li class="tab-bookNum" style="background: green">T90716-008-3566</li>
-      <li class="tab-movieName">토이 스토리 4-디지털(자막)</li>
-      <li class="tab-screen">코엑스 컴포트 8관</li>
-      <li class="tab-screenDate">2019-07-16 14:55</li>
-      <li class="tab-bookedDate">2019-07-16 13:40:35</li>
-      <li class="tab-cancel"><button>취소</button></li> <!--누르면 아이디 불러와서 지우기-->
+      <li class="tab-no"><div class="content-align">1</div></li>
+      <li class="tab-bookNum"><div class="content-align">T90716-008-3566</div></li>
+      <li class="tab-movieName"><div class="content-align">토이 스토리 4-디지털(자막)</div></li>
+      <li class="tab-screen"><div class="content-align">코엑스 컴포트 8관</div></li>
+      <li class="tab-screenDate"><div class="content-align"><div>2019-07-16</div><div>14:55</div></div></li>
+      <li class="tab-bookedDate"><div class="content-align"><div>2019-07-16</div><div>13:40:35</div></div></li>
+      <li class="tab-cancel"><div class="content-align"><button>취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
     </ul>
   </div>
 
   <div class= "tab-contents watched" [ngClass]="{active: navState == '지난 내역'}">
-    <ul>
-      <li class="tab-no" style="background: hotpink">2</li>
-      <li class="tab-bookNum" style="background: green">T90716-008-3566</li>
-      <li class="tab-movieName">스파이더맨 파 프롬 홈-디지털(자막)</li>
-      <li class="tab-screen">코엑스 컴포트 8관</li>
-      <li class="tab-screenDate">2019-07-16 14:55</li>
-      <li class="tab-bookedDate">2019-07-16 13:40:35</li>
-      <li class="tab-cancel"><button>취소</button></li> <!--누르면 아이디 불러와서 지우기-->
-    </ul>
+      <ul>
+        <li class="tab-no"><div class="content-align">2</div></li>
+        <li class="tab-bookNum"><div class="content-align">T90716-008-3566</div></li>
+        <li class="tab-movieName"><div class="content-align">알라딘-디지털(자막)</div></li>
+        <li class="tab-screen"><div class="content-align">코엑스 컴포트 9관</div></li>
+        <li class="tab-screenDate"><div class="content-align"><div>2019-07-16</div><div>14:55</div></div></li>
+        <li class="tab-bookedDate"><div class="content-align"><div>2019-07-16</div><div>13:40:35</div></div></li>
+        <li class="tab-cancel"><div class="content-align"><button>취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
+      </ul>
   </div>
 
   <div class= "tab-contents canceled hidden" [ngClass]="{active: navState == '취소 내역'}">
       <ul>
-        <li class="tab-no" style="background: hotpink">3</li>
-        <li class="tab-bookNum" style="background: green">T90716-008-3566</li>
-        <li class="tab-movieName">알라딘-디지털(자막)</li>
-        <li class="tab-screen">코엑스 컴포트 8관</li>
-        <li class="tab-screenDate">2019-07-16 14:55</li>
-        <li class="tab-bookedDate">2019-07-16 13:40:35</li>
-        <li class="tab-cancel"><button>취소</button></li> <!--누르면 아이디 불러와서 지우기-->
+        <li class="tab-no"><div class="content-align">3</div></li>
+        <li class="tab-bookNum"><div class="content-align">T90716-008-3566</div></li>
+        <li class="tab-movieName"><div class="content-align">미드소마-디지털(자막)</div></li>
+        <li class="tab-screen"><div class="content-align">코엑스 컴포트 8관</div></li>
+        <li class="tab-screenDate"><div class="content-align"><div>2019-07-16</div><div>14:55</div></div></li>
+        <li class="tab-bookedDate"><div class="content-align"><div>2019-07-16</div><div>13:40:35</div></div></li>
+        <li class="tab-cancel"><div class="content-align"><button>취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
       </ul>
     </div>
+
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
+<div>.</div>
 
 </div>
 

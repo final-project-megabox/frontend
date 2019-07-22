@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuickBookingService } from '../../service/quick-booking.service';
+import { CalendarService } from '../../service/calendar.service';
 
 @Component({
   selector: 'app-calendar',
@@ -7,30 +8,16 @@ import { QuickBookingService } from '../../service/quick-booking.service';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  constructor(private quickBookingService: QuickBookingService) {}
-
+  constructor(private quickBookingService: QuickBookingService, private calendarService: CalendarService){}
+  
   ngOnInit() {
-    this.quickBookingService.calThisMonth();
-    this.quickBookingService.splitDay();
   }
   
   activeToday(day: string) {
-    this.quickBookingService.activeToday = day !== undefined ? day : null;
-  }
-
-  checkDayActive(day: string, elem?: HTMLUListElement) {
-    this.quickBookingService.activeToday = day;
-    
-    const idx = this.quickBookingService.afterToday.findIndex(item => item.fullDate === day);
-
-    if (idx < 0) return;
-
-    this.quickBookingService.dayTableLocation = idx * -68;
-
-    this.quickBookingService.dayTable.style.transform = `translateX(${this.quickBookingService.dayTableLocation}px)`;
+    this.calendarService.activeToday = day !== undefined ? day : null;
   }
 
   checkBeforeToday(day: string) {
-    return +(day + '').slice(4).slice(0, 1) <= +this.quickBookingService.today.slice(4).slice(0,1) && +(day + '').slice(4) < +this.quickBookingService.today.slice(4);
+    return +(day + '').slice(4).slice(0, 1) <= +this.calendarService.today.slice(4).slice(0,1) && +(day + '').slice(4) < +this.calendarService.today.slice(4);
   }
 }
