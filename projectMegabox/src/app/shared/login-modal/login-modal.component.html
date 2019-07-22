@@ -1,4 +1,4 @@
-<div class="login-modal">
+<section class="login-modal">
   <header>
     <button class="close-modal" (click)="rootService.loginModalState = false">닫기</button>
   </header>
@@ -19,8 +19,18 @@
       <input type="checkbox" id="saveId" class="checked"
       [checked]="inputId" #saveId>
     </div>
-    <pre>{{userForm.value | json}}</pre>
-    <pre>{{userId.errors | json}}</pre>
-    <pre>{{userPassword.errors | json}}</pre>
   </main>
-</div>
+  <footer>
+    <div class="wrapper">
+      <ul>
+        <li>
+          <a routerLink='sign-up'
+          (click)="rootService.loginModalState = false">회원가입</a>
+        </li>
+        <li>
+          <a>ID/PW 찾기</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</section>

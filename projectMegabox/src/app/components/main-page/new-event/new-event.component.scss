@@ -1,0 +1,60 @@
+$movie-event: 'http://image2.megabox.co.kr//mop/frontbanner/2019/36/3330D5-3BEF-4E28-BD39-97345AE121D9.jpg';
+$movie-event-detail: 'http://image2.megabox.co.kr//mop/frontbanner/2019/B4/E1F09A-621F-4D4C-B637-0D9F8D5DFE3A.jpg';
+$store-event: 'http://image2.megabox.co.kr/mop/home/main/315X315/160321_store_315x315.jpg';
+
+$carousel-main: 'http://image2.megabox.co.kr//mop/frontbanner/2019/4A/7566E4-0E4B-45B3-AC5F-9C41293AAE0F.jpg';
+
+
+.new-event {
+  width: 970px;
+  height: 700px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 50px;
+
+  .new-event-headline {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .event-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .envet-container {
+
+      .event-carousel {
+        width: 628px;
+        height: 313px;
+        background: url($carousel-main)
+      }
+      
+      .event-main-container {
+        display: flex;
+        width: 628px;
+        height: 315px;
+        
+        & div {
+          width: 314px;
+          height: 315px;
+        }
+        .movie-event {
+          background: url($movie-event);
+        }
+
+        .store-event {
+          background: url($store-event);
+        }
+      }
+    }
+
+    .movie-event-detail {
+      width: 330px;
+      height: 315+313px;
+      background: url($movie-event-detail);
+    }
+      
+  }
+}

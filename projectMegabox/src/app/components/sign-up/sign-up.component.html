@@ -1,0 +1,102 @@
+<div class="join-wrap">
+  <header class="join">
+    <button title="회원가입 바로가기">회원가입</button>
+  </header>
+</div>
+<h1 class="join-info">가입정보입력</h1>
+<div class="main-content">
+  <h4 class="basic-info">기본정보(필수입력)</h4>
+  <form [formGroup] ="userForm">
+    <div id="userJoinContainer" class="form-style">
+      <div class="form-wrapper">
+        <div class="email">
+          <span>이메일</span>
+        </div>
+        <div class="email-wrap">
+          <input type="text" class="email-input" formControlName="email" [(ngModel)]="content" (keyup)="emailValue()" InformationBackground>
+          <button class="double-check">중복확인</button>
+          <em *ngIf="!!email.errors?.required && email.touched" class="email-alert">이메일을 입력하세요.</em>
+          <em *ngIf="!!email.errors?.pattern && email.touched" class="email-alert">형식에 맞는 이메일을 입력하세요.</em>
+          <em *ngIf="!email.errors?.pattern && !email.errors?.required && email.touched" class="email-alert"><i class="fas fa-check"></i></em>
+          <ul *ngIf="emailRecommendation" class="mail-recommendation">
+            <li [textContent]="content+'gmail.com'" (click)="emailContent()"></li>
+          </ul>
+        </div>
+      </div>
+      <ng-container formGroupName="passwordGroup">
+        <div class="form-wrapper">
+          <div class="password">
+            <span>비밀번호</span>
+          </div>
+          <div class="password-wrap">
+            <input type="password" class="password-input" formControlName="password" maxlength="16" InformationBackground>
+            <em *ngIf="!!password.errors?.required && password.touched" class="alert">비밀번호를 입력하세요.</em>
+            <em *ngIf="!!password.errors?.pattern && password.touched" class="alert">영문 대소문자, 숫자, 특수문자 반드시 포함하여 8 ~ 16 글자</em>
+            <em *ngIf="!password.errors?.pattern && !password.errors?.required && password.touched" class="alert"><i class="fas fa-check"></i></em>
+          </div>
+        </div>
+        <div class="form-wrapper">
+          <div class="check-password">
+            <span>비밀번호 확인</span>
+          </div>
+          <div class="check-password-wrap">
+            <input type="password" class="check-password-input" formControlName="confirmPassword" InformationBackground>
+            <em *ngIf="!!passwordGroup.errors?.match && confirmPassword.touched" class="alert">비밀번호가 일치하지 않습니다.</em>
+            <em *ngIf="!passwordGroup.errors?.match && !confirmPassword.errors?.required && confirmPassword.touched" class="alert"><i class="fas fa-check"></i></em>
+          </div>
+        </div>
+        </ng-container>
+
+      <div class="form-wrapper">
+        <div class="name">
+          <span>이름</span>
+        </div>
+        <div class="name-wrap">
+          <input type="text" class="name-input" formControlName="name" InformationBackground>
+          <em *ngIf="!!name.errors?.required && name.touched" class="alert">이름을 입력하세요.</em>
+          <em *ngIf="!name.errors?.required && name.touched" class="alert"><i class="fas fa-check"></i></em>
+        </div>
+      </div>
+
+      <div class="form-wrapper">
+        <div class="birth">
+          <span>생년월일</span>
+        </div>
+        <ng-container formGroupName="birthGroup">
+        <div class="birth-wrap">
+          <input type="text" class="year-input" formControlName="year" InformationBackground> 년
+          <input type="text" class="month-input" formControlName="month" InformationBackground> 월
+          <input type="text" class="day-input" formControlName="day" InformationBackground> 일
+          <em *ngIf="!!birthGroup.errors?.birthValid && birthGroup.touched" class="birth-alert">유효한 생년월일를 입력하세요. ex) 2001-05-08</em>
+          <em *ngIf="!birthGroup.errors?.birthValid && birthGroup.touched" class="birth-alert"><i class="fas fa-check"></i></em>
+        </div>
+        </ng-container>
+      </div>
+      
+      <div class="form-wrapper">
+        <ng-container formGroupName="phoneGroup">
+          <div class="phone">
+            <span>휴대폰</span>
+          </div>
+          <div class="phone-wrap">
+            <input type="text" class="phone-input" formControlName="firstNum" InformationBackground> -
+            <input type="text" class="phone-input" formControlName="middleNum" InformationBackground> -
+            <input type="text" class="phone-input" formControlName="lastNum" InformationBackground>
+            <em *ngIf="!!phoneGroup.errors?.phoneValid && phoneGroup.touched" class="phone-alert">유효한 휴대전화 번호를 입력하세요.</em>
+            <em *ngIf="!phoneGroup.errors?.phoneValid && phoneGroup.touched" class="phone-alert"><i class="fas fa-check"></i></em>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="wrap-submit">
+  <button class="cancel-btn">취소</button>
+  <button class="confirm-btn" [disabled]="userForm.invalid" (click)="test()" 
+  [style.backgroundColor]= "userForm.invalid ? '#dcdcdc' : null">확인
+  </button>
+</div>
+<pre>{{email.errors | json}}</pre>
+<pre>{{password.errors | json}}</pre>
+<pre>{{passwordGroup.errors | json}}</pre>

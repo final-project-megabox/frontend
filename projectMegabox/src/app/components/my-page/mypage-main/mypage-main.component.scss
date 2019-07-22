@@ -1,9 +1,11 @@
-/* .my-page-container {
+// 전체 컨테이너
+.my-page-container {
   width: 970px;
   margin: 0 auto;
   background: #B4D491;
+}
 
-} */
+// 이름 출력부분
 
 .inner-container {
   /* width: 847px; */
@@ -11,23 +13,137 @@
   /* margin-left: 61.5px; */
 }
 
+.inner-container h2 {
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+  font-size: 24px;
+  margin: 60px 0 20px 0;
+}
+
 .row1 {
   background: skyblue;
-
+  border: 5px solid #7B67AC;
+  border-top: 0px;
 }
+
+.title {
+  color: white;
+  background: #7B67AC;
+}
+
+.title-color {
+  height: 17px;
+  background: #7B67AC;
+}
+
+.title span {
+  font-size: 16px;
+  margin: 20px;
+  font-weight: 600;
+}
+
+.title button {
+  width: 89px;
+  height: 20px;
+  border: 1px solid #1F1140;
+  background: #351F67;
+  font-size: 11px;
+}
+
+// 1줄 본박스
 
 .row1-mainbox {
   display: flex;
+  height: 200px;
+  justify-content: space-between;
 }
 
 .memberbox-left {
-  background: lightblue;
+  // background: lightblue;
   width: 273px;
-  /* margin-right: 50px; */
-  /* background: url(http://image2.megabox.co.kr/mop/home/mypage/main_icon6.png) 100% 50px no-repeat;
-  background-size: 75px; */
+  margin: 20px 10px 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
+.words-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.words-wrap h3 {
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #4D4D4D;
+  // background: blue;
+  width: 135px;
+}
+
+.words-wrap button {
+  width: 60px;
+  height: 20px;
+  background: white;
+  border: 1px solid darkgray;
+}
+
+.point-wrap strong {
+  // background: #B4D491;
+  width: 180px;
+  margin-top: 10px;
+  float: left;
+}
+
+.nowpoint-text {
+  color: #673AB7;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.nowpoint-num {
+  font-size: 30px;
+  color: #351F67;
+  font-weight: 700;
+
+}
+
+.nowpoint-img {
+  float: right;
+  width: 75px;
+  height: 75px;
+  margin-top: 10px;
+  // background: #B4D491;
+  background: url(http://image2.megabox.co.kr/mop/home/mypage/main_icon6.png) no-repeat;
+  background-size: 100%;
+}
+
+.point-amount {
+  // background: #B4D491;
+  font-family: 'NanumGothic','나눔고딕','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+  font-size: 13px;
+}
+
+.point-amount {
+  margin-top: -25px;
+}
+
+.point-amount li {
+  padding: 20px 0 0 0;
+}
+
+.point-amount span {
+  float: left;
+  color: #7F7F7F;
+}
+
+.point-amount a {
+  float: right;
+  color: #351F67;
+}
+
+
+// 첫줄 중간박스
 .memberbox-middle {
   background: coral;
   width: 300px;
