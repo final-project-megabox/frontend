@@ -17,12 +17,11 @@ export class MovieModalComponent implements OnInit {
   ngOnInit() {
     this.getMovies();
   }
-  
+
   selectPoster:HTMLLIElement[]=[];
   
   sortItems: SortItem[] = ['예매율순','가나다순','개봉일순'];
   sortState: SortItem = '예매율순';
-  
   
   // 서버에서 영화 정보 데이터를 받아옴.
   getMovies()  {
@@ -62,5 +61,10 @@ export class MovieModalComponent implements OnInit {
         li.lastElementChild.setAttribute('style', 'color: null');
       }
     })
+  }
+
+  cancelSelect() {
+    this.bookingService.movieModalState = false;
+    this.bookingService.selectMovie = [];
   }
 }
