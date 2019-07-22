@@ -10,7 +10,6 @@
       <li title="로그인 바로가기" 
       (click)="rootService.loginModalState = !rootService.loginModalState"><a>로그인</a></li>
       <li title="마이페이지 바로가기"><a routerLink='mypage'>마이페이지</a></li>
-      <li title="회원가입 바로가기"><a routerLink='sign-up'>회원가입</a></li>
     </ul>
     <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
   </div>
