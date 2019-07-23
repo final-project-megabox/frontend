@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { Days } from '../models/days.interface';
 
 export class QuickBookingService {
   calendarModalState = false;
@@ -11,6 +10,4 @@ export class QuickBookingService {
   constructor(private http: HttpClient) { }
   
   ngOnInit() {}
-  
-  
 }
