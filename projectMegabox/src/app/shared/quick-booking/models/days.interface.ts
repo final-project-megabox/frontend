@@ -1,5 +1,5 @@
 export interface Days {
   date: string;
-  day: number;
+  day: string;
   fullDate: string;
 }

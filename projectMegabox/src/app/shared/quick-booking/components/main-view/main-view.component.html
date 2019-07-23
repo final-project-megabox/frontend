@@ -7,31 +7,32 @@
           <div class="title">
             <h2>날짜</h2>
             <button class="hidden-text" 
-            (click)="quickBookingService.celendarModalState = !quickBookingService.celendarModalState;
-            quickBookingService.dayTable = ulDay">달력버튼</button>
-            <app-calendar *ngIf="quickBookingService.celendarModalState"></app-calendar>
+            (click)="quickBookingService.calendarModalState = !quickBookingService.calendarModalState;
+            calenderService.afterToday = afterToday">달력버튼</button>
+            <app-calendar *ngIf="quickBookingService.calendarModalState"></app-calendar>
           </div>
-          <div class="carousel-table">
-            <button>
-              <i class="fas fa-caret-left" (click)="prevDay(ulDay)"></i>
+          <div class="carousel-table" (click)="dayCarouselButton($event.target.parentNode)">
+            <button class="prev-day">
+              <i class="fas fa-caret-left"></i>
             </button>
             <div class="carousel-table-list">
-              <ul #ulDay>
-                <li *ngFor="let item of quickBookingService.afterToday">
+              <ul class="day-carousel" 
+              [ngStyle]="{'transform': 'translateX(' + calenderService.dayTableX + 'px)'}">
+                <li *ngFor="let item of afterToday">
                   <button class="day-button" 
-                    *ngIf="quickBookingService.today !== item.fullDate; else elemToday" 
+                    *ngIf="calenderService.today !== item.fullDate; else elemToday" 
                     (click)="checkDayActive(item.fullDate, ulDay)"
-                    [class.active]="item.fullDate === quickBookingService.activeToday">{{item.day}}({{item.date}})</button>
+                    [class.active]="item.fullDate === calenderService.activeToday">{{item.day}}({{item.date}})</button>
                   <ng-template #elemToday>
                     <button class="day-button" 
                     (click)="checkDayActive(item.fullDate)"
-                    [class.active]="item.fullDate === quickBookingService.activeToday">오늘</button>
+                    [class.active]="item.fullDate === calenderService.activeToday">오늘</button>
                   </ng-template>
                 </li>
               </ul>
             </div>
-            <button>
-              <i class="fas fa-caret-right" (click)="nextDay(ulDay)"></i>
+            <button class="next-day">
+              <i class="fas fa-caret-right"></i>
             </button>
           </div>
         </div>
@@ -89,19 +90,20 @@
           <div class="title">
             <h2>시간</h2>
           </div>
-          <div class="carousel-table">
-            <button>
-              <i class="fas fa-caret-left" (click)="prevTime(ulTime)"></i>
+          <div class="carousel-table" (click)="timeCarouselButton($event.target.parentNode)">
+            <button class="prev-time" >
+              <i class="fas fa-caret-left"></i>
             </button>
             <div class="carousel-table-list">
-              <ul #ulTime>
+              <ul class="time-carousel"
+              [ngStyle]="{'transform': 'translateX(' + timeTableX + 'px)'}">
                 <li *ngFor="let item of timeTable">
-                  <button class="time-button" [class.active]="item === currentTime">{{item}}</button>
+                  <button class="time-button" [class.active]="checkTimeActive(item)">{{item}}</button>
                 </li>
               </ul>
             </div>
-            <button>
-              <i class="fas fa-caret-right" (click)="nextTime(ulTime)"></i>
+            <button class="next-time">
+              <i class="fas fa-caret-right"></i>
             </button>
           </div>
         </div>

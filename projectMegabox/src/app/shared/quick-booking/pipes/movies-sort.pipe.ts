@@ -15,9 +15,9 @@ export class MoviesSortPipe implements PipeTransform {
         }
       }
 
-      if (sortState === '가나다순') { return movies.sort(compare('name')); }
-      else if(sortState === '개봉일순') { return movies.sort(compare('releaseDate'));}
-      else return movies.sort(compare('reservationRate'));
+      if (sortState === '가나다순') { return movies.sort(compare('title')); }
+      else if(sortState === '개봉일순') { return movies.sort(compare('release_date'));}
+      else return movies.sort(compare('booking_rate'));
     }
   }
 
