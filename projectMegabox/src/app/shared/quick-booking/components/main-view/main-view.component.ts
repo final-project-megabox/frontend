@@ -25,7 +25,7 @@ export class MainViewComponent implements OnInit {
   
   ngOnInit() {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
-    this.currentTime = new Date().getHours();
+    this.currentTime = new Date().getHours(); 
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
   }
 
