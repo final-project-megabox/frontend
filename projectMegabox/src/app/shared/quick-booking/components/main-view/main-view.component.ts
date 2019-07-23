@@ -27,21 +27,6 @@ export class MainViewComponent implements OnInit {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
     this.currentTime = new Date().getHours(); 
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
-    // this.addPlusButton();
-  }
-
-  addPlusButton() {
-    const leng = this.quickBookingService.selectMovie.length
-    if (leng < 4) {
-      for (let i = 0; 4 - leng; i++) {
-        this.addPlus = [...this.addPlus, {}];
-      }
-    }
-  }
-
-
-  tset() {
-    console.log(this.quickBookingService.selectMovie)
   }
 
   // 오늘부터 한달 생성
@@ -110,5 +95,12 @@ export class MainViewComponent implements OnInit {
     if (time !== this.currentTime) return;
 
     return time === this.currentTime;
+  }
+
+  // 선택된 영화 취소버튼
+  removeMovie(select) {
+    const selectMovie = this.quickBookingService.selectMovie
+    
+    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id)
   }
 }

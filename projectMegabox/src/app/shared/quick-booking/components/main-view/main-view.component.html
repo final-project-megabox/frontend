@@ -1,4 +1,4 @@
-<div class="quick-booking" (click)="tset()">
+<div class="quick-booking">
   <div class="bg"></div>
   <div class="wrapper">
     <div class="main-container">
@@ -80,42 +80,45 @@
               </button>
             </div>
             <ng-template #choice>
-              <div class="poster-list">
-                <div class="poster" *ngFor="let movie of quickBookingService.selectMovie">
-                  <button class="cancel"></button>
+              <ul class="poster-list">
+                <li class="poster" *ngFor="let movie of quickBookingService.selectMovie">
+                  <button class="cancel hidden-text"
+                  (click)="removeMovie(movie)">취소</button>
                   <img [src]="movie.img_url" [alt]="movie.title">
-                </div>
-                <div class="plus-movie" *ngFor="let plus of addPlus">
-                  <button>
+                </li>
+                <li class="plus-movie" *ngFor="let plus of quickBookingService.addPlus">
+                  <button (click)="quickBookingService.movieModalState = true">
                     <span class="hidden-text">영화추가</span>
                   </button>
-                </div>
-              </div>
+                </li>
+              </ul>
               <div class="select-kinds">
-                <span>
-                  <input type="checkbox" name="" id="movie-type-all">
-                  <label for="movie-type-all">전체</label>
-                </span>
-                <span>
-                  <input type="checkbox" name="" id="movie-type-2d">
-                  <label for="movie-type-all-2d">2D</label>
-                </span>
-                <span>
-                  <input type="checkbox" name="" id="movie-type-3d">
-                  <label for="movie-type-3d">3D</label>
-                </span>
-                <span>
-                  <input type="checkbox" name="" id="movie-type-dubbing">
-                  <label for="movie-type-dubbing">더빙</label>
-                </span>
-                <span>
-                  <input type="checkbox" name="" id="movie-type-caption">
-                  <label for="movie-type-caption">자막</label>
-                </span>
-                <span>
-                  <input type="checkbox" name="" id="movie-type-atmos">
-                  <label for="movie-type-atmos">ATMOS</label>
-                </span>
+                <ul>
+                  <li>
+                    <input type="checkbox" name="" id="movie-type-all">
+                    <label for="movie-type-all">전체</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="" id="movie-type-2d">
+                    <label for="movie-type-all-2d">2D</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="" id="movie-type-3d">
+                    <label for="movie-type-3d">3D</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="" id="movie-type-dubbing">
+                    <label for="movie-type-dubbing">더빙</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="" id="movie-type-caption">
+                    <label for="movie-type-caption">자막</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="" id="movie-type-atmos">
+                    <label for="movie-type-atmos">ATMOS</label>
+                  </li>
+                </ul>
               </div>
             </ng-template>
           </div>

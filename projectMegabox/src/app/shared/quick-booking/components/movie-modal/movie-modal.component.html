@@ -38,8 +38,12 @@
         </ul>
       </div>
       <div class="movie-btns-wrapper">
-        <button type="button" class="booking-btn booking-cancel" (click)="cancelSelect()">취소</button>
-        <button type="button" class="booking-btn booking-confirm" (click)="bookingService.movieModalState = false; bookingService.selectedMovies = true"
+        <button type="button" class="booking-btn booking-cancel" 
+        (click)="cancelSelect()">취소</button>
+        <button type="button" class="booking-btn booking-confirm" 
+        (click)="bookingService.movieModalState = false; 
+        bookingService.selectedMovies = true;
+        bookingService.addPlusButton()"
         [disabled]="!bookingService.selectMovie.length" [style.backgroundColor]= "!bookingService.selectMovie.length ? '#dcdcdc' : null">확인</button>
       </div>
     </div>
