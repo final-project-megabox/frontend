@@ -15,7 +15,7 @@ export class MainViewComponent implements OnInit {
   timeTableX = 0;
   currentTime: number;
   afterToday: Days[];
-  eventTarget: HTMLButtonElement;
+  addPlus = [];
 
   constructor(
     private quickBookingService: QuickBookingService,
@@ -27,6 +27,21 @@ export class MainViewComponent implements OnInit {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
     this.currentTime = new Date().getHours(); 
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
+    // this.addPlusButton();
+  }
+
+  addPlusButton() {
+    const leng = this.quickBookingService.selectMovie.length
+    if (leng < 4) {
+      for (let i = 0; 4 - leng; i++) {
+        this.addPlus = [...this.addPlus, {}];
+      }
+    }
+  }
+
+
+  tset() {
+    console.log(this.quickBookingService.selectMovie)
   }
 
   // 오늘부터 한달 생성

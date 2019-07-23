@@ -9,11 +9,11 @@ export class QuickBookingService {
   movieModalState = false;
   theaterModalState = false;
   alertModalState = false;
+  selectedMovies = false;
 
-  movies:Movies[]=[];
-  selectMovie:Movies[]=[];
+  movies:Movies[] = [];
+  selectMovie:Movies[] = [];
   
-  test = true;
   constructor(private http: HttpClient) { }
   
   ngOnInit() {}

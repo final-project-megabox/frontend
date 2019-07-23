@@ -204,6 +204,54 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
                 overflow: hidden;
               }
             }
+
+            .poster-list {
+              display: flex;
+
+              .poster {
+                position: relative;
+                width: 97px;
+                height: 140px;
+
+                .cancel {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid #e0e0e0;
+                  background: #ffffff url('http://image2.megabox.co.kr/mop/home/btns/btn_close.png') 4px -86px no-repeat;
+                }
+
+                img {
+                  height: 140px;
+                }
+              }
+            }
+
+            .plus-movie {
+              button {
+                width: 97px;
+                height: 140px;
+                background: url('http://image2.megabox.co.kr/mop/home/btns/btn_add.png') 50% 50% no-repeat;
+              }
+            }
+
+            .select-kinds {
+              padding: 20px 30px;
+              border-top: 1px solid #e0e0e0;
+              span {
+                display: inline-block;
+                width: 110px;
+                input {
+
+                }
+
+                label {
+
+                }
+              }
+            }
           }
         }
       }
