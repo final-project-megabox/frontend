@@ -12,6 +12,7 @@ export class QuickBookingService {
   selectedMovies = false;
 
   addPlus = [];  // 플러스버튼추가
+  selectTitle = [];
 
   movies:Movies[] = [];
   selectMovie:Movies[] = [];

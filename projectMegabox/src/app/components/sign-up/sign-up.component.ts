@@ -118,11 +118,11 @@ export class SignUpComponent implements OnInit {
     this.nameField.nativeElement.focus();
   }
 
-  moveUp(li: HTMLElement): void {
+  moveUp(li): void {
     li.previousElementSibling.focus();
   }
 
-  moveDown(li: HTMLLIElement): void {
+  moveDown(li): void {
     li.nextElementSibling.focus();
   }
 }
