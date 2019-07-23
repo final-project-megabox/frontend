@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="movie-select">
-            <div *ngIf="!quickBookingService.selectedMovies; else choice">
+            <div *ngIf="!quickBookingService.selectMovie.length; else choice">
               <div class="all-movie">
                 <p>모든 영화</p>
               </div>
@@ -83,7 +83,7 @@
               <ul class="poster-list">
                 <li class="poster" *ngFor="let movie of quickBookingService.selectMovie">
                   <button class="cancel hidden-text"
-                  (click)="removeMovie(movie)">취소</button>
+                  (click)="removeMovie(movie); quickBookingService.addPlusButton()">취소</button>
                   <img [src]="movie.img_url" [alt]="movie.title">
                 </li>
                 <li class="plus-movie" *ngFor="let plus of quickBookingService.addPlus">
