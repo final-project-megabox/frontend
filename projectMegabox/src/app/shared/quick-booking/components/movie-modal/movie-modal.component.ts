@@ -76,6 +76,9 @@ export class MovieModalComponent implements OnInit {
   // 취소 버튼을 누르면 선택된 영화들의 정보가 담겨있는 selectMovie을 reset
   cancelSelect() {
     this.bookingService.movieModalState = false;
+    if(!this.bookingService.selectMovie.length) {
+      this.bookingService.selectTitle = [];
+    }
   }
 }
 
