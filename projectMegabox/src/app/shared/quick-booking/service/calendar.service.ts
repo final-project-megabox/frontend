@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { Days } from '../models/days.interface';
 
 export class CalendarService {

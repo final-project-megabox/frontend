@@ -58,7 +58,10 @@ $line: #E1E1E1;
         height: 59px;
         font-size: .8rem;
         padding: 10px 0;
-        border-bottom: 1px solid $line;
+
+        &:nth-child(-n+4) {
+          border-bottom: 1px solid $line;
+        }
 
         &:first-child {
           margin-top: 20px;
@@ -94,8 +97,10 @@ $line: #E1E1E1;
 
     // cardList
     .cardList {
+      cursor: pointer;
+
       & li {
-        height: 95px;
+        height: 96px;
         border-top: 1px solid $line;
         display: flex;
         align-items: center;
@@ -121,6 +126,10 @@ $line: #E1E1E1;
           }
           .cardList-detail, .cardList-constraint {
             font-size: .77rem;
+          }
+
+          .cardList-constraint {
+            margin-top: 5px;
           }
         }
       }

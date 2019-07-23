@@ -11,17 +11,21 @@
 
       <!-- theater body -->
       <ul class="theaterNotice" *ngIf="theaterState==='전체 공지'">
-        <li *ngFor="let theaterNotice of TheaterNotices">
-          <span class="theater-category">{{theaterNotice.category}}</span>
-          <span class="theater-date">{{theaterNotice.date}}</span>
-          <p class="theater-title">{{theaterNotice.title}}</p>
+        <li *ngFor="let theaterNotice of TheaterNotices; index as i">
+          <div *ngIf="i <=3">
+            <span class="theater-category">{{theaterNotice.category}}</span>
+            <span class="theater-date">{{theaterNotice.date}}</span>
+            <p class="theater-title">{{theaterNotice.title}}</p>
+          </div>
         </li>
       </ul>
       <ul class="branchNotice" *ngIf="theaterState==='영화관 공지'">
-        <li *ngFor="let branchNotice of BranchNotices">
-          <span class="theater-category">{{branchNotice.category}}</span>
-          <span class="theater-date">{{branchNotice.date}}</span>
-          <p class="theater-title">{{branchNotice.title}}</p>
+        <li *ngFor="let branchNotice of BranchNotices; index as i">
+          <div *ngIf="i <= 3">
+            <span class="theater-category">{{branchNotice.category}}</span>
+            <span class="theater-date">{{branchNotice.date}}</span>
+            <p class="theater-title">{{branchNotice.title}}</p>
+          </div>
         </li>
       </ul>
     </div>
