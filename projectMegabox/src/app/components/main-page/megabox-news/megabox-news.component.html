@@ -1,1 +1,15 @@
-<p>megabox-news works!</p>
+<div class="megabox-news-container">
+  <div class="fix-img">
+    <div class="branchEvent">
+      <img src="http://image2.megabox.co.kr//mop/event/2019/60/8930BB-7FE0-49A4-9D13-81862FB564C5.png" alt="메가박스 지점소식">
+      <div class="branchEvent-container">
+        <div *ngFor="let branchEvent of BranchEvents" class="branchEvent-piece">
+          <div class="branchEvent-header">지점이벤트</div>
+          <p class="branchEvent-local">{{branchEvent.local}}</p>
+          <p class="branchEvent-branch">{{branchEvent.branch}}</p>
+          <p class="branchEvent-hashtag">{{branchEvent.hashtag}}</p>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>

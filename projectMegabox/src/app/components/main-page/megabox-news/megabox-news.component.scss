@@ -1,0 +1,79 @@
+$fix-image: 'http://image2.megabox.co.kr/mop/home/ad/1600x1000/160824_bg_img.jpg';
+$branch-news: 'http://image2.megabox.co.kr//mop/event/2019/60/8930BB-7FE0-49A4-9D13-81862FB564C5.png';
+
+.megabox-news-container {
+  margin-top: 50px;
+}
+
+.fix-img {
+  height: 500px;
+  background: url($fix-image);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgb(0, 0, 0);
+  background-size: unset;
+  overflow: visible;
+
+  display: flex;
+  justify-content: center;
+
+  .branchEvent {
+    margin-top: 50px;
+    width: 865px;
+    height: 140px;
+
+    .branchEvent-container {
+      width: 810;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+
+      .branchEvent-piece {
+        width: 235px;
+        height: 185px;
+        background: rgba(0,0,0,0.6);
+        border: 1px solid #333;
+        position: relative;
+        text-align: center;
+  
+        & div, p {
+          color: white;
+        }
+
+        .branchEvent-header {
+          background: #333;
+          border: 1px solid #444;
+          width: 100px;
+          height: 34px;
+          line-height: 34px;
+          position: absolute;
+          top: -3px;
+          left: 50%;
+          transform: translate(-50%);
+        }
+
+        .branchEvent-local {
+          margin-top: 40px;
+          font-size: 1.05rem;
+        }
+
+        .branchEvent-branch, .branchEvent-hashtag {
+          margin-top: 15px;
+        }
+
+        .branchEvent-branch {
+          font-weight: 700;
+          font-size: 1.4rem;
+        }
+
+        .branchEvent-hashtag {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+  }
+}
