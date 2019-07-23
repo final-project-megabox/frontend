@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { PasswordValidator } from './validators/password-validator';
@@ -85,7 +85,7 @@ export class SignUpComponent implements OnInit {
   // email 선택지 창 열고 닫는 불리언 값
   emailRecommendation = false;
 
-  // 웹사이트 이메일 주고
+  // 웹사이트 이메일 주소
   emailAddress = ['naver.com','gmail.com','daum.net','hanmail.net','nate.com','hotmail.com','icloud.com'];
 
   // @ 입력 시 email 선택지 보여주기
@@ -106,5 +106,23 @@ export class SignUpComponent implements OnInit {
   emailContent(email: string) {
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
+  }
+
+  Addemail(email: string) {
+    this.emailVal = this.emailVal + email;
+    this.emailRecommendation = false;
+  }
+
+  @ViewChild("li") nameField: ElementRef;
+  toList(): void {
+    this.nameField.nativeElement.focus();
+  }
+
+  moveUp(li: HTMLElement): void {
+    li.previousElementSibling.focus();
+  }
+
+  moveDown(li: HTMLLIElement): void {
+    li.nextElementSibling.focus();
   }
 }

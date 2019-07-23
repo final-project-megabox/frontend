@@ -163,10 +163,15 @@ i.fa-check {
 ul.mail-recommendation {
   position: absolute;
   border-radius: 3px;
-  // margin: 3px;
+  line-height: 30px;
+  text-indent: 10px;
   background-color: #fff;
   border: 1px solid #333;
-  width: 200px;
+  width: 198px;
+}
+
+ul.mail-recommendation li {
+  letter-spacing: .1px;
 }
 
 ul.mail-recommendation li:hover {

@@ -6,11 +6,13 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { SignUpComponent } from './sign-up.component';
 import { InformationBackgroundDirective } from './directives/information-background.directive';
+import { ChoiceEmailDirective } from './directives/choice-email.directive';
 
 @NgModule({
   declarations: [ 
     SignUpComponent,
-    InformationBackgroundDirective
+    InformationBackgroundDirective,
+    ChoiceEmailDirective
   ],
   imports: [
     CommonModule,
