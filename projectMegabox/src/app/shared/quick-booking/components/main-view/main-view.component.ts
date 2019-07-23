@@ -23,6 +23,7 @@ export class MainViewComponent implements OnInit {
     private calenderService: CalendarService
   ) {}
   
+
   ngOnInit() {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
     this.currentTime = new Date().getHours(); 
