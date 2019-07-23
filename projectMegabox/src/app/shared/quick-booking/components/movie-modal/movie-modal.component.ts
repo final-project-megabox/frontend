@@ -18,10 +18,11 @@ export class MovieModalComponent implements OnInit {
     this.getMovies();
   }
 
-  selectPoster:HTMLLIElement[]=[];
-  
   sortItems: SortItem[] = ['예매율순','가나다순','개봉일순'];
   sortState: SortItem = '예매율순';
+  
+  // 선택된 포스터의 LI요소를 담는 배열
+  selectPoster:HTMLLIElement[]=[];
   
   // 서버에서 영화 정보 데이터를 받아옴.
   getMovies()  {
@@ -63,6 +64,7 @@ export class MovieModalComponent implements OnInit {
     })
   }
 
+  // 취소 버튼을 누르면 선택된 영화들의 정보가 담겨있는 selectMovie을 reset
   cancelSelect() {
     this.bookingService.movieModalState = false;
     this.bookingService.selectMovie = [];
