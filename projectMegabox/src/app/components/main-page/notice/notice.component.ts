@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Theater } from './models/theater.type';
-import { TheaterNotice } from './models/theaterNotice-interface';
-import { CardList } from './models/card-list-interface';
-import { Customer } from './models/customer.type';
+import { Theater, Customer } from './models/theater.type';
+import { TheaterNotice, CardList } from './models/theaterNotice-interface';
 
 @Component({
   selector: 'app-notice',
@@ -25,9 +23,10 @@ export class NoticeComponent implements OnInit {
   ngOnInit() {
 
     this.TheaterNotices = [
+      { category: '전체', date: '2019.07.23', title: '<나랏말싸미> VIP 대상 3천원 할인쿠폰 증정 이벤트' },
       { category: '전체', date: '2019.07.22', title: '[무대인사] <봉오동 전투> 1주차 (8/2~8/3)' },
       { category: '전체', date: '2019.07.19', title: '[공지] 시스템 점검 안내' },
-      { category: '전체', date: '2019.07.19', title: '[당첨안내]<토이스토리4 개봉 기념 선물>문자 이벤트 당첨 안내' },
+      { category: '전체', date: '2019.07.19', title: '[당첨안내]<토이스토리4 개봉 기념 선물> 문자 이벤트 당첨 안내' },
       { category: '전체', date: '2019.07.19', title: '[무대인사] <사자> 2주차 (8/10~8/11)' },
     ]
     
