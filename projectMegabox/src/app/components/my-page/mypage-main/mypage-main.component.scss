@@ -2,14 +2,14 @@
 .my-page-container {
   width: 970px;
   margin: 0 auto;
-  background: #B4D491;
+  // background: #B4D491;
 }
 
 // 이름 출력부분
 
 .inner-container {
   /* width: 847px; */
-  background: purple;
+  // background: purple;
   /* margin-left: 61.5px; */
 }
 
@@ -20,7 +20,7 @@
 }
 
 .row1 {
-  background: skyblue;
+  // background: skyblue;
   border: 5px solid #7B67AC;
   border-top: 0px;
 }
@@ -71,13 +71,14 @@
   margin-bottom: 5px;
 }
 
-.words-wrap h3 {
+.eachbox-title {
   font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
   font-size: 18px;
   font-weight: 900;
   color: #4D4D4D;
   // background: blue;
-  width: 135px;
+  width: 140px;
+  float: left;
 }
 
 .words-wrap button {
@@ -145,17 +146,123 @@
 
 // 첫줄 중간박스
 .memberbox-middle {
-  background: coral;
+  // background: coral;
   width: 300px;
+  margin: 20px 10px 20px 20px;
   /* margin-right: 25px; */
 }
 
+.mb01 {
+  color: #333;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mb02 {
+  color: #666;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mb03 {
+  color: #666;
+  font-size: 12px;
+}
+
+
+.mp01 {
+  float: right;
+  color: #503396;
+  font-size: 14px;
+  font-weight: 550;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mp02-button {
+  background: #503396;
+  color:white;
+  width: 65px;
+  height: 20px;
+  border: 1px solid #1F1140;
+  font-size: 12px;
+  float: right;
+}
+
+.mw01-button {
+  width: 55px;
+  height: 20px;
+  border: 1px solid #9A9A9A;
+  background: white;
+  font-size: 12px;
+  float: right;
+  text-align: center;
+}
+
+.c_mint {
+  color: #198591;
+}
+
+.middlebox-line {
+  // display: block;
+  background: #CCCCCC;
+  // width: 100%;
+  height: 2px;
+  margin: 8px 0 8px 0;
+}
+
+.space-bottom {
+  margin-bottom: 10px;
+}
+
+.space-around {
+  margin: 4px 0 4px 0;
+}
+
+
+//오른쪽 박스 시작
 .memberbox-right {
   width: 272px;
-  background: yellow;
+  margin: 20px 10px 20px 20px;
 }
+
+
+.mb04 {
+  float: left;
+  color: #333333;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mb06 {
+  float: right;
+  color: #4C4C4C;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.custom {
+  width: 100%;
+  display: block;
+  // background: plum;
+  height: 28px;
+}
+
+
+// 두번째 박스라인
 
 .row2 {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  background: skyblue;
 }
+
+.box1, .box2, .box3 {
+  margin-top: 30px;
+  width: 316px;
+  background: purple;
+}
+
