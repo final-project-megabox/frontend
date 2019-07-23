@@ -108,11 +108,11 @@ em.email-alert {
 }
 
 em.birth-alert {
-  margin-left: 90px;
+  margin-left: 95px;
 }
 
 em.phone-alert {
-  margin-left: 87px;
+  margin-left: 90px;
 }
 
 button.double-check {
@@ -163,12 +163,17 @@ i.fa-check {
 ul.mail-recommendation {
   position: absolute;
   border-radius: 3px;
-  margin: 3px;
+  line-height: 30px;
+  text-indent: 10px;
   background-color: #fff;
   border: 1px solid #333;
-  width: 200px;
+  width: 198px;
+}
+
+ul.mail-recommendation li {
+  letter-spacing: .1px;
 }
 
 ul.mail-recommendation li:hover {
-  background-color: #503396;
+  background-color: hsl(200, 40%, 80%);
 }

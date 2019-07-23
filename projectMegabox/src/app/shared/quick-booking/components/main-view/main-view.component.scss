@@ -179,11 +179,11 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
           .movie-select {
             background: #FEFEFE;
             width: 100%;
-            border: 1px solid #e0e0e0;
 
             .all-movie {
               height: 140px;
-              border-bottom: 1px solid #e0e0e0;
+              border: 1px solid #e0e0e0;
+              
               p {
                 color: #333;
                 font-size: 2rem;
@@ -195,6 +195,9 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
             .select-movie {
               height: 90px;
               width: 100%;
+              border-right: 1px solid #e0e0e0;
+              border-bottom: 1px solid #e0e0e0;
+              border-left: 1px solid #e0e0e0;
               background: url('http://image2.megabox.co.kr/mop/home/btns/select_movie.png') no-repeat 50% 50%;
               outline-color: #cdcdcd;
 
@@ -202,6 +205,59 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
                 display: block;
                 width: 0;
                 overflow: hidden;
+              }
+            }
+
+            .poster-list {
+              display: flex;
+              justify-content: space-between;
+
+              .poster {
+                position: relative;
+                border: 1px solid #e0e0e0;
+                height: 140px;
+                .cancel {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid #e0e0e0;
+                  background: #ffffff url('http://image2.megabox.co.kr/mop/home/btns/btn_close.png') 4px -86px no-repeat;
+                }
+
+                img {
+                  width: 95px;
+                  height: 140px;
+                }
+              }
+            }
+
+            .plus-movie {
+              border: 1px solid #e0e0e0;
+              button {
+                width: 95px;
+                height: 140px;
+                background: url('http://image2.megabox.co.kr/mop/home/btns/btn_add.png') 50% 50% no-repeat;
+              }
+            }
+
+            .select-kinds {
+              padding: 20px 30px;
+              border-bottom: 1px solid #e0e0e0;
+              border-right: 1px solid #e0e0e0;
+              border-left: 1px solid #e0e0e0;
+              background-color: #f9f9f9;
+              li {
+                display: inline-block;
+                width: 110px;
+                input {
+
+                }
+
+                label {
+
+                }
               }
             }
           }

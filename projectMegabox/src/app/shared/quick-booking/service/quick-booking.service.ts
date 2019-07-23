@@ -9,11 +9,13 @@ export class QuickBookingService {
   movieModalState = false;
   theaterModalState = false;
   alertModalState = false;
+  selectedMovies = false;
 
-  movies:Movies[]=[];
-  selectMovie:Movies[]=[];
+  addPlus = [];  // 플러스버튼추가
+
+  movies:Movies[] = [];
+  selectMovie:Movies[] = [];
   
-  test = true;
   constructor(private http: HttpClient) { }
   
   ngOnInit() {}
@@ -22,4 +24,16 @@ export class QuickBookingService {
     return this.http.get<Movies[]>(environment.appUrl);
   }
   
+  // 선택한 영화 갯수 구해서 add 버튼추가
+  addPlusButton() {
+    this.addPlus = [];
+    
+    const leng = this.selectMovie.length;
+
+    if (leng === 4) return;
+
+    for (let i = 0; i < 4 - leng; i++) {
+      this.addPlus = [...this.addPlus, {}];
+    }
+  }
 }
