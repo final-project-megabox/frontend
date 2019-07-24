@@ -9,22 +9,42 @@
   <div class="rank-movie-container">
 
     <!-- poster -->
-    <ul *ngFor="let rankmovie of RankMovies | rankSort :rankState; index as i" class ="rank-poster-container">
+    <ul *ngFor="let rankmovie of rankService.RankMovies | rankSort :rankState; index as i" class ="rank-poster-container">
       <div *ngIf="i <= 3">
-        <span *ngIf="rankState==='박스오피스'" class="ranking-marker-{{rankmovie.id}}"></span>
-        <img class ="rank-poster" src="{{rankmovie.url}}" alt="{{rankmovie.title}}">
-        <div class="rank-poster-hover"></div>
-
-    <!-- movie title & information -->
+        <span *ngIf="rankState==='박스오피스'" class="ranking-marker-{{rankmovie.movie_id}}"></span>
+        <img class ="rank-poster" src="{{rankmovie['img_url']}}" alt="{{rankmovie['title']}}">
+        
+        <!-- movie title & information -->
         <div class="rank-info-container">
-          <li class="rank-info"><span class="{{rankmovie.age}}"></span>{{rankmovie.title}}
+          <li class="rank-info"><span class="{{rankmovie['age']}}"></span>{{rankmovie['title']}}
             <div class="rank-info-detail">
               <button class="detail-info">상세정보</button>
               <button class="rank-booking">예매하기</button>
             </div>
           </li>
         </div>
+        <!-- movie title & information end-->
+        
       </div>
     </ul>
+    <!-- poster end-->
+    
+    <!-- hover -->
+    <div *ngFor="let rankmovie of rankService.RankMovies; index as i">
+      <div *ngIf="i <= 3">
+        <div class="rank-poster-hover-{{i}}">
+          <ul class="rankStar">
+            <li *ngFor="let rankStar of RankStars; index as i" [ngClass]="{starActive: starState===rankStar}" 
+            (mouseenter)="starState=rankStar" class="rankStar-{{i}}"></li>
+          </ul>
+          <p *ngFor="let rankStarContent of RankStarContents; index as i" class="rankStar-review-{{i}}"></p>
+          <div class="rank-movie-wish"></div>
+        </div>
+      </div>
+    </div>
+    <!-- hover end-->
+
   </div>
+  <!-- box office body end-->
 </div>
+<!-- box office tab end-->

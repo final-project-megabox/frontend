@@ -23,14 +23,14 @@ export class RankSortPipe implements PipeTransform {
     // 최신개봉작: 현재 날짜 기준 releaseDate가 낮은 영화 내림차순
     // 박스오피스: reservationRate 기준 내림차순
     if (rankState === '상영예정작') { 
-      return ranks.sort(compare('releaseDate')).filter(({releaseDate})=>{ 
-        return new Date(releaseDate) > openDate }); 
+      return ranks.sort(compare('release_date')).filter(({release_date})=>{ 
+        return new Date(release_date) > openDate }); 
       }
     else if (rankState === '최신개봉작') { 
-      return ranks.sort(compare('releaseDate')).filter(({releaseDate})=>{ 
-        return new Date(releaseDate) <= openDate }); 
+      return ranks.sort(compare('release_date')).filter(({release_date})=>{ 
+        return new Date(release_date) <= openDate }); 
       }
-    else return ranks.sort(compare('reservationRate'));
+    else return ranks.sort(compare('booking_rate'));
   }
 
 }
