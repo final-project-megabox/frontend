@@ -266,3 +266,76 @@
   background: purple;
 }
 
+
+.Mypage-user {
+  height: 253px;
+  background: #F2F2F2;
+  border: 1px solid rgb(192, 192, 192);
+  padding: 40px 15px 0 15px;
+}
+
+.user-col1 {
+  width: 100%;
+  background: lightgreen;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.user-col1 button {
+  width: 61px;
+  height: 22px;
+}
+
+.col01 {
+  margin: 15px 0 15px 0;
+  width: 100%;
+  background: #198591;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Mypage-cinemaNews {
+  margin-top: 13px;
+  height: 322px;
+  background: yellow;
+  border: 5px solid #f2f2f2;
+  padding: 35px 15px 0 15px;
+}
+
+.notice, .event {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.news-size {
+  background: lightcoral;
+  width: 100%;
+  margin: 5px 0 5px 0;
+
+}
+
+
+.mypage-mainbox {
+  height: 588px;
+  background: #7B67AC;
+  border: 5px solid #f2f2f2;
+}
+
+.mypage-wants {
+  height: 333px;
+  background: yellowgreen;
+  border: 5px solid #f2f2f2;
+}
+
+.mypage-watchedmovie {
+  margin-top: 13px;
+  height: 242px;
+  background: lightcoral;
+  border: 5px solid #f2f2f2;
+}
+
+//row2 세부css
