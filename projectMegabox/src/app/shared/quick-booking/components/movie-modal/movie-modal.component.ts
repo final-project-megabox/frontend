@@ -41,17 +41,6 @@ export class MovieModalComponent implements OnInit {
     }));
   }
 
-  // getMovies()  {
-  //   this.bookingService.getAll()
-  //   .subscribe(allMovies => this.bookingService.movies = allMovies.map(movie => {
-
-  //     if(movie.age === 0) return {...movie, age:'age-all'}
-  //     if(movie.age === 1) return {...movie, age:'age-12'}
-  //     if(movie.age === 2) return {...movie, age:'age-15'}
-  //     if(movie.age === 3) return {...movie, age:'age-19'}
-  //   }));
-  // }
-
   // getMovies() {
   //      this.bookingService.getAll()
   //   .subscribe(allMovies  => {
