@@ -20,7 +20,7 @@ export class LoginModalComponent implements OnInit {
       ]),
       userPassword: new FormControl('', [
         Validators.required,
-        Validators.pattern('.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*')
+        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$')
       ])
     });
 
