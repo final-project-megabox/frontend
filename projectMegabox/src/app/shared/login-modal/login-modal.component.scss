@@ -65,8 +65,12 @@
         font-size: 0.9rem;
       }
 
-      .checked {        
-        background: url('http://image2.megabox.co.kr/mop/home/bg_input.png') no-repeat 1px 1px;
+      .checked::after {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url('http://image2.megabox.co.kr/mop/home/bg_input.png') 0 0 no-repeat;
       }
     }
   }
