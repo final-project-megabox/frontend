@@ -257,13 +257,13 @@
 .row2 {
   display: flex;
   justify-content: space-between;
-  background: skyblue;
+  // background: skyblue;
 }
 
 .box1, .box2, .box3 {
   margin-top: 30px;
   width: 316px;
-  background: purple;
+  // background: purple;
 }
 
 
@@ -271,12 +271,12 @@
   height: 253px;
   background: #F2F2F2;
   border: 1px solid rgb(192, 192, 192);
-  padding: 40px 15px 0 15px;
+  padding: 35px 15px 0 15px;
 }
 
 .user-col1 {
   width: 100%;
-  background: lightgreen;
+  // background: lightgreen;
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
@@ -290,7 +290,7 @@
 .col01 {
   margin: 15px 0 15px 0;
   width: 100%;
-  background: #198591;
+  // background: #198591;
   display: flex;
   justify-content: space-between;
 }
@@ -298,13 +298,73 @@
 .Mypage-cinemaNews {
   margin-top: 13px;
   height: 322px;
-  background: yellow;
+  // background: yellow;
   border: 5px solid #f2f2f2;
   padding: 35px 15px 0 15px;
 }
 
+.cinemaNews-col1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cinemaNews-col2 {
+  display: flex;
+}
+
+.cinemaNews-col2 li {
+  font-weight: 800;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+  width: 66px;
+  height: 24px;
+  border: 1px solid white;
+  margin-right: 5px;
+}
+
+.cinemaNews-col2 li a {
+  // background: purple;
+  display: block;
+  margin-top: 4px;
+}
+
+.cinemaNews-col2 .btnActive {
+  border: 1px solid #4C4C4C;
+  border-radius: 5px;
+  background: rgb(192, 189, 189);
+
+}
+
 .notice, .event {
   display: none;
+}
+
+.notice li, .event li {
+  // background: #198591;
+  margin: 15px 0 15px 0;
+}
+
+.notice a, .event a {
+  display: block;
+  // background: #7B67AC;
+  margin: 8px 0 8px 0;
+  text-decoration: none;
+}
+
+.eventnotice-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgb(228, 227, 227);
+  margin-top: 15px;
+}
+
+.newsBtn {
+  width: 60px;
+  height: 22px;
+  border: 1px solid #666;
+  margin-left: 72px;
 }
 
 .active {
@@ -312,30 +372,187 @@
 }
 
 .news-size {
-  background: lightcoral;
+  // background: hotpink;
   width: 100%;
   margin: 5px 0 5px 0;
 
 }
 
-
+// 2번째 줄 중간박스
 .mypage-mainbox {
   height: 588px;
-  background: #7B67AC;
+  // background: #7B67AC;
   border: 5px solid #f2f2f2;
+  padding: 35px 15px 0 15px;
 }
 
+.mypage-mainbox-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-mainbox h3 {
+  // background: coral;
+  height: 30px;
+}
+
+.mypage-mainbox button {
+  // background: #198591;
+  height: 22px;
+  width: 60px;
+  color: rgb(114, 113, 113);
+  font-weight: 600;
+  border: 1px solid #333;
+}
+
+
+// 2번째 줄 오른쪽 마지막 박스
+
+//보고싶어
 .mypage-wants {
+  padding: 35px 15px 0 15px;
   height: 333px;
-  background: yellowgreen;
+  // background: yellowgreen;
   border: 5px solid #f2f2f2;
 }
 
+.wants-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wants-title h3 {
+  height: 30px;
+}
+
+.wants-title button {
+  height: 22px;
+  width: 60px;
+  color: rgb(114, 113, 113);
+  font-weight: 600;
+  border: 1px solid #333;
+}
+
+
+//보고싶어 콘텐츠
+
+.wants-content {
+  margin: 15px 0 15px 0;
+}
+
+.wants-content li {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  // background: blue;
+}
+
+.wants-content .tb02 {
+  display: block;
+  margin-top: 8px;
+}
+
+.wants-content .bb02 {
+  display: block;
+  margin-top: 10px;
+}
+
+.wants-btn {
+  width: 60px;
+  height: 25px;
+  background: rgb(206, 206, 206);
+  border: 1px solid #9A9A9A;
+  color:#4D4D4D;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+//본영화
 .mypage-watchedmovie {
+  padding: 35px 15px 0 15px;
   margin-top: 13px;
   height: 242px;
-  background: lightcoral;
+  // background: lightcoral;
   border: 5px solid #f2f2f2;
+}
+
+.watchedmovie-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-watchedmovie h3 {
+  height: 30px;
+}
+
+.mypage-watchedmovie button {
+  height: 22px;
+  width: 60px;
+  color: rgb(114, 113, 113);
+  font-weight: 600;
+  border: 1px solid #333;
+}
+
+//본영화 콘텐츠
+.watchedmovie-content {
+  margin: 15px 0 15px 0;
+}
+.watchedmovie-content li {
+  display: flex;
+  justify-content: space-between;
 }
 
 //row2 세부css
+
+.bp01 {
+  background: #503396;
+  font-size: 11px;
+  border: 1px solid white;
+  color: white;
+  height: 22px;
+}
+
+
+.tb01 {
+  color: #333;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.tb02 {
+  color: #333;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+
+.bb01 {
+  font-weight: 800;
+  color: #333333;
+  font-size: 14px;
+}
+
+.bb02 {
+  font-weight: 500;
+  color: #666;
+  font-size: 13px;
+}
+
+.bb03 {
+  font-weight: 500;
+  color: #333333;
+  font-size: 14px;
+}
+
+.bb04 {
+  font-weight: 500;
+  color: #333333;
+  font-size: 12px;
+}
+
+.border-line {
+  width: 100%;
+  height: 2px;
+  background: rgb(228, 227, 227);
+}
