@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { PasswordValidator } from './validators/password-validator';
@@ -79,23 +79,50 @@ export class SignUpComponent implements OnInit {
     return this.userForm.get('phoneGroup');
   }
 
-  content:string;
+  // email 값
+  emailVal:string;
 
+  // email 선택지 창 열고 닫는 불리언 값
   emailRecommendation = false;
-  
-  emailValue(){
-    const bang ='@';
-    console.log(this.content);   
-    if(this.content.includes(bang)) {
+
+  // 웹사이트 이메일 주소
+  emailAddress = ['naver.com','gmail.com','daum.net','hanmail.net','nate.com','hotmail.com','icloud.com'];
+
+  // @ 입력 시 email 선택지 보여주기
+  emailChoice(){
+    const regxr = /@+[A-Z]+/gi;
+    const atSign ='@';
+    if(this.emailVal.includes(atSign)) {
       this.emailRecommendation = true;
     } else {
       this.emailRecommendation = false;
     }
+
+    if(regxr.test(this.emailVal)) {
+      this.emailRecommendation = false;
+    }
   }
 
-  emailContent() {
-    this.content = this.content + 'gmail.com';
+  emailContent(email: string) {
+    this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
   }
 
+  Addemail(email: string) {
+    this.emailVal = this.emailVal + email;
+    this.emailRecommendation = false;
+  }
+
+  @ViewChild("li", {static: false}) nameField: ElementRef;
+  toList(): void {
+    this.nameField.nativeElement.focus();
+  }
+
+  moveUp(li): void {
+    li.previousElementSibling.focus();
+  }
+
+  moveDown(li): void {
+    li.nextElementSibling.focus();
+  }
 }

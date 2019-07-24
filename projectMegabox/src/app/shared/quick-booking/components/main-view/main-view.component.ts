@@ -15,7 +15,7 @@ export class MainViewComponent implements OnInit {
   timeTableX = 0;
   currentTime: number;
   afterToday: Days[];
-  eventTarget: HTMLButtonElement;
+  addPlus = [];
 
   constructor(
     private quickBookingService: QuickBookingService,
@@ -25,8 +25,8 @@ export class MainViewComponent implements OnInit {
   
   ngOnInit() {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
-    this.currentTime = new Date().getHours();
-    this.timeTableX = this.currentTime * -44 < -616 ? -616 : this.currentTime * -44;
+    this.currentTime = new Date().getHours(); 
+    this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
   }
 
   // 오늘부터 한달 생성
@@ -95,5 +95,12 @@ export class MainViewComponent implements OnInit {
     if (time !== this.currentTime) return;
 
     return time === this.currentTime;
+  }
+
+  // 선택된 영화 취소버튼
+  removeMovie(select) {
+    const selectMovie = this.quickBookingService.selectMovie
+    
+    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id)
   }
 }

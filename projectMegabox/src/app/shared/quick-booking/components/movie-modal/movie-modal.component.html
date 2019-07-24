@@ -1,16 +1,16 @@
-<div class="movie-modal fade in">
+<div class="movie-modal fade in" (click)="test()">
   <div class="movie-modal-wrapper">
     <div class="movie-modal-contents">
       <div class=movie-modal-header>
         <h3>
-          <a class="all-movie" href="#">모든영화</a>
+          <a class="all-movie">모든영화</a>
         </h3>
       </div>
       <div class="util">
         <div class="selected">
           <button class="all-btn">All</button>
-          <p class="selected-movie" *ngFor="let selected of bookingService.selectMovie">
-            <span>{{selected['title']}}</span>
+          <p class="selected-movie" *ngFor="let selected of bookingService.selectTitle">
+            <span>{{selected}}</span>
             <button class="deleted-moive" (click)="deleteMovie(selected)">X</button>
           </p>
         </div>
@@ -23,8 +23,9 @@
       <div class="movie-list-wrapper">
         <ul class="movie-list">
           <li id="{{movie['movie_id']}}" class="moivie-list-li" *ngFor="let movie of bookingService.movies | moviesSort :sortState"
-          appPosterBackground (click)="addPoster(movie, poster)" #poster>
-            <a href="#" title="{{movie['title']}}">
+          (click)="movie.selected = !movie.selected"
+          [class.select-active]="movie.selected" (click)="addPoster(movie)" #poster>
+            <a title="{{movie['title']}}">
               <span class="blind">{{movie['title']}}</span>
             </a>
             <div class=poster>
@@ -38,9 +39,11 @@
         </ul>
       </div>
       <div class="movie-btns-wrapper">
-        <button type="button" class="booking-btn booking-cancel" (click)="cancelSelect()">취소</button>
-        <button type="button" class="booking-btn booking-confirm" (click)="bookingService.movieModalState = false" 
-        [disabled]="!bookingService.selectMovie.length" [style.backgroundColor]= "!bookingService.selectMovie.length ? '#dcdcdc' : null">확인</button>
+        <button type="button" class="booking-btn booking-cancel" 
+        (click)="cancelSelect()">취소</button>
+        <button type="button" class="booking-btn booking-confirm" 
+        (click)="confirmSelect()"
+        [disabled]="!bookingService.selectTitle.length" [style.backgroundColor]= "!bookingService.selectTitle.length ? '#dcdcdc' : null">확인</button>
       </div>
     </div>
   </div>

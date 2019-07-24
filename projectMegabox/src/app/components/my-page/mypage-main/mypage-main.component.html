@@ -19,7 +19,7 @@
 
           <div class= "memberbox-left">
             <div class="words-wrap">
-              <h3>메가박스 포인트</h3>
+              <h3 class="eachbox-title">메가박스 포인트</h3>
               <button>더보기</button>
             </div>
             <div class= "point-wrap">
@@ -43,24 +43,33 @@
 
           <div class= "memberbox-middle">
             <ul>
-              <li>
-                <strong>bb2019년 누적 포인트</strong>
-                <strong>ff0P</strong>
+              <li class="space-bottom">
+                <strong class="mb01">2019년 누적 포인트</strong>
+                <strong class="mp01">0P</strong>
               </li>
-              <li>
-                <strong>티켓 구매 누적포인트</strong>
-                <strong>gg0P</strong>
+              <li class="space-around">
+                <strong class="mb02"><i class="fa fa-angle-right c_mint"></i>티켓 구매 누적포인트</strong>
+                <strong class="mp01">0P</strong>
               </li>
-              <li>
-                <strong>이벤트 누적포인트</strong>
-                <strong>0P</strong>
+              <li class= "space-around">
+                <strong class="mb02"><i class="fa fa-angle-right c_mint"></i>이벤트 누적포인트</strong>
+                <strong class="mp01">0P</strong>
               </li>
+              <li class="middlebox-line"></li>
               <li>
-                <strong>소멸예정 포인트</strong>
-                <strong>0P</strong>
+                <strong class= "mb01">소멸예정 포인트</strong>
+                <strong class= "mp01">0P</strong>
                 <p>
-                  <small>(2019년 7월 31일 영업 종료시)</small>
-                  <button>더보기</button>
+                  <small class= "mb03">(2019년 7월 31일 영업 종료시)</small>
+                  <button class="mp02-button">+ 더보기</button>
+                </p>
+              </li>
+              <li class="middlebox-line"></li>
+              <li>
+                <strong class="mb01">2019년 관람한 영화 편수</strong>
+                <strong class="mp01">0편</strong>
+                <p>
+                  <small class="mb03">(서로 다른 영화 기준)</small>
                 </p>
               </li>
             </ul>
@@ -68,35 +77,38 @@
           </div> <!-- memberbox-middle -->
 
           <div class= "memberbox-right">
-            <div>
-              <h3>관람권 / VIP쿠폰</h3>
-              <button>더보기</button>
-            </div>
 
-            <ul>
-              <li>
-                <strong>사용가능한 VIP 영화 쿠폰</strong>
-                <strong>0매</strong>
+            <ul class="cupon-list">
+              <li class="custom space-bottom">
+                <strong class="eachbox-title">관람권 / VIP쿠폰</strong>
+                <strong class="mw01-button">+더보기</strong>
+              </li>
+
+              <li class="custom">
+                <strong class="mb04">사용가능한 VIP 영화 쿠폰</strong>
+                <strong class="mb06">0매</strong>
+              </li>
+
+              <li class="custom">
+                <strong class="mb04">사용가능한 VIP 매점 쿠폰</strong>
+                <strong class="mb06">0매</strong>
+              </li>
+
+              <li class="custom">
+                <strong class="mb04">사용가능한 관람권</strong>
+                <strong class="mb06">0매</strong>
+              </li>
+
+              <li class="custom">
+                <strong class="mb04">사용가능한 기타쿠폰</strong>
+                <strong class="mb06"> 0매</strong>
               </li>
 
               <li>
-                <strong>사용가능한 VIP 매점 쿠폰</strong>
-                <strong>0매</strong>
-              </li>
-
-              <li>
-                <strong>사용가능한 관람권</strong>
-                <strong>0매</strong>
-              </li>
-
-              <li>
-                <strong>사용가능한 기타쿠폰</strong>
-                <strong>0매</strong>
+                <button class="mp02-button">등록하기</button>
               </li>
             </ul>
-            <button>등록하기</button>
           </div> <!-- memberbox-right -->
-
 
         </div> <!-- row1 mainbox -->
       </div> <!-- row1 -->
@@ -105,84 +117,93 @@
         <div class= "box1">
           <div class= "Mypage-user">
             <div class= "user-col1">
-              <h3>개인정보</h3>
-              <button>수정하기</button>
+              <h3 class="tb01">개인정보</h3>
+              <button class="bp01">수정하기</button>
             </div>
 
             <ul class= "user-col2">
-              <li>
-                <strong>휴대폰</strong>
-                <span>hh010-****-7621</span>
+              <li class="col01">
+                <strong class="bb01">휴대폰</strong>
+                <span class="bb02">010-****-7621</span>
               </li>
 
-              <li>
-                <strong>선호 영화관</strong>
-                <span>상봉</span>
+              <li class="col01">
+                <strong class="bb01">선호 영화관</strong>
+                <span class="bb02">상봉</span>
               </li>
 
-              <li>
-                <strong>SMS수신여부</strong>
+              <li class="col01">
+                <strong class="bb01">SMS수신여부</strong>
                 <span class= "sms-button">
                   <button>거부</button>
                   <button>수신</button>
                 </span>
+              </li>
+
+              <li class="col01">
+                <strong class="bb01">스페셜 멤버십</strong>
+                <small class="bb02">가입된 스페셜 멤버십이 없습니다.</small>
               </li>
             </ul>
 
           </div> <!-- Mypage-user -->
 
           <div class= "Mypage-cinemaNews">
-            <div class="cinemaNews-col1">
-              <h3>선호 영화관 소식</h3>
-              <button>선호 영화관 등록/수정</button>
+            <div class="cinemaNews-col1 news-size">
+              <h3 class="tb01">선호 영화관 소식</h3>
+              <button class="bp01">&nbsp;&nbsp;선호 영화관 등록/수정&nbsp;&nbsp;</button>
             </div> <!-- cinemaNews-col1 -->
 
-            <ul class= "cinemaNews-col2">
-              <li>
-                <a href="#">공지사항</a>
+            <ul class= "cinemaNews-col2 news-size">
+              <li (click)="tabChange(button1.textContent)" [ngClass]="{btnActive: navState == '공지사항'}" #button1>
+                <a>공지사항</a>
+              </li>
+              <li (click)="tabChange(button2.textContent)" [ngClass]="{btnActive: navState == '이벤트'}" #button2>
+                <a>이벤트</a>
               </li>
               <li>
-                <a href="#">이벤트</a>
+                <button class="newsBtn">+ 더보기</button>
               </li>
             </ul> <!-- cinemaNews-col2 -->
 
-            <ul class= "cinemaNews-col3">
-              <div class="notice">
+            <div class= "cinemaNews-col3">
+              <ul class="notice " [ngClass]="{active: navState == '공지사항'}">
                 <li>
                   <p>
-                    <strong>서울/상봉</strong>
-                    <span>| 2019.07.04</span>
+                    <strong class="bb01">서울/상봉</strong>
+                    <span class="bb02">&nbsp;| 2019.07.04</span>
                   </p>
-                  <a href="#">[상봉] 정전 관련 안내</a>
+                  <a href="#" class="bb03">[상봉] 정전 관련 안내</a>
+                  <div class="eventnotice-line"></div>
                 </li>
                 <li>
                   <p>
-                    <strong>서울/상봉</strong>
-                    <span>| 2019.06.28</span>
+                    <strong class="bb01">서울/상봉</strong>
+                    <span class="bb02">&nbsp;| 2019.06.28</span>
                   </p>
-                  <a href="#">[상봉] 관람요금 조정 안내</a>
+                  <a href="#" class="bb03">[상봉] 관람요금 조정 안내</a>
+                  <div class="eventnotice-line"></div>
                 </li>
                 <li>
                   <p>
-                    <strong>서울/상봉</strong>
-                    <span>| 2019.02.18</span>
+                    <strong class="bb01">서울/상봉</strong>
+                    <span class="bb02">&nbsp;| 2019.02.18</span>
                   </p>
-                  <a href="#">[상봉] 요금기준 변경 안내</a>
+                  <a href="#" class="bb03">[상봉] 요금기준 변경 안내</a>
                 </li>
-              </div>
+              </ul>
 
-              <div class="event">
+              <ul class="event new-size" [ngClass]="{active: navState == '이벤트'}">
                 <li>
                   <p>
-                    <strong>서울/[상봉] 2019년...</strong>
-                    <span>| 2019.01.22</span>
+                    <strong class="bb01">서울/[상봉] 2019년...</strong>
+                    <span class="bb02">&nbsp;| 2019.01.22</span>
                   </p>
-                  <a href="#">[상봉] 2019년 시즌둰 판매</a>
+                  <a href="#" class="bb03">[상봉] 2019년 시즌둰 판매</a>
+                  <div class="eventnotice-line"></div>
                 </li>
-              </div>
-            </ul>
-
-            <button>더보기</button>
+              </ul>
+            </div>
 
           </div> <!-- Mypage-cinemaNews -->
 
@@ -190,47 +211,47 @@
 
         <div class= "box2">
           <div class= "mypage-mainbox">
-            <h3>최근 예매 내역</h3>
-            <button>더보기</button>
+            <div class="mypage-mainbox-inner">
+              <h3 class="tb01">최근 예매 내역</h3>
+              <button>+ 더보기</button>
+            </div>
+            <div class="border-line"></div>
           </div>
         </div> <!-- box2 -->
 
         <div class= "box3">
-          <div class= "mypage-shopping">
-            <div class= "shopping-col1">
-              <h3>스토어 구매내역</h3>
-              <button>더보기</button>
+          <div class= "mypage-wants">
+            <div class= "wants-title">
+              <h3 class="tb01">보고싶어</h3>
+              <button>+더보기</button>
             </div>
+            <div class="border-line"></div>
 
-            <div class= "shopping-col2">
-              <strong>구매일</strong>
-              <strong>상품명</strong>
-              <small>조회된 내역이 없습니다.</small>
-            </div>
-
-          </div> <!-- mypage-shopping -->
-
-          <div class= "mypage-moviestory">
-            <div class="moviestory-col1"><h3>나의 무비스토리</h3></div>
-            <ul class= "moviestory-col2">
+            <ul class= "wants-content">
               <li>
-                <strong>보고싶어</strong>
-                <strong>0</strong>
-              </li>
-              <li>
-                <strong>본영화</strong>
-                <strong>0</strong>
-              </li>
-              <li>
-                <strong>나의 한줄평</strong>
-                <strong>0</strong>
-              </li>
-              <li>
-                <strong>나의 포스트</strong>
-                <strong>0</strong>
+                <strong class="tb02">라이온킹</strong>
+                <strong class="bb02">2017.07.17</strong>
+                <button class="wants-btn">상세정보</button>
+                <button class="wants-btn">예매하기</button>
               </li>
             </ul>
-          </div> <!-- mypage-moviestroy -->
+          </div> <!-- mypage-wants -->
+
+          <div class= "mypage-watchedmovie">
+            <div class="watchedmovie-title">
+              <h3 class="tb01">본영화</h3>
+              <button>+더보기</button>
+            </div>
+            <div class="border-line"></div>
+            <ul class= "watchedmovie-content">
+              <li>
+                <strong class="tb02">레이디버드</strong>
+                <strong class="bb04">2016-09-01</strong>
+                <strong class="bb04">16:59~17:59</strong>
+                <strong class="bb04">강남 3관</strong>
+              </li>
+            </ul>
+          </div> <!-- mypage-watchedmovie -->
 
         </div> <!-- box3 -->
 

@@ -2,14 +2,14 @@
 .my-page-container {
   width: 970px;
   margin: 0 auto;
-  background: #B4D491;
+  // background: #B4D491;
 }
 
 // 이름 출력부분
 
 .inner-container {
   /* width: 847px; */
-  background: purple;
+  // background: purple;
   /* margin-left: 61.5px; */
 }
 
@@ -20,7 +20,7 @@
 }
 
 .row1 {
-  background: skyblue;
+  // background: skyblue;
   border: 5px solid #7B67AC;
   border-top: 0px;
 }
@@ -71,13 +71,14 @@
   margin-bottom: 5px;
 }
 
-.words-wrap h3 {
+.eachbox-title {
   font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
   font-size: 18px;
   font-weight: 900;
   color: #4D4D4D;
   // background: blue;
-  width: 135px;
+  width: 140px;
+  float: left;
 }
 
 .words-wrap button {
@@ -145,17 +146,413 @@
 
 // 첫줄 중간박스
 .memberbox-middle {
-  background: coral;
+  // background: coral;
   width: 300px;
+  margin: 20px 10px 20px 20px;
   /* margin-right: 25px; */
 }
 
+.mb01 {
+  color: #333;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mb02 {
+  color: #666;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mb03 {
+  color: #666;
+  font-size: 12px;
+}
+
+
+.mp01 {
+  float: right;
+  color: #503396;
+  font-size: 14px;
+  font-weight: 550;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mp02-button {
+  background: #503396;
+  color:white;
+  width: 65px;
+  height: 20px;
+  border: 1px solid #1F1140;
+  font-size: 12px;
+  float: right;
+}
+
+.mw01-button {
+  width: 55px;
+  height: 20px;
+  border: 1px solid #9A9A9A;
+  background: white;
+  font-size: 12px;
+  float: right;
+  text-align: center;
+}
+
+.c_mint {
+  color: #198591;
+}
+
+.middlebox-line {
+  // display: block;
+  background: #CCCCCC;
+  // width: 100%;
+  height: 2px;
+  margin: 8px 0 8px 0;
+}
+
+.space-bottom {
+  margin-bottom: 10px;
+}
+
+.space-around {
+  margin: 4px 0 4px 0;
+}
+
+
+//오른쪽 박스 시작
 .memberbox-right {
   width: 272px;
-  background: yellow;
+  margin: 20px 10px 20px 20px;
 }
+
+
+.mb04 {
+  float: left;
+  color: #333333;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.mb06 {
+  float: right;
+  color: #4C4C4C;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,'Apple SD Gothic Neo',sans-serif;
+}
+
+.custom {
+  width: 100%;
+  display: block;
+  // background: plum;
+  height: 28px;
+}
+
+
+// 두번째 박스라인
 
 .row2 {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  // background: skyblue;
+}
+
+.box1, .box2, .box3 {
+  margin-top: 30px;
+  width: 316px;
+  // background: purple;
+}
+
+
+.Mypage-user {
+  height: 253px;
+  background: #F2F2F2;
+  border: 1px solid rgb(192, 192, 192);
+  padding: 35px 15px 0 15px;
+}
+
+.user-col1 {
+  width: 100%;
+  // background: lightgreen;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.user-col1 button {
+  width: 61px;
+  height: 22px;
+}
+
+.col01 {
+  margin: 15px 0 15px 0;
+  width: 100%;
+  // background: #198591;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Mypage-cinemaNews {
+  margin-top: 13px;
+  height: 322px;
+  // background: yellow;
+  border: 5px solid #f2f2f2;
+  padding: 35px 15px 0 15px;
+}
+
+.cinemaNews-col1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cinemaNews-col2 {
+  display: flex;
+}
+
+.cinemaNews-col2 li {
+  font-weight: 800;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+  width: 66px;
+  height: 24px;
+  border: 1px solid white;
+  margin-right: 5px;
+}
+
+.cinemaNews-col2 li a {
+  // background: purple;
+  display: block;
+  margin-top: 4px;
+}
+
+.cinemaNews-col2 .btnActive {
+  border: 1px solid #4C4C4C;
+  border-radius: 5px;
+  background: rgb(192, 189, 189);
+
+}
+
+.notice, .event {
+  display: none;
+}
+
+.notice li, .event li {
+  // background: #198591;
+  margin: 15px 0 15px 0;
+}
+
+.notice a, .event a {
+  display: block;
+  // background: #7B67AC;
+  margin: 8px 0 8px 0;
+  text-decoration: none;
+}
+
+.eventnotice-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgb(228, 227, 227);
+  margin-top: 15px;
+}
+
+.newsBtn {
+  width: 60px;
+  height: 22px;
+  border: 1px solid #666;
+  margin-left: 72px;
+}
+
+.active {
+  display: block;
+}
+
+.news-size {
+  // background: hotpink;
+  width: 100%;
+  margin: 5px 0 5px 0;
+
+}
+
+// 2번째 줄 중간박스
+.mypage-mainbox {
+  height: 588px;
+  // background: #7B67AC;
+  border: 5px solid #f2f2f2;
+  padding: 35px 15px 0 15px;
+}
+
+.mypage-mainbox-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-mainbox h3 {
+  // background: coral;
+  height: 30px;
+}
+
+.mypage-mainbox button {
+  // background: #198591;
+  height: 22px;
+  width: 60px;
+  color: rgb(114, 113, 113);
+  font-weight: 600;
+  border: 1px solid #333;
+}
+
+
+// 2번째 줄 오른쪽 마지막 박스
+
+//보고싶어
+.mypage-wants {
+  padding: 35px 15px 0 15px;
+  height: 333px;
+  // background: yellowgreen;
+  border: 5px solid #f2f2f2;
+}
+
+.wants-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wants-title h3 {
+  height: 30px;
+}
+
+.wants-title button {
+  height: 22px;
+  width: 60px;
+  color: rgb(114, 113, 113);
+  font-weight: 600;
+  border: 1px solid #333;
+}
+
+
+//보고싶어 콘텐츠
+
+.wants-content {
+  margin: 15px 0 15px 0;
+}
+
+.wants-content li {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  // background: blue;
+}
+
+.wants-content .tb02 {
+  display: block;
+  margin-top: 8px;
+}
+
+.wants-content .bb02 {
+  display: block;
+  margin-top: 10px;
+}
+
+.wants-btn {
+  width: 60px;
+  height: 25px;
+  background: rgb(206, 206, 206);
+  border: 1px solid #9A9A9A;
+  color:#4D4D4D;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+//본영화
+.mypage-watchedmovie {
+  padding: 35px 15px 0 15px;
+  margin-top: 13px;
+  height: 242px;
+  // background: lightcoral;
+  border: 5px solid #f2f2f2;
+}
+
+.watchedmovie-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-watchedmovie h3 {
+  height: 30px;
+}
+
+.mypage-watchedmovie button {
+  height: 22px;
+  width: 60px;
+  color: rgb(114, 113, 113);
+  font-weight: 600;
+  border: 1px solid #333;
+}
+
+//본영화 콘텐츠
+.watchedmovie-content {
+  margin: 15px 0 15px 0;
+}
+.watchedmovie-content li {
+  display: flex;
+  justify-content: space-between;
+}
+
+//row2 세부css
+
+.bp01 {
+  background: #503396;
+  font-size: 11px;
+  border: 1px solid white;
+  color: white;
+  height: 22px;
+}
+
+
+.tb01 {
+  color: #333;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.tb02 {
+  color: #333;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+
+.bb01 {
+  font-weight: 800;
+  color: #333333;
+  font-size: 14px;
+}
+
+.bb02 {
+  font-weight: 500;
+  color: #666;
+  font-size: 13px;
+}
+
+.bb03 {
+  font-weight: 500;
+  color: #333333;
+  font-size: 14px;
+}
+
+.bb04 {
+  font-weight: 500;
+  color: #333333;
+  font-size: 12px;
+}
+
+.border-line {
+  width: 100%;
+  height: 2px;
+  background: rgb(228, 227, 227);
 }
