@@ -122,46 +122,51 @@
             </div>
 
             <ul class= "user-col2">
-              <li>
+              <li class="col01">
                 <strong>휴대폰</strong>
-                <span>hh010-****-7621</span>
+                <span>010-****-7621</span>
               </li>
 
-              <li>
+              <li class="col01">
                 <strong>선호 영화관</strong>
                 <span>상봉</span>
               </li>
 
-              <li>
+              <li class="col01">
                 <strong>SMS수신여부</strong>
                 <span class= "sms-button">
                   <button>거부</button>
                   <button>수신</button>
                 </span>
               </li>
+
+              <li class="col01">
+                <strong>스페셜 멤버십</strong>
+                <small>가입된 스페셜 멤버십이 없습니다.</small>
+              </li>
             </ul>
 
           </div> <!-- Mypage-user -->
 
           <div class= "Mypage-cinemaNews">
-            <div class="cinemaNews-col1">
+            <div class="cinemaNews-col1 news-size">
               <h3>선호 영화관 소식</h3>
               <button>선호 영화관 등록/수정</button>
             </div> <!-- cinemaNews-col1 -->
 
-            <ul class= "cinemaNews-col2">
-              <li>
-                <a href="#">공지사항</a>
+            <ul class= "cinemaNews-col2 news-size">
+              <li (click)="tabChange(button1.textContent)" #button1>
+                <a>공지사항</a>
               </li>
-              <li>
-                <a href="#">이벤트</a>
+              <li (click)="tabChange(button2.textContent)" #button2>
+                <a>이벤트</a>
               </li>
             </ul> <!-- cinemaNews-col2 -->
 
-            <ul class= "cinemaNews-col3">
-              <div class="notice">
+            <div class= "cinemaNews-col3">
+              <ul class="notice" [ngClass]="{active: navState == '공지사항'}">
                 <li>
-                  <p>
+                  <p class="news-size">
                     <strong>서울/상봉</strong>
                     <span>| 2019.07.04</span>
                   </p>
@@ -181,9 +186,9 @@
                   </p>
                   <a href="#">[상봉] 요금기준 변경 안내</a>
                 </li>
-              </div>
+              </ul>
 
-              <div class="event">
+              <ul class="event" [ngClass]="{active: navState == '이벤트'}">
                 <li>
                   <p>
                     <strong>서울/[상봉] 2019년...</strong>
@@ -191,8 +196,8 @@
                   </p>
                   <a href="#">[상봉] 2019년 시즌둰 판매</a>
                 </li>
-              </div>
-            </ul>
+              </ul>
+            </div>
 
             <button>더보기</button>
 
