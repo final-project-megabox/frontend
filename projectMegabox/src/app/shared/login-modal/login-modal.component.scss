@@ -63,14 +63,35 @@
       label {
         color: #666;
         font-size: 0.9rem;
+        vertical-align: text-top;
+      }
+
+      .checked {
+        position: relative;
       }
 
       .checked::after {
         content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
         display: inline-block;
         width: 16px;
         height: 16px;
         background: url('http://image2.megabox.co.kr/mop/home/bg_input.png') 0 0 no-repeat;
+        cursor: pointer;
+      }
+
+      .active.checked::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url('http://image2.megabox.co.kr/mop/home/bg_input.png') -32px 0 no-repeat;
+        cursor: pointer
       }
     }
   }

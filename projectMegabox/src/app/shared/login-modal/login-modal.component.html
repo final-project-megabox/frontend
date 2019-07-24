@@ -4,10 +4,10 @@
   </header>
   <main>
     <h2 class="title">로그인</h2>
-    <form [formGroup]="userForm" (ngSubmit)="submit(saveId.checked)">
+    <form [formGroup]="userForm" (ngSubmit)="submit(checked)">
       <div class="input-group">
         <input type="email" formControlName="userId" 
-        placeholder="아이디" value="{{setId(inputId)}}">
+        placeholder="아이디" [(ngModel)]="inputId">
         <input type="password" formControlName="userPassword" 
         placeholder="비밀번호">
       </div>
@@ -17,7 +17,7 @@
     <div class="saveId-container">
       <label for="saveId">아이디 저장</label>
       <input type="checkbox" id="saveId" class="checked"
-      [checked]="inputId" #saveId>
+      [class.active]="checked" (change)="event()" #saveId>
     </div>
   </main>
   <footer>

@@ -100,8 +100,10 @@ export class MainViewComponent implements OnInit {
 
   // 선택된 영화 취소버튼
   removeMovie(select) {
-    const selectMovie = this.quickBookingService.selectMovie
+    const selectMovie = this.quickBookingService.selectMovie;
+    const selectTitle = this.quickBookingService.selectTitle;
     
-    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id)
+    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id);
+    this.quickBookingService.selectTitle = selectTitle.filter(title => title !== select.title);
   }
 }

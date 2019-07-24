@@ -10,6 +10,7 @@ import { RootService } from '../../core/service/root.service';
 export class LoginModalComponent implements OnInit {
   userForm: FormGroup;
   inputId = '';
+  checked = false;
   constructor(private rootService: RootService) { }
 
   ngOnInit() {
@@ -25,6 +26,7 @@ export class LoginModalComponent implements OnInit {
     });
 
     this.getCookie();
+    this.checked = this.inputId ? true : false;
   }
 
   get userId() {
@@ -45,12 +47,6 @@ export class LoginModalComponent implements OnInit {
       this.setCookie(this.userId.value, 7);
       this.userForm.reset();
     }
-  }
-
-  setId(value: string) {
-    if (!value.length) return null;
-
-    return value;
   }
 
   setCookie(value: string, day: number) {
@@ -79,5 +75,10 @@ export class LoginModalComponent implements OnInit {
 
       this.inputId = item.split('id=')[1];
     });
+  }
+
+  // 아이디 저장 체크 상태
+  event() {
+    this.checked = !this.checked;
   }
 }
