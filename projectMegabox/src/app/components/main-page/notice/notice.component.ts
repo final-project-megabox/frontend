@@ -23,6 +23,7 @@ export class NoticeComponent implements OnInit {
   ngOnInit() {
 
     this.TheaterNotices = [
+      { category: '전체', date: '2019.07.23', title: '[무대인사] <엑시트> 2주차 (8/10~8/11)' },
       { category: '전체', date: '2019.07.23', title: '<나랏말싸미> VIP 대상 3천원 할인쿠폰 증정 이벤트' },
       { category: '전체', date: '2019.07.22', title: '[무대인사] <봉오동 전투> 1주차 (8/2~8/3)' },
       { category: '전체', date: '2019.07.19', title: '[공지] 시스템 점검 안내' },
@@ -31,6 +32,7 @@ export class NoticeComponent implements OnInit {
     ]
     
     this.BranchNotices = [
+      { category: '광주하남', date: '2019.07.23', title: '[광주하남] 주차장 시스템 변경 안내' },
       { category: '이수', date: '2019.07.22', title: '[이수] 관람 요금 기준 변경안내' },
       { category: '동대문', date: '2019.07.18', title: '[동대문] 무비올나잇패키지 재 오픈 안내' },
       { category: '강남대로(씨티)', date: '2019.07.17', title: '[강남대로(씨티)] 관람요금 조정 안내' },

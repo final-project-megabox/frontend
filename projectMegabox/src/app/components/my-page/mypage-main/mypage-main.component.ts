@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MypageMainComponent implements OnInit {
 
+  navState = '공지사항';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  tabChange(text) {
+    if (text == this.navState) { return; }
+    this.navState = text;
+    console.log(this.navState);
   }
 
 }

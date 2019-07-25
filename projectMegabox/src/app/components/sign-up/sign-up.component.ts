@@ -113,10 +113,10 @@ export class SignUpComponent implements OnInit {
     this.emailRecommendation = false;
   }
 
-  // @ViewChild("li") nameField: ElementRef;
-  // toList(): void {
-  //   this.nameField.nativeElement.focus();
-  // }
+  @ViewChild("li", {static: false}) nameField: ElementRef;
+  toList(): void {
+    this.nameField.nativeElement.focus();
+  }
 
   moveUp(li): void {
     li.previousElementSibling.focus();
