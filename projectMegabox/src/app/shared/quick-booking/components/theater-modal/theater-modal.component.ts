@@ -53,9 +53,9 @@ export class TheaterModalComponent implements OnInit {
 
 
     if(!this.bookingService.detailRegions.filter(region => {
-      region.selected === false;
-    }).length) {
+      region.selected === false;}).length) {
       this.bookingService.selectTheaters = [];
+      // this.bookingService.detailRegions.map(region => ({ ...region, selected: false}));
     }
   }
 }
