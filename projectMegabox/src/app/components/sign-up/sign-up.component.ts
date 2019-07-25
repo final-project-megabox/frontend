@@ -103,12 +103,14 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  emailContent(email: string) {
+  // 마우스로 클릭 했을 시 추천 이메일 선택
+  AddEmailClick(email: string) {  
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
   }
 
-  Addemail(email: string) {
+  // 엔터키 입력 시 추천 이메일 선택
+  AddEmailEnter(email: string) {
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
   }
