@@ -26,10 +26,11 @@ export class QuickBookingService {
 
   payLoad = [];
 
-
-  postDate =`${this.calendarService.year}-0${this.calendarService.month+1}-${this.calendarService.day}`;
+  postDate =`${this.calendarService.year}-0${this.calendarService.month + ''.length === 1 ? '0' + (this.calendarService.month + 1) : this.calendarService.month + 1}-${this.calendarService.day}`;
   postTheater = '';
   postMovie = '';
+
+  movieList = [];
   
   constructor(private http: HttpClient, private calendarService: CalendarService) { }
   
@@ -37,14 +38,17 @@ export class QuickBookingService {
     
   }
 
-  test(date?: string, theater?: string, movie?: string ) {
+  getMovieList(theater: string, date?: string, movie?: string ) {
     this.postDate = date ? date : this.postDate;
     this.postTheater = theater ? theater : this.postTheater;
     this.postMovie = movie ? movie : this.postMovie;
 
+    console.log(this.postDate, this.postTheater, this.postMovie);
+
     if (!this.postTheater) return;
-    this.http.get(`${environment.appUrl}?date=${this.postDate}&theater=${this.postTheater}`)
-      .subscribe(list => console.log(list))
+
+    this.http.get<[]>(`${environment.appUrl}?date=${this.postDate}&theater=${this.postTheater}&movie=${this.postMovie}`)
+      .subscribe(list => this.movieList = list);
   }
   
   getAll() {

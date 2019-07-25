@@ -276,8 +276,73 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
         }
 
         .time-list {
-          background: url('http://image2.megabox.co.kr/mop/home/no_movie_list.png') no-repeat 50% 50% #fff;
-          height: 530px;
+          .list-wrapper {
+            background: url('http://image2.megabox.co.kr/mop/home/no_movie_list.png') no-repeat 50% 50% #fff;
+            height: 530px;
+          }
+
+          .movie-list {
+            height: 530px;
+            overflow: scroll;
+            overflow-x: hidden;
+            li {
+              display: flex;
+              padding: 10px 20px;
+              border-bottom: 1px solid #e5e5e5;
+              background: #fff;
+
+              .start-time {
+                font-size: 1.3rem;
+                font-weight: bold;
+                align-self: center;
+                border-right: 1px solid #e5e5e5;
+                padding-right: 8px;
+              }
+
+              .screening-information {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding-left: 8px;
+
+                .left-side {
+                  display: flex;
+                  flex-direction: column;
+                  align-self: center;
+
+                  .movie-title {
+                    margin-bottom: 5px;
+                  }
+
+                  .movie-type {
+                    font-size: 0.8rem;
+                    color: #666;
+                  }
+                }
+
+                .right-side {
+                  display: flex;
+                  flex-direction: column;
+                  text-align: right;
+
+                  .movie-theater {
+                    font-size: 0.8rem;
+                    margin-bottom: 4px;
+                  }
+                  .movie-screen {
+                    font-size: 0.8rem;
+                    margin-bottom: 4px;
+                  }
+                  .movie-seat {
+                    font-size: 0.8rem;
+                    color: #666;
+                  }
+                }
+              }
+            }
+
+          }
+
         }
       }
       

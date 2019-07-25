@@ -86,7 +86,8 @@
         <button type="button" class="booking-btn booking-cancel" 
         (click)="bookingService.theaterModalState = false">취소</button>
         <button type="button" class="booking-btn booking-confirm" 
-        (click)="bookingService.theaterModalState = false">확인</button>
+        (click)="bookingService.theaterModalState = false;
+        bookingService.getMovieList(bookingService.selectTheaters[0])">확인</button>
       </div>
     </div>
   </div>

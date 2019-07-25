@@ -19,8 +19,6 @@ export class MainViewComponent implements OnInit {
   afterToday: Days[];
   addPlus = [];
 
-
-
   constructor(
     private quickBookingService: QuickBookingService,
     private rootService: RootService,
@@ -43,11 +41,14 @@ export class MainViewComponent implements OnInit {
 
     for (let i = 1; i <= 30 - this.calenderService.day; i++) {
       const CurrentDate = new Date(this.calenderService.year, this.calenderService.month + 1, i);
+      const month = CurrentDate.getMonth() + 1 + '';
+      const date = CurrentDate.getDate() + '';
 
       const objDate = { 
         day: `${CurrentDate.getMonth()+1}/${CurrentDate.getDate()}`, 
         date: this.calenderService.dateTranslator(CurrentDate.getDay()),
-        fullDate: `${CurrentDate.getFullYear()}${CurrentDate.getMonth()}${CurrentDate.getDate()}`
+        fullDate: `${CurrentDate.getFullYear()}${CurrentDate.getMonth()}${CurrentDate.getDate()}`,
+        postDate: `${CurrentDate.getFullYear()}-${month.length === 1 ? '0'+ month : month}-${date.length === 1 ? '0'+ date : date}`
       } 
 
       nextMonth = nextMonth.length ? [...nextMonth, objDate] : nextMonth = [objDate];
