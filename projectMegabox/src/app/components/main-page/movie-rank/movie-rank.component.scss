@@ -2,6 +2,7 @@ $rank-sprite : 'http://image2.megabox.co.kr/mop/home/main/tab_tg.png';
 $wish-sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
 $watch-age: 'http://image2.megabox.co.kr/mop/home/bg_age2.png';
 $ranking: 'http://image2.megabox.co.kr/mop/home/movie/rank.png';
+$movie-wish: 'http://image2.megabox.co.kr/mop/home/bg_you_ck3.png';
 $ranking-left: 245px;
 
 $sub-color: #188591;
@@ -64,7 +65,9 @@ $sub-color: #188591;
 
       .rank-poster {
         width: 228px;
+        height: 324.89px;
       }
+
       &:nth-child(n+2):nth-child(-n+5) {
         margin-left: 15px;
       }
@@ -106,15 +109,110 @@ $sub-color: #188591;
   }
 
   // poster hover
-  .rank-poster-hover {
+  .rank-poster-hover-0 {
     width: 228px;
     height: 327px;
     position: absolute;
     top: 0;
-    background: black;
-    opacity: 0.7;
-    display: none;
+    left: 1px;
+    background: rgba(0, 0, 0, 0.7);
+    display: block;
+
+    .rankStar {
+      // background: yellow;
+      margin-top: 100px;
+      display: flex;
+
+      &:first-child {
+        margin-left: 32px;
+      }
+
+      & li {
+        width: 32px;
+        height: 30px;
+        background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
+        cursor: pointer;
+        
+        &:hover {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
+      }
+    }
+    
+    .rankStar-review-0 {
+      margin-top: 20px;
+      color: white;
+      text-align: center;
+      font-size: .85rem;
+      width: 228px;
+      height: 20px;
+      // background: yellow;
+      position: absolute;
+    }
+    
+    .rankStar-review-1 {
+      @extend .rankStar-review-0;
+      display: none;
+    }
+
+    .rankStar-review-2 {
+      @extend .rankStar-review-0;
+      display: none;
+    }
+
+    .rankStar-review-3 {
+      @extend .rankStar-review-0;
+      display: none;
+    }
+
+    .rankStar-review-4 {
+      @extend .rankStar-review-0;
+      display: none;
+    }
+
+    .rankStar-review-5 {
+      @extend .rankStar-review-0;
+      display: none;
+    }
+
+    .rank-movie-wish {
+      position: absolute;
+      top: 252px;
+      width: 228px;
+      height: 76px;
+      background: url($movie-wish);
+      background-position: 0 0;
+  
+      &:hover {
+        background: url($movie-wish);
+        background-position: 0 -86px;
+        cursor: pointer;
+      }
+    }
   }
+
+  .rank-poster-hover-1 {
+    @extend .rank-poster-hover-0;
+    display: none;
+    margin-left: 245px;
+  }
+
+  .rank-poster-hover-2 {
+    @extend .rank-poster-hover-0;
+    display: none;
+    margin-left: 245+245px;
+  }
+
+  .rank-poster-hover-3 {
+    @extend .rank-poster-hover-0;
+    display: none;
+    margin-left: 245+245+245px;
+  }
+
+
+
+  // w: 230 h: 76
 
   // information
   .rank-info-container {
