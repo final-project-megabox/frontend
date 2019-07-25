@@ -13,7 +13,9 @@ export class TheaterModalComponent implements OnInit {
 
   constructor(private bookingService: QuickBookingService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   depthOneState: regions = '선호 영화관';
 
@@ -55,7 +57,7 @@ export class TheaterModalComponent implements OnInit {
     if(!this.bookingService.detailRegions.filter(region => {
       region.selected === false;}).length) {
       this.bookingService.selectTheaters = [];
-      // this.bookingService.detailRegions.map(region => ({ ...region, selected: false}));
+      this.bookingService.detailRegions = this.bookingService.detailRegions.map(region => ({ ...region, selected: false}));
     }
   }
 }
