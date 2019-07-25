@@ -8,7 +8,7 @@
       </div>
       <div class="util">
         <div class="selected">
-          <p class="selected-theater" *ngFor="let selectTheater of selectTheaters">
+          <p class="selected-theater" *ngFor="let selectTheater of bookingService.selectTheaters">
             <span>{{ selectTheater }}</span>
             <button class="deleted-theater" (click)="deleteTheater(selectTheater)">X</button>
           </p>
@@ -33,7 +33,7 @@
               등록해주세요
               <button class="showFavorTheater">선호영화관 등록</button>
             </div>
-            <li *ngFor="let detailRegion of detailRegions | regionsFilter :depthOneState"
+            <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
                 [class.list-active]="detailRegion.selected"
                 (click)="detailRegion.selected = !detailRegion.selected"
                 (click)="addRegion(detailRegion.name, detailRegion.selected)"
