@@ -19,10 +19,19 @@ export class QuickBookingService {
   
   constructor(private http: HttpClient) { }
   
-  ngOnInit() {}
+  ngOnInit() {
+    this.test();
+  }
   
   getAll() {
     return this.http.get<Movies[]>(environment.appUrl);
+  }
+
+  test() {
+    this.http.post(environment.appUrl, {
+      theater: "대전",
+      date: "2019-07-20"
+    }).subscribe(item => console.log(item))
   }
   
   // 선택한 영화 갯수 구해서 add 버튼추가

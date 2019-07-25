@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { MainViewComponent } from './components/main-view/main-view.component';
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
@@ -31,6 +32,7 @@ import { CalendarService } from './service/calendar.service';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     MainViewComponent

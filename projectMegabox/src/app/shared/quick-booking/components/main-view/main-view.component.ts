@@ -3,6 +3,8 @@ import { QuickBookingService } from '../../service/quick-booking.service';
 import { RootService } from '../../../../core/service/root.service';
 import { CalendarService } from '../../service/calendar.service';
 import { Days } from '../../models/days.interface';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main-view',
@@ -20,13 +22,18 @@ export class MainViewComponent implements OnInit {
   constructor(
     private quickBookingService: QuickBookingService,
     private rootService: RootService,
-    private calenderService: CalendarService
+    private calenderService: CalendarService,
+    private http: HttpClient
   ) {}
   
+
   ngOnInit() {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
     this.currentTime = new Date().getHours(); 
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
+    
+    this.http.get('http://megabox.hellocoding.shop//database/reservationFirstView/')
+      .subscribe(item => console.log(item))
   }
 
   // 오늘부터 한달 생성
@@ -99,8 +106,10 @@ export class MainViewComponent implements OnInit {
 
   // 선택된 영화 취소버튼
   removeMovie(select) {
-    const selectMovie = this.quickBookingService.selectMovie
+    const selectMovie = this.quickBookingService.selectMovie;
+    const selectTitle = this.quickBookingService.selectTitle;
     
-    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id)
+    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id);
+    this.quickBookingService.selectTitle = selectTitle.filter(title => title !== select.title);
   }
 }
