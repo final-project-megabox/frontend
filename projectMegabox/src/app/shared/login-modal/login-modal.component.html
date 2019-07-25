@@ -4,10 +4,10 @@
   </header>
   <main>
     <h2 class="title">로그인</h2>
-    <form [formGroup]="userForm" (ngSubmit)="submit(saveId.checked)">
+    <form [formGroup]="userForm" (ngSubmit)="submit(checked)">
       <div class="input-group">
         <input type="email" formControlName="userId" 
-        placeholder="아이디" value="{{setId(inputId)}}">
+        placeholder="아이디" [(ngModel)]="inputId">
         <input type="password" formControlName="userPassword" 
         placeholder="비밀번호">
       </div>
@@ -17,7 +17,7 @@
     <div class="saveId-container">
       <label for="saveId">아이디 저장</label>
       <input type="checkbox" id="saveId" class="checked"
-      [checked]="inputId" #saveId>
+      [class.active]="checked" (change)="event()" #saveId>
     </div>
   </main>
   <footer>
@@ -33,4 +33,50 @@
       </ul>
     </div>
   </footer>
+  <div class="advertisement">
+    <img src="http://mlink-cdn.netinsight.co.kr/2019/07/15/ddfceb46e8c11c11e718f63985ba842c.jpg" alt="영화 수상한 교수 8월 15일 개봉!!!">
+  </div>
 </section>
+
+<!-- <section class="after-login">
+  <header>
+    <div class="id-group">
+      <strong class="id">아이디</strong>
+      <span>님</span>
+    </div>
+    <span class="membership">일반</span>
+  </header>
+  <main>
+    <section class="summary-information">
+      <div class="membership-point">
+        <span>멤버십포인트</span>
+        <span>3,700 P</span>
+      </div>
+      <div class="favorite-theater">
+        <div>
+          <span>선호영화관</span>
+          <span>목동</span>
+        </div>
+        <a>변경</a>
+      </div>
+      <div class="special-membership">
+        <span>스페셜멤버십</span>
+        <a>가입하기</a>
+      </div>
+    </section>
+    <section class="move-link">
+      <a class="my-megabox text-hidden"
+      routerLink='mypage'>나의 메가박스</a>
+      <a class="coupon text-hidden">쿠폰/관람권</a>
+      <a class="store-list text-hidden">스토어 구매내역</a>
+    </section>
+  </main>
+  <footer>
+    <span>마지막 로그인2019-07-2415:34:29</span>
+    <button>로그아웃</button>
+    <button class="cancel text-hidden">닫기</button>
+  </footer>
+</section> -->
+<!-- <ng-template>
+
+</ng-template> -->
