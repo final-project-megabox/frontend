@@ -3,6 +3,8 @@ import { RootService } from '../../../../core/service/root.service';
 import { CalendarService } from '../../service/calendar.service';
 import { Days } from '../../models/days.interface';
 import { QuickBookingService } from '../../service/quick-booking.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main-view',
@@ -17,10 +19,13 @@ export class MainViewComponent implements OnInit {
   afterToday: Days[];
   addPlus = [];
 
+
+
   constructor(
     private quickBookingService: QuickBookingService,
     private rootService: RootService,
     private calenderService: CalendarService,
+    private http: HttpClient
   ) {}
   
 
@@ -29,6 +34,8 @@ export class MainViewComponent implements OnInit {
     this.currentTime = new Date().getHours(); 
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
   }
+
+
 
   // 오늘부터 한달 생성
   monthAfterToday() {
@@ -83,7 +90,7 @@ export class MainViewComponent implements OnInit {
     };
   }
 
-  checkDayActive(day: string, elem?: HTMLUListElement) {
+  checkDayActive(day: string) {
     this.calenderService.activeToday = day;
     
     if (this.calenderService.today === day) return;
