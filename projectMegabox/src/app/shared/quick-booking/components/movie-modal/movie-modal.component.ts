@@ -18,40 +18,18 @@ export class MovieModalComponent implements OnInit {
     this.getMovies();
   }
 
-  test() {
-    console.log(this.bookingService.selectMovie)
-    console.log(this.bookingService.movies)
-  }
-
   sortItems: SortItem[] = ['예매율순','가나다순','개봉일순'];
   sortState: SortItem = '예매율순';
   
-  // 선택된 포스터의 LI요소를 담는 배열
-  selectPoster:HTMLLIElement[]=[];
-  
   // 서버에서 영화 정보 데이터를 받아옴.
-
-  getMovies()  {
+  getMovies() {
     this.bookingService.getAll()
-    .subscribe(allMovies => this.bookingService.movies = allMovies.map(movie => {
-      if(movie.age === 0) return {...movie, age:'age-all'}
-      if(movie.age === 1) return {...movie, age:'age-12'}
-      if(movie.age === 2) return {...movie, age:'age-15'}
-      if(movie.age === 3) return {...movie, age:'age-19'}
-    }));
+    .subscribe(allMovies => {
+      this.bookingService.movies = allMovies.map(movie => {
+        return this.bookingService.selectMovie.some(selected => movie.title === selected.title) ?  {...movie, selected: true} : movie;
+      })
+    })
   }
-
-  // getMovies() {
-  //      this.bookingService.getAll()
-  //   .subscribe(allMovies  => {
-  //     allMovies.forEach(movie => {
-  //       this.bookingService.movies = this.bookingService.selectMovie.map(item => {
-  //         return movie;
-  //       })
-  //     })
-  //   })
-  // }
-
 
   // 포스터를 클릭 했을 때 selectMovie 배열 안에 추가하고 다시 또 클릭하면 selectMovie 배열에서 삭제 또 그에 따른 배경색 변화와 최대 4개까지 선택 가능 기능
   addPoster(movie: Movies) {
@@ -80,12 +58,12 @@ export class MovieModalComponent implements OnInit {
 
   // 확인 버튼
   confirmSelect() {
-    // this.bookingService.selectMovie = this.bookingService.movies.filter(movie => {
-    //   return this.bookingService.selectTitle.some(selected => movie.title === selected);
-    // })
     this.bookingService.selectMovie = this.bookingService.movies.filter(movie => {
-       return movie.selected === true;
+      return this.bookingService.selectTitle.some(selected => movie.title === selected);
     })
+    // this.bookingService.selectMovie = this.bookingService.movies.filter(movie => {
+    //    return movie.selected === true;
+    // })
     this.bookingService.movieModalState = false; 
     this.bookingService.selectedMovies = true;
     this.bookingService.addPlusButton();

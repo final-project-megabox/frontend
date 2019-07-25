@@ -1,4 +1,4 @@
-<div class="movie-modal fade in" (click)="test()">
+<div class="movie-modal fade in">
   <div class="movie-modal-wrapper">
     <div class="movie-modal-contents">
       <div class=movie-modal-header>
@@ -24,7 +24,7 @@
         <ul class="movie-list">
           <li id="{{movie['movie_id']}}" class="moivie-list-li" *ngFor="let movie of bookingService.movies | moviesSort :sortState"
           (click)="movie.selected = !movie.selected"
-          [class.select-active]="movie.selected" (click)="addPoster(movie)" #poster>
+          [class.select-active]="movie['selected']" (click)="addPoster(movie)" #poster>
             <a title="{{movie['title']}}">
               <span class="blind">{{movie['title']}}</span>
             </a>
@@ -32,7 +32,9 @@
               <img class="movie-poster-img" alt="movie.title" src="{{movie['img_url']}}">
             </div>
             <p class="movie-title">
-              <span class="movie-age {{movie['age']}}">{{movie['age']}</span>
+              <span class="movie-age {{movie['age']}}"
+              [ngClass]="{'age-all': movie.age === 0, 'age-12': movie.age === 1, 'age-15': movie.age === 2, 'age-19': movie.age === 3}"
+              >{{movie['age']}</span>
               <span>{{movie['title']}}</span>
             </p>
           </li>
