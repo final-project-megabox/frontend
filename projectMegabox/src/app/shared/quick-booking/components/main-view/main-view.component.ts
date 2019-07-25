@@ -3,6 +3,8 @@ import { QuickBookingService } from '../../service/quick-booking.service';
 import { RootService } from '../../../../core/service/root.service';
 import { CalendarService } from '../../service/calendar.service';
 import { Days } from '../../models/days.interface';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main-view',
@@ -20,7 +22,8 @@ export class MainViewComponent implements OnInit {
   constructor(
     private quickBookingService: QuickBookingService,
     private rootService: RootService,
-    private calenderService: CalendarService
+    private calenderService: CalendarService,
+    private http: HttpClient
   ) {}
   
 
@@ -28,6 +31,9 @@ export class MainViewComponent implements OnInit {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
     this.currentTime = new Date().getHours(); 
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
+    
+    this.http.get('http://megabox.hellocoding.shop//database/reservationFirstView/')
+      .subscribe(item => console.log(item))
   }
 
   // 오늘부터 한달 생성
