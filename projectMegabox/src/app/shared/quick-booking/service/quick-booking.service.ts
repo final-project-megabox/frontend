@@ -1,9 +1,14 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Movies } from '../models/movies.interface';
 
 import { environment } from 'src/environments/environment';
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class QuickBookingService {
   calendarModalState = false;
   movieModalState = false;
@@ -20,19 +25,12 @@ export class QuickBookingService {
   constructor(private http: HttpClient) { }
   
   ngOnInit() {
-    this.test();
   }
   
   getAll() {
     return this.http.get<Movies[]>(environment.appUrl);
   }
 
-  test() {
-    this.http.post(environment.appUrl, {
-      theater: "대전",
-      date: "2019-07-20"
-    }).subscribe(item => console.log(item))
-  }
   
   // 선택한 영화 갯수 구해서 add 버튼추가
   addPlusButton() {
