@@ -33,7 +33,7 @@ export class MovieModalComponent implements OnInit {
 
   // 포스터를 클릭 했을 때 selectMovie 배열 안에 추가하고 다시 또 클릭하면 selectMovie 배열에서 삭제 또 그에 따른 배경색 변화와 최대 4개까지 선택 가능 기능
   addPoster(movie: Movies) {
-    if(movie.selected && this.bookingService.selectTitle.length < 4) {
+    if (movie.selected && this.bookingService.selectTitle.length < 4) {
       this.bookingService.selectTitle = [...this.bookingService.selectTitle, movie.title];
     } 
     else if (!movie.selected || this.bookingService.selectTitle.length < 4) {
@@ -72,8 +72,34 @@ export class MovieModalComponent implements OnInit {
   // 취소 버튼을 누르면 선택된 영화들의 정보가 담겨있는 selectMovie을 reset
   cancelSelect() {
     this.bookingService.movieModalState = false;
-    if(!this.bookingService.selectMovie.length) {
+    // let selectMoviesLen = this.bookingService.selectMovie.length;
+    // let selectTitlesLen = this.bookingService.selectTitle.length;
+
+
+    // if (!selectMoviesLen) 
+    // {
+    //   this.bookingService.selectTitle = [];
+    // } 
+    // else if (!(selectMoviesLen === selectTitlesLen)) 
+    // {
+    //   selectTitlesLen = selectMoviesLen;
+    // }
+    // 취소 버튼을 눌렀을 경우
+
+    // 확인을 한번도 누르지 않고 영화를 선택했다가 취소 버튼을 클릭 했을 경우.
+    if (!this.bookingService.selectMovie.length) 
+    {
       this.bookingService.selectTitle = [];
+    } 
+
+    // 확인을 이전에 눌러서 selectMovie의 요소 값이 들어있을 때 취소 버튼을 클릭 했을 경우.
+    if (this.bookingService.selectMovie.length < this.bookingService.selectTitle.length) 
+    { 
+      this.bookingService.selectTitle.length = this.bookingService.selectMovie.length;
+    } 
+    else if (this.bookingService.selectMovie.length > this.bookingService.selectTitle.length)
+    {
+      // console.log('work!');
     }
   }
 }
