@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Movies } from '../models/movies.interface';
@@ -5,6 +6,10 @@ import { Movies } from '../models/movies.interface';
 import { environment } from 'src/environments/environment';
 import { DetailRegion } from '../models/detail-region.interface';
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class QuickBookingService {
   calendarModalState = false;
   movieModalState = false;
@@ -20,7 +25,8 @@ export class QuickBookingService {
   
   constructor(private http: HttpClient) { }
   
-  ngOnInit() {}
+  ngOnInit() {
+  }
   
   getAll() {
     return this.http.get<Movies[]>(environment.appUrl);

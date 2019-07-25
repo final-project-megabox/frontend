@@ -26,7 +26,7 @@ export class MovieModalComponent implements OnInit {
     this.bookingService.getAll()
     .subscribe(allMovies => {
       this.bookingService.movies = allMovies.map(movie => {
-        return this.bookingService.selectMovie.some(selected => movie.title === selected.title) ?  {...movie, selected: true} : movie;
+        return this.bookingService.selectMovie.some(selected => movie.movie_id === selected.movie_id) ?  {...movie, selected: true} : movie;
       })
     })
   }

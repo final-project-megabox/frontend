@@ -44,4 +44,18 @@ export class TheaterModalComponent implements OnInit {
   hoverArea(detailArea: string) {
     this.hoverRegion = detailArea;
   }
+
+  cancelSelect() {
+    this.bookingService.theaterModalState = false;
+    console.log(this.bookingService.detailRegions.filter(region => {
+      region.selected === false;
+    }).length);
+
+
+    if(!this.bookingService.detailRegions.filter(region => {
+      region.selected === false;
+    }).length) {
+      this.bookingService.selectTheaters = [];
+    }
+  }
 }
