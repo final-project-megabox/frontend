@@ -18,26 +18,10 @@ export class MovieModalComponent implements OnInit {
     this.getMovies();
   }
 
-  test() {
-    console.log(this.bookingService.selectMovie)
-    console.log(this.bookingService.movies)
-  }
-
   sortItems: SortItem[] = ['예매율순','가나다순','개봉일순'];
   sortState: SortItem = '예매율순';
   
   // 서버에서 영화 정보 데이터를 받아옴.
-
-  // getMovies()  {
-  //   this.bookingService.getAll()
-  //   .subscribe(allMovies => this.bookingService.movies = allMovies.map(movie => {
-  //     if(movie.age === 0) return {...movie, age:'age-all'}
-  //     if(movie.age === 1) return {...movie, age:'age-12'}
-  //     if(movie.age === 2) return {...movie, age:'age-15'}
-  //     if(movie.age === 3) return {...movie, age:'age-19'}
-  //   }));
-  // }
-
   getMovies() {
     this.bookingService.getAll()
     .subscribe(allMovies => {
