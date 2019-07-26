@@ -5,6 +5,7 @@ import { Movies } from '../models/movies.interface';
 
 import { environment } from 'src/environments/environment';
 import { DetailRegion } from '../models/detail-region.interface';
+import { RankMovie } from 'src/app/components/main-page/movie-rank/models/rank-movie-interface';
 
 
 @Injectable({
