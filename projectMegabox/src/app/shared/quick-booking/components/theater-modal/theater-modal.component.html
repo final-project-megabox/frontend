@@ -83,8 +83,10 @@
         </div>
       </div>
       <div class="theater-btns-wrapper">
-        <button type="button" class="booking-btn booking-cancel" (click)="cancelSelect()">취소</button>
-        <button type="button" class="booking-btn booking-confirm" (click)="confirmSelect()">확인</button>
+        <button type="button" class="booking-btn booking-cancel" 
+        (click)="cancelSelect()">취소</button>
+        <button type="button" class="booking-btn booking-confirm" 
+        (click)="confirmSelect(); bookingService.addTheaterButton()">확인</button>
       </div>
     </div>
   </div>

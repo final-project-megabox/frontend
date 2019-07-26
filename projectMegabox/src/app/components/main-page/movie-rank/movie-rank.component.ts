@@ -34,6 +34,7 @@ export class MovieRankComponent implements OnInit {
       { id: 4, starContent: '기대해도 좋아요!'},
       { id: 5, starContent: '너무 멋진 영화였어요!'}
     ]
+
     
   }
 
@@ -43,10 +44,8 @@ export class MovieRankComponent implements OnInit {
   }
 
   selectMovie(rankmovie: Movies) {
-    this.rankService.selectMovie = [rankmovie]
+    this.rankService.selectMovie = [rankmovie];
     this.rootService.quickBookingModalState = true;
-
-    console.log(this.rankService.selectMovie);
   }
   
   // RankStar와 RankStarContent를 인터페이스로 만들어서 호버하면 이미지와 콘텐츠가 같이 보이게 해보쟈... 홧팅...
