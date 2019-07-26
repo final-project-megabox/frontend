@@ -1,0 +1,254 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="alert-header">
+      <h1>선호 영화관 등록</h1>
+    </div>
+    <div class="alert-body">
+      <p>
+        선호 영화관은 최대3개까지 등록 가능하며, 1순위 영화관이 나의 선호영화관으로 우선 지정됩니다.<br>
+        등록된 선호 영화관은 <em class="puple">나의 메가박스>회원정보 수정</em> 에서 확인 및 수정하실 수 있습니다.
+      </p>
+    </div>
+    <div class="prefer-theater-wrap">
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">1순위</span>
+            <select name="" class="region-choice">
+              <option value="">지역선택</option>
+              <option value="10">서울</option>
+              <option value="20">경기</option>
+              <option value="30">부산</option>
+            </select>
+
+            <select name="" class="theater-choice">
+              <option value="">영화관선택</option>
+              <option value="10">강남</option>
+              <option value="20">서초</option>
+              <option value="30">코엑스</option>
+            </select>
+            <a class="delete-prefer" title="선호 영화관1 삭제">
+              삭제
+            </a>
+          </li>
+        </ol>
+
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">2순위</span>
+            <select name="" class="region-choice">
+              <option value="">지역선택</option>
+              <option value="10">서울</option>
+              <option value="20">경기</option>
+              <option value="30">부산</option>
+            </select>
+
+            <select name="" class="theater-choice">
+              <option value="">영화관선택</option>
+              <option value="10">고양스타필드</option>
+            </select>
+            <a class="delete-prefer" title="선호 영화관2 삭제">
+                삭제
+            </a>
+          </li>
+        </ol>
+
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">3순위</span>
+            <select name="" class="region-choice">
+              <option value="">지역선택</option>
+              <option value="10">서울</option>
+              <option value="20">경기</option>
+              <option value="30">부산</option>
+            </select>
+
+            <select name="" class="theater-choice">
+              <option value="">영화관선택</option>
+              <option value="10">해운대(장산)</option>
+            </select>
+            <a class="delete-prefer" title="선호 영화관3 삭제">
+                삭제
+            </a>
+          </li>
+        </ol>
+    </div>
+    <div class="alert-footer">
+        <button class="alert-cancel">취소</button>
+        <button class="alert-confirm">등록</button>
+    </div>
+    <i class="fas fa-times" (click)="preferTheaterService.preferState = false"></i>
+  </div>
+</div>
+      <!-- <div class="choice-button">
+        <button class="dropdown-toggle" title="지역선택">
+          <span class="filter-option">지역선택</span>
+          <span class="caret"></span>
+        </button>
+        <div class="drop-down">
+          <ul class="drop-down-menu">
+            <li>
+              <a>
+                <span class="text">지역선택</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">서울</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">경기</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">부산</span>
+                <i></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="drop-down-theater">
+        <ul class="drop-down-menu">
+          <li>
+            <a>
+              <span class="text">영화관선택</span>
+              <i></i>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="text">서울</span>
+              <i></i>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="text">경기</span>
+              <i></i>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="text">부산</span>
+              <i></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+  <ol>
+    <li class="line">
+      <span class="rank">2순위</span>
+      <select name="">
+        <option value="">지역선택</option>
+        <option value="10">서울</option>
+        <option value="20">경기</option>
+        <option value="30">부산</option>
+      </select>
+      <div class="choice-button">
+        <button class="dropdown-toggle" title="지역선택">
+          <span class="filter-option">지역선택</span>
+          <span class="caret"></span>
+        </button>
+        <div class="drop-down">
+          <ul class="drop-down-menu">
+            <li>
+              <a>
+                <span class="text">지역선택</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">서울</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">경기</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">부산</span>
+                <i></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <ol>
+    <li class="line">
+      <span class="rank">3순위</span>
+      <select name="">
+        <option value="">지역선택</option>
+        <option value="10">서울</option>
+        <option value="20">경기</option>
+        <option value="30">부산</option>
+      </select>
+      <div class="choice-button">
+        <button class="dropdown-toggle" title="지역선택">
+          <span class="filter-option">지역선택</span>
+          <span class="caret"></span>
+        </button>
+        <div class="drop-down">
+          <ul class="drop-down-menu">
+            <li>
+              <a>
+                <span class="text">지역선택</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">서울</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">경기</span>
+                <i></i>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="text">부산</span>
+                <i></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+ -->
+
+
+
+
+
+<!-- <div class="custom-alert">
+  <div class="alert-header">
+    <h1>알림</h1>
+  </div>
+  <div class="alert-body">
+    <p>4개까지만 선택할 수 있습니다.</p>
+  </div>
+  <div class="alert-footer">
+    <button class="alert-confirm" (click)="bookingService.alertModalState = false">확인</button>
+  </div>
+  <i class="fas fa-times"></i>
+</div> -->

@@ -31,7 +31,7 @@
               선호 영화관으로
               <br>
               등록해주세요
-              <button class="showFavorTheater">선호영화관 등록</button>
+              <button class="showFavorTheater" (click)="preferTheaterService.preferState = true">선호영화관 등록</button>
             </div>
             <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
                 [class.list-active]="detailRegion.selected"
@@ -90,3 +90,4 @@
   </div>
 </div>
 <app-alert-modal *ngIf="bookingService.alertModalState"></app-alert-modal>
+<prefer-theaters *ngIf="preferTheaterService.preferState"></prefer-theaters>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms'
 
+import { SharedModule } from '../shared.module';
+
 import { MainViewComponent } from './components/main-view/main-view.component';
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
 import { TheaterModalComponent } from './components/theater-modal/theater-modal.component';
@@ -15,6 +17,8 @@ import { PosterBackgroundDirective } from './directives/poster-background.direct
 import { CarouselDirective } from './directives/carousel.directive';
 import { CalendarService } from './service/calendar.service';
 import { QuickBookingService } from './service/quick-booking.service';
+import { PreferTheatersComponent } from '../prefer-theaters/prefer-theaters.component';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +35,13 @@ import { QuickBookingService } from './service/quick-booking.service';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
-    MainViewComponent
+    MainViewComponent,
+    PreferTheatersComponent,
+    LoginModalComponent
   ],
   providers: [
     QuickBookingService,
