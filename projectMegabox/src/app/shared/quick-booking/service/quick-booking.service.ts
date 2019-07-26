@@ -65,6 +65,12 @@ export class QuickBookingService {
   set transmitTheaters(value: string[]) {
     this._transmitTheaters = value;
 
+    if(!this.transmitTheaters.length) {
+      this.postTheater = '';
+      this.getMovieList();
+      return;
+    }
+
     this.transmitTheaters.forEach((item, idx) => {
       if (idx === 0) {
         this.postTheater = `&theater=${item}`;
@@ -90,7 +96,7 @@ export class QuickBookingService {
         this.postMovie = `${this.postMovie}_${item.title}`;
       }
     })
-
+    this.addPlusButton();
     this.getMovieList();
   }
 
@@ -100,7 +106,7 @@ export class QuickBookingService {
 
   getMovieList() {
     this.movieList = [];
-    
+    console.log(this.postTheater, this.postDate, this.postMovie)
     if (!this.postTheater) {
       alert('극장을 선택하세요');
       return;
@@ -134,12 +140,13 @@ export class QuickBookingService {
     if (!this.transmitTheaters.length) return;
     for (let i = 0; i < this.transmitTheaters.length; i++) {
       this.theater = this.theater.filter(item => item !== i);
-      console.log(this.theater)
     }
   }
 
   // 선택한 지역 삭제
   removeTheater(theater: string) {
-    this.transmitTheaters = this.transmitTheaters.filter(item => item !== theater);
+    this.transmitTheaters =this.transmitTheaters.filter(item => item !== theater);
+    this.selectTheaters = this.selectTheaters.filter(item => item !== theater);
+    this.addTheaterButton();
   }
 }
