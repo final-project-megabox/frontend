@@ -19,7 +19,6 @@ export class MovieModalComponent implements OnInit {
     this.getTitle();
   }
 
-  // test: string[];
   sortItems: SortItem[] = ['예매율순','가나다순','개봉일순'];
   sortState: SortItem = '예매율순';
   
@@ -33,6 +32,7 @@ export class MovieModalComponent implements OnInit {
     })
   }
 
+  // 영화 title을 삭제하고 취소 버튼을 누른 후 다시 들어와도 title이 보이게 하기 위한 함수
   getTitle() {
     this.bookingService.selectTitle = this.bookingService.selectMovie.map(selected => selected.title);
   }
@@ -65,11 +65,8 @@ export class MovieModalComponent implements OnInit {
   // 확인 버튼
   confirmSelect() {
     this.bookingService.selectMovie = this.bookingService.movies.filter(movie => {
-      return this.bookingService.selectTitle.some(selected => movie.title === selected);
+       return movie.selected === true;
     })
-    // this.bookingService.selectMovie = this.bookingService.movies.filter(movie => {
-    //    return movie.selected === true;
-    // })
     this.bookingService.movieModalState = false; 
     this.bookingService.selectedMovies = true;
     this.bookingService.addPlusButton();
