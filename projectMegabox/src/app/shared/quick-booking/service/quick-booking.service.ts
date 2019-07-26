@@ -19,9 +19,14 @@ export class QuickBookingService {
   selectedMovies = false;
 
   addPlus = [];  // 플러스버튼추가
+
+  // 클릭할 때마다 영화 타이틀이 들어가는 배열
   selectTitle = [];
 
+  // 서버에서 받아오는 영화 정보가 들어가 있는 배열
   movies:Movies[] = [];
+
+  // 확인 버튼을 클릭하였을 때 선택한 영화 정보가 들어 있는 배열
   selectMovie:Movies[] = [];
 
   payLoad = [];
@@ -55,15 +60,14 @@ export class QuickBookingService {
     return this.http.get<Movies[]>(environment.appUrl);
   }
 
+  // 클릭할 때마다 선택한 극장이 들어가는 배열
   selectTheaters:string[] = [];
 
-  detailRegions: DetailRegion[] = [
-    { id: 0, name: '강남', city: '서울', selected: false}, 
-    { id: 1, name: '신촌', city: '서울', selected: false}, 
-    { id: 2, name: '코엑스', city: '서울', selected: false}, 
-    { id: 3, name: '고양스타필드', city: '경기', selected: false }, 
-    { id: 4, name: '해운대(장산)', city: '부산', selected: false }
-  ];
+  // 확인 버튼을 클릭할 때 선택한 극장이 들어가는 배열
+  transmitTheaters:string[] = [];
+
+  // 극장 정보가 들어가 있는 배열
+  detailRegions: DetailRegion[] = [];
   
   // 선택한 영화 갯수 구해서 add 버튼추가
   addPlusButton() {
