@@ -68,7 +68,7 @@ export class TheaterModalComponent implements OnInit {
   cancelSelect() {
     this.bookingService.theaterModalState = false;
 
-    console.log(!this.bookingService.transmitTheaters.length);
+    // console.log(!this.bookingService.transmitTheaters.length);
 
     if(!this.bookingService.transmitTheaters.length)
     {
