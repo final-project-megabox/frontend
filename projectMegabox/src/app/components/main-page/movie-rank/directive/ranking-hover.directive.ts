@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class RankingHoverDirective {
 
-  constructor(private el: ElementRef) { }
+  constructor(private host: ElementRef) { }
 
   @HostListener('mouseenter') onmouseenter() {
     this.rankingHover('block');
@@ -16,7 +16,7 @@ export class RankingHoverDirective {
   }
 
   private rankingHover(display: string) {
-    this.el.nativeElement.style.display = display;
+    this.host.nativeElement.style.display = display;
   }
   
   // @HostListener('window:mousemove') mouseenter() {
