@@ -18,9 +18,14 @@ export class QuickBookingService {
   selectedMovies = false;
 
   addPlus = [];  // 플러스버튼추가
+
+  // 클릭할 때마다 영화 타이틀이 들어가는 배열
   selectTitle = [];
 
+  // 서버에서 받아오는 영화 정보가 들어가 있는 배열
   movies:Movies[] = [];
+
+  // 확인 버튼을 클릭하였을 때 선택한 영화 정보가 들어 있는 배열
   selectMovie:Movies[] = [];
   
   constructor(private http: HttpClient) { }
@@ -32,10 +37,13 @@ export class QuickBookingService {
     return this.http.get<Movies[]>(environment.appUrl);
   }
 
+  // 클릭할 때마다 선택한 극장이 들어가는 배열
   selectTheaters:string[] = [];
 
+  // 확인 버튼을 클릭할 때 선택한 극장이 들어가는 배열
   transmitTheaters:string[] = [];
 
+  // 극장 정보가 들어가 있는 배열
   detailRegions: DetailRegion[] = [];
   
   // 선택한 영화 갯수 구해서 add 버튼추가
