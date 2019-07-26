@@ -23,7 +23,8 @@
     <tr *ngFor="let week of calendarService.splitThisDays">
       <td *ngFor="let item of week" class="button-margin">
         <button [class.active]="calendarService.activeToday === item.fullDate" #dayTable
-        (click)="activeToday(item.fullDate); calendarService.checkDayActive(item.fullDate)"
+        (click)="activeToday(item.fullDate); calendarService.checkDayActive(item.fullDate);
+        quickBookingService.postDate = item.postDate"
         [class.disable]="checkBeforeToday(item.fullDate)"
         [disabled]="checkBeforeToday(item.fullDate)">{{item.day}}</button>
       </td>

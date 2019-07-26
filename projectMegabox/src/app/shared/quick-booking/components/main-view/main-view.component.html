@@ -21,11 +21,11 @@
                 <li *ngFor="let item of afterToday">
                   <button class="day-button" 
                     *ngIf="calenderService.today !== item.fullDate; else elemToday" 
-                    (click)="checkDayActive(item.fullDate); quickBookingService.getMovieList(quickBookingService.postTheater, item.postDate)"
+                    (click)="checkDayActive(item.fullDate); quickBookingService.postDate = item.postDate"
                     [class.active]="item.fullDate === calenderService.activeToday">{{item.day}}({{item.date}})</button>
                   <ng-template #elemToday>
                     <button class="day-button" 
-                    (click)="checkDayActive(item.fullDate); quickBookingService.getMovieList(quickBookingService.postTheater, item.postDate)"
+                    (click)="checkDayActive(item.fullDate); quickBookingService.postDate = item.postDate"
                     [class.active]="item.fullDate === calenderService.activeToday">오늘</button>
                   </ng-template>
                 </li>
@@ -44,16 +44,13 @@
             </button>
           </div>
           <div class="place">
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
-              <span class="hidden-text">영화 추가 버튼</span>
-            </button>
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
-              <span class="hidden-text">영화 추가 버튼</span>
-            </button>
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
-              <span class="hidden-text">영화 추가 버튼</span>
-            </button>
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
+            <div class="theater-list" *ngFor="let item of quickBookingService.transmitTheaters">
+              <span>{{item}}</span>
+              <button class="hidden-text" (click)="quickBookingService.removeTheater(item);
+              quickBookingService.addTheaterButton();">선택 취소</button>
+            </div>
+            <button class="add-movie" *ngFor="let item of quickBookingService.theater"
+            (click)="quickBookingService.theaterModalState = true">
               <span class="hidden-text">영화 추가 버튼</span>
             </button>
           </div>
