@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { QuickBookingService } from '../../service/quick-booking.service';
 import { RootService } from '../../../../core/service/root.service';
 import { CalendarService } from '../../service/calendar.service';
 import { Days } from '../../models/days.interface';
+import { QuickBookingService } from '../../service/quick-booking.service';
 
 @Component({
   selector: 'app-main-view',
@@ -20,9 +20,10 @@ export class MainViewComponent implements OnInit {
   constructor(
     private quickBookingService: QuickBookingService,
     private rootService: RootService,
-    private calenderService: CalendarService
+    private calenderService: CalendarService,
   ) {}
   
+
   ngOnInit() {
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
     this.currentTime = new Date().getHours(); 
@@ -99,8 +100,10 @@ export class MainViewComponent implements OnInit {
 
   // 선택된 영화 취소버튼
   removeMovie(select) {
-    const selectMovie = this.quickBookingService.selectMovie
+    const selectMovie = this.quickBookingService.selectMovie;
+    const selectTitle = this.quickBookingService.selectTitle;
     
-    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id)
+    this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id);
+    this.quickBookingService.selectTitle = selectTitle.filter(title => title !== select.title);
   }
 }

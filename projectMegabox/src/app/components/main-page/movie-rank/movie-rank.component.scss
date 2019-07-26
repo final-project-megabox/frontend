@@ -71,11 +71,15 @@ $sub-color: #188591;
       &:nth-child(n+2):nth-child(-n+5) {
         margin-left: 15px;
       }
+
+      &:nth-child(n+5) {
+        margin-top: 10px;
+      }
     }
   }
 
   // box office marker
-  .ranking-marker-1 {
+  .ranking-marker-0 {
     position: absolute;
     display: block;
     overflow: hidden;
@@ -90,20 +94,20 @@ $sub-color: #188591;
     background-position: 0 0;
   }
 
-  .ranking-marker-2 {
-    @extend .ranking-marker-1;
+  .ranking-marker-1 {
+    @extend .ranking-marker-0;
     left: 244px;
     background-position: 0 -100px;
   }
 
-  .ranking-marker-3 {
-    @extend .ranking-marker-1;
+  .ranking-marker-2 {
+    @extend .ranking-marker-0;
     left: 244+245px;
     background-position: 0 -200px;
   }
 
-  .ranking-marker-4 {
-    @extend .ranking-marker-1;
+  .ranking-marker-3 {
+    @extend .ranking-marker-0;
     left: 244+245+245px;
     background-position: 0 -300px;
   }
@@ -116,7 +120,7 @@ $sub-color: #188591;
     top: 0;
     left: 1px;
     background: rgba(0, 0, 0, 0.7);
-    display: block;
+    display: none;
 
     .rankStar {
       // background: yellow;
@@ -242,10 +246,10 @@ $sub-color: #188591;
       overflow: hidden;
       vertical-align: middle;
 
-      &.age-all { background-position: 0 0; }
-      &.age-12 { background-position: -60px 0; }
-      &.age-15 { background-position: -90px 0; }
-      &.age-19 { background-position: -30px 0;}
+      &.age-0 { background-position: 0 0; }
+      &.age-1 { background-position: -60px 0; }
+      &.age-2 { background-position: -90px 0; }
+      &.age-3 { background-position: -30px 0;}
 
     }
 
