@@ -4,15 +4,15 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9999;
-  background-color: rgba(0,0,0,0.7);
+  z-index: 999999;
+  background-color: rgba(0,0,0,0.8);
 }
 
 .wrapper {
   position: relative;
   width: 653px;
   min-width: 653px;
-  margin: 230px auto;
+  margin: 220px auto;
   background-color: #fff;
   zoom: 1;
   border-radius: 5px;
@@ -73,80 +73,6 @@ p em.puple {
   color: #503396;
   font-weight: 700;
 }
-
-// .caret {
-//   position: absolute;
-//   width: 6px;
-//   height: 10px;
-//   top: 50%;
-//   right: 7px;
-//   margin-top: -5px;
-//   vertical-align: middle;
-//   border: none;
-//   background: url(http://image2.megabox.co.kr/mop/home/customSelect-arrow.png) 0 0 no-repeat;
-// }
-
-// .choice-button {
-//   width: 154px;
-//   position: relative;
-//   display: inline-block;
-//   vertical-align: middle;
-// }
-
-// .drop-down {
-//   position: absolute;
-//   top: 100%;
-//   left: 0;
-//   z-index: 1000;
-//   display: none;
-//   float: left;
-//   min-width: 160px;
-//   padding: 5px 0;
-//   margin: 2px 0 0;
-//   font-size: 14px;
-//   list-style: none;
-//   background-color: #ffffff;
-//   border: 1px solid #cccccc;
-//   border: 1px solid rgba(0, 0, 0, 0.15);
-//   border-radius: 4px;
-//   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-//   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-//   background-clip: padding-box;
-//   z-index: 2000;
-//   min-width: 100%;
-//   max-height: 373.3px;
-//   overflow: hidden;
-//   min-height: 70px;
-// }
-
-// .choice-theater {
-  
-// }
-
-// .drop-down-menu {
-//   max-height: 371.3px;
-//   overflow-y: auto;
-//   min-height: 68px;
-// }
-
-// .choice-theater {
-//   width: 121px;
-//   display: inline-block;
-//   position: relative;
-//   vertical-align: middle;
-// }
-
-// .custom-alert {
-//   position: fixed;
-//   top: 305px;
-//   left: 543px;
-//   background-color: #fff;
-//   zoom: 1;
-//   width: 450px;
-//   z-index: 999999;
-//   border-radius: 5px;
-//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-// }
 
 .alert-header {
   position: relative;
