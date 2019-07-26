@@ -9,17 +9,19 @@
   <div class="rank-movie-container">
 
     <!-- poster -->
-    <ul *ngFor="let rankmovie of rankService.RankMovies | rankSort :rankState; index as i" class ="rank-poster-container">
-      <div *ngIf="i <= 3">
-        <span *ngIf="rankState==='박스오피스'" class="ranking-marker-{{rankmovie.movie_id}}"></span>
-        <img class ="rank-poster" src="{{rankmovie['img_url']}}" alt="{{rankmovie['title']}}">
+    <ul *ngFor="let rankmovie of rankService.movies | rankSort :rankState; index as i" class ="rank-poster-container">
+      <div *ngIf="i <= 5">
+        <span *ngIf="rankState==='박스오피스'" class="ranking-marker-{{i}}"></span>
+        <img class ="rank-poster" src="{{rankmovie['img_url']}}" alt="{{rankmovie.title}}">
         
         <!-- movie title & information -->
         <div class="rank-info-container">
-          <li class="rank-info"><span class="{{rankmovie['age']}}"></span>{{rankmovie['title']}}
+          <li class="rank-info"><span class="age-{{rankmovie.age}}"></span>{{rankmovie['title']}}
             <div class="rank-info-detail">
               <button class="detail-info">상세정보</button>
-              <button class="rank-booking">예매하기</button>
+              <button class="rank-booking-{{rankmovie.title}}" id="quick-booking"
+               (click)="rankmovie.selected=!rankmovie.selected" (click)="selectMovie(rankmovie)">예매하기</button>
+              <!-- <button class="rank-booking" id="quick-booking" (click)="rootService.quickBookingModalState = true">예매하기</button> -->
             </div>
           </li>
         </div>
@@ -30,7 +32,7 @@
     <!-- poster end-->
     
     <!-- hover -->
-    <div *ngFor="let rankmovie of rankService.RankMovies; index as i">
+    <div *ngFor="let rankmovie of rankService.movies; index as i">
       <div *ngIf="i <= 3">
         <div class="rank-poster-hover-{{i}}">
           <ul class="rankStar">

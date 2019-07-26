@@ -1,10 +1,11 @@
 export interface RankMovie {
   movie_id: number,
-  age: string | number,
+  age: number,
   title: string,
   booking_rate: string,
   release_date: string,
-  img_url: string
+  img_url: string,
+  selected: boolean
 }
 
 export interface RankStarContent {
