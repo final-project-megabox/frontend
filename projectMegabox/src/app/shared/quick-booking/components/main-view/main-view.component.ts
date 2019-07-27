@@ -3,6 +3,8 @@ import { RootService } from '../../../../core/service/root.service';
 import { CalendarService } from '../../service/calendar.service';
 import { Days } from '../../models/days.interface';
 import { QuickBookingService } from '../../service/quick-booking.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main-view',
@@ -16,11 +18,13 @@ export class MainViewComponent implements OnInit {
   currentTime: number;
   afterToday: Days[];
   addPlus = [];
+  
 
   constructor(
     private quickBookingService: QuickBookingService,
     private rootService: RootService,
     private calenderService: CalendarService,
+    private http: HttpClient
   ) {}
   
 
@@ -30,17 +34,22 @@ export class MainViewComponent implements OnInit {
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
   }
 
+
+
   // 오늘부터 한달 생성
   monthAfterToday() {
     let nextMonth: Days[] = [];
 
     for (let i = 1; i <= 30 - this.calenderService.day; i++) {
       const CurrentDate = new Date(this.calenderService.year, this.calenderService.month + 1, i);
+      const month = CurrentDate.getMonth() + 1 + '';
+      const date = CurrentDate.getDate() + '';
 
       const objDate = { 
         day: `${CurrentDate.getMonth()+1}/${CurrentDate.getDate()}`, 
         date: this.calenderService.dateTranslator(CurrentDate.getDay()),
-        fullDate: `${CurrentDate.getFullYear()}${CurrentDate.getMonth()}${CurrentDate.getDate()}`
+        fullDate: `${CurrentDate.getFullYear()}${CurrentDate.getMonth()}${CurrentDate.getDate()}`,
+        postDate: `${CurrentDate.getFullYear()}-${month.length === 1 ? '0'+ month : month}-${date.length === 1 ? '0'+ date : date}`
       } 
 
       nextMonth = nextMonth.length ? [...nextMonth, objDate] : nextMonth = [objDate];
@@ -61,29 +70,25 @@ export class MainViewComponent implements OnInit {
 
   timeCarouselButton(event: HTMLButtonElement) {
     if (event.className ===  "prev-time" && this.timeTableX < 0) {
-      console.log('이전');
       this.timeTableX += 44;
     };
     
     if (event.className ===  "next-time" && this.timeTableX > -616) {
-      console.log('다음');
       this.timeTableX -= 44;
     };
   }
 
   dayCarouselButton(event: HTMLButtonElement) {
     if (event.className ===  "prev-day" && this.calenderService.dayTableX< 0) {
-      console.log('이전');
       this.calenderService.dayTableX += 68;
     };
     
     if (event.className ===  "next-day" && this.calenderService.dayTableX > -(this.afterToday.length - 5) * 68) {
-      console.log('다음');
       this.calenderService.dayTableX -= 68;
     };
   }
 
-  checkDayActive(day: string, elem?: HTMLUListElement) {
+  checkDayActive(day: string) {
     this.calenderService.activeToday = day;
     
     if (this.calenderService.today === day) return;
@@ -105,5 +110,10 @@ export class MainViewComponent implements OnInit {
     
     this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id);
     this.quickBookingService.selectTitle = selectTitle.filter(title => title !== select.title);
+  }
+
+  // 상영관 버튼
+  theaterSelect() {
+    
   }
 }
