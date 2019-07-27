@@ -13,18 +13,18 @@
         <ol class="order-line">
           <li class="line">
             <span class="rank">1순위</span>
-            <select name="" class="region-choice">
+            <select name="region-group" class="region-choice"  (change)="regionChoice(region1.value)" #region1>
               <option value="">지역선택</option>
-              <option value="10">서울</option>
-              <option value="20">경기</option>
-              <option value="30">부산</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
             </select>
 
-            <select name="" class="theater-choice">
+            <select name="theater-group" class="theater-choice">
               <option value="">영화관선택</option>
-              <option value="10">강남</option>
-              <option value="20">서초</option>
-              <option value="30">코엑스</option>
+              <option value="강남">강남</option>
+              <option value="서초">서초</option>
+              <option value="코엑스">코엑스</option>
             </select>
             <a class="delete-prefer" title="선호 영화관1 삭제">
               삭제
@@ -35,16 +35,16 @@
         <ol class="order-line">
           <li class="line">
             <span class="rank">2순위</span>
-            <select name="" class="region-choice">
+            <select name="region-group" class="region-choice">
               <option value="">지역선택</option>
-              <option value="10">서울</option>
-              <option value="20">경기</option>
-              <option value="30">부산</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
             </select>
 
-            <select name="" class="theater-choice">
+            <select name="theater-group" class="theater-choice">
               <option value="">영화관선택</option>
-              <option value="10">고양스타필드</option>
+              <option value="고양스타필드">고양스타필드</option>
             </select>
             <a class="delete-prefer" title="선호 영화관2 삭제">
                 삭제
@@ -55,16 +55,16 @@
         <ol class="order-line">
           <li class="line">
             <span class="rank">3순위</span>
-            <select name="" class="region-choice">
+            <select name="region-group" class="region-choice">
               <option value="">지역선택</option>
-              <option value="10">서울</option>
-              <option value="20">경기</option>
-              <option value="30">부산</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
             </select>
 
-            <select name="" class="theater-choice">
+            <select name="theater-group" class="theater-choice">
               <option value="">영화관선택</option>
-              <option value="10">해운대(장산)</option>
+              <option value="해운대(장산)">해운대(장산)</option>
             </select>
             <a class="delete-prefer" title="선호 영화관3 삭제">
                 삭제

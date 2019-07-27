@@ -14,4 +14,8 @@ export class PreferTheatersComponent implements OnInit {
   ngOnInit() {
   }
 
+  regionChoice(selected){
+    console.log(selected);
+  }
+
 }
