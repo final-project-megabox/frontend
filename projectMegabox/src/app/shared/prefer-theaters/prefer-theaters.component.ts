@@ -14,8 +14,19 @@ export class PreferTheatersComponent implements OnInit {
   ngOnInit() {
   }
 
-  regionChoice(selected){
-    console.log(selected);
+  regionChoiceOne(selected) {
+    this.preferTheaterService.preferOneState = selected;
+  }
+  
+  regionChoiceTwo(selected) {
+    this.preferTheaterService.preferTwoState = selected;
+  }
+  
+  regionChoiceThree(selected) {
+    this.preferTheaterService.preferThreeState = selected;
+  }
+
+  theaterChoice(theater) {
   }
 
 }
