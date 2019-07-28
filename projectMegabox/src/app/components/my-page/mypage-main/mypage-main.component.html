@@ -5,7 +5,7 @@
   <div class="my-page-container">
     <div class= "inner-container">
 
-      <h2>윤해서 님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
+      <h2 *ngFor="let userinfo of userinfos">{{userinfo.name}} 님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
 
       <div class= "row1">
         <div class= "title-color"></div>
@@ -124,12 +124,12 @@
             <ul class= "user-col2">
               <li class="col01">
                 <strong class="bb01">휴대폰</strong>
-                <span class="bb02">010-****-7621</span>
+                <span class="bb02">010-****-{{numBack}}</span>
               </li>
 
               <li class="col01">
                 <strong class="bb01">선호 영화관</strong>
-                <span class="bb02">상봉</span>
+                <span class="bb02" *ngFor="let userinfo of userinfos">{{userinfo.preferTheater}}</span>
               </li>
 
               <li class="col01">
@@ -227,9 +227,9 @@
             </div>
             <div class="border-line"></div>
 
-            <ul class= "wants-content">
+            <ul class= "wants-content" *ngFor="let userinfo of userinfos">
               <li>
-                <strong class="tb02">라이온킹</strong>
+                <strong class="tb02 overflow-watched">{{userinfo.watchedMovie}}</strong>
                 <strong class="bb02">2017.07.17</strong>
                 <button class="wants-btn">상세정보</button>
                 <button class="wants-btn">예매하기</button>

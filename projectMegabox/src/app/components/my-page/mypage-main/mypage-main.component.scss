@@ -526,6 +526,14 @@
   font-weight: 800;
 }
 
+.overflow-watched {
+  width: 65px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+
 
 .bb01 {
   font-weight: 800;
