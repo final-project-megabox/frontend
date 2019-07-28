@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="custom-alert">
+    <div class="alert-header">
+      <h1>알림</h1>
+    </div>
+    <div class="alert-body">
+      <p>다른 상영관에 상영중인 영화입니다. 상영중인 영화관 목록을 선택하시겠습니까?</p>
+    </div>
+    <div class="alert-footer">
+      <button class="alert-confirm" 
+      (click)="bookingService.alertTheater = false;
+      bookingService.theaterModalState = true">확인</button>
+      <button class="alert-cancel" 
+      (click)="bookingService.alertTheater = false">취소</button>
+    </div>
+    <button class="fas fa-times"
+    (click)="bookingService.alertTheater = false"></button>
+  </div>
+</div>

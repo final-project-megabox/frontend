@@ -17,6 +17,7 @@ export class QuickBookingService {
   theaterModalState = false;
   alertModalState = false;
   selectedMovies = false;
+  alertTheater = true;
 
   addPlus = [];  // 영화 플러스 버튼 추가
   theater = [0, 1, 2, 3]; // 지역 플러스 버튼 추가
@@ -108,7 +109,6 @@ export class QuickBookingService {
     this.movieList = [];
     console.log(this.postTheater, this.postDate, this.postMovie)
     if (!this.postTheater) {
-      alert('극장을 선택하세요');
       return;
     }
 

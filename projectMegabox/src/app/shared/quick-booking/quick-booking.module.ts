@@ -19,6 +19,7 @@ import { CalendarService } from './service/calendar.service';
 import { QuickBookingService } from './service/quick-booking.service';
 import { PreferTheatersComponent } from '../prefer-theaters/prefer-theaters.component';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { AlertTheaterComponent } from './components/alert-theater/alert-theater.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
     CalendarComponent,
     TheaterModalComponent,
     AlertModalComponent,
+    AlertTheaterComponent,
     
     MoviesSortPipe,
     RegionsFilterPipe,
