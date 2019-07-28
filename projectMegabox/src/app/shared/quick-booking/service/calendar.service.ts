@@ -39,11 +39,14 @@ export class CalendarService {
 
     for (let i = 1; i <= lastDay; i++) {
       const CurrentDate = new Date(this.year, this.month, i);
+      const month = CurrentDate.getMonth() + 1 + '';
+      const date = CurrentDate.getDate() + '';
 
       const objDate = { 
         day: CurrentDate.getDate() + '', 
         date: this.dateTranslator(CurrentDate.getDay()), 
-        fullDate: `${CurrentDate.getFullYear()}${CurrentDate.getMonth()}${CurrentDate.getDate()}`
+        fullDate: `${CurrentDate.getFullYear()}${CurrentDate.getMonth()}${CurrentDate.getDate()}`,
+        postDate: `${CurrentDate.getFullYear()}-${month.length === 1 ? '0'+ month : month}-${date.length === 1 ? '0'+ date : date}`
       } 
 
       this.thisDays = this.thisDays.length ? [...this.thisDays, objDate] : this.thisDays = [objDate];

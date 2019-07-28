@@ -10,6 +10,8 @@ import { ComponentsModule } from './components/components.module';
 import { SignUpModule } from './components/sign-up/sign-up.module';
 
 import { AppComponent } from './app.component';
+import { QuickBookingModule } from './shared/quick-booking/quick-booking.module';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -22,11 +24,13 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
 
+    CoreModule,
     MainPageModule,
     MyPageModule,
     SharedModule,
     ComponentsModule,
     SignUpModule,
+    QuickBookingModule,
 
     AppRoutingModule
   ],

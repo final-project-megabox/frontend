@@ -8,7 +8,7 @@
             <h2>날짜</h2>
             <button class="hidden-text" 
             (click)="quickBookingService.calendarModalState = !quickBookingService.calendarModalState;
-            calenderService.afterToday = afterToday">달력버튼</button>
+            calenderService.afterToday = afterToday;">달력버튼</button>
             <app-calendar *ngIf="quickBookingService.calendarModalState"></app-calendar>
           </div>
           <div class="carousel-table" (click)="dayCarouselButton($event.target.parentNode)">
@@ -21,11 +21,11 @@
                 <li *ngFor="let item of afterToday">
                   <button class="day-button" 
                     *ngIf="calenderService.today !== item.fullDate; else elemToday" 
-                    (click)="checkDayActive(item.fullDate, ulDay)"
+                    (click)="checkDayActive(item.fullDate); quickBookingService.postDate = item.postDate"
                     [class.active]="item.fullDate === calenderService.activeToday">{{item.day}}({{item.date}})</button>
                   <ng-template #elemToday>
                     <button class="day-button" 
-                    (click)="checkDayActive(item.fullDate)"
+                    (click)="checkDayActive(item.fullDate); quickBookingService.postDate = item.postDate"
                     [class.active]="item.fullDate === calenderService.activeToday">오늘</button>
                   </ng-template>
                 </li>
@@ -44,16 +44,13 @@
             </button>
           </div>
           <div class="place">
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
-              <span class="hidden-text">영화 추가 버튼</span>
-            </button>
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
-              <span class="hidden-text">영화 추가 버튼</span>
-            </button>
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
-              <span class="hidden-text">영화 추가 버튼</span>
-            </button>
-            <button class="add-movie" (click)="quickBookingService.theaterModalState = true">
+            <div class="theater-list" *ngFor="let item of quickBookingService.transmitTheaters">
+              <span>{{item}}</span>
+              <button class="hidden-text" 
+              (click)="quickBookingService.removeTheater(item)">선택 취소</button>
+            </div>
+            <button class="add-movie" *ngFor="let item of quickBookingService.theater"
+            (click)="quickBookingService.theaterModalState = true">
               <span class="hidden-text">영화 추가 버튼</span>
             </button>
           </div>
@@ -83,7 +80,7 @@
               <ul class="poster-list">
                 <li class="poster" *ngFor="let movie of quickBookingService.selectMovie">
                   <button class="cancel hidden-text"
-                  (click)="removeMovie(movie); quickBookingService.addPlusButton()">취소</button>
+                  (click)="removeMovie(movie)">취소</button>
                   <img [src]="movie.img_url" [alt]="movie.title">
                 </li>
                 <li class="plus-movie" *ngFor="let plus of quickBookingService.addPlus">
@@ -147,7 +144,27 @@
           </div>
         </div>
         <div class="time-list">
-          <div class="empty-list"></div>
+          <div class="list-wrapper" *ngIf="!quickBookingService.movieList.length; else activeList"></div>
+          <ng-template #activeList>
+            <ul class="movie-list">
+              <li *ngFor="let list of quickBookingService.movieList">
+                <div class="start-time">
+                  <span>{{list.start_time}}</span>
+                </div>
+                <div class="screening-information">
+                  <div class="left-side">
+                    <span class="movie-title">{{list.movie}}</span>
+                    <span class="movie-type">{{list.type_}}</span>
+                  </div>
+                  <div class="right-side">
+                    <span class="movie-theater">{{list.theater}}</span>
+                    <span class="movie-screen">{{list.screen}}관</span>
+                    <span class="movie-seat">{{list.st_count}} / {{list.total_seat}}</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </ng-template>
         </div>
       </div>
       <div class="advertisement"></div>

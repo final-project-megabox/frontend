@@ -38,6 +38,7 @@ export class MovieRankComponent implements OnInit {
       { id: 4, rankStar: 'star4', starContent: '너무 멋진 영화였어요!'},
       { id: 5, rankStar: '', starContent: '평점을 입력해주세요'}
     ]
+
     
   }
 
@@ -47,10 +48,8 @@ export class MovieRankComponent implements OnInit {
   }
 
   selectMovie(rankmovie: Movies) {
-    this.rankService.selectMovie = [rankmovie]
+    this.rankService.selectMovie = [rankmovie];
     this.rootService.quickBookingModalState = true;
-
-    // console.log(this.rankService.selectMovie);
   }
 
   movieState: number;
