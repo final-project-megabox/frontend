@@ -112,6 +112,13 @@ export class MainViewComponent implements OnInit {
     this.quickBookingService.selectTitle = selectTitle.filter(title => title !== select.title);
   }
 
+  createAgeIcon(age: string) {
+    if (age === "전체 관람") return "age-all hidden-text";
+    if (age === "12세 관람가") return "age-12 hidden-text";
+    if (age === "15세 관람가") return "age-15 hidden-text";
+    if (age === "청소년 관람불가") return "age-adult hidden-text";
+  }
+
   // 상영관 버튼
   theaterSelect() {
     

@@ -17,7 +17,7 @@ export class QuickBookingService {
   theaterModalState = false;
   alertModalState = false;
   selectedMovies = false;
-  alertTheater = true;
+  alertTheater = false;
 
   addPlus = [];  // 영화 플러스 버튼 추가
   theater = [0, 1, 2, 3]; // 지역 플러스 버튼 추가
@@ -50,9 +50,7 @@ export class QuickBookingService {
   
   constructor(private http: HttpClient, private calendarService: CalendarService) { }
   
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   set postDate(value: string) {
     this._postDate = value;
@@ -90,6 +88,13 @@ export class QuickBookingService {
   set selectMovie(value: Movies[]) {
     this._selectMovie = value;
 
+    if (!value.length) {
+      this.postMovie = '';
+      this.addPlusButton();
+      this.getMovieList();
+      return;
+    }
+
     this.selectMovie.forEach((item, idx) => {
       if (idx === 0) {
         this.postMovie = `&movie=${item.title}`;
@@ -107,13 +112,17 @@ export class QuickBookingService {
 
   getMovieList() {
     this.movieList = [];
-    console.log(this.postTheater, this.postDate, this.postMovie)
+    const date = new Date();
+
     if (!this.postTheater) {
       return;
     }
 
     this.http.get<[]>(`${environment.appUrl}?date=${this.postDate}${this.postTheater}&movie=${this.postMovie}`)
-      .subscribe(list => this.movieList = list);
+      .subscribe(list => this.movieList = list.map(item => {
+        if (+item.date.split('-')[2] !== date.getDate()) return item;
+        else if (+item['show_time'].slice(0, 2) >= date.getHours()) return item;
+      }));
   }
   
   getAll() {

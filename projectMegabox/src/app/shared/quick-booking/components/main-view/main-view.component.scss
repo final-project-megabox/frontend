@@ -179,7 +179,7 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
                 width: 20px;
                 height: 20px;
                 border: 1px solid #e0e0e0;
-                background: #ffffff url(http://image2.megabox.co.kr/mop/home/btns/btn_close.png) 4px -86px no-repeat;
+                background: #ffffff url('http://image2.megabox.co.kr/mop/home/btns/btn_close.png') 4px -86px no-repeat;
               }
             }
           }
@@ -326,8 +326,41 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
                   flex-direction: column;
                   align-self: center;
 
+                  .age-all {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') 0 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
+                  .age-12 {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -60px 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
+                  .age-15 {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -90px 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
+                  .age-adult {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -30px 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
                   .movie-title {
                     margin-bottom: 5px;
+                    margin-left: 5px;
                   }
 
                   .movie-type {

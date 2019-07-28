@@ -78,6 +78,6 @@ export class MovieModalComponent implements OnInit {
   }
 
   confirmTheater() {
-    this.bookingService.alertTheater = this.bookingService.selectTheaters ? true : false;
+    this.bookingService.alertTheater = this.bookingService.selectTheaters.length ? false : true;
   }
 }
