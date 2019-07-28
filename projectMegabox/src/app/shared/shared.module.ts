@@ -3,29 +3,28 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
 
-import { QuickBookingModule } from './quick-booking/quick-booking.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { MainViewComponent } from './quick-booking/components/main-view/main-view.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
+import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     NotFoundComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    PreferTheatersComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    QuickBookingModule,
     RouterModule
   ],
   exports: [
     SidebarComponent,
     NotFoundComponent,
-    MainViewComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    PreferTheatersComponent
   ]
 })
 export class SharedModule { }

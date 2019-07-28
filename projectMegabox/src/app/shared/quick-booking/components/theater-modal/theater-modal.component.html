@@ -31,7 +31,7 @@
               선호 영화관으로
               <br>
               등록해주세요
-              <button class="showFavorTheater">선호영화관 등록</button>
+              <button class="showFavorTheater" (click)="preferTheaterService.preferState = true">선호영화관 등록</button>
             </div>
             <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
                 [class.list-active]="detailRegion.selected"
@@ -83,11 +83,13 @@
         </div>
       </div>
       <div class="theater-btns-wrapper">
-        <button type="button" class="booking-btn booking-cancel" (click)="cancelSelect()">취소</button>
-        <!-- <button type="button" class="booking-btn booking-cancel" (click)="bookingService.theaterModalState = false">취소</button> -->
-        <button type="button" class="booking-btn booking-confirm" (click)="bookingService.theaterModalState = false">확인</button>
+        <button type="button" class="booking-btn booking-cancel" 
+        (click)="cancelSelect()">취소</button>
+        <button type="button" class="booking-btn booking-confirm" 
+        (click)="confirmSelect(); bookingService.addTheaterButton()">확인</button>
       </div>
     </div>
   </div>
 </div>
 <app-alert-modal *ngIf="bookingService.alertModalState"></app-alert-modal>
+<prefer-theaters *ngIf="preferTheaterService.preferState"></prefer-theaters>

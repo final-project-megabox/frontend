@@ -1,13 +1,21 @@
-.custom-alert {
+.container {
   position: fixed;
-  top: 305px;
-  left: 543px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(0,0,0,0.4);
+}
+.custom-alert {
+  position: relative;
+  width: 450px;
+  min-width: 450px;
+  margin: 290px auto;
   background-color: #fff;
   zoom: 1;
-  width: 450px;
-  z-index: 999999;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .alert-header {

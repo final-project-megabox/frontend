@@ -16,6 +16,7 @@ export class MovieModalComponent implements OnInit {
   
   ngOnInit() {
     this.getMovies();
+    this.getTitle();
   }
 
   sortItems: SortItem[] = ['예매율순','가나다순','개봉일순'];
@@ -31,9 +32,14 @@ export class MovieModalComponent implements OnInit {
     })
   }
 
+  // 영화 title을 삭제하고 취소 버튼을 누른 후 다시 들어와도 title이 보이게 하기 위한 함수
+  getTitle() {
+    this.bookingService.selectTitle = this.bookingService.selectMovie.map(selected => selected.title);
+  }
+
   // 포스터를 클릭 했을 때 selectMovie 배열 안에 추가하고 다시 또 클릭하면 selectMovie 배열에서 삭제 또 그에 따른 배경색 변화와 최대 4개까지 선택 가능 기능
   addPoster(movie: Movies) {
-    if(movie.selected && this.bookingService.selectTitle.length < 4) {
+    if (movie.selected && this.bookingService.selectTitle.length < 4) {
       this.bookingService.selectTitle = [...this.bookingService.selectTitle, movie.title];
     } 
     else if (!movie.selected || this.bookingService.selectTitle.length < 4) {
@@ -59,21 +65,15 @@ export class MovieModalComponent implements OnInit {
   // 확인 버튼
   confirmSelect() {
     this.bookingService.selectMovie = this.bookingService.movies.filter(movie => {
-      return this.bookingService.selectTitle.some(selected => movie.title === selected);
+       return movie.selected === true;
     })
-    // this.bookingService.selectMovie = this.bookingService.movies.filter(movie => {
-    //    return movie.selected === true;
-    // })
     this.bookingService.movieModalState = false; 
     this.bookingService.selectedMovies = true;
     this.bookingService.addPlusButton();
   }
 
-  // 취소 버튼을 누르면 선택된 영화들의 정보가 담겨있는 selectMovie을 reset
+  // 취소 버튼
   cancelSelect() {
     this.bookingService.movieModalState = false;
-    if(!this.bookingService.selectMovie.length) {
-      this.bookingService.selectTitle = [];
-    }
   }
 }

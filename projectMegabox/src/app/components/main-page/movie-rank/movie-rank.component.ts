@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Rank, RankStar } from '../movie-rank/models/rank.type';
-import { RankStarContent } from './models/rank-movie-interface';
+import { Rank } from '../movie-rank/models/rank.type';
+import { RankStar } from './models/rank-movie-interface';
 
 import { RootService } from 'src/app/core/service/root.service';
 import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
@@ -18,22 +18,27 @@ export class MovieRankComponent implements OnInit {
   Ranks: Rank[] = ['박스오피스', '최신개봉작', '상영예정작'];
   rankState: Rank = '박스오피스';
 
-  RankStars: RankStar[] = ['star1', 'star2', 'star3', 'star4', 'star5'];
-  starState: RankStar;
-  RankStarContents: RankStarContent[];
+  RankStars: RankStar[]
+  starState: number;
+  commentState: number = 5;
 
+  wishMovie: Movies[] = [];
+
+  hoverState = false;
+  starclick = false;
 
   ngOnInit() {
     this.getRanking()
     
-    this.RankStarContents = [
-      { id: 0, starContent: '평점을 입력해주세요'},
-      { id: 1, starContent: '괜히 봤어요'},
-      { id: 2, starContent: '기대하진 말아요'},
-      { id: 3, starContent: '무난했어요'},
-      { id: 4, starContent: '기대해도 좋아요!'},
-      { id: 5, starContent: '너무 멋진 영화였어요!'}
+    this.RankStars = [
+      { id: 0, rankStar: 'star0', starContent: '괜히 봤어요'},
+      { id: 1, rankStar: 'star1', starContent: '기대하진 말아요'},
+      { id: 2, rankStar: 'star2', starContent: '무난했어요'},
+      { id: 3, rankStar: 'star3', starContent: '기대해도 좋아요!'},
+      { id: 4, rankStar: 'star4', starContent: '너무 멋진 영화였어요!'},
+      { id: 5, rankStar: '', starContent: '평점을 입력해주세요'}
     ]
+
     
   }
 
@@ -43,12 +48,48 @@ export class MovieRankComponent implements OnInit {
   }
 
   selectMovie(rankmovie: Movies) {
-    this.rankService.selectMovie = [rankmovie]
+    this.rankService.selectMovie = [rankmovie];
     this.rootService.quickBookingModalState = true;
-
-    console.log(this.rankService.selectMovie);
   }
+
+  movieState: number;
   
-  // RankStar와 RankStarContent를 인터페이스로 만들어서 호버하면 이미지와 콘텐츠가 같이 보이게 해보쟈... 홧팅...
+  hoverStar(id: number, idx:number) {
+    this.starState = id;
+    this.commentState = id;
+    this.movieState = idx;
+    this.hoverState = true;
+    console.log(this.movieState); 
+  }
+
+  outStar() {
+    // this.starState = 6;
+    this.hoverState = false;
+    
+    if (this.starclick) {
+      return;
+    } else {
+      this.starState = NaN;
+    }
+    // this.starState = NaN;
+    // this.movieState = null;
+  }
+
+  inputStar(id: number) {
+    this.starState = id;
+    console.log(this.starState);
+    
+  }
+
+  // hovercomment(i: number) {
+  //   this.commentState = i;
+  //   console.log(this.commentState);
+    
+  // }
+
+  rankWish(rankmovie: Movies) {
+    this.wishMovie = [rankmovie]
+    // console.log(this.wishMovie);
+  }
 
 }

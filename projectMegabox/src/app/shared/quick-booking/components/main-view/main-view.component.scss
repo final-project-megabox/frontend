@@ -154,10 +154,33 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
 
             .add-movie {
               border: 1px solid #e0e0e0;
-              padding: 20px 85px;
+              padding: 20px 0;
+              width: 190px;
+              text-align: center;
               margin-bottom: 10px;
               outline-color: #cdcdcd;
               background: url('http://image2.megabox.co.kr/mop/home/btns/btn_add.png') 50% 50% no-repeat;
+            }
+
+            .theater-list {
+              position: relative;
+              border: 1px solid #e0e0e0;
+              padding: 20px 0;
+              width: 190px;
+              text-align: center;
+              margin-bottom: 10px;
+              outline-color: #cdcdcd;
+              background: #fff;
+
+              button {
+                position: absolute;
+                top: -1px;
+                right: -1px;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #e0e0e0;
+                background: #ffffff url(http://image2.megabox.co.kr/mop/home/btns/btn_close.png) 4px -86px no-repeat;
+              }
             }
           }
 
@@ -276,8 +299,73 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
         }
 
         .time-list {
-          background: url('http://image2.megabox.co.kr/mop/home/no_movie_list.png') no-repeat 50% 50% #fff;
-          height: 530px;
+          .list-wrapper {
+            background: url('http://image2.megabox.co.kr/mop/home/no_movie_list.png') no-repeat 50% 50% #fff;
+            height: 530px;
+          }
+
+          .movie-list {
+            height: 530px;
+            overflow: scroll;
+            overflow-x: hidden;
+            li {
+              display: flex;
+              padding: 10px 20px;
+              border-bottom: 1px solid #e5e5e5;
+              background: #fff;
+
+              .start-time {
+                font-size: 1.3rem;
+                font-weight: bold;
+                align-self: center;
+                border-right: 1px solid #e5e5e5;
+                padding-right: 8px;
+              }
+
+              .screening-information {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding-left: 8px;
+
+                .left-side {
+                  display: flex;
+                  flex-direction: column;
+                  align-self: center;
+
+                  .movie-title {
+                    margin-bottom: 5px;
+                  }
+
+                  .movie-type {
+                    font-size: 0.8rem;
+                    color: #666;
+                  }
+                }
+
+                .right-side {
+                  display: flex;
+                  flex-direction: column;
+                  text-align: right;
+
+                  .movie-theater {
+                    font-size: 0.8rem;
+                    margin-bottom: 4px;
+                  }
+                  .movie-screen {
+                    font-size: 0.8rem;
+                    margin-bottom: 4px;
+                  }
+                  .movie-seat {
+                    font-size: 0.8rem;
+                    color: #666;
+                  }
+                }
+              }
+            }
+
+          }
+
         }
       }
       
