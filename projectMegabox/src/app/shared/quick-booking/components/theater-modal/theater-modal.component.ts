@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { QuickBookingService } from '../../service/quick-booking.service';
+import { PreferTheatersService } from 'src/app/shared/prefer-theaters/prefer-theaters.service';
 
 import { regions } from '../../models/regions.type';
 
@@ -11,7 +12,7 @@ import { regions } from '../../models/regions.type';
 })
 export class TheaterModalComponent implements OnInit {
 
-  constructor(private bookingService: QuickBookingService) {}
+  constructor(private bookingService: QuickBookingService, private preferTheaterService: PreferTheatersService) {}
 
   ngOnInit() {
     this.bookingService.detailRegions = this.getTheaters().map(theater => {
