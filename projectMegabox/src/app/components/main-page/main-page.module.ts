@@ -8,7 +8,6 @@ import { NewEventComponent } from './new-event/new-event.component';
 import { NoticeComponent } from './notice/notice.component';
 import { MainPageComponent } from './main-page.component';
 import { RankSortPipe } from './movie-rank/pipes/rank-sort.pipe';
-import { RankingHoverDirective } from './movie-rank/directive/ranking-hover.directive';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { RankingHoverDirective } from './movie-rank/directive/ranking-hover.dire
     MovieRankComponent,
     NewEventComponent,
     NoticeComponent,
-    RankSortPipe,
-    RankingHoverDirective
+    RankSortPipe
   ],
   imports: [
     CommonModule

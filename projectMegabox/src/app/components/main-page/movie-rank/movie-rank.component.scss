@@ -7,12 +7,13 @@ $ranking-left: 245px;
 
 $sub-color: #188591;
 
-// box office tab
+// All container
 .rank-container {
   position: relative;
   background: #f2f2f2;
   height: 680px;
-
+  
+  // box office tab
   .rank {
     display: flex;
     justify-content: center;
@@ -45,6 +46,7 @@ $sub-color: #188591;
       }
     }
   }
+  // box office tab end
 
   // box office body
   // box office poster
@@ -52,7 +54,6 @@ $sub-color: #188591;
     width: 970px;
     height: 452px;
     display: flex;
-    flex-wrap: wrap;
     overflow: hidden;
     position: absolute;
     left: 50%;
@@ -68,155 +69,193 @@ $sub-color: #188591;
         height: 324.89px;
       }
 
-      &:nth-child(n+2):nth-child(-n+5) {
+      &:nth-child(n+2) {
         margin-left: 15px;
       }
-
-      &:nth-child(n+5) {
-        margin-top: 10px;
-      }
     }
-  }
 
   // box office marker
-  .ranking-marker-0 {
-    position: absolute;
-    display: block;
-    overflow: hidden;
-    width: 44px;
-    height: 39px;
-    top: 10px;
-    left: -2px;
-    padding: 0;
-    margin: 0;
-    text-indent: -9999px;
-    background: url($ranking);
-    background-position: 0 0;
+    .ranking-marker-0 {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      width: 44px;
+      height: 39px;
+      top: 10px;
+      left: -2px;
+      padding: 0;
+      margin: 0;
+      text-indent: -9999px;
+      background: url($ranking);
+      background-position: 0 0;
+    }
+
+    .ranking-marker-1 {
+      @extend .ranking-marker-0;
+      left: 244px;
+      background-position: 0 -100px;
+    }
+
+    .ranking-marker-2 {
+      @extend .ranking-marker-0;
+      left: 244+245px;
+      background-position: 0 -200px;
+    }
+
+    .ranking-marker-3 {
+      @extend .ranking-marker-0;
+      left: 244+245+245px;
+      background-position: 0 -300px;
+    }
+    // box office marker end
   }
+  // box office poster end
 
-  .ranking-marker-1 {
-    @extend .ranking-marker-0;
-    left: 244px;
-    background-position: 0 -100px;
-  }
+  // hover
+  // hover 1
+  .rank-poster-container-0:hover {
+    .poster-hover-0 {
+      display: block;
+      width: 228px;
+      height: 324.89px;
+      background: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      top: 0;
 
-  .ranking-marker-2 {
-    @extend .ranking-marker-0;
-    left: 244+245px;
-    background-position: 0 -200px;
-  }
-
-  .ranking-marker-3 {
-    @extend .ranking-marker-0;
-    left: 244+245+245px;
-    background-position: 0 -300px;
-  }
-
-  // poster hover
-  .rank-poster-hover-0 {
-    width: 228px;
-    height: 327px;
-    position: absolute;
-    top: 0;
-    left: 1px;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-
-    .rankStar {
-      // background: yellow;
-      margin-top: 100px;
-      display: flex;
-
-      &:first-child {
-        margin-left: 32px;
+      .contents-container {
+        background: #188591;
+        margin-top: 100px;
       }
 
-      & li {
-        width: 32px;
-        height: 30px;
-        background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
-        cursor: pointer;
-        
-        &:hover {
+      .rankStar-container {
+        display: flex;
+        justify-content: center;
+        .rankStar-0 {
+          width: 32px;
+          height: 30px;
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
+          cursor: pointer;
+        }
+        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
+          @extend .rankStar-0;
+        }
+
+        .hoverActive {
           background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
           cursor: pointer;
         }
       }
-    }
-    
-    .rankStar-review-0 {
-      margin-top: 20px;
-      color: white;
-      text-align: center;
-      font-size: .85rem;
-      width: 228px;
-      height: 20px;
-      // background: yellow;
-      position: absolute;
-    }
-    
-    .rankStar-review-1 {
-      @extend .rankStar-review-0;
-      display: none;
-    }
 
-    .rankStar-review-2 {
-      @extend .rankStar-review-0;
-      display: none;
-    }
-
-    .rankStar-review-3 {
-      @extend .rankStar-review-0;
-      display: none;
-    }
-
-    .rankStar-review-4 {
-      @extend .rankStar-review-0;
-      display: none;
-    }
-
-    .rankStar-review-5 {
-      @extend .rankStar-review-0;
-      display: none;
-    }
-
-    .rank-movie-wish {
-      position: absolute;
-      top: 252px;
-      width: 228px;
-      height: 76px;
-      background: url($movie-wish);
-      background-position: 0 0;
-  
-      &:hover {
+      .activeComment {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      .rank-movie-wish-0 {
+        position: absolute;
+        bottom: 0;
+        width: 228px;
+        height: 76px;
         background: url($movie-wish);
-        background-position: 0 -86px;
-        cursor: pointer;
+        background-position: 0 0;
+        
+        &:hover {
+          background: url($movie-wish);
+          background-position: 0 -86px;
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+  // hover 1 end
+
+  // hover 2
+  .rank-poster-container-1:hover {
+    .poster-hover-1 {
+      display: block;
+      width: 228px;
+      height: 324.89px;
+      background: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      top: 0;
+      
+      
+      .rank-movie-wish-1 {
+        position: absolute;
+        bottom: 0;
+        width: 228px;
+        height: 76px;
+        background: url($movie-wish);
+        background-position: 0 0;
+    
+        &:hover {
+          background: url($movie-wish);
+          background-position: 0 -86px;
+          cursor: pointer;
+        }
       }
     }
   }
+  // hover 2 end
 
-  .rank-poster-hover-1 {
-    @extend .rank-poster-hover-0;
-    display: none;
-    margin-left: 245px;
+  // hover 3
+  .rank-poster-container-2:hover {
+    .poster-hover-2 {
+      display: block;
+      width: 228px;
+      height: 324.89px;
+      background: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      top: 0;
+
+      .rank-movie-wish-2 {
+        position: absolute;
+        bottom: 0;
+        width: 228px;
+        height: 76px;
+        background: url($movie-wish);
+        background-position: 0 0;
+    
+        &:hover {
+          background: url($movie-wish);
+          background-position: 0 -86px;
+          cursor: pointer;
+        }
+      }
+    }
   }
+  // hover 3 end
 
-  .rank-poster-hover-2 {
-    @extend .rank-poster-hover-0;
-    display: none;
-    margin-left: 245+245px;
+  // hover 4
+  .rank-poster-container-3:hover{
+    .poster-hover-3 {
+      display: block;
+      width: 228px;
+      height: 324.89px;
+      background: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      top: 0;
+      .rank-movie-wish-3 {
+        position: absolute;
+        bottom: 0;
+        width: 228px;
+        height: 76px;
+        background: url($movie-wish);
+        background-position: 0 0;
+    
+        &:hover {
+          background: url($movie-wish);
+          background-position: 0 -86px;
+          cursor: pointer;
+        }
+      }
+    }
   }
+  // hover 4 end
+  // hover end
 
-  .rank-poster-hover-3 {
-    @extend .rank-poster-hover-0;
-    display: none;
-    margin-left: 245+245+245px;
-  }
-
-
-
-  // w: 230 h: 76
 
   // information
   .rank-info-container {
@@ -224,62 +263,63 @@ $sub-color: #188591;
     display: flex;
     justify-content: center;
     height: 100px;
-  }
-  .rank-info {
-    width: 200px;
-    height: 100px;
-    font-weight: 600;
-    font-size: 1.3em;
-    color: #363636;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-    overflow: hidden;
+  
 
-    span {
-      background: url($watch-age) 0 -999px no-repeat;
-      display: inline-block;
-      width: 17px;
-      height: 18px;
-      margin-right: 4px;
-      text-indent: -99999px;
+    .rank-info {
+      width: 200px;
+      height: 100px;
+      font-weight: 600;
+      font-size: 1.3em;
+      color: #363636;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: normal;
       overflow: hidden;
-      vertical-align: middle;
 
-      &.age-0 { background-position: 0 0; }
-      &.age-1 { background-position: -60px 0; }
-      &.age-2 { background-position: -90px 0; }
-      &.age-3 { background-position: -30px 0;}
+      span {
+        background: url($watch-age) 0 -999px no-repeat;
+        display: inline-block;
+        width: 17px;
+        height: 18px;
+        margin-right: 4px;
+        text-indent: -99999px;
+        overflow: hidden;
+        vertical-align: middle;
 
-    }
+        &.age-0 { background-position: 0 0; }
+        &.age-1 { background-position: -60px 0; }
+        &.age-2 { background-position: -90px 0; }
+        &.age-3 { background-position: -30px 0;}
 
-    .rank-info-detail {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
+      }
 
-      button {
-        width: 95px;
-        height: 45px;
-        background: #f2f2f2;
-        color: #727272;
-        font-weight: 700;
-        font-size: 0.8em;
+      .rank-info-detail {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
 
-        &:hover {
-          background: #fff;
-          border: 1px solid $sub-color;
-          color: $sub-color;
-        }
-        
-        &.infoActive {
-          background: #fff;
-          border: 1px solid $sub-color;
-          color: $sub-color;
+        button {
+          width: 95px;
+          height: 45px;
+          background: #f2f2f2;
+          color: #727272;
+          font-weight: 700;
+          font-size: 0.8em;
+
+          &:hover {
+            background: #fff;
+            border: 1px solid $sub-color;
+            color: $sub-color;
+          }
           
+          &.infoActive {
+            background: #fff;
+            border: 1px solid $sub-color;
+            color: $sub-color;
+            
+          }
         }
       }
     }
   }
-
 }
