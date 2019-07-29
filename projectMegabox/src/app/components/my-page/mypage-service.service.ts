@@ -1,11 +1,10 @@
 import { Userinfo } from './../../userinfo';
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import {Headers, Http} from '@angular/http';
 import { Injectable } from '@angular/core';
 
 
-import 'rxjs/add/operator/toPromise';
+// import 'rxjs/add/operator/toPromise';
 
 
 // @Injectable({
@@ -22,13 +21,13 @@ export class  MypageServiceService {
   private apiUser = `${environment.apiUser}/auth`;
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
   ) {}
 
-  getUsers(): Promise<Userinfo[]> {
-    return this.http.get(this.apiUser)
-                .toPromise()
-                .then(response => response.json())
-  }
+  // getUsers(): Promise<Userinfo[]> {
+  //   return this.http.get(this.apiUser)
+  //               .toPromise()
+  //               .then(response => response.json())
+  // }
 
 }
