@@ -233,3 +233,72 @@
 
   }
 }
+
+// 얼러트
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(0,0,0,0.4);
+}
+.custom-alert {
+  position: relative;
+  width: 450px;
+  min-width: 450px;
+  margin: 290px auto;
+  background-color: #fff;
+  zoom: 1;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.alert-header {
+  position: relative;
+  padding-top: 12px;
+  height: 42px;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.alert-header > h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.alert-body {
+  padding: 30px 20px 15px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 26px;
+}
+
+.alert-body > p {
+  padding: 0;
+  margin: 0;
+}
+
+.alert-footer {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.alert-confirm {
+  margin: 0 5px;
+  display: inline-block;
+  width: 68px;
+  height: 30px;
+  background-color: #503396;
+}
+
+.fa-times {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}

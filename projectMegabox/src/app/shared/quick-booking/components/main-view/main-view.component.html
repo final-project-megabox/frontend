@@ -39,7 +39,7 @@
         <div class="theater box-padding">
           <div class="title">
             <h2>극장</h2>
-            <button class="reload" (click)="quickBookingService.postTheater = ''">
+            <button class="reload" (click)="quickBookingService.postTheater = []">
               <span class="hidden-text">새로고침</span>
             </button>
           </div>
@@ -147,17 +147,18 @@
           <div class="list-wrapper" *ngIf="!quickBookingService.movieList[0]; else activeList"></div>
           <ng-template #activeList>
             <ul class="movie-list">
-              <li *ngFor="let list of quickBookingService.movieList">
+              <li *ngFor="let list of quickBookingService.movieList" class="li-movie-list">
                 <div class="start-time">
-                  <span>{{list.show_time}}</span>
+                  <span class="start">{{list['show_time']}}</span>
+                  <span class="finish">{{quickBookingService.calRunningTime(list['show_time'], list['running_time'])}}</span>
                 </div>
                 <div class="screening-information">
                   <div class="left-side">
-                    <div>
+                    <div class="container-title">
                       <div [class]="createAgeIcon(list.age)">{{list.age}}</div>
                       <span class="movie-title">{{list.movie}}</span>
                     </div>
-                    <span class="movie-type">{{list.type_}}</span>
+                    <span class="movie-type">{{quickBookingService.movieType(list.type)}}</span>
                   </div>
                   <div class="right-side">
                     <span class="movie-theater">{{list.theater}}</span>
