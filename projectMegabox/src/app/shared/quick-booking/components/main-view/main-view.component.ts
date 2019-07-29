@@ -40,7 +40,7 @@ export class MainViewComponent implements OnInit {
   monthAfterToday() {
     let nextMonth: Days[] = [];
 
-    for (let i = 1; i <= 30 - this.calenderService.day; i++) {
+    for (let i = 1; i <= 30 - (30 - this.calenderService.day); i++) {
       const CurrentDate = new Date(this.calenderService.year, this.calenderService.month + 1, i);
       const month = CurrentDate.getMonth() + 1 + '';
       const date = CurrentDate.getDate() + '';
