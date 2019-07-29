@@ -75,6 +75,10 @@ export class LoginModalComponent implements OnInit {
     this.checked = true;
   }
 
+  getUser() {
+    
+  }
+
   // 아이디 저장 체크 상태
   event() {
     this.checked = !this.checked;

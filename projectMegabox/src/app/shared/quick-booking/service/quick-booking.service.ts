@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Movies } from '../models/movies.interface';
 
@@ -126,6 +126,9 @@ export class QuickBookingService {
   }
   
   getAll() {
+    // const token = localStorage.getItem('token');
+    // const headers = new HttpHeaders().set('Authorization', 'JWT ' + token);
+
     return this.http.get<Movies[]>(environment.appUrl);
   }
 
