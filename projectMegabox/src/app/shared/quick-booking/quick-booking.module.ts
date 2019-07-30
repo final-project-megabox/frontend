@@ -27,7 +27,7 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
     CalendarComponent,
     TheaterModalComponent,
     AlertModalComponent,
-    
+
     MoviesSortPipe,
     RegionsFilterPipe,
     PosterBackgroundDirective,
