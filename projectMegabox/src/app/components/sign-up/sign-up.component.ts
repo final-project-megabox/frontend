@@ -76,16 +76,9 @@ export class SignUpComponent implements OnInit {
       password: this.password.value,
       birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
-      // preferTheater: [
-      //   { theater: this.theaterOne.value, region: this.preferOne.value },
-      //   { theater: this.theaterTwo.value, region: this.preferTwo.value },
-      //   { theater: this.theaterThree.value, region: this.preferThree.value }
-      // ]
-      preferTheater: this.theaterOne.value + ',' + this.preferOne.value
     };
     console.log(payload);
     this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
-    // this.http.post('http://megabox.hellocoding.shop/create/', payload).subscribe();
   }
 
   get email() {

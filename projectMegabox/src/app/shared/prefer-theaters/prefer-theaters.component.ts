@@ -28,14 +28,6 @@ export class PreferTheatersComponent implements OnInit {
     ]
   }
 
-  // choieces() {
-  //   return this.preferTheaterService.choieces = [
-  //     { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.preferOneState },
-  //     { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.preferTwoState },
-  //     { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.preferThreeState }
-  //   ]
-  // }
-
   // 선택한 지역을 state에 저장
   regionChoiceOne(selected) {
     this.preferTheaterService.preferOneState = selected;
