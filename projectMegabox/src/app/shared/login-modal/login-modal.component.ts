@@ -52,21 +52,13 @@ export class LoginModalComponent implements OnInit {
           this.userForm.reset();
         }
         this.authService.loginState = true;
+        window.location.reload();
       }, error => {
         this.failLogin = true;
       })
   }
 
-  logout() {
-    if (this.checked) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('id');
-      this.authService.loginState = false;
-    } else {
-      localStorage.removeItem('token');
-      this.authService.loginState = false;
-    }
-  }
+
 
   getUserId() {
     if (!localStorage.getItem('id')) return;

@@ -1,5 +1,5 @@
 <!-- 로그인 모달 -->
-<section class="login-modal" *ngIf="!authService.loginState; else success">
+<section class="login-modal">
   <header>
     <button class="close-modal" (click)="rootService.loginModalState = false">닫기</button>
   </header>
@@ -41,47 +41,7 @@
 
 
 <!-- 로그인 후 -->
-<ng-template #success>
-  <section class="after-login">
-    <header>
-      <div class="id-group">
-        <strong class="id">아이디</strong>
-        <span>님</span>
-      </div>
-      <span class="membership">일반</span>
-    </header>
-    <main>
-      <section class="summary-information">
-        <div class="membership-point">
-          <span>멤버십포인트</span>
-          <span>3,700 P</span>
-        </div>
-        <div class="favorite-theater">
-          <div>
-            <span>선호영화관</span>
-            <span>목동</span>
-          </div>
-          <a>변경</a>
-        </div>
-        <div class="special-membership">
-          <span>스페셜멤버십</span>
-          <a>가입하기</a>
-        </div>
-      </section>
-      <section class="move-link">
-        <a class="my-megabox text-hidden"
-        routerLink='mypage'>나의 메가박스</a>
-        <a class="coupon text-hidden">쿠폰/관람권</a>
-        <a class="store-list text-hidden">스토어 구매내역</a>
-      </section>
-    </main>
-    <footer>
-      <span>마지막 로그인2019-07-2415:34:29</span>
-      <button (click)="logout()">로그아웃</button>
-      <button class="cancel text-hidden">닫기</button>
-    </footer>
-  </section>
-</ng-template>
+
 
 <!-- 로그인 실패 -->
 <div class="container" *ngIf="failLogin">
