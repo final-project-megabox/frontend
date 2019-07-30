@@ -33,7 +33,8 @@
             </div>
             <p class="movie-title">
               <span class="movie-age {{movie['age']}}"
-              [ngClass]="{'age-all': movie.age === 0, 'age-12': movie.age === 1, 'age-15': movie.age === 2, 'age-19': movie.age === 3}"
+              [ngClass]="{'age-all': movie.age === '전체 관람', 'age-12': movie.age === '12세 관람가', 
+              'age-15': movie.age === '15세 관람가', 'age-19': movie.age === '청소년 관람불가'}"
               >{{movie['age']}</span>
               <span>{{movie['title']}}</span>
             </p>
@@ -44,8 +45,9 @@
         <button type="button" class="booking-btn booking-cancel" 
         (click)="cancelSelect()">취소</button>
         <button type="button" class="booking-btn booking-confirm" 
-        (click)="confirmSelect()"
-        [disabled]="!bookingService.selectTitle.length" [style.backgroundColor]= "!bookingService.selectTitle.length ? '#dcdcdc' : null">확인</button>
+        (click)="confirmSelect(); confirmTheater()"
+        [disabled]="!bookingService.selectTitle.length"
+        [style.backgroundColor]= "!bookingService.selectTitle.length ? '#dcdcdc' : null">확인</button>
       </div>
     </div>
   </div>
