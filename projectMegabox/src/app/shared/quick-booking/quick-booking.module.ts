@@ -29,7 +29,6 @@ import { AlertTheaterComponent } from './components/alert-theater/alert-theater.
     TheaterModalComponent,
     AlertModalComponent,
     AlertTheaterComponent,
-    
     MoviesSortPipe,
     RegionsFilterPipe,
     PosterBackgroundDirective,

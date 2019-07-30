@@ -9,6 +9,8 @@ import { MypageBookingComponent } from './mypage-booking/mypage-booking.componen
 import { MypageNaviComponent } from './mypage-navi/mypage-navi.component';
 import { MypageMainComponent } from './mypage-main/mypage-main.component';
 
+import { MypageServiceService } from './mypage-service.service';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +24,10 @@ import { MypageMainComponent } from './mypage-main/mypage-main.component';
   imports: [
     CommonModule,
     AppRoutingModule
+  ],
+
+  providers: [
+    MypageServiceService
   ]
 })
 export class MyPageModule { }
