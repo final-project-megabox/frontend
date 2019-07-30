@@ -1,5 +1,5 @@
 <!-- 로그인 모달 -->
-<section class="login-modal" *ngIf="!loginState; else success">
+<section class="login-modal" *ngIf="!authService.loginState; else success">
   <header>
     <button class="close-modal" (click)="rootService.loginModalState = false">닫기</button>
   </header>

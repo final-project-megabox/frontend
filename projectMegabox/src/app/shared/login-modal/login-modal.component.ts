@@ -51,7 +51,7 @@ export class LoginModalComponent implements OnInit {
           localStorage.setItem('token', login.token);
           this.userForm.reset();
         }
-        this.loginState = true;
+        this.authService.loginState = true;
       }, error => {
         this.failLogin = true;
       })
@@ -61,10 +61,10 @@ export class LoginModalComponent implements OnInit {
     if (this.checked) {
       localStorage.removeItem('token');
       localStorage.removeItem('id');
-      this.loginState = false;
+      this.authService.loginState = false;
     } else {
       localStorage.removeItem('token');
-      this.loginState = false;
+      this.authService.loginState = false;
     }
   }
 

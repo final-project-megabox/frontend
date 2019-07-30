@@ -118,10 +118,10 @@ export class QuickBookingService {
       return;
     }
 
-    this.http.get<Movies[]>(`${environment.appUrl}?date=${this.postDate}${this.postTheater}&movie=${this.postMovie}`)
+    this.http.get<Movies[]>(`http://megabox.hellocoding.shop//database/reservationScheduleList/?date=${this.postDate}${this.postTheater}&movie=${this.postMovie}`)
       .subscribe(list => this.movieList = list.filter(item => {
         if (+item.date.split('-')[2] !== date.getDate()) return +item.date.split('-')[2] !== date.getDate();
-        else if (+item['show_time'].slice(0, 2) >= date.getHours()) return +item['show_time'].slice(0, 2) >= date.getHours();
+        else if (+item['start_time'].slice(0, 2) >= date.getHours()) return +item['start_time'].slice(0, 2) >= date.getHours();
       }));
   }
   
@@ -129,7 +129,7 @@ export class QuickBookingService {
     // const token = localStorage.getItem('token');
     // const headers = new HttpHeaders().set('Authorization', 'JWT ' + token);
 
-    return this.http.get<Movies[]>(environment.appUrl);
+    return this.http.get<Movies[]>('http://megabox.hellocoding.shop//database/showMovies/');
   }
 
   // 선택한 영화 갯수 구해서 add 버튼추가

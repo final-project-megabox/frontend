@@ -7,6 +7,7 @@ export class RootService {
   quickBookingModalState = false;
   loginModalState = false;
   
-  constructor() { }
+  constructor() {
+  }
 
 }

@@ -149,8 +149,8 @@
             <ul class="movie-list">
               <li *ngFor="let list of quickBookingService.movieList" class="li-movie-list">
                 <div class="start-time">
-                  <span class="start">{{list['show_time']}}</span>
-                  <span class="finish">{{quickBookingService.calRunningTime(list['show_time'], list['running_time'])}}</span>
+                  <span class="start">{{list['start_time']}}</span>
+                  <span class="finish">{{quickBookingService.calRunningTime(list['start_time'], list['running_time'])}}</span>
                 </div>
                 <div class="screening-information">
                   <div class="left-side">
@@ -158,7 +158,7 @@
                       <div [class]="createAgeIcon(list.age)">{{list.age}}</div>
                       <span class="movie-title">{{list.movie}}</span>
                     </div>
-                    <span class="movie-type">{{quickBookingService.movieType(list.type)}}</span>
+                    <span class="movie-type">{{quickBookingService.movieType(list.types)}}</span>
                   </div>
                   <div class="right-side">
                     <span class="movie-theater">{{list.theater}}</span>
