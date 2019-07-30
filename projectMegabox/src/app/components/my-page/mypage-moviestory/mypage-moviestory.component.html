@@ -39,12 +39,13 @@
       <p class="sb01">* 본 영화 리스트는 실제 관람한 이력으로 보여지며, 상영일 익일에 자동 노출됩니다.</p>
       <p class="sb01">* 영화관에서 발권하신 티켓 바코드 하단의 거래번호를 통해 본 영화 등록을 하실 수 있습니다.</p>
       <p class="sb01">* 유료 관람 영화 편수는 <a [routerLink]="['/mypage']">‘나의 메가박스’</a>에서 확인 하실 수 있습니다.</p>
-      <button class="watched-button">본 영화 등록</button>
+      <div class="button-div"><button class="watched-button">본 영화 등록</button></div>
 
       <span class="border-line"></span>
-      <ul class="movie-seen">
-        <li><p>본 영화가 없습니다.</p></li>
+      <ul *ngFor="let userinfo of userinfos">
+        <li class="movie-seen">{{userinfo.watchedMovie}}</li>
       </ul>
+
     </div>
 
 
