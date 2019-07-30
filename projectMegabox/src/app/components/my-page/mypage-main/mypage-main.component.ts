@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Userinfo } from './../../../userinfo';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,13 +21,17 @@ export class MypageMainComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     const info = [...this.userinfos]
     const splitNum = (info[0].phoneNumber + '').slice(4, 8);
     const stringTonum = parseInt(splitNum);
     this.numBack = stringTonum;
+
+    //t
+
+    console.log(this.http.get<Userinfo[]>('http://megabox.hellocoding.shop/v1/Myinfo').subscribe());
   }
 
   tabChange(text) {
