@@ -1,3 +1,4 @@
+<form [formGroup] ="userForm">
 <div class="join-wrap">
   <header class="join">
     <button title="회원가입 바로가기">회원가입</button>
@@ -6,7 +7,6 @@
 <h1 class="join-info">가입정보입력</h1>
 <div class="main-content">
   <h4 class="basic-info">기본정보(필수입력)</h4>
-  <form [formGroup] ="userForm">
     <div id="userJoinContainer" class="form-style">
       <div class="form-wrapper">
         <div class="email">
@@ -90,12 +90,81 @@
         </ng-container>
       </div>
     </div>
-  </form>
 </div>
 
+<!-- 부가 정보 입력 -->
+<div class="main-content">
+  <h4 class="basic-info">부가정보(선택입력)</h4>
+  <div class="form-wrapper">
+      <div class="prefer-theater">
+          <span>선호영화관</span>
+      </div>
+      <div class="prefer-theater-wrap">
+        <P>
+          선호 영화관은 최대 3개까지 등록 가능합니다.
+        </P>
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">1순위</span>
+            <select name="region-group" class="region-choice"  (change)="regionChoiceOne(region1.value)" formControlName="preferOne" #region1>
+              <option value="지역선택">지역선택</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
+            </select>
+  
+            <select name="theater-group" class="theater-choice" formControlName="theaterOne">
+              <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
+              [style.display]="preferTheaterService.preferOneState === theater.region ?  null : 'none'" 
+              value="{{theater.theater}}">{{ theater.theater }}</option>
+            </select>
+          </li>
+        </ol>
+    
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">2순위</span>
+            <select name="region-group" class="region-choice"  (change)="regionChoiceTwo(region2.value)" formControlName="preferTwo" #region2>
+              <option value="지역선택">지역선택</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
+            </select>
+  
+            <select name="theater-group" class="theater-choice" formControlName="theaterTwo">
+                <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
+                [style.display]="preferTheaterService.preferTwoState === theater.region ?  null : 'none'" 
+                value="{{theater.theater}}">{{ theater.theater }}</option>
+            </select>
+          </li>
+        </ol>
+  
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">3순위</span>
+            <select name="region-group" class="region-choice" (change)="regionChoiceThree(region3.value)" formControlName="preferThree" #region3>
+              <option value="지역선택">지역선택</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
+            </select>
+  
+            <select name="theater-group" class="theater-choice" formControlName="theaterThree">
+                <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
+                [style.display]="preferTheaterService.preferThreeState === theater.region ?  null : 'none'"
+                value="{{theater.theater}}">{{ theater.theater }}</option>
+            </select>
+          </li>
+        </ol>
+      </div>
+  </div>
+</div>
+
+<!-- 버튼 -->
 <div class="wrap-submit">
   <button class="cancel-btn">취소</button>
-  <button class="confirm-btn" [disabled]="userForm.invalid" (click)="test()" 
+  <button class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()" 
   [style.backgroundColor]= "userForm.invalid ? '#dcdcdc' : null">확인
   </button>
 </div>
+</form>
