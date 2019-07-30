@@ -45,8 +45,9 @@
         <button type="button" class="booking-btn booking-cancel" 
         (click)="cancelSelect()">취소</button>
         <button type="button" class="booking-btn booking-confirm" 
-        (click)="confirmSelect()"
-        [disabled]="!bookingService.selectTitle.length" [style.backgroundColor]= "!bookingService.selectTitle.length ? '#dcdcdc' : null">확인</button>
+        (click)="confirmSelect(); confirmTheater()"
+        [disabled]="!bookingService.selectTitle.length"
+        [style.backgroundColor]= "!bookingService.selectTitle.length ? '#dcdcdc' : null">확인</button>
       </div>
     </div>
   </div>

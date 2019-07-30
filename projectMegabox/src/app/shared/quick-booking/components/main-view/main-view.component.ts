@@ -40,7 +40,7 @@ export class MainViewComponent implements OnInit {
   monthAfterToday() {
     let nextMonth: Days[] = [];
 
-    for (let i = 1; i <= 30 - this.calenderService.day; i++) {
+    for (let i = 1; i <= 30 - (30 - this.calenderService.day); i++) {
       const CurrentDate = new Date(this.calenderService.year, this.calenderService.month + 1, i);
       const month = CurrentDate.getMonth() + 1 + '';
       const date = CurrentDate.getDate() + '';
@@ -110,6 +110,13 @@ export class MainViewComponent implements OnInit {
     
     this.quickBookingService.selectMovie = selectMovie.filter(movie => movie.movie_id !== select.movie_id);
     this.quickBookingService.selectTitle = selectTitle.filter(title => title !== select.title);
+  }
+
+  createAgeIcon(age: string) {
+    if (age === "전체 관람") return "age-all hidden-text";
+    if (age === "12세 관람가") return "age-12 hidden-text";
+    if (age === "15세 관람가") return "age-15 hidden-text";
+    if (age === "청소년 관람불가") return "age-adult hidden-text";
   }
 
   // 상영관 버튼

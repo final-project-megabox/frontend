@@ -179,7 +179,7 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
                 width: 20px;
                 height: 20px;
                 border: 1px solid #e0e0e0;
-                background: #ffffff url(http://image2.megabox.co.kr/mop/home/btns/btn_close.png) 4px -86px no-repeat;
+                background: #ffffff url('http://image2.megabox.co.kr/mop/home/btns/btn_close.png') 4px -86px no-repeat;
               }
             }
           }
@@ -276,13 +276,6 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
               li {
                 display: inline-block;
                 width: 110px;
-                input {
-
-                }
-
-                label {
-
-                }
               }
             }
           }
@@ -308,18 +301,28 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
             height: 530px;
             overflow: scroll;
             overflow-x: hidden;
+
             li {
               display: flex;
               padding: 10px 20px;
               border-bottom: 1px solid #e5e5e5;
               background: #fff;
+              cursor: pointer;
 
               .start-time {
-                font-size: 1.3rem;
-                font-weight: bold;
                 align-self: center;
                 border-right: 1px solid #e5e5e5;
                 padding-right: 8px;
+                width: 160px;
+                
+                .start{
+                  font-size: 1.3rem;
+                  font-weight: bold;
+                }
+
+                .finish {
+                  font-size: 1rem;
+                }
               }
 
               .screening-information {
@@ -333,8 +336,46 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
                   flex-direction: column;
                   align-self: center;
 
+                  .container-title {
+                    margin-bottom: 5px;
+                  }
+
+                  .age-all {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') 0 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
+                  .age-12 {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -60px 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
+                  .age-15 {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -90px 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
+                  .age-adult {
+                    background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -30px 0 no-repeat;
+                    display: inline-block;
+                    width: 17px;
+                    height: 18px;
+                    vertical-align: bottom;
+                  }
+
                   .movie-title {
                     margin-bottom: 5px;
+                    margin-left: 5px;
+                    font-weight: 700;
                   }
 
                   .movie-type {
@@ -364,6 +405,12 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
               }
             }
 
+            li:hover {
+              background: #ededed;
+              .start-time {
+                color: #198591;
+              }
+            }
           }
 
         }

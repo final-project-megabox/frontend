@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RootService } from '../../core/service/root.service';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -11,70 +12,63 @@ export class LoginModalComponent implements OnInit {
   userForm: FormGroup;
   inputId = '';
   checked = false;
-  constructor(private rootService: RootService) { }
+  failLogin = false;
+  loginState = false;
+  
+  constructor(private rootService: RootService, private authService: AuthService) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({
-      userId: new FormControl('', [
+      email: new FormControl(this.inputId, [
         Validators.required,
         Validators.pattern('[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$')
       ]),
-      userPassword: new FormControl('', [
+      password: new FormControl('', [
         Validators.required,
         Validators.pattern('^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$')
       ])
     });
 
-    this.getCookie();
-    this.checked = this.inputId ? true : false;
+    this.getUserId();
   }
 
-  get userId() {
-    return this.userForm.get('userId');
+  get email() {
+    return this.userForm.get('email');
   }
 
-  get userPassword() {
-    return this.userForm.get('userPassword');
+  get password() {
+    return this.userForm.get('password');
   }
 
-  submit(state: boolean) {
-    if (!state) {
-      console.log('아이디 안함 전송');
-      this.setCookie('', 0);
-      this.userForm.reset();
-    } else {
-      console.log('아이디 했음 전송', this.userForm.value);
-      this.setCookie(this.userId.value, 7);
-      this.userForm.reset();
-    }
-  }
-
-  setCookie(value: string, day: number) {
-    if (!day) {
-      const cookies = document.cookie.split('; ');
-
-      cookies.forEach(item => {
-        if(item.split('id=').length !== 2) {
-          document.cookie = '';
+  loginSubmit(payLoad) {
+    this.authService.confirmUser(payLoad)
+      .subscribe(login => {
+        if (this.checked) {
+          localStorage.setItem('token', login.token);
+          localStorage.setItem('id', login.user.username);
+          this.userForm.reset();
+        } else {
+          localStorage.setItem('token', login.token);
+          this.userForm.reset();
         }
+        this.authService.loginState = true;
+        window.location.reload();
+      }, error => {
+        this.failLogin = true;
       })
-    }
-    const today = new Date();
-
-    today.setDate(today.getDate() + day);
-    document.cookie = `id=${escape(value)}; path=/; expires="${today.toUTCString}";`
   }
 
-  getCookie() {
-    if (!document.cookie.length) return;
 
-    const cookies = document.cookie.split('; ');
 
-    cookies.forEach(item => {
-      if(item.split('id=').length !== 2) return;
+  getUserId() {
+    if (!localStorage.getItem('id')) return;
 
-      this.inputId = item.split('id=')[1];
-    });
+    this.inputId = localStorage.getItem('id');
+    this.checked = true;
+  }
+
+  getUser() {
+    
   }
 
   // 아이디 저장 체크 상태

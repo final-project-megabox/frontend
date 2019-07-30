@@ -4,9 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RootService {
-  quickBookingModalState = true;
+  quickBookingModalState = false;
   loginModalState = false;
+  myPageModal = false;
   
-  constructor() { }
+  constructor() {
+  }
 
 }

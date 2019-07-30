@@ -9,30 +9,43 @@
     </div>
 
     <ul class= "mymoviestory-tab">
-      <li (click)="tabActive(button1.textContent)" #button1>보고싶어</li>
-      <li (click)="tabActive(button2.textContent)" #button2>본영화</li>
+      <li (click)="tabActive(button1.textContent)" #button1 [ngClass]="{tabActive: mymovieTab == '보고싶어'}"><a>보고싶어</a></li>
+      <li (click)="tabActive(button2.textContent)" #button2 [ngClass]="{tabActive: mymovieTab == '본영화'}"><a>본영화</a></li>
+      <div class= "nav-line"></div>
     </ul>
 
 
     <div class="tab-contents movie-interesting" [ngClass]="{active: mymovieTab == '보고싶어'}">
       <ul class= "interested-tab">
-        <li>최신순</li>
-        <li>인기순</li>
-        <li>평점순</li>
-        <li>가나다순</li>
+        <li class="tab-word">최신순</li>
+        <li class="tab-bar">|</li>
+        <li class="tab-word">인기순</li>
+        <li class="tab-bar">|</li>
+        <li class="tab-word">평점순</li>
+        <li class="tab-bar">|</li>
+        <li class="tab-word">가나다순</li>
       </ul>
 
       <div class= "interested-content" >
         <ul class="interested-image">
-          <li>보고싶은 영화를 담아주세요</li>
-          <li>보고싶은 영화를 담아주세요</li>
-          <li>보고싶은 영화를 담아주세요</li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
     </div>
 
     <div class= " tab-contents watched-content" [ngClass]="{active: mymovieTab == '본영화'}">
-      본영화 임시 페이지
+      <p class="sb01">* 본 영화 리스트는 실제 관람한 이력으로 보여지며, 상영일 익일에 자동 노출됩니다.</p>
+      <p class="sb01">* 영화관에서 발권하신 티켓 바코드 하단의 거래번호를 통해 본 영화 등록을 하실 수 있습니다.</p>
+      <p class="sb01">* 유료 관람 영화 편수는 <a [routerLink]="['/mypage']">‘나의 메가박스’</a>에서 확인 하실 수 있습니다.</p>
+      <div class="button-div"><button class="watched-button">본 영화 등록</button></div>
+
+      <span class="border-line"></span>
+      <ul *ngFor="let userinfo of userinfos">
+        <li class="movie-seen">{{userinfo.watchedMovie}}</li>
+      </ul>
+
     </div>
 
 

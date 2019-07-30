@@ -16,8 +16,7 @@ export class SignUpComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor( private fb: FormBuilder, private preferTheaterService: PreferTheatersService,
-    private http: HttpClient) { }
+  constructor( private fb: FormBuilder, private preferTheaterService: PreferTheatersService, private http: HttpClient) { }
 
   ngOnInit() {
     this.getFreferTheater();

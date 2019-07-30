@@ -136,100 +136,71 @@
   }
 }
 
-.after-login {
-  width: 305px;
-  background: #fff;
-  box-shadow: 0 5px 6px rgba(0,0,0,0.5);
-  border-radius: 2% 2% 0 0;
-  header {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    border-bottom: 1px solid #e5e5e5;
+// 얼러트
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(0,0,0,0.4);
+}
+.custom-alert {
+  position: relative;
+  width: 450px;
+  min-width: 450px;
+  margin: 290px auto;
+  background-color: #fff;
+  zoom: 1;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
 
-    .id-group {
-      display: inline-block;
+.alert-header {
+  position: relative;
+  padding-top: 12px;
+  height: 42px;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
 
-      .id {
-      }
+.alert-header > h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
 
-      span {
-        
-      }
-    }
-    
-    .membership {
-      border-left: 1px solid #e5e5e5;
-      padding-left: 5px;
-      color: #198591;
-      font-weight: 700;
-    }
-  }
+.alert-body {
+  padding: 30px 20px 15px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 26px;
+}
 
-  main {
-    .summary-information {
-      padding: 15px;
-      border-bottom: 1px solid #e5e5e5;
+.alert-body > p {
+  padding: 0;
+  margin: 0;
+}
 
-      .membership-point {
-        display: flex;
-        justify-content: space-between;
-      }
+.alert-footer {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
 
-      .favorite-theater {
-        display: flex;
-        justify-content: space-between;
-      }
+.alert-confirm {
+  margin: 0 5px;
+  display: inline-block;
+  width: 68px;
+  height: 30px;
+  background-color: #503396;
+}
 
-      .special-membership {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-
-    .move-link {
-      $img: 'http://image2.megabox.co.kr/mop/home/btns/login_middle_icon.png';
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 15px;
-
-      .my-megabox {
-        display: block;
-        background: url($img) no-repeat 5px 0;
-        height: 75px;
-        width: 78px;
-      }
-
-      .coupon {
-        display: block;
-        background: url($img) no-repeat -100px 0;
-        height: 75px;
-        width: 78px;
-      }
-
-      .store-list {
-        display: block;
-        background: url($img) no-repeat -203px 0;
-        height: 75px;
-        width: 78px;
-      }
-    }
-  }
-
-  footer {
-    background-color: #f2f2f2;
-    height: 35px;
-    padding: 12px 15px;
-
-    span {
-      font-size: 0.8rem;
-    }
-
-    .cancel {
-      background: url('http://image2.megabox.co.kr/mop/home/btns/btn_close.png') 0 -90px no-repeat;
-      width: 10px;
-      height: 10px;
-    }
-
-  }
+.fa-times {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 12px;
+  right: 16px;
 }
