@@ -14,6 +14,87 @@
           <li class="line">
             <span class="rank">1순위</span>
             <select name="region-group" class="region-choice"  (change)="regionChoiceOne(regionOne.value)" #regionOne>
+              <option value="지역선택">지역선택</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
+            </select>
+
+            <select name="theater-group" class="theater-choice" (change)="theaterChoiceOne(theaterOne.value)" #theaterOne>
+              <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
+              [style.display]="preferTheaterService.preferOneState === theater.region ?  null : 'none'" 
+              value="{{theater.theater}}">{{ theater.theater }}</option>
+            </select>
+            <a class="delete-prefer" title="선호 영화관1 삭제">
+              삭제
+            </a>
+          </li>
+        </ol>
+
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">2순위</span>
+            <select name="region-group" class="region-choice"  (change)="regionChoiceTwo(regionTwo.value)" #regionTwo>
+              <option value="지역선택">지역선택</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
+            </select>
+
+            <select name="theater-group" class="theater-choice" (change)="theaterChoiceTwo(theaterTwo.value)" #theaterTwo>
+              <option *ngFor="let theater of preferTheaterService.ChoosedTheater" 
+              [style.display]="preferTheaterService.preferTwoState === theater.region ?  null : 'none'" 
+              value="{{theater.theater}}">{{ theater.theater }}</option>
+            </select>
+            <a class="delete-prefer" title="선호 영화관2 삭제">
+                삭제
+            </a>
+          </li>
+        </ol>
+
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">3순위</span>
+            <select name="region-group" class="region-choice"  (change)="regionChoiceThree(regionThree.value)" #regionThree>
+              <option value="지역선택">지역선택</option>
+              <option value="서울">서울</option>
+              <option value="경기">경기</option>
+              <option value="부산">부산</option>
+            </select>
+            <select name="theater-group" class="theater-choice" (change)="theaterChoiceThree(theaterThree.value)" #theaterThree>
+                <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
+                [style.display]="preferTheaterService.preferThreeState === theater.region ?  null : 'none'" 
+                value="{{theater.theater}}">{{ theater.theater }}</option>
+            </select>
+            <a class="delete-prefer" title="선호 영화관3 삭제">
+                삭제
+            </a>
+          </li>
+        </ol>
+    </div>
+    <div class="alert-footer">
+        <button class="alert-cancel">취소</button>
+        <button class="alert-confirm" (click)="confirm()">등록</button>
+    </div>
+    <i class="fas fa-times" (click)="preferTheaterService.preferState = false"></i>
+  </div>
+</div>
+<!-- <div class="container">
+  <div class="wrapper">
+    <div class="alert-header">
+      <h1>선호 영화관 등록</h1>
+    </div>
+    <div class="alert-body">
+      <p>
+        선호 영화관은 최대3개까지 등록 가능하며, 1순위 영화관이 나의 선호영화관으로 우선 지정됩니다.<br>
+        등록된 선호 영화관은 <em class="puple">나의 메가박스>회원정보 수정</em> 에서 확인 및 수정하실 수 있습니다.
+      </p>
+    </div>
+    <div class="prefer-theater-wrap">
+        <ol class="order-line">
+          <li class="line">
+            <span class="rank">1순위</span>
+            <select name="region-group" class="region-choice"  (change)="regionChoiceOne(regionOne.value)" #regionOne>
               <option
                value="{{preferTheaterService.preferRegionChoices[0]}}">{{preferTheaterService.preferRegionChoices[0]}}
               </option>
@@ -29,8 +110,8 @@
               </option>
               <option value="영화관선택">영화관선택</option>
               <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-              [style.display]="preferTheaterService.preferOneState === theater.city ?  null : 'none'" 
-              value="{{theater.name}}">{{ theater.name }}</option>
+              [style.display]="preferTheaterService.preferOneState === theater.region ?  null : 'none'" 
+              value="{{theater.theater}}">{{ theater.theater }}</option>
             </select>
             <a class="delete-prefer" title="선호 영화관1 삭제">
               삭제
@@ -57,8 +138,8 @@
               </option>
               <option value="영화관선택">영화관선택</option>
               <option *ngFor="let theater of preferTheaterService.ChoosedTheater" 
-              [style.display]="preferTheaterService.preferTwoState === theater.city ?  null : 'none'" 
-              value="{{theater.name}}">{{ theater.name }}</option>
+              [style.display]="preferTheaterService.preferTwoState === theater.region ?  null : 'none'" 
+              value="{{theater.theater}}">{{ theater.theater }}</option>
             </select>
             <a class="delete-prefer" title="선호 영화관2 삭제">
                 삭제
@@ -84,8 +165,8 @@
                 </option>
                 <option value="영화관선택">영화관선택</option>
                 <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-                [style.display]="preferTheaterService.preferThreeState === theater.city ?  null : 'none'" 
-                value="{{theater.name}}">{{ theater.name }}</option>
+                [style.display]="preferTheaterService.preferThreeState === theater.region ?  null : 'none'" 
+                value="{{theater.theater}}">{{ theater.theater }}</option>
             </select>
             <a class="delete-prefer" title="선호 영화관3 삭제">
                 삭제
@@ -99,4 +180,4 @@
     </div>
     <i class="fas fa-times" (click)="preferTheaterService.preferState = false"></i>
   </div>
-</div>
+</div> -->

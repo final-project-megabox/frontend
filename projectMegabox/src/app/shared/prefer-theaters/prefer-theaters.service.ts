@@ -16,14 +16,20 @@ export class PreferTheatersService {
   preferThreeState = '지역선택';
 
   // 선택한 지역의 요소를 저장
-  regionChoiceOne: string;
-  regionChoiceTwo: string;
-  regionChoiceThree: string;
+  // regionChoiceOne: string;
+  // regionChoiceTwo: string;
+  // regionChoiceThree: string;
 
   // 선택한 극장의 요소를 저장
-  theaterChoiceOne: string;
-  theaterChoiceTwo: string;
-  theaterChoiceThree: string;
+  theaterChoiceOne = '영화선택';
+  theaterChoiceTwo = '영화선택';
+  theaterChoiceThree = '영화선택';
+  // theaterChoiceOne: string;
+  // theaterChoiceTwo: string;
+  // theaterChoiceThree: string;
+
+  // 선택한 요소들 저장
+  choieces = [];
 
   // 확인 버튼을 누르면 선택한 지역을 배열 형태로 저장
   preferRegionChoices = [];

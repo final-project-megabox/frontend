@@ -20,6 +20,8 @@ export class SignUpComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit() {
+    this.getFreferTheater();
+
     this.userForm = this.fb.group({
       email: ['', [
         Validators.required,
@@ -48,42 +50,43 @@ export class SignUpComponent implements OnInit {
         lastNum: ['']
       }, { validator: PhoneValidator.phoneValid}),
 
-      preferOne: [''],
-      preferTwo: [''],
-      preferThree: [''],
-      theaterOne: [''],
-      theaterTwo: [''],
-      theaterThree: ['']
+      preferOne: ['지역선택'],
+      preferTwo: ['지역선택'],
+      preferThree: ['지역선택'],
+      theaterOne: ['영화관선택'],
+      theaterTwo: ['영화관선택'],
+      theaterThree: ['영화관선택']
     });
-
-    this.getFreferTheater();
   }
 
   getFreferTheater() {
     return this.preferTheaterService.ChoosedTheater = [
-      { id: 0, name: '강남', city: '서울' }, 
-      { id: 1, name: '신촌', city: '서울' }, 
-      { id: 2, name: '코엑스', city: '서울' }, 
-      { id: 3, name: '고양스타필드', city: '경기' }, 
-      { id: 4, name: '해운대(장산)', city: '부산' }
+      { id: 0, theater: '영화관선택', region: '지역선택' },
+      { id: 1, theater: '강남', region: '서울' }, 
+      { id: 2, theater: '신촌', region: '서울' }, 
+      { id: 3, theater: '코엑스', region: '서울' }, 
+      { id: 4, theater: '고양스타필드', region: '경기' }, 
+      { id: 5, theater: '해운대(장산)', region: '부산' }
     ]
   }
 
-  test() {
+  confirmJoin() {
     const payload = {
       email: this.email.value,
       name: this.name.value,
       password: this.password.value,
       birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
-      preferTheater: [
-        { name: this.theaterOne.value, city: this.preferOne.value },
-        { name: this.theaterTwo.value, city: this.preferTwo.value },
-        { name: this.theaterThree.value, city: this.preferThree.value }
-      ]
+      // preferTheater: [
+      //   { theater: this.theaterOne.value, region: this.preferOne.value },
+      //   { theater: this.theaterTwo.value, region: this.preferTwo.value },
+      //   { theater: this.theaterThree.value, region: this.preferThree.value }
+      // ]
+      preferTheater: this.theaterOne.value + ',' + this.preferOne.value
     };
     console.log(payload);
-    this.http.post('http://megabox.hellocoding.shop/create/', payload).subscribe();
+    this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+    // this.http.post('http://megabox.hellocoding.shop/create/', payload).subscribe();
   }
 
   get email() {

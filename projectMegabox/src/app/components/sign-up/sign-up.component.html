@@ -7,7 +7,6 @@
 <h1 class="join-info">가입정보입력</h1>
 <div class="main-content">
   <h4 class="basic-info">기본정보(필수입력)</h4>
-  <!-- <form [formGroup] ="userForm"> -->
     <div id="userJoinContainer" class="form-style">
       <div class="form-wrapper">
         <div class="email">
@@ -91,7 +90,6 @@
         </ng-container>
       </div>
     </div>
-  <!-- </form> -->
 </div>
 
 <!-- 부가 정보 입력 -->
@@ -109,17 +107,16 @@
           <li class="line">
             <span class="rank">1순위</span>
             <select name="region-group" class="region-choice"  (change)="regionChoiceOne(region1.value)" formControlName="preferOne" #region1>
-              <option value="">지역선택</option>
+              <option value="지역선택">지역선택</option>
               <option value="서울">서울</option>
               <option value="경기">경기</option>
               <option value="부산">부산</option>
             </select>
   
             <select name="theater-group" class="theater-choice" formControlName="theaterOne">
-              <option value="">영화관선택</option>
               <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-              [style.display]="preferTheaterService.preferOneState === theater.city ?  null : 'none'" 
-              value="{{theater.name}}">{{ theater.name }}</option>
+              [style.display]="preferTheaterService.preferOneState === theater.region ?  null : 'none'" 
+              value="{{theater.theater}}">{{ theater.theater }}</option>
             </select>
           </li>
         </ol>
@@ -128,17 +125,16 @@
           <li class="line">
             <span class="rank">2순위</span>
             <select name="region-group" class="region-choice"  (change)="regionChoiceTwo(region2.value)" formControlName="preferTwo" #region2>
-              <option value="">지역선택</option>
+              <option value="지역선택">지역선택</option>
               <option value="서울">서울</option>
               <option value="경기">경기</option>
               <option value="부산">부산</option>
             </select>
   
             <select name="theater-group" class="theater-choice" formControlName="theaterTwo">
-                <option value="">영화관선택</option>
                 <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-                [style.display]="preferTheaterService.preferTwoState === theater.city ?  null : 'none'" 
-                value="{{theater.name}}">{{ theater.name }}</option>
+                [style.display]="preferTheaterService.preferTwoState === theater.region ?  null : 'none'" 
+                value="{{theater.theater}}">{{ theater.theater }}</option>
             </select>
           </li>
         </ol>
@@ -147,17 +143,16 @@
           <li class="line">
             <span class="rank">3순위</span>
             <select name="region-group" class="region-choice" (change)="regionChoiceThree(region3.value)" formControlName="preferThree" #region3>
-              <option value="">지역선택</option>
+              <option value="지역선택">지역선택</option>
               <option value="서울">서울</option>
               <option value="경기">경기</option>
               <option value="부산">부산</option>
             </select>
   
             <select name="theater-group" class="theater-choice" formControlName="theaterThree">
-                <option value="">영화관선택</option>
                 <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-                [style.display]="preferTheaterService.preferThreeState === theater.city ?  null : 'none'" 
-                value="{{theater.name}}">{{ theater.name }}</option>
+                [style.display]="preferTheaterService.preferThreeState === theater.region ?  null : 'none'"
+                value="{{theater.theater}}">{{ theater.theater }}</option>
             </select>
           </li>
         </ol>
@@ -168,7 +163,7 @@
 <!-- 버튼 -->
 <div class="wrap-submit">
   <button class="cancel-btn">취소</button>
-  <button class="confirm-btn" [disabled]="userForm.invalid" (click)="test()" 
+  <button class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()" 
   [style.backgroundColor]= "userForm.invalid ? '#dcdcdc' : null">확인
   </button>
 </div>
