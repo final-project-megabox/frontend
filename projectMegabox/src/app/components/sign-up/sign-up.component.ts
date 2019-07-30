@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidator } from './validators/password-validator';
 import { BirthValidator } from './validators/birth-validator';
 import { PhoneValidator } from './validators/phone-validator';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +15,7 @@ export class SignUpComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor( private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit() {
     this.userForm = this.fb.group({

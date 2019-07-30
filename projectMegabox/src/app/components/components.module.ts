@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { QuickBookingModule } from '../shared/quick-booking/quick-booking.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,9 @@ import { QuickBookingModule } from '../shared/quick-booking/quick-booking.module
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    QuickBookingModule
+    QuickBookingModule,
+    SharedModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,
