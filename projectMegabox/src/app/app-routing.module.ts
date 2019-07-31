@@ -9,20 +9,21 @@ import { MypageBookingComponent } from './components/my-page/mypage-booking/mypa
 import { MypageMoviestoryComponent } from './components/my-page/mypage-moviestory/mypage-moviestory.component';
 import { MyPageComponent } from './components/my-page/my-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { AuthGuard } from './core/guard/auth.guard';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: MainPageComponent},
-  { path: 'mypage', component: MypageMainComponent,
+  { path: 'mypage', component: MypageMainComponent, canActivate: [ AuthGuard ]
   //   children: [
   //     { path: 'booking', component: MypageBookingComponent },
   //     { path: 'my-movie-story', component: MypageMoviestoryComponent },
   // ]
 },
   { path: 'booking', component: MypageBookingComponent},
-  { path: 'my-movie-story', component: MypageMoviestoryComponent},
-  { path: 'sign-up', component: SignUpComponent},
+  { path: 'my-movie-story', component: MypageMoviestoryComponent, canActivate: [ AuthGuard ]},
+  { path: 'sign-up', component: SignUpComponent },
   { path: '**', component: NotFoundComponent},
 
 ];

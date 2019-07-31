@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/service/auth.service';
+import { RootService } from 'src/app/core/service/root.service';
 
 @Component({
   selector: 'app-success',
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/core/service/auth.service';
 })
 export class SuccessComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private rootService: RootService) { }
 
   ngOnInit() {
   }

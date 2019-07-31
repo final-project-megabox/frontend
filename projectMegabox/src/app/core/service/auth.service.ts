@@ -10,11 +10,7 @@ export class AuthService {
   loginState = false;
    
   constructor(private http: HttpClient) { 
-    this.http.post('http://megabox.hellocoding.shop//api/token/verify/', {
-      "token": localStorage.getItem('token')
-    }).subscribe(item => {
-      this.loginState = true;
-    })
+    this.loginState = localStorage.getItem('token') ? true : false;
   }
 
   confirmUser(payLoad) {

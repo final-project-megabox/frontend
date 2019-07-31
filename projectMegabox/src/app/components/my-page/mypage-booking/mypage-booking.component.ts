@@ -1,6 +1,6 @@
-import { Bookinginfo } from './../../../userinfo';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Bookinginfo } from '../userinfo';
 
 
 @Component({

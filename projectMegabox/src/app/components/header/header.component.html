@@ -15,13 +15,13 @@
       <ng-template #seccessLogin>
         <li title="마이페이지 바로가기"
         (click)="rootService.myPageModal = !rootService.myPageModal">
-          <a></a>
+          <a>내정보 보기</a>
         </li>
       </ng-template>
-      <li title="마이페이지 바로가기"><a routerLink='mypage'>마이페이지</a></li>
     </ul>
     <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
     <app-success *ngIf="rootService.myPageModal"></app-success>
   </div>
 </nav>
 <app-main-view *ngIf="rootService.quickBookingModalState"></app-main-view>
+<app-required-login *ngIf="rootService.requiredLogin"></app-required-login>
