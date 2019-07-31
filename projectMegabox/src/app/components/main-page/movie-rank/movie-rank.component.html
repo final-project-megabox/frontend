@@ -56,7 +56,7 @@
         <div class="rank-info-container">
           <li class="rank-info"><span class="age-{{rankmovie.age}}"></span>{{rankmovie.title}}
             <div class="rank-info-detail">
-              <button class="detail-info">상세정보</button>
+              <button class="detail-info" (click)="selectDetail(rankmovie)">상세정보</button>
               <button class="rank-booking-{{rankmovie.title}}" id="quick-booking"
                (click)="selectMovie(rankmovie)">예매하기</button>
             </div>
@@ -72,3 +72,4 @@
   <!-- box office body end-->
 </div>
 <!-- box office tab end-->
+<app-movie-detail *ngIf="movieDetailService.detailModalState"></app-movie-detail>

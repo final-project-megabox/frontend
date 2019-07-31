@@ -5,7 +5,11 @@ export interface RankMovie {
   booking_rate: string,
   release_date: string,
   img_url: string,
-  selected: boolean
+  selected: boolean,
+  starId?: number,
+  rankStar?: string,
+  starContent?: string,
+  starSelected?: boolean
 }
 
 export interface RankStar {

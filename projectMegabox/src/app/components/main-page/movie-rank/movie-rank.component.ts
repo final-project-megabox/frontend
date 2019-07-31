@@ -6,6 +6,8 @@ import { RankStar } from './models/rank-movie-interface';
 import { RootService } from 'src/app/core/service/root.service';
 import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
 import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
+import { MovieDetailService } from './service/movie-detail.service';
+
 
 @Component({
   selector: 'app-movie-rank',
@@ -13,7 +15,11 @@ import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
   styleUrls: ['./movie-rank.component.scss']
 })
 export class MovieRankComponent implements OnInit {
-  constructor(private rankService: QuickBookingService, private rootService: RootService) { }
+  constructor(
+    private rankService: QuickBookingService,
+    private rootService: RootService,
+    private movieDetailService: MovieDetailService
+    ) { }
   
   Ranks: Rank[] = ['박스오피스', '최신개봉작', '상영예정작'];
   rankState: Rank = '박스오피스';
@@ -65,6 +71,11 @@ export class MovieRankComponent implements OnInit {
       this.movieState = rankingMovies.map(() => 0);
   })
 }
+
+  selectDetail(rankmovie: Movies) {
+    this.movieDetailService.detailModalState = true;
+    console.log(rankmovie);
+  }
 
   selectMovie(rankmovie: Movies) {
     this.rankService.selectMovie = [rankmovie];
