@@ -28,11 +28,11 @@ export class MypageMainComponent implements OnInit {
     const splitNum = (info[0].phoneNumber + '').slice(4, 8);
     const stringTonum = parseInt(splitNum);
     this.numBack = stringTonum;
-
-    //t
-
-    console.log(this.http.get<Userinfo[]>('http://megabox.hellocoding.shop/v1/Myinfo').subscribe());
   }
+
+  // getConfig() {
+  //   return this.http.get('')
+  // }
 
   tabChange(text) {
     if (text == this.navState) { return; }
