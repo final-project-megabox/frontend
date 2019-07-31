@@ -9,6 +9,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.component';
 import { SuccessComponent } from './success/success.component';
 
+
 @NgModule({
   declarations: [
     SidebarComponent,

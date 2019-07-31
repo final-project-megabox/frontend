@@ -9,7 +9,7 @@
   <div class="rank-movie-container">
 
     <!-- poster -->
-    <ul *ngFor="let rankmovie of movies | rankSort: rankState; index as i"
+    <ul *ngFor="let rankmovie of this.rankService.movies | rankSort: rankState; index as i"
      class ="rank-poster-container">
       <div *ngIf="i <= 5">
         <div class="rank-poster-container-{{i}}">

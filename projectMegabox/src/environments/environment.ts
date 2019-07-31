@@ -4,12 +4,8 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  appUrl: 'http://megabox.hellocoding.shop//database/showMovies/'
-=======
-  appUrl: 'http://megabox.hellocoding.shop//database/reservationFirstView/',
+  appUrl: 'http://megabox.hellocoding.shop//database/showMovies/',
   apiUser: 'http://megabox.hellocoding.shop/'
->>>>>>> rmorigin/develop
 };
 
 /*

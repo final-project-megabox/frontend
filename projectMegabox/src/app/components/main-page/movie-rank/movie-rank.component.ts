@@ -50,7 +50,7 @@ export class MovieRankComponent implements OnInit {
   getRanking()  {
     this.rankService.getAll()
     .subscribe(rankingMovies => {
-      this.movies = rankingMovies;
+      this.rankService.movies = rankingMovies;
 
       this.RankStars = rankingMovies.map(() => ([
         { id: 0, rankStar: '', starContent: '평점을 입력해주세요', selected: false },
