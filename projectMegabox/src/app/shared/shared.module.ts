@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.component';
 import { SuccessComponent } from './success/success.component';
+import { PreferTheaterFilterPipe } from './prefer-theaters/prefer-theater-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SuccessComponent } from './success/success.component';
     NotFoundComponent,
     LoginModalComponent,
     PreferTheatersComponent,
-    SuccessComponent
+    SuccessComponent,
+    PreferTheaterFilterPipe
   ],
   imports: [
     CommonModule,

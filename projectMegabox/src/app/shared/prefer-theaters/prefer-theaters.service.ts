@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PreferTheatersService {
-
   constructor() { }
 
   // 선호 영화관 모달창 띄우기, 닫기
@@ -15,18 +14,10 @@ export class PreferTheatersService {
   preferTwoState = '지역선택';
   preferThreeState = '지역선택';
 
-  // 선택한 지역의 요소를 저장
-  // regionChoiceOne: string;
-  // regionChoiceTwo: string;
-  // regionChoiceThree: string;
-
   // 선택한 극장의 요소를 저장
-  theaterChoiceOne = '영화선택';
-  theaterChoiceTwo = '영화선택';
-  theaterChoiceThree = '영화선택';
-  // theaterChoiceOne: string;
-  // theaterChoiceTwo: string;
-  // theaterChoiceThree: string;
+  theaterChoiceOne = '영화관선택';
+  theaterChoiceTwo = '영화관선택';
+  theaterChoiceThree = '영화관선택';
 
   // 선택한 요소들 저장
   choieces = [];
