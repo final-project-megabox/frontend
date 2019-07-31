@@ -9,7 +9,7 @@
   <div class="rank-movie-container">
 
     <!-- poster -->
-    <ul *ngFor="let rankmovie of rankService.movies | rankSort :rankState; index as i"
+    <ul *ngFor="let rankmovie of movies | rankSort: rankState; index as i"
      class ="rank-poster-container">
       <div *ngIf="i <= 5">
         <div class="rank-poster-container-{{i}}">
@@ -18,16 +18,20 @@
           <div class="poster-hover-{{i}}">
             <div class="contents-container">
               <ul class="rankStar-container">
-              <li *ngFor="let rankStar of RankStars" class="rankStar-{{rankStar.id}}"
-              [ngClass]="{hoverActive: starState>=(rankStar.id)}" (mouseenter)="hoverStar(rankStar.id, i)" (mouseleave)="outStar(i)"
-               (click)="starclick = true">
-              <!-- <li *ngFor="let rankStar of RankStars" class="rankStar-{{rankStar.id}}"
-              [ngClass]="{hoverActive: starState>=(rankStar.id)}" (mouseenter)="hoverStar(rankStar.id, i)" (mouseleave)=outStar()
-               (click)="starclick = true"> -->
-              </li>
-            </ul>
-              <div *ngIf="(hoverState && movieState === i) || starclick; else inputComment" class="activeComment">
-                <p>{{RankStars[starState].starContent}}</p>
+                <li *ngFor="let rankStar of RankStars[i]" class="rankStar-{{rankStar.id}}"
+                [ngClass]="{hoverActive: starState[i]>=(rankStar.id)}" (mouseenter)="hoverStar(rankStar.id, i, i)"
+                (click)="rateSelect(rankStar, i)" (mouseleave)="outStar(i)">
+                <!-- <li *ngFor="let rankStar of RankStars" class="rankStar-{{rankStar.id}}"
+                [ngClass]="{hoverActive: starState>=(rankStar.id)}" (mouseenter)="hoverStar(rankStar.id, i)" (mouseleave)="outStar(i)"
+                (click)="rankStar.selected=!rankStar.selected" (click)="rateSelect(rankStar)" [class.rateSelect]="rankStar.selected"> -->
+                <!-- <li *ngFor="let rankStar of RankStars" class="rankStar-{{rankStar.id}}"
+                [ngClass]="{hoverActive: starState>=(rankStar.id)}" (mouseenter)="hoverStar(rankStar.id, i)" (mouseleave)=outStar()
+                (click)="starclick = true"> -->
+                </li>
+              </ul>
+              <div *ngIf="(hoverState && movieState[i] === i) || starclick; else inputComment" class="activeComment">
+                <p>{{RankStars[i][starState[i]].starContent}}</p>
+                <!-- <p>{{RankStars[i][starState[i]]["starContent"] | json}}</p> -->
               </div>
               <ng-template #inputComment>
                 <p class="activeComment">평점을 입력해주세요</p>
@@ -40,10 +44,11 @@
                 <p>{{rankStar.starContent}}</p>
               </div>
             </div> -->
-            </div>
             <!-- <p *ngIf="(starState)===(RankStars[i] ? RankStars[i].id : 0)" class="activeComment"
               (mouseenter)="hoverStar(i)">{{RankStars[i] ? RankStars[i].starContent : ''}}</p> -->
-            <div class="rank-movie-wish-{{i}}" (click)="rankWish(rankmovie)"></div>
+            </div>
+            <div class="rank-movie-wish-{{i}}" (click)="rankmovie.selected=!rankmovie.selected"
+             (click)="rankWish(rankmovie)" [class.like-select]="rankmovie.selected"></div>
           </div>
         </div>
         
@@ -53,7 +58,7 @@
             <div class="rank-info-detail">
               <button class="detail-info">상세정보</button>
               <button class="rank-booking-{{rankmovie.title}}" id="quick-booking"
-               (click)="rankmovie.selected=!rankmovie.selected" (click)="selectMovie(rankmovie)">예매하기</button>
+               (click)="selectMovie(rankmovie)">예매하기</button>
             </div>
           </li>
         </div>

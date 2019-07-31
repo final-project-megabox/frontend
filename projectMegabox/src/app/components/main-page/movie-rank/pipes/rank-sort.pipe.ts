@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Rank } from '../models/rank.type';
-import { RankMovie } from '../models/rank-movie-interface';
+import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
 
 @Pipe({
   name: 'rankSort'
 })
 
 export class RankSortPipe implements PipeTransform {
-  transform(ranks: RankMovie[], rankState: Rank) {
+  transform(ranks: Movies[], rankState: Rank) {
 
     // 정렬 함수 선언 => 상영예정작 ? 내림차순 : 오름차순
     function compare(key: string) {
-      return function (a: RankMovie, b: RankMovie) {
+      return function (a: Movies, b: Movies) {
         if (rankState === '상영예정작') return a[key] > b[key] ? 1 : (a[key] < b[key] ? -1 : 0);
         else return a[key] < b[key] ? 1 : (a[key] > b[key] ? -1 : 0);
       }
