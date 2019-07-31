@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Userinfo } from './../../../userinfo';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,7 +21,7 @@ export class MypageMainComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     const info = [...this.userinfos]
@@ -28,6 +29,10 @@ export class MypageMainComponent implements OnInit {
     const stringTonum = parseInt(splitNum);
     this.numBack = stringTonum;
   }
+
+  // getConfig() {
+  //   return this.http.get('')
+  // }
 
   tabChange(text) {
     if (text == this.navState) { return; }
