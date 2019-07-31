@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidator } from './validators/password-validator';
 import { BirthValidator } from './validators/birth-validator';
 import { PhoneValidator } from './validators/phone-validator';
+import { PreferTheatersService } from 'src/app/shared/prefer-theaters/prefer-theaters.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,9 +16,11 @@ export class SignUpComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder, private preferTheaterService: PreferTheatersService, private http: HttpClient) { }
 
   ngOnInit() {
+    this.getFreferTheater();
+
     this.userForm = this.fb.group({
       email: ['', [
         Validators.required,
@@ -43,12 +47,38 @@ export class SignUpComponent implements OnInit {
         firstNum: [''],
         middleNum: [''],
         lastNum: ['']
-      }, { validator: PhoneValidator.phoneValid})
+      }, { validator: PhoneValidator.phoneValid}),
+
+      preferOne: ['지역선택'],
+      preferTwo: ['지역선택'],
+      preferThree: ['지역선택'],
+      theaterOne: ['영화관선택'],
+      theaterTwo: ['영화관선택'],
+      theaterThree: ['영화관선택']
     });
   }
 
-  test() {
-    alert('OK');
+  getFreferTheater() {
+    return this.preferTheaterService.ChoosedTheater = [
+      { id: 0, theater: '영화관선택', region: '지역선택' },
+      { id: 1, theater: '강남', region: '서울' }, 
+      { id: 2, theater: '신촌', region: '서울' }, 
+      { id: 3, theater: '코엑스', region: '서울' }, 
+      { id: 4, theater: '고양스타필드', region: '경기' }, 
+      { id: 5, theater: '해운대(장산)', region: '부산' }
+    ]
+  }
+
+  confirmJoin() {
+    const payload = {
+      email: this.email.value,
+      name: this.name.value,
+      password: this.password.value,
+      birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
+      phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
+    };
+    console.log(payload);
+    this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
   }
 
   get email() {
@@ -75,8 +105,56 @@ export class SignUpComponent implements OnInit {
     return this.userForm.get('birthGroup');
   }
 
+  get year() {
+    return this.userForm.get('birthGroup.year');
+  }
+
+  get month() {
+    return this.userForm.get('birthGroup.month');
+  }
+
+  get day() {
+    return this.userForm.get('birthGroup.day');
+  }
+
   get phoneGroup() {
     return this.userForm.get('phoneGroup');
+  }
+
+  get firstNum() {
+    return this.userForm.get('phoneGroup.firstNum');
+  }
+
+  get middleNum() {
+    return this.userForm.get('phoneGroup.middleNum');
+  }
+
+  get lastNum() {
+    return this.userForm.get('phoneGroup.lastNum');
+  }
+
+  get preferOne() {
+    return this.userForm.get('preferOne');
+  }
+
+  get preferTwo() {
+    return this.userForm.get('preferTwo');
+  }
+
+  get preferThree() {
+    return this.userForm.get('preferThree');
+  }
+
+  get theaterOne() {
+    return this.userForm.get('theaterOne');
+  }
+
+  get theaterTwo() {
+    return this.userForm.get('theaterTwo');
+  }
+
+  get theaterThree() {
+    return this.userForm.get('theaterThree');
   }
 
   // email 값
@@ -126,5 +204,17 @@ export class SignUpComponent implements OnInit {
 
   moveDown(li): void {
     li.nextElementSibling.focus();
+  }
+
+  regionChoiceOne(regionOne) {
+    this.preferTheaterService.preferOneState = regionOne;
+  }
+
+  regionChoiceTwo(regionTwo) {
+    this.preferTheaterService.preferTwoState = regionTwo;
+  }
+  
+  regionChoiceThree(regionThree) {
+    this.preferTheaterService.preferThreeState = regionThree;
   }
 }
