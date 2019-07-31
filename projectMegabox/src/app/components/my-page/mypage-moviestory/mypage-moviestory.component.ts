@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { Userinfo } from './../../../userinfo';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mypage-moviestory.component.scss']
 })
 export class MypageMoviestoryComponent implements OnInit {
+
+  userinfos: Userinfo[] = [
+    // tslint:disable-next-line: max-line-length
+    { email: 'immsee098@gmail.com', name: '윤해서', password: 'qwerty123', birthDate: '1995-04-22', phoneNumber: 26057621, preferTheater: '상봉, 코엑스', watchedMovie: '라이온킹', wishMovie: '뭐하지'},
+    { email: 'immsee098@gmail.com', name: '윤해서', password: 'qwerty123', birthDate: '1995-04-22', phoneNumber: 26057621, preferTheater: '상봉, 코엑스', watchedMovie: '라이온킹', wishMovie: '뭐하지'},
+  ];
 
 
   mymovieTab = '보고싶어';

@@ -7,13 +7,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.component';
+import { SuccessComponent } from './success/success.component';
+
 
 @NgModule({
   declarations: [
     SidebarComponent,
     NotFoundComponent,
     LoginModalComponent,
-    PreferTheatersComponent
+    PreferTheatersComponent,
+    SuccessComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,8 @@ import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.compo
     SidebarComponent,
     NotFoundComponent,
     LoginModalComponent,
-    PreferTheatersComponent
+    PreferTheatersComponent,
+    SuccessComponent
   ]
 })
 export class SharedModule { }

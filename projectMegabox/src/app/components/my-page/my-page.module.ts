@@ -10,6 +10,7 @@ import { MypageNaviComponent } from './mypage-navi/mypage-navi.component';
 import { MypageMainComponent } from './mypage-main/mypage-main.component';
 
 
+
 @NgModule({
   declarations: [
     MyPageComponent,
@@ -22,6 +23,7 @@ import { MypageMainComponent } from './mypage-main/mypage-main.component';
   imports: [
     CommonModule,
     AppRoutingModule
-  ]
+  ],
+
 })
 export class MyPageModule { }

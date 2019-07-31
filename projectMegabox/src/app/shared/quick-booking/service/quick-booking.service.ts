@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Movies } from '../models/movies.interface';
 
@@ -17,6 +17,7 @@ export class QuickBookingService {
   theaterModalState = false;
   alertModalState = false;
   selectedMovies = false;
+  alertTheater = false;
 
   addPlus = [];  // 영화 플러스 버튼 추가
   theater = [0, 1, 2, 3]; // 지역 플러스 버튼 추가
@@ -49,9 +50,7 @@ export class QuickBookingService {
   
   constructor(private http: HttpClient, private calendarService: CalendarService) { }
   
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   set postDate(value: string) {
     this._postDate = value;
@@ -89,6 +88,13 @@ export class QuickBookingService {
   set selectMovie(value: Movies[]) {
     this._selectMovie = value;
 
+    if (!value.length) {
+      this.postMovie = '';
+      this.addPlusButton();
+      this.getMovieList();
+      return;
+    }
+
     this.selectMovie.forEach((item, idx) => {
       if (idx === 0) {
         this.postMovie = `&movie=${item.title}`;
@@ -106,18 +112,24 @@ export class QuickBookingService {
 
   getMovieList() {
     this.movieList = [];
-    console.log(this.postTheater, this.postDate, this.postMovie)
+    const date = new Date();
+
     if (!this.postTheater) {
-      alert('극장을 선택하세요');
       return;
     }
 
-    this.http.get<[]>(`${environment.appUrl}?date=${this.postDate}${this.postTheater}&movie=${this.postMovie}`)
-      .subscribe(list => this.movieList = list);
+    this.http.get<Movies[]>(`http://megabox.hellocoding.shop//database/reservationScheduleList/?date=${this.postDate}${this.postTheater}&movie=${this.postMovie}`)
+      .subscribe(list => this.movieList = list.filter(item => {
+        if (+item.date.split('-')[2] !== date.getDate()) return +item.date.split('-')[2] !== date.getDate();
+        else if (+item['start_time'].slice(0, 2) >= date.getHours()) return +item['start_time'].slice(0, 2) >= date.getHours();
+      }));
   }
   
   getAll() {
-    return this.http.get<Movies[]>(environment.appUrl);
+    // const token = localStorage.getItem('token');
+    // const headers = new HttpHeaders().set('Authorization', 'JWT ' + token);
+
+    return this.http.get<Movies[]>('http://megabox.hellocoding.shop//database/showMovies/');
   }
 
   // 선택한 영화 갯수 구해서 add 버튼추가
@@ -148,5 +160,28 @@ export class QuickBookingService {
     this.transmitTheaters =this.transmitTheaters.filter(item => item !== theater);
     this.selectTheaters = this.selectTheaters.filter(item => item !== theater);
     this.addTheaterButton();
+  }
+
+  // 끝시간 계산
+  calRunningTime(time: string, running: number) {
+    const splitTime = time.split(':');
+    let hour = +splitTime[0] + Math.floor(running / 60);
+    let min = (+splitTime[1] + running % 60) + '';
+
+    if (+splitTime[1] + (running % 60) >= 60) {
+      hour = hour + Math.floor((+splitTime[1] + running % 60) / 60);
+      min = ((+splitTime[1] + (running % 60)) % 60 + '').length === 1 ? ('0' + ((+splitTime[1] + running % 60) % 60)) : '' + (+splitTime[1] + running % 60) % 60;
+    } 
+
+    return `~ ${hour}:${min}`
+  }
+
+  // 영화 타입 가공
+  movieType(type: ['', '']) {
+    if(type[1]) {
+      return `${type[0]}(${type[1]})`
+    } else {
+      return `${type[0]}`
+    }
   }
 }

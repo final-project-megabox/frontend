@@ -111,6 +111,12 @@ $sub-color: #188591;
   }
   // box office poster end
 
+  .activeComment {
+    display: none;
+    color: white;
+    text-align: center;
+  }
+
   // hover
   // hover 1
   .rank-poster-container-0:hover {
@@ -130,23 +136,30 @@ $sub-color: #188591;
       .rankStar-container {
         display: flex;
         justify-content: center;
-        .rankStar-0 {
+
+        .rankStar-1 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
-          @extend .rankStar-0;
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
         }
 
         .hoverActive {
           background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
           cursor: pointer;
         }
+
+        .rateSelect {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
       }
 
       .activeComment {
+        display: block;
         color: white;
         text-align: center;
         margin-top: 20px;
@@ -167,6 +180,12 @@ $sub-color: #188591;
         }
       }
 
+      .like-select {
+        background: url($movie-wish);
+        background-position: 0 -86px;
+        cursor: pointer;
+      }
+      
     }
   }
   // hover 1 end
@@ -181,6 +200,41 @@ $sub-color: #188591;
       position: absolute;
       top: 0;
       
+      .contents-container {
+        background: #188591;
+        margin-top: 100px;
+      }
+
+      .rankStar-container {
+        display: flex;
+        justify-content: center;
+
+        .rankStar-1 {
+          width: 32px;
+          height: 30px;
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
+          cursor: pointer;
+        }
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
+        }
+
+        .hoverActive {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
+
+        .rateSelect {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
+      }
+
+      .activeComment {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+      }
       
       .rank-movie-wish-1 {
         position: absolute;
@@ -196,6 +250,13 @@ $sub-color: #188591;
           cursor: pointer;
         }
       }
+
+      .like-select {
+        background: url($movie-wish);
+        background-position: 0 -86px;
+        cursor: pointer;
+      }
+
     }
   }
   // hover 2 end
@@ -209,6 +270,42 @@ $sub-color: #188591;
       background: rgba(0, 0, 0, 0.7);
       position: absolute;
       top: 0;
+
+      .contents-container {
+        background: #188591;
+        margin-top: 100px;
+      }
+
+      .rankStar-container {
+        display: flex;
+        justify-content: center;
+
+        .rankStar-1 {
+          width: 32px;
+          height: 30px;
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
+          cursor: pointer;
+        }
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
+        }
+
+        .hoverActive {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
+
+        .rateSelect {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
+      }
+
+      .activeComment {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+      }
 
       .rank-movie-wish-2 {
         position: absolute;
@@ -224,6 +321,13 @@ $sub-color: #188591;
           cursor: pointer;
         }
       }
+
+      .like-select {
+        background: url($movie-wish);
+        background-position: 0 -86px;
+        cursor: pointer;
+      }
+
     }
   }
   // hover 3 end
@@ -237,6 +341,43 @@ $sub-color: #188591;
       background: rgba(0, 0, 0, 0.7);
       position: absolute;
       top: 0;
+
+      .contents-container {
+        background: #188591;
+        margin-top: 100px;
+      }
+
+      .rankStar-container {
+        display: flex;
+        justify-content: center;
+
+        .rankStar-1 {
+          width: 32px;
+          height: 30px;
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
+          cursor: pointer;
+        }
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
+        }
+
+        .hoverActive {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
+
+        .rateSelect {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
+      }
+
+      .activeComment {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+      }
+
       .rank-movie-wish-3 {
         position: absolute;
         bottom: 0;
@@ -251,6 +392,13 @@ $sub-color: #188591;
           cursor: pointer;
         }
       }
+
+      .like-select {
+        background: url($movie-wish);
+        background-position: 0 -86px;
+        cursor: pointer;
+      }
+
     }
   }
   // hover 4 end
@@ -286,10 +434,10 @@ $sub-color: #188591;
         overflow: hidden;
         vertical-align: middle;
 
-        &.age-0 { background-position: 0 0; }
-        &.age-1 { background-position: -60px 0; }
-        &.age-2 { background-position: -90px 0; }
-        &.age-3 { background-position: -30px 0;}
+        &.age-전체.관람 { background-position: 0 0; }
+        &.age-12세.관람가 { background-position: -60px 0; }
+        &.age-15세.관람가 { background-position: -90px 0; }
+        &.age-청소년.관람불가 { background-position: -30px 0;}
 
       }
 
