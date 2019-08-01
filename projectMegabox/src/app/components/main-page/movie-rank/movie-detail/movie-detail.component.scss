@@ -1,3 +1,5 @@
+$watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
+
 .movie-modal {
   position: fixed;
   top: 0;
@@ -39,6 +41,7 @@
       .modal-main-content {
         background-color: yellow;
         width: 888px;
+        margin-top: 30px;
         // height: 300px;
         display: flex;
         justify-content: space-between;
@@ -52,6 +55,45 @@
           background-color: aquamarine;
           width: 623px;
           height: 336px;
+
+          .modal-headline {
+            // height: 60px;
+            // background-color: red;
+            border-bottom: 1px solid #e5e5e5;
+
+            span {
+              background: url($watch-age-large) 0 -999px no-repeat;
+              display: inline-block;
+              width: 30px;
+              height: 32px;
+              margin-right: 4px;
+              text-indent: -99999px;
+              overflow: hidden;
+              vertical-align: middle;
+              background-color: black;
+      
+              &.modal-age-전체.관람 { background-position: -0 0; }
+              &.modal-age-12세.관람가 { background-position: -71px 0; }
+              &.modal-age-15세.관람가 { background-position: -110px 0; }
+              &.modal-age-청소년.관람불가 { background-position: -35px 0;}
+      
+            }
+  
+            .modal-title {
+              display: inline-block;
+              font-size: 1.9rem;
+              font-weight: 700;
+              background-color: wheat;
+              vertical-align: middle;
+            }
+
+            .title-english {
+              font-size: 0.9rem;
+              color: #666;
+              margin: 8px 0;
+            }
+
+          }
         }
       }
     }
