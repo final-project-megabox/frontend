@@ -33,10 +33,6 @@ export class MovieRankComponent implements OnInit {
 
   wishMovie: Movies[] = [];
 
-  success;
-  failure;
-
-
   hoverState = false;
   starclick = false;
 
@@ -73,6 +69,7 @@ export class MovieRankComponent implements OnInit {
 }
 
   selectDetail(rankmovie: Movies) {
+    this.rankService.selectMovie = [rankmovie];
     this.movieDetailService.detailModalState = true;
     console.log(rankmovie);
   }
@@ -85,10 +82,8 @@ export class MovieRankComponent implements OnInit {
   
   hoverStar(id: number, idx:number, index: number) {
     this.starState[index] = id;
-    // this.commentState = id;
     this.movieState[index] = idx;
     this.hoverState = true;
-    // console.log(this.starState); 
   }
 
   chageSelect(index: number) {
@@ -109,26 +104,9 @@ export class MovieRankComponent implements OnInit {
 
   outStar(index: number) {
     this.hoverState = false;
-    console.log(this.RankStars[index]);
-    // this.test = this.RankStars[index].find(({selected}) => selected).id
-    // this.success = this.RankStars[index].find(({selected}) => selected);
-    // this.failure = this.RankStars[index].find(({selected}) => selected === false);
-    
+    console.log(this.RankStars[index]);    
     this.starState = this.RankStars[index].filter(({selected}) => selected === true).map(rankstar => rankstar.id);
-    // 필터걸어서 맵 ㅇㅇ
-    // this.starState[index] = this.RankStars[index].find(({selected}) => selected ? this.success.id : this.failure.id === 0);
     console.log(this.starState);
-    
-    
-
-    // 변수에 담아서 트루일 땐 아이디를, 트루가 아닐 땐 다른 무언가를... 리턴을??
-    // this.starState[index] = this.RankStars[index].find(({selected}) => selected === true).id;
-    // console.log(this.test);
-    // if (this.starclick) {
-      // return;
-    // } else {
-      // this.starState = NaN;
-    // }
   }
 
   rankWish(rankmovie: Movies) {

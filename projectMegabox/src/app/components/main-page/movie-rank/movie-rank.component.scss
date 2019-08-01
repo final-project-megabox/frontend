@@ -201,7 +201,7 @@ $sub-color: #188591;
       top: 0;
       
       .contents-container {
-        background: #188591;
+        // background: #188591;
         margin-top: 100px;
       }
 
@@ -231,6 +231,7 @@ $sub-color: #188591;
       }
 
       .activeComment {
+        display: block;
         color: white;
         text-align: center;
         margin-top: 20px;
@@ -272,7 +273,7 @@ $sub-color: #188591;
       top: 0;
 
       .contents-container {
-        background: #188591;
+        // background: #188591;
         margin-top: 100px;
       }
 
@@ -302,6 +303,7 @@ $sub-color: #188591;
       }
 
       .activeComment {
+        display: block;
         color: white;
         text-align: center;
         margin-top: 20px;
@@ -343,7 +345,7 @@ $sub-color: #188591;
       top: 0;
 
       .contents-container {
-        background: #188591;
+        // background: #188591;
         margin-top: 100px;
       }
 
@@ -373,6 +375,7 @@ $sub-color: #188591;
       }
 
       .activeComment {
+        display: block;
         color: white;
         text-align: center;
         margin-top: 20px;
