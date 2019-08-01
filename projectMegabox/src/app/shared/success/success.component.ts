@@ -15,13 +15,13 @@ export class SuccessComponent implements OnInit {
   }
 
   logout() {
-    if(localStorage.getItem('id')) {
+    if(!localStorage.getItem('id')) {
       localStorage.removeItem('token');
+      localStorage.removeItem('id');
       this.authService.loginState = false;
       window.location.reload();
     } else {
       localStorage.removeItem('token');
-      localStorage.removeItem('id');
       this.authService.loginState = false;
       window.location.reload();
     }
