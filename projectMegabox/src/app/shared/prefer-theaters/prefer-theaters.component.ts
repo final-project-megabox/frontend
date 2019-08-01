@@ -16,16 +16,14 @@ export class PreferTheatersComponent implements OnInit {
 
     // 백엔드에서 받을 데이터, 보낼 데이터
     this.preferTheaterService.choieces = [
-      { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.preferOneState },
-      { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.preferTwoState },
-      { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.preferThreeState }
+      { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.regionChoiceOne},
+      { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.regionChoiceTwo },
+      { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.regionChoiceThree }
     ]
-
-    console.log(this.preferTheaterService.choieces);
   }
 
-  isTest(value, preferId) {
-    this.preferTheaterService.preferRegionChoices = [...this.preferTheaterService.preferRegionChoices, { id: preferId, value: value}];
+  choosenRegion(regionValue, regionId) {
+    this.preferTheaterService.preferRegionChoices = [...this.preferTheaterService.preferRegionChoices, { id: regionId, value: regionValue}];
     return this.preferTheaterService.preferRegionChoices.forEach(region => {
       if(+region.id === 0) { this.preferTheaterService.preferOneState = region.value }
       if(+region.id === 1) { this.preferTheaterService.preferTwoState = region.value }
@@ -36,9 +34,9 @@ export class PreferTheatersComponent implements OnInit {
   choosenTheater(theaterValue, theaterId) {
     this.preferTheaterService.preferTheaterChoices = [...this.preferTheaterService.preferTheaterChoices, { id: theaterId, value: theaterValue}];
     return this.preferTheaterService.preferTheaterChoices.forEach(theater => {
-      if(+theater.id === 0) { this.preferTheaterService.theaterChoiceOne = theater.value }
-      if(+theater.id === 1) { this.preferTheaterService.theaterChoiceTwo = theater.value }
-      if(+theater.id === 2) { this.preferTheaterService.theaterChoiceThree = theater.value }
+      if(+theater.id === 0) { this.preferTheaterService.theaterOneState = theater.value }
+      if(+theater.id === 1) { this.preferTheaterService.theaterTwoState = theater.value }
+      if(+theater.id === 2) { this.preferTheaterService.theaterThreeState = theater.value }
     });
   }
 
@@ -59,12 +57,18 @@ export class PreferTheatersComponent implements OnInit {
     // 선호 영화관 모달창 닫기
     this.preferTheaterService.preferState = false
 
-    this.preferTheaterService.choieces = [
-      { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.preferOneState },
-      { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.preferTwoState },
-      { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.preferThreeState }
-    ]
+    this.preferTheaterService.regionChoiceOne = this.preferTheaterService.preferOneState;
+    this.preferTheaterService.regionChoiceTwo = this.preferTheaterService.preferTwoState;
+    this.preferTheaterService.regionChoiceThree = this.preferTheaterService.preferThreeState;
 
-    console.log(this.preferTheaterService.choieces);
+    this.preferTheaterService.theaterChoiceOne = this.preferTheaterService.theaterOneState;
+    this.preferTheaterService.theaterChoiceTwo = this.preferTheaterService.theaterTwoState;
+    this.preferTheaterService.theaterChoiceThree = this.preferTheaterService.theaterThreeState;
+
+    this.preferTheaterService.choieces = [
+      { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.regionChoiceOne},
+      { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.regionChoiceTwo },
+      { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.regionChoiceThree }
+    ]
   }
 }

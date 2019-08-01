@@ -9,12 +9,22 @@ export class PreferTheatersService {
   // 선호 영화관 모달창 띄우기, 닫기
   preferState = false;
 
-  // 지역 선택의 state를 변경하면서 지역에 맞는 도시들 만을 보여줌.
+  // change 이벤트가 발생하면 지역 선택의 state를 변경하면서 지역에 맞는 도시들 만을 보여줌
   preferOneState = '지역선택';
   preferTwoState = '지역선택';
   preferThreeState = '지역선택';
 
-  // 선택한 극장의 요소를 저장
+  // 등록 버튼을 클릭하면 선택한 지역을 저장
+  regionChoiceOne = '지역선택';
+  regionChoiceTwo = '지역선택';
+  regionChoiceThree = '지역선택';
+
+  // change 이벤트가 발생하면 선택한 영화관 상태를 저장
+  theaterOneState = '영화관선택';
+  theaterTwoState = '영화관선택';
+  theaterThreeState = '영화관선택';
+
+  // 등록 버튼을 클릭하면 선택한 극장을 저장
   theaterChoiceOne = '영화관선택';
   theaterChoiceTwo = '영화관선택';
   theaterChoiceThree = '영화관선택';
