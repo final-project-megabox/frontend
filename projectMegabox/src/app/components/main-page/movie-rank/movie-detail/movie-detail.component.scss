@@ -1,6 +1,7 @@
 $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
 $star: 'http://image2.megabox.co.kr/mop/home/star.png';
 $reservation: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
+$help: 'http://image2.megabox.co.kr/mop/home/btns/icon_help.png';
 $detail-main: #333;
 $detail-sub: #666;
 
@@ -186,6 +187,33 @@ $detail-sub: #666;
 
           }
           // information reservation close
+
+          // information detail
+          .detail-info-container {
+            background-color: lightblue;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+
+            & li {
+              color: $detail-main;
+              font-size: .9rem;
+              line-height: 22px;
+
+              & strong {
+                font-weight: 700;
+              }
+
+              .cumulative-audience {
+                background: url($help) 50% 50% no-repeat;
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                vertical-align: middle;
+              }
+            }
+            
+          }
+          // information detail close
         }
       }
     }

@@ -39,6 +39,18 @@
             <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(rankmovie)"></button>
             <!-- movie reservation close -->
           </div>
+          <!-- information reservation close -->
+          <!-- information detail -->
+          <ul class="detail-info-container">
+            <li class="movie-type"><strong>타입 </strong>: {{rankmovie.types}}</li>
+            <li class="movie-release"><strong>개봉일 </strong>: {{rankmovie['release_date']}}</li>
+            <li class="movie-director"><strong>감독 </strong>: </li>
+            <li class="movie-cast"><strong>출연진 </strong>: </li>
+            <li class="movie-genre"><strong>장르 </strong>: </li>
+            <li class="movie-audience"><strong>누적관객 </strong>: <strong>전일관객 </strong>: 
+              <button class="cumulative-audience" title="누적관객 도움말 보기"></button></li>
+          </ul>
+          <!-- information detail close -->
         <!-- Don't touch -->
         </div>
         <!-- movie detail information close -->
