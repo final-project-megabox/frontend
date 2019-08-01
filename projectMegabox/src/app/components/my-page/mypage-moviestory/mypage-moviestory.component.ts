@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Userinfo } from './../../../userinfo';
 import { Component, OnInit } from '@angular/core';
 
