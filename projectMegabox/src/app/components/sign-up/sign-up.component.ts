@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
+import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/prefer-theaters.service';
 
 import { PasswordValidator } from './validators/password-validator';
 import { BirthValidator } from './validators/birth-validator';
 import { PhoneValidator } from './validators/phone-validator';
-import { PreferTheatersService } from 'src/app/shared/prefer-theaters/prefer-theaters.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',

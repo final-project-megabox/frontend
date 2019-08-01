@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PreferTheatersService } from './prefer-theaters.service';
+import { PreferTheatersService } from './services/prefer-theaters.service';
 
 @Component({
   selector: 'prefer-theaters',

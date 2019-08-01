@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { QuickBookingService } from '../../service/quick-booking.service';
-import { PreferTheatersService } from 'src/app/shared/prefer-theaters/prefer-theaters.service';
+import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/prefer-theaters.service';
 
 import { regions } from '../../models/regions.type';
 

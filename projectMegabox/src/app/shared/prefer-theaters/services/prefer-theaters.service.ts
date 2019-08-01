@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { PreferTheater } from '../models/prefer-theater.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,7 +32,7 @@ export class PreferTheatersService {
   theaterChoiceThree = '영화관선택';
 
   // 선택한 요소들 저장
-  choieces = [];
+  choieces: PreferTheater[] = [];
 
   // 확인 버튼을 누르면 선택한 지역을 배열 형태로 저장
   preferRegionChoices = [];
@@ -39,5 +41,5 @@ export class PreferTheatersService {
   preferTheaterChoices = [];
 
   // 전체 극장 선택 경우의 수가 담겨 있는 배열
-  ChoosedTheater = [];
+  ChoosedTheater: PreferTheater[] = [];
 }
