@@ -86,7 +86,7 @@ export class SignUpComponent implements OnInit {
     console.log(payload);
     // this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
   }
-
+  
   get email() {
     return this.userForm.get('email');
   }
@@ -212,9 +212,21 @@ export class SignUpComponent implements OnInit {
     li.nextElementSibling.focus();
   }
 
-  regionChoiceOne(regionOne) {
-    this.preferTheaterService.preferOneState = regionOne;
+  regionSelect = '지역선택';
+
+  // test1(test) {
+  //   console.dir(test);
+  // }
+  rechange :boolean = false;
+  change() {
+    this.rechange = true;
+    // console.dir(document.getElementById("good"));
+    // document.getElementById("good").value = "영화관선택";
   }
+
+  // regionChoiceOne(regionOne) {
+  //   this.preferTheaterService.preferOneState = regionOne;
+  // }
 
   regionChoiceTwo(regionTwo) {
     this.preferTheaterService.preferTwoState = regionTwo;
