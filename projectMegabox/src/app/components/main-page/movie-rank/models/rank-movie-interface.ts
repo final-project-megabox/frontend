@@ -11,5 +11,6 @@ export interface RankMovie {
 export interface RankStar {
   id: number,
   rankStar: string,
-  starContent: string
+  starContent: string,
+  selected: boolean
 }
