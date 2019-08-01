@@ -15,9 +15,10 @@ export class MypageMainComponent implements OnInit {
   numBack: number;
 
 
+
   userinfos: Userinfo[] = [
     // tslint:disable-next-line: max-line-length
-    { email: 'immsee098@gmail.com', name: '윤해서', password: 'qwerty123', birthDate: '1995-04-22', phoneNumber: 26057621, preferTheater: '상봉, 코엑스', watchedMovie: '라이온킹', wishMovie: '뭐하지'},
+    { email: 'immsee098@gmail.com', name: '윤해서', phone_number: '010-2605-7621', birth_date: '1995-04-22' }
   ];
 
 
@@ -25,7 +26,7 @@ export class MypageMainComponent implements OnInit {
 
   ngOnInit() {
     const info = [...this.userinfos]
-    const splitNum = (info[0].phoneNumber + '').slice(4, 8);
+    const splitNum = (info[0].phone_number + '').slice(4, 8);
     const stringTonum = parseInt(splitNum);
     this.numBack = stringTonum;
   }

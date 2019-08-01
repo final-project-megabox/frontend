@@ -10,6 +10,7 @@ import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.compo
 import { SuccessComponent } from './success/success.component';
 import { RequiredLoginComponent } from './required-login/required-login.component';
 
+
 @NgModule({
   declarations: [
     SidebarComponent,

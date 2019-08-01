@@ -2,6 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Rank } from '../models/rank.type';
 import { RankMovie } from '../models/rank-movie-interface';
 
+
+
 @Pipe({
   name: 'rankSort'
 })
