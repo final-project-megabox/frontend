@@ -1,4 +1,8 @@
 $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
+$star: 'http://image2.megabox.co.kr/mop/home/star.png';
+$reservation: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
+$detail-main: #333;
+$detail-sub: #666;
 
 .movie-modal {
   position: fixed;
@@ -6,7 +10,7 @@ $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: 99;
   background-color: rgba(210, 210, 210, 0.6);
 
   .modal-container {
@@ -46,19 +50,20 @@ $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
         display: flex;
         justify-content: space-between;
 
+        // movie detail poster
         .modal-main-poster {
           width: 230px;
           height: 336px;
         }
 
+        // movie detail information
         .modal-main-info {
           background-color: aquamarine;
           width: 623px;
           height: 336px;
 
+          // information title
           .modal-headline {
-            // height: 60px;
-            // background-color: red;
             border-bottom: 1px solid #e5e5e5;
 
             span {
@@ -70,7 +75,6 @@ $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
               text-indent: -99999px;
               overflow: hidden;
               vertical-align: middle;
-              background-color: black;
       
               &.modal-age-전체.관람 { background-position: -0 0; }
               &.modal-age-12세.관람가 { background-position: -71px 0; }
@@ -83,17 +87,105 @@ $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
               display: inline-block;
               font-size: 1.9rem;
               font-weight: 700;
-              background-color: wheat;
               vertical-align: middle;
+              color: $detail-main;
             }
 
             .title-english {
               font-size: 0.9rem;
-              color: #666;
+              color: $detail-sub;
               margin: 8px 0;
             }
 
           }
+          // information title close
+
+          // information reservation
+          .modal-reservation {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .rate-container {
+              width: 400px;
+              display: flex;
+
+              // star-rate
+              .star-rate {
+                width: 180px;
+                height: 40px;
+                display: flex;
+  
+                .total-star {
+                  width: 107px;
+                  height: 20px;
+                  position: relative;
+    
+                  .little-star {
+                    background: url($star) 0 0 no-repeat;
+                    display: inline-block;
+                    width: 107px;
+                    height: 15px;
+                    position: absolute;
+                  }
+    
+                  .little-star-fill {
+                    background: url($star) 0 -15px no-repeat;
+                    display: inline-block;
+                    width: 77.5521714608%;
+                    height: 15px;
+                    position: absolute;
+                  }
+    
+                  .cumulative-star {
+                    display: inline-block;
+                    color: $detail-sub;
+                    font-size: 0.7rem;
+                    margin-top: 20px;
+                  }
+                }
+  
+                .rate-average {
+                  font-size: 1.9rem;
+                  font-weight: 700;
+                  margin-left: 10px;
+                }
+              }
+  
+              // booking-rate
+              .booking-rate {
+                width: 180px;
+                height: 40px;
+                padding-left: 10px;
+  
+                .rate-phrases {
+                  font-size: 0.9rem;
+                  color: $detail-main;
+                }
+  
+                strong {
+                  font-weight: 700;
+                  font-size: 1.9rem;
+                  color: $detail-main;
+                }
+  
+                span {
+                  font-size: 0.8rem;
+                  color: $detail-sub;
+                }
+              }
+            }
+
+            // movie-reservation
+            .movie-reservation {
+              background: url($reservation) -300px -100px no-repeat;
+              width: 121px;
+              height: 43px;
+            }
+
+          }
+          // information reservation close
         }
       }
     }

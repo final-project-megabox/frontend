@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieDetailService } from '../service/movie-detail.service';
 import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
 import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
+import { RootService } from 'src/app/core/service/root.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -13,6 +14,7 @@ export class MovieDetailComponent implements OnInit {
 
   constructor(
     private movieDetailService: MovieDetailService,
+    private rootService: RootService,
     private rankService: QuickBookingService
   ) { }
 
@@ -26,6 +28,11 @@ export class MovieDetailComponent implements OnInit {
 
   openDetail() {
     this.movieDetailService.detailModalState = true;
+  }
+
+  reservationMovie(rankmovie: Movies) {
+    this.rankService.selectMovie = [rankmovie];
+    this.rootService.quickBookingModalState = true;
   }
 
 }

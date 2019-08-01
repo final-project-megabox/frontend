@@ -1,17 +1,49 @@
 <div class="movie-modal">
   <div class="modal-container">
     <div class="modal-close" (click)="closeDetail(rankmovie)"></div>
+    <!-- movie detail view -->
     <div class="modal-body">
       <div class="modal-main-content" *ngFor="let rankmovie of this.rankService.selectMovie">
+        <!-- movie detail poster -->
         <img class="modal-main-poster" src="{{rankmovie['img_url']}}" alt="{{rankmovie.title}}">
+        <!-- movie detail information -->
         <div class="modal-main-info">
+          <!-- information title -->
           <div class="modal-headline">
             <span class="modal-age-{{rankmovie.age}}"></span>
             <p class="modal-title">{{rankmovie.title}}</p>
             <p class="title-english">{{rankmovie.title}}</p>
           </div>
+          <!-- information title close -->
+          <!-- information reservation-->
+          <div class="modal-reservation">
+            <!-- rate container -->
+            <div class="rate-container">
+              <!-- reservation rate -->
+              <div class="star-rate">
+                <div class="total-star">
+                  <span class="little-star"></span>
+                  <span class="little-star-fill"></span>
+                  <span class="cumulative-star">1773명 참여</span>
+                </div>
+                <p class="rate-average">7.8</p>
+              </div>
+              <!-- reservation rate close -->
+              <!-- booking rate -->
+              <div class="booking-rate"><span class="rate-phrases">예매율</span><strong>5</strong>위 
+                <span>{{rankmovie['booking_rate']}}%</span></div>
+              <!-- booking rate close -->
+            </div>
+            <!-- rate container close -->
+            <!-- movie reservation -->
+            <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(rankmovie)"></button>
+            <!-- movie reservation close -->
+          </div>
+        <!-- Don't touch -->
         </div>
+        <!-- movie detail information close -->
       </div>
     </div>
+    <!-- movie detail view close -->
   </div>
 </div>
