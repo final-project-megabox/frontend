@@ -12,6 +12,8 @@ import { RootService } from 'src/app/core/service/root.service';
 export class MovieDetailComponent implements OnInit {
   rankmovie: Movies[];
 
+  tipClick = false;
+
   constructor(
     private movieDetailService: MovieDetailService,
     private rootService: RootService,
@@ -33,6 +35,15 @@ export class MovieDetailComponent implements OnInit {
   reservationMovie(rankmovie: Movies) {
     this.rankService.selectMovie = [rankmovie];
     this.rootService.quickBookingModalState = true;
+  }
+
+  toolTip() {
+    this.tipClick = !this.tipClick;
+  }
+
+  myWishMovie(rankmovie: Movies) {
+    console.log(rankmovie);
+    
   }
 
 }

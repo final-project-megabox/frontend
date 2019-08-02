@@ -2,6 +2,8 @@ $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
 $star: 'http://image2.megabox.co.kr/mop/home/star.png';
 $reservation: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
 $help: 'http://image2.megabox.co.kr/mop/home/btns/icon_help.png';
+$movie-wish: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie2.png';
+$schedule: 'http://image2.megabox.co.kr/mop/home/btns/btn_timeSchedule.png';
 $detail-main: #333;
 $detail-sub: #666;
 
@@ -39,182 +41,273 @@ $detail-sub: #666;
       justify-content: center;
       margin-top: 38px;
       width: 100%;
-      height: 1000px;
+      // height: 1000px;
       background-color: white;
       box-shadow: 0 6px 10px rgba(0,0,0,0.5);
 
       .modal-main-content {
         background-color: yellow;
-        width: 888px;
-        margin-top: 30px;
-        // height: 300px;
-        display: flex;
-        justify-content: space-between;
+        margin: 30px 0;
 
-        // movie detail poster
-        .modal-main-poster {
-          width: 230px;
-          height: 336px;
-        }
+        .modal-main-container {
+          display: flex;
+          justify-content: space-between;
+          width: 888px;
+          margin-bottom: 60px;
 
-        // movie detail information
-        .modal-main-info {
-          background-color: aquamarine;
-          width: 623px;
-          height: 336px;
-
-          // information title
-          .modal-headline {
-            border-bottom: 1px solid #e5e5e5;
-
-            span {
-              background: url($watch-age-large) 0 -999px no-repeat;
-              display: inline-block;
-              width: 30px;
-              height: 32px;
-              margin-right: 4px;
-              text-indent: -99999px;
-              overflow: hidden;
-              vertical-align: middle;
-      
-              &.modal-age-전체.관람 { background-position: -0 0; }
-              &.modal-age-12세.관람가 { background-position: -71px 0; }
-              &.modal-age-15세.관람가 { background-position: -110px 0; }
-              &.modal-age-청소년.관람불가 { background-position: -35px 0;}
-      
-            }
-  
-            .modal-title {
-              display: inline-block;
-              font-size: 1.9rem;
-              font-weight: 700;
-              vertical-align: middle;
-              color: $detail-main;
-            }
-
-            .title-english {
-              font-size: 0.9rem;
-              color: $detail-sub;
-              margin: 8px 0;
-            }
-
+          // movie detail poster
+          .modal-main-poster {
+            width: 230px;
+            height: 336px;
           }
-          // information title close
-
-          // information reservation
-          .modal-reservation {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-
-            .rate-container {
-              width: 400px;
+  
+          // movie detail information
+          .modal-main-info {
+            background-color: aquamarine;
+            width: 623px;
+            height: 336px;
+  
+            // information title
+            .modal-headline {
+              border-bottom: 1px solid #e5e5e5;
+  
+              span {
+                background: url($watch-age-large) 0 -999px no-repeat;
+                display: inline-block;
+                width: 30px;
+                height: 32px;
+                margin-right: 4px;
+                text-indent: -99999px;
+                overflow: hidden;
+                vertical-align: middle;
+        
+                &.modal-age-전체.관람 { background-position: -0 0; }
+                &.modal-age-12세.관람가 { background-position: -71px 0; }
+                &.modal-age-15세.관람가 { background-position: -110px 0; }
+                &.modal-age-청소년.관람불가 { background-position: -35px 0;}
+        
+              }
+    
+              .modal-title {
+                display: inline-block;
+                font-size: 1.9rem;
+                font-weight: 700;
+                vertical-align: middle;
+                color: $detail-main;
+              }
+  
+              .title-english {
+                font-size: 0.9rem;
+                color: $detail-sub;
+                margin: 8px 0;
+              }
+  
+            }
+            // information title close
+  
+            // information reservation
+            .modal-reservation {
+              width: 100%;
               display: flex;
-
-              // star-rate
-              .star-rate {
-                width: 180px;
-                height: 40px;
+              justify-content: space-between;
+              margin-top: 10px;
+  
+              .rate-container {
+                width: 400px;
                 display: flex;
   
-                .total-star {
-                  width: 107px;
-                  height: 20px;
-                  position: relative;
+                // star-rate
+                .star-rate {
+                  width: 180px;
+                  height: 40px;
+                  display: flex;
     
-                  .little-star {
-                    background: url($star) 0 0 no-repeat;
-                    display: inline-block;
+                  .total-star {
                     width: 107px;
-                    height: 15px;
-                    position: absolute;
+                    height: 20px;
+                    position: relative;
+      
+                    .little-star {
+                      background: url($star) 0 0 no-repeat;
+                      display: inline-block;
+                      width: 107px;
+                      height: 15px;
+                      position: absolute;
+                    }
+      
+                    .little-star-fill {
+                      background: url($star) 0 -15px no-repeat;
+                      display: inline-block;
+                      width: 77.5521714608%;
+                      height: 15px;
+                      position: absolute;
+                    }
+      
+                    .cumulative-star {
+                      display: inline-block;
+                      color: $detail-sub;
+                      font-size: 0.7rem;
+                      margin-top: 20px;
+                    }
                   }
     
-                  .little-star-fill {
-                    background: url($star) 0 -15px no-repeat;
-                    display: inline-block;
-                    width: 77.5521714608%;
-                    height: 15px;
-                    position: absolute;
+                  .rate-average {
+                    font-size: 1.9rem;
+                    font-weight: 700;
+                    margin-left: 10px;
+                  }
+                }
+    
+                // booking-rate
+                .booking-rate {
+                  width: 180px;
+                  height: 40px;
+                  padding-left: 10px;
+    
+                  .rate-phrases {
+                    font-size: 0.9rem;
+                    color: $detail-main;
                   }
     
-                  .cumulative-star {
-                    display: inline-block;
+                  strong {
+                    font-weight: 700;
+                    font-size: 1.9rem;
+                    color: $detail-main;
+                  }
+    
+                  span {
+                    font-size: 0.8rem;
                     color: $detail-sub;
-                    font-size: 0.7rem;
-                    margin-top: 20px;
                   }
                 }
+              }
   
-                .rate-average {
-                  font-size: 1.9rem;
+              // movie-reservation
+              .movie-reservation {
+                background: url($reservation) -300px -100px no-repeat;
+                width: 121px;
+                height: 43px;
+              }
+  
+            }
+            // information reservation close
+  
+            // information detail
+            .detail-info-container {
+              background-color: lightblue;
+              padding: 16px 0;
+              border-bottom: 1px solid #e5e5e5;
+  
+              & li {
+                color: $detail-main;
+                font-size: .9rem;
+                line-height: 22px;
+
+                & strong {
                   font-weight: 700;
-                  margin-left: 10px;
                 }
               }
-  
-              // booking-rate
-              .booking-rate {
-                width: 180px;
-                height: 40px;
-                padding-left: 10px;
-  
-                .rate-phrases {
-                  font-size: 0.9rem;
-                  color: $detail-main;
+
+              .audience-container {
+                display: flex;
+
+                .movie-audience {
+                  width: 300px;
+                }
+                
+                .cumulative-audience {
+                  background: url($help) 50% 50% no-repeat;
+                  width: 20px;
+                  height: 20px;
+                  display: inline-block;
+                  vertical-align: middle;
                 }
   
-                strong {
-                  font-weight: 700;
-                  font-size: 1.9rem;
-                  color: $detail-main;
-                }
-  
-                span {
-                  font-size: 0.8rem;
-                  color: $detail-sub;
+                .tool-tip {
+                  width: 220px;
+                  height: 74px;
+                  color: white;
+                  background-color: #000;
+                  border-radius: 7px;
+                  font-size: .7rem;
+                  line-height: 18px;
+                  text-align: center;
+                  padding: 10px;
+                  position: absolute;
+                  top: 195px;
+                  left: 500px;
+
+                  &:after {
+                    content:'';
+                    position:absolute;
+                    width:0;
+                    height:0;
+                    border-style:solid;
+                    border-color: #000 transparent transparent transparent;
+                    margin-top: 28px;
+                    margin-left: -48px;
+                    border-width: 7px;
+                  }
                 }
               }
             }
+            // information detail close
+            // audience choice
+            .audience-choice {
+              background-color: aliceblue;
+              padding-top: 15px;
+              display: flex;
+              justify-content: space-between;
 
-            // movie-reservation
-            .movie-reservation {
-              background: url($reservation) -300px -100px no-repeat;
-              width: 121px;
-              height: 43px;
+              .my-rate-container {
+                background-color: aquamarine;
+              }
+
+              .button-container {
+                height: 39px;
+
+                .my-wish-movie {
+                  background: url($movie-wish) -99px 0 no-repeat;
+                  width: 100px;
+                  height: 39px;
+                  margin-right: 5px;
+                  &:hover {
+                    background: url($movie-wish) -99px -44px no-repeat;
+                  }
+                }
+                .movie-schedule {
+                  background: url($schedule) 50% 50% no-repeat;
+                  width: 100px;
+                  height: 39px;
+                  border: 1px solid #ccc;
+                  vertical-align: top;
+
+                  &:hover {
+                    border: 1px solid #198591;
+                  }
+                }
+              }
             }
-
+            // audience choice close
           }
-          // information reservation close
-
-          // information detail
-          .detail-info-container {
-            background-color: lightblue;
-            padding: 20px 0;
-            border-bottom: 1px solid #e5e5e5;
-
-            & li {
-              color: $detail-main;
-              font-size: .9rem;
-              line-height: 22px;
-
-              & strong {
-                font-weight: 700;
-              }
-
-              .cumulative-audience {
-                background: url($help) 50% 50% no-repeat;
-                width: 20px;
-                height: 20px;
-                display: inline-block;
-                vertical-align: middle;
-              }
-            }
-            
-          }
-          // information detail close
         }
+        // movie story
+        .story-container {
+          background-color: aliceblue;
+
+          .story-headline {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+          }
+
+          .story-body {
+            width: 100%;
+            height: 100px;
+            background-color: peru;
+          }
+        }
+        // movie story close
       }
     }
 

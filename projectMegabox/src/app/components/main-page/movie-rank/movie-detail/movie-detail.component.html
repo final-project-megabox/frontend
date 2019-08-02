@@ -3,57 +3,84 @@
     <div class="modal-close" (click)="closeDetail(rankmovie)"></div>
     <!-- movie detail view -->
     <div class="modal-body">
-      <div class="modal-main-content" *ngFor="let rankmovie of this.rankService.selectMovie">
-        <!-- movie detail poster -->
-        <img class="modal-main-poster" src="{{rankmovie['img_url']}}" alt="{{rankmovie.title}}">
-        <!-- movie detail information -->
-        <div class="modal-main-info">
-          <!-- information title -->
-          <div class="modal-headline">
-            <span class="modal-age-{{rankmovie.age}}"></span>
-            <p class="modal-title">{{rankmovie.title}}</p>
-            <p class="title-english">{{rankmovie.title}}</p>
-          </div>
-          <!-- information title close -->
-          <!-- information reservation-->
-          <div class="modal-reservation">
-            <!-- rate container -->
-            <div class="rate-container">
-              <!-- reservation rate -->
-              <div class="star-rate">
-                <div class="total-star">
-                  <span class="little-star"></span>
-                  <span class="little-star-fill"></span>
-                  <span class="cumulative-star">1773명 참여</span>
-                </div>
-                <p class="rate-average">7.8</p>
+      <div class="modal-main-content" *ngFor="let rankmovie of this.rankService.selectMovie; index as i">
+        <div *ngIf="i < 1" class="modal-limit">
+          <!-- movie detail poster -->
+          <div class="modal-main-container">
+            <img class="modal-main-poster" src="{{rankmovie['img_url']}}" alt="{{rankmovie.title}}">
+            <!-- movie detail information -->
+            <div class="modal-main-info">
+              <!-- information title -->
+              <div class="modal-headline">
+                <span class="modal-age-{{rankmovie.age}}"></span>
+                <p class="modal-title">{{rankmovie.title}}</p>
+                <p class="title-english">{{rankmovie.title}}</p>
               </div>
-              <!-- reservation rate close -->
-              <!-- booking rate -->
-              <div class="booking-rate"><span class="rate-phrases">예매율</span><strong>5</strong>위 
-                <span>{{rankmovie['booking_rate']}}%</span></div>
-              <!-- booking rate close -->
+              <!-- information title close -->
+              <!-- information reservation-->
+              <div class="modal-reservation">
+                <!-- rate container -->
+                <div class="rate-container">
+                  <!-- reservation rate -->
+                  <div class="star-rate">
+                    <div class="total-star">
+                      <span class="little-star"></span>
+                      <span class="little-star-fill"></span>
+                      <span class="cumulative-star">1773명 참여</span>
+                    </div>
+                    <p class="rate-average">7.8</p>
+                  </div>
+                  <!-- reservation rate close -->
+                  <!-- booking rate -->
+                  <div class="booking-rate"><span class="rate-phrases">예매율</span><strong>5</strong>위 
+                    <span>{{rankmovie['booking_rate']}}%</span></div>
+                  <!-- booking rate close -->
+                </div>
+                <!-- rate container close -->
+                <!-- movie reservation -->
+                <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(rankmovie)"></button>
+                <!-- movie reservation close -->
+              </div>
+              <!-- information reservation close -->
+              <!-- information detail -->
+              <ul class="detail-info-container">
+                <li class="movie-type"><strong>타입 </strong>: {{rankmovie.types}}</li>
+                <li class="movie-release"><strong>개봉일 </strong>: {{rankmovie['release_date']}}</li>
+                <li class="movie-director"><strong>감독 </strong>: </li>
+                <li class="movie-cast"><strong>출연진 </strong>: </li>
+                <li class="movie-genre"><strong>장르 </strong>: </li>
+                <div class="audience-container">
+                  <li class="movie-audience"><strong>누적관객 </strong>: <strong>전일관객 </strong>: </li>
+                  <button class="cumulative-audience" title="누적관객 도움말 보기" (click)="toolTip()"></button>
+                  <div class="tool-tip" *ngIf="tipClick">
+                    누적관객 및 전일 관객은 영화진흥위원회 영화관 입장권 통합전산망 제공 기준입니다. (2019.08.01 기준)</div>
+                </div>
+              </ul>
+              <!-- information detail close -->
+              <!-- audience choice -->
+              <div class="audience-choice">
+                <div class="my-rate-container">
+                  <span class="my-rate">내 평점</span>
+                  <span class="movie-my-rate"></span>
+                  <span class="my-rate-comment"></span>
+                </div>
+                <div class="button-container">
+                  <button class="my-wish-movie" (click)="myWishMovie(rankmovie)"></button>
+                  <button class="movie-schedule"></button>
+                </div>
+              </div>
+              <!-- audience choice close -->
             </div>
-            <!-- rate container close -->
-            <!-- movie reservation -->
-            <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(rankmovie)"></button>
-            <!-- movie reservation close -->
+            <!-- movie detail information close -->
           </div>
-          <!-- information reservation close -->
-          <!-- information detail -->
-          <ul class="detail-info-container">
-            <li class="movie-type"><strong>타입 </strong>: {{rankmovie.types}}</li>
-            <li class="movie-release"><strong>개봉일 </strong>: {{rankmovie['release_date']}}</li>
-            <li class="movie-director"><strong>감독 </strong>: </li>
-            <li class="movie-cast"><strong>출연진 </strong>: </li>
-            <li class="movie-genre"><strong>장르 </strong>: </li>
-            <li class="movie-audience"><strong>누적관객 </strong>: <strong>전일관객 </strong>: 
-              <button class="cumulative-audience" title="누적관객 도움말 보기"></button></li>
-          </ul>
-          <!-- information detail close -->
-        <!-- Don't touch -->
+          <!-- movie story -->
+          <div class="story-container">
+            <div class="story-headline">줄거리</div>
+            <div class="story-body"></div>
+          </div>
+          <!-- movie story close -->
         </div>
-        <!-- movie detail information close -->
+        <!-- Don't touch -->
       </div>
     </div>
     <!-- movie detail view close -->
