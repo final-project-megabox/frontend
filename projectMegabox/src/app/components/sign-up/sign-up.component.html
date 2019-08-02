@@ -113,10 +113,11 @@
               <option value="부산">부산</option>
             </select>
 
-           <select name="theater-group" class="theater-choice" formControlName="theaterOne">
+           <select name="theater-group" class="theater-choice" formControlName="theaterOne"  [(ngModel)]="duplicateOne" (change)="DuplicateCheck()">
                <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
                [style.display]="regionSelectOne === theater.region ?  null : 'none'"
-               value="{{theater.theater}}">{{ theater.theater }}
+               value="{{theater.theater}}"
+               >{{ theater.theater }}
               </option>
           </select>
           </li>
@@ -132,7 +133,7 @@
               <option value="부산">부산</option>
             </select>
   
-            <select name="theater-group" class="theater-choice" formControlName="theaterTwo">
+            <select name="theater-group" class="theater-choice" formControlName="theaterTwo" [(ngModel)]="duplicateTwo" (change)="DuplicateCheck()">
                 <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
                 [style.display]="regionSelectTwo === theater.region ?  null : 'none'" 
                 value="{{theater.theater}}">{{ theater.theater }}
@@ -151,7 +152,7 @@
               <option value="부산">부산</option>
             </select>
   
-            <select name="theater-group" class="theater-choice" formControlName="theaterThree">
+            <select name="theater-group" class="theater-choice" formControlName="theaterThree" [(ngModel)]="duplicateThree" (change)="DuplicateCheck()">
                 <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
                 [style.display]="regionSelectThree === theater.region ?  null : 'none'"
                 value="{{theater.theater}}">{{ theater.theater }}

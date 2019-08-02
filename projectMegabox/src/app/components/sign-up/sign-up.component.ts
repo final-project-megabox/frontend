@@ -215,4 +215,21 @@ export class SignUpComponent implements OnInit {
   regionSelectOne = '지역선택';
   regionSelectTwo = '지역선택';
   regionSelectThree = '지역선택';
+
+  duplicateOne = '영화관선택';
+  duplicateTwo = '영화관선택';
+  duplicateThree = '영화관선택';
+
+  // 중복검사
+  DuplicateCheck() {
+    if(this.duplicateOne === '영화관선택' && this.duplicateTwo === '영화관선택' ||
+       this.duplicateOne === '영화관선택' && this.duplicateThree === '영화관선택' ||
+       this.duplicateTwo === '영화관선택' && this.duplicateThree === '영화관선택' 
+    ) 
+    return
+
+    if(this.duplicateOne === this.duplicateTwo || this.duplicateOne === this.duplicateThree || this.duplicateTwo === this.duplicateThree) {
+      alert('이미 선택하신 영화관 입니다.');
+    }
+  }
 }
