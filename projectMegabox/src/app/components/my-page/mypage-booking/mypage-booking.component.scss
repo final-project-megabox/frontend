@@ -113,6 +113,12 @@
 
 .tab-movieName {
   width: 352px;
+
+}
+
+.name-text {
+  // background: pink;
+  margin-bottom: 20px;
 }
 
 .tab-screen {
@@ -153,6 +159,30 @@
   margin-top: 42px;
 }
 
+.content-align2 {
+  // background: blue;
+  margin-top: 20px;
+  float: left;
+}
+
 .active {
   display: block;
+}
+
+.cancel-btn {
+  width: 50px;
+  height: 22px;
+  border: 1px solid #666666;
+  font-weight: 700;
+}
+
+
+.scroll {
+  width: 100%;
+  height: 300px;
+}
+
+.poster {
+  width: 10%;
+  margin-right: 20px;
 }

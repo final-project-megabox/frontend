@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
+import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/prefer-theaters.service';
 
 import { PasswordValidator } from './validators/password-validator';
 import { BirthValidator } from './validators/birth-validator';
 import { PhoneValidator } from './validators/phone-validator';
-import { PreferTheatersService } from 'src/app/shared/prefer-theaters/prefer-theaters.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -76,11 +77,16 @@ export class SignUpComponent implements OnInit {
       password: this.password.value,
       birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
+      preferTheater: [
+        { id: 0, theater: this.preferOne.value, region: this.theaterOne.value },
+        { id: 1, theater: this.preferTwo.value, region: this.theaterTwo.value },
+        { id: 2, theater: this.preferThree.value, region: this.theaterThree.value }
+      ]
     };
     console.log(payload);
-    this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+    // this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
   }
-
+  
   get email() {
     return this.userForm.get('email');
   }
@@ -206,15 +212,7 @@ export class SignUpComponent implements OnInit {
     li.nextElementSibling.focus();
   }
 
-  regionChoiceOne(regionOne) {
-    this.preferTheaterService.preferOneState = regionOne;
-  }
-
-  regionChoiceTwo(regionTwo) {
-    this.preferTheaterService.preferTwoState = regionTwo;
-  }
-  
-  regionChoiceThree(regionThree) {
-    this.preferTheaterService.preferThreeState = regionThree;
-  }
+  regionSelectOne = '지역선택';
+  regionSelectTwo = '지역선택';
+  regionSelectThree = '지역선택';
 }

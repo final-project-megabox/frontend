@@ -4,7 +4,7 @@
 <div class="mypage-booking">
 
   <div class= "booking-title">
-    <h3>예매 확인/취소</h3>
+    <h3 (click)="watchedList()">예매 확인/취소</h3>
     <span>예매하신 영화 내역과 취소 내역을 확인할 수 있습니다.</span>
   </div>
 
@@ -26,62 +26,42 @@
   </ul>
 
   <div class= "tab-contents booked" [ngClass]="{active: navState == '예매 내역'}">
-    <ul>
+    <ul *ngFor="let bookedlist of bookedlists">
       <li class="tab-no"><div class="content-align">1</div></li>
-      <li class="tab-bookNum"><div class="content-align">T90716-008-3566</div></li>
-      <li class="tab-movieName"><div class="content-align">토이 스토리 4-디지털(자막)</div></li>
-      <li class="tab-screen"><div class="content-align">코엑스 컴포트 8관</div></li>
-      <li class="tab-screenDate"><div class="content-align"><div>2019-07-16</div><div>14:55</div></div></li>
-      <li class="tab-bookedDate"><div class="content-align"><div>2019-07-16</div><div>13:40:35</div></div></li>
-      <li class="tab-cancel"><div class="content-align"><button>취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
+      <li class="tab-bookNum"><div class="content-align">{{bookedlist.booking_number}}</div></li>
+      <li class="tab-movieName"><div class="content-align2"><img src="{{bookedlist.poster_url}}" class="poster">토이 스토리 4-디지털(자막)</div></li>
+      <li class="tab-screen"><div class="content-align">{{bookedlist.theater}}</div></li>
+      <li class="tab-screenDate"><div class="content-align">{{bookedlist.show_date}}</div></li>
+      <li class="tab-bookedDate"><div class="content-align">{{bookedlist.booking_date}}</div></li>
+      <li class="tab-cancel"><div class="content-align"><button class="cancel-btn" (click)="bookedCanceled(bookedlist.id)">취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
     </ul>
   </div>
 
   <div class= "tab-contents watched" [ngClass]="{active: navState == '지난 내역'}">
-      <ul>
+      <ul *ngFor="let watchedlist of watchedlists">
         <li class="tab-no"><div class="content-align">2</div></li>
-        <li class="tab-bookNum"><div class="content-align">T90716-008-3566</div></li>
-        <li class="tab-movieName"><div class="content-align">알라딘-디지털(자막)</div></li>
-        <li class="tab-screen"><div class="content-align">코엑스 컴포트 9관</div></li>
-        <li class="tab-screenDate"><div class="content-align"><div>2019-07-16</div><div>14:55</div></div></li>
-        <li class="tab-bookedDate"><div class="content-align"><div>2019-07-16</div><div>13:40:35</div></div></li>
-        <li class="tab-cancel"><div class="content-align"><button>취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
+        <li class="tab-bookNum"><div class="content-align">{{watchedlist.booking_number}}</div></li>
+        <li class="tab-movieName"><div class="content-align2"><img src="{{watchedlist.poster_url}}" class="poster"><a class="name-text">{{watchedlist.title}}</a></div></li>
+        <li class="tab-screen"><div class="content-align">{{watchedlist.theater}}</div></li>
+        <li class="tab-screenDate"><div class="content-align">{{watchedlist.show_date}}</div></li>
+        <li class="tab-bookedDate"><div class="content-align">{{watchedlist.booking_date}}</div></li>
+        <li class="tab-cancel"><div class="content-align"><button class="cancel-btn" (click)="bookedCanceled(watchedlist.id)">취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
       </ul>
   </div>
 
   <div class= "tab-contents canceled hidden" [ngClass]="{active: navState == '취소 내역'}">
-      <ul>
+      <ul *ngFor="let canceledlist of canceledlists">
         <li class="tab-no"><div class="content-align">3</div></li>
-        <li class="tab-bookNum"><div class="content-align">T90716-008-3566</div></li>
-        <li class="tab-movieName"><div class="content-align">미드소마-디지털(자막)</div></li>
-        <li class="tab-screen"><div class="content-align">코엑스 컴포트 8관</div></li>
-        <li class="tab-screenDate"><div class="content-align"><div>2019-07-16</div><div>14:55</div></div></li>
-        <li class="tab-bookedDate"><div class="content-align"><div>2019-07-16</div><div>13:40:35</div></div></li>
-        <li class="tab-cancel"><div class="content-align"><button>취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
+        <li class="tab-bookNum"><div class="content-align">{{canceledlist.booking_number}}</div></li>
+        <li class="tab-movieName"><div class="content-align2"><img src="{{canceledlist.poster_url}}" class="poster"><a class="name-text">{{canceledlist.title}}</a></div></li>
+        <li class="tab-screen"><div class="content-align">{{canceledlist.theater}}</div></li>
+        <li class="tab-screenDate"><div class="content-align">{{canceledlist.show_date}}</div></li>
+        <li class="tab-bookedDate"><div class="content-align">{{canceledlist.booking_date}}</div></li>
+        <li class="tab-cancel"><div class="content-align"><button class="cancel-btn">취소됨</button></div></li> <!--누르면 아이디 불러와서 지우기-->
       </ul>
     </div>
 
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
-<div>.</div>
+<div class="scroll"></div>
 
 </div>
 
