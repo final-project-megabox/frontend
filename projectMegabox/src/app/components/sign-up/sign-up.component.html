@@ -106,25 +106,26 @@
         <ol class="order-line">
           <li class="line">
             <span class="rank">1순위</span>
-            <select name="region-group" class="region-choice"  (change)="regionChoiceOne(region1.value)" formControlName="preferOne" #region1>
+            <select name="region-group" class="region-choice" [(ngModel)]="regionSelectOne" formControlName="preferOne" appPreferTheaterSelect>
               <option value="지역선택">지역선택</option>
               <option value="서울">서울</option>
               <option value="경기">경기</option>
               <option value="부산">부산</option>
             </select>
-  
-            <select name="theater-group" class="theater-choice" formControlName="theaterOne">
-              <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-              [style.display]="preferTheaterService.preferOneState === theater.region ?  null : 'none'" 
-              value="{{theater.theater}}">{{ theater.theater }}</option>
-            </select>
+
+           <select name="theater-group" class="theater-choice" formControlName="theaterOne">
+               <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
+               [style.display]="regionSelectOne === theater.region ?  null : 'none'"
+               value="{{theater.theater}}">{{ theater.theater }}
+              </option>
+          </select>
           </li>
         </ol>
     
         <ol class="order-line">
           <li class="line">
             <span class="rank">2순위</span>
-            <select name="region-group" class="region-choice"  (change)="regionChoiceTwo(region2.value)" formControlName="preferTwo" #region2>
+            <select name="region-group" class="region-choice" [(ngModel)]="regionSelectTwo" formControlName="preferTwo" appPreferTheaterSelect>
               <option value="지역선택">지역선택</option>
               <option value="서울">서울</option>
               <option value="경기">경기</option>
@@ -133,8 +134,9 @@
   
             <select name="theater-group" class="theater-choice" formControlName="theaterTwo">
                 <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-                [style.display]="preferTheaterService.preferTwoState === theater.region ?  null : 'none'" 
-                value="{{theater.theater}}">{{ theater.theater }}</option>
+                [style.display]="regionSelectTwo === theater.region ?  null : 'none'" 
+                value="{{theater.theater}}">{{ theater.theater }}
+                </option>
             </select>
           </li>
         </ol>
@@ -142,7 +144,7 @@
         <ol class="order-line">
           <li class="line">
             <span class="rank">3순위</span>
-            <select name="region-group" class="region-choice" (change)="regionChoiceThree(region3.value)" formControlName="preferThree" #region3>
+            <select name="region-group" class="region-choice" [(ngModel)]="regionSelectThree" formControlName="preferThree" appPreferTheaterSelect>
               <option value="지역선택">지역선택</option>
               <option value="서울">서울</option>
               <option value="경기">경기</option>
@@ -151,8 +153,9 @@
   
             <select name="theater-group" class="theater-choice" formControlName="theaterThree">
                 <option *ngFor="let theater of preferTheaterService.ChoosedTheater"
-                [style.display]="preferTheaterService.preferThreeState === theater.region ?  null : 'none'"
-                value="{{theater.theater}}">{{ theater.theater }}</option>
+                [style.display]="regionSelectThree === theater.region ?  null : 'none'"
+                value="{{theater.theater}}">{{ theater.theater }}
+                </option>
             </select>
           </li>
         </ol>
