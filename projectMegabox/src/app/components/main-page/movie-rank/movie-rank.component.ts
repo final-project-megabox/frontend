@@ -71,13 +71,13 @@ export class MovieRankComponent implements OnInit {
   selectDetail(rankmovie: Movies) {
     this.rankService.selectMovie = [rankmovie];
     this.movieDetailService.detailModalState = true;
-    console.log(rankmovie);
+    // console.log(rankmovie);
   }
 
   selectMovie(rankmovie: Movies) {
     this.rankService.selectMovie = [rankmovie];
     this.rootService.quickBookingModalState = true;
-    console.log(this.rankService.selectMovie);
+    // console.log(this.rankService.selectMovie);
   }
   
   hoverStar(id: number, idx:number, index: number) {
@@ -95,18 +95,18 @@ export class MovieRankComponent implements OnInit {
     this.starState[index] = rate.id;
     this.RankStars[index] = this.RankStars[index].map(rankstar => rankstar.id === rate.id ? {...rankstar, selected: true} : rankstar);
     this.starclick = true;
-    console.log("p", this.RankStars[index][this.starState[index]].starContent)
-    console.log(this.starclick);
-    console.log(this.starState);
-    console.log(rate);
-    console.log(this.RankStars);
+    // console.log("p", this.RankStars[index][this.starState[index]].starContent)
+    // console.log(this.starclick);
+    // console.log(this.starState);
+    // console.log(rate);
+    // console.log(this.RankStars);
   }
 
   outStar(index: number) {
     this.hoverState = false;
-    console.log(this.RankStars[index]);    
+    // console.log(this.RankStars[index]);    
     this.starState = this.RankStars[index].filter(({selected}) => selected === true).map(rankstar => rankstar.id);
-    console.log(this.starState);
+    // console.log(this.starState);
   }
 
   rankWish(rankmovie: Movies) {

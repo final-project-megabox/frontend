@@ -23,13 +23,22 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
   }
   
-  closeDetail(rankmovie: Movies) {
+  closeDetail() {
     this.movieDetailService.detailModalState = false;
-    console.log(rankmovie);
   }
 
   openDetail() {
     this.movieDetailService.detailModalState = true;
+  }
+
+  descending(key: string) {
+    return function(a: Movies, b: Movies) {
+      return a[key] < b[key] ? 1 : (a[key] > b[key] ? -1 : 0);
+    }
+  }
+
+  ratingNow(rankmovie: Movies) {
+    return this.rankService.movies.sort(this.descending('booking_rate')).findIndex(i => i['booking_rate'] === rankmovie['booking_rate'])+1;
   }
 
   reservationMovie(rankmovie: Movies) {
@@ -42,8 +51,7 @@ export class MovieDetailComponent implements OnInit {
   }
 
   myWishMovie(rankmovie: Movies) {
-    console.log(rankmovie);
-    
+    // console.log(rankmovie);
   }
 
 }

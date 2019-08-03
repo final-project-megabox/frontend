@@ -22,6 +22,10 @@ $detail-sub: #666;
     left: 50%;
     transform: translate(-50%);
 
+    // .modal-container::-webkit-scrollbar {
+    //   display:none;
+    //   }
+
     .modal-close {
       position: absolute;
       right: 0;

@@ -1,6 +1,6 @@
 <div class="movie-modal">
   <div class="modal-container">
-    <div class="modal-close" (click)="closeDetail(rankmovie)"></div>
+    <div class="modal-close" (click)="closeDetail()"></div>
     <!-- movie detail view -->
     <div class="modal-body">
       <div class="modal-main-content" *ngFor="let rankmovie of this.rankService.selectMovie; index as i">
@@ -32,7 +32,7 @@
                   </div>
                   <!-- reservation rate close -->
                   <!-- booking rate -->
-                  <div class="booking-rate"><span class="rate-phrases">예매율</span><strong>5</strong>위 
+                  <div class="booking-rate"><span class="rate-phrases">예매율 </span><strong>{{ratingNow(rankmovie)}}</strong>위 
                     <span>{{rankmovie['booking_rate']}}%</span></div>
                   <!-- booking rate close -->
                 </div>
