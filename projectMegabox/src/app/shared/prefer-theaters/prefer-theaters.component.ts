@@ -92,6 +92,15 @@ export class PreferTheatersComponent implements OnInit {
     console.log(this.preferTheaterService.choieces);
   }
 
+  // 삭제 버튼 클릭 시
+  removePreferTheater(delId) {
+    // this.preferTheaterService.choieces = this.preferTheaterService.choieces.filter(({ id }) => id !== delId);
+    
+    // 뷰는 구현되지만 실제 value 값이 변경되지는 않는다. state가 변경되지 않아서 ????
+    this.preferTheaterService.choieces = this.preferTheaterService.choieces.map(prefer => prefer.id === delId ? 
+    {...prefer, theater: '영화관선택', region: '지역선택'} : prefer );
+  }
+
   // 순위를 보여주기 위한 자료구조
   orderNum = [
     { id: 0, rank:'1순위'},

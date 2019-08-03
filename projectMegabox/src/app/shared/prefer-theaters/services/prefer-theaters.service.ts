@@ -34,10 +34,10 @@ export class PreferTheatersService {
   // 선택한 요소들 저장
   choieces: PreferTheater[] = [];
 
-  // 확인 버튼을 누르면 선택한 지역을 배열 형태로 저장
+  // change 이벤트가 발생하면 선택한 지역을 저장
   preferRegionChoices = [];
 
-  // 확인 버튼을 누르면 선택한 극장을 배열 형태로 저장
+  // change 이벤트가 발생하면 선택한 극장을 저장
   preferTheaterChoices = [];
 
   // 전체 극장 선택 경우의 수가 담겨 있는 배열
