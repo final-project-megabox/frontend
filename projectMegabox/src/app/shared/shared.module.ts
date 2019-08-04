@@ -10,6 +10,7 @@ import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.compo
 import { SuccessComponent } from './success/success.component';
 import { RequiredLoginComponent } from './required-login/required-login.component';
 
+import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RequiredLoginComponent } from './required-login/required-login.componen
     LoginModalComponent,
     PreferTheatersComponent,
     SuccessComponent,
-    RequiredLoginComponent
+    RequiredLoginComponent,
+    PreferTheaterFilterPipe
   ],
   imports: [
     CommonModule,
