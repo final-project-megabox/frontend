@@ -8,6 +8,7 @@ import { Token } from '../models/token.interface';
 export class AuthService {
   TOKEN_NAME = 'token';
   loginState = false;
+  userName: string;
    
   constructor(private http: HttpClient) { 
     this.loginState = localStorage.getItem('token') ? true : false;

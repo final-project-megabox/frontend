@@ -74,6 +74,17 @@ app-login-modal {
   right: 0;
 }
 
+.profile-img {
+  width: 37px;
+  height: 37px;
+}
+
+.success-modal {
+  display: flex;
+  padding: 5px;
+  width: 145px!important;
+}
+
 app-success {
   position: absolute;
   top: 50px;

@@ -51,8 +51,9 @@ export class LoginModalComponent implements OnInit {
           localStorage.setItem('token', login.token);
           this.userForm.reset();
         }
+        localStorage.setItem('userName', login.user.name);
         this.authService.loginState = true;
-        window.location.reload();
+        // window.location.reload();
       }, error => {
         this.failLogin = true;
       })

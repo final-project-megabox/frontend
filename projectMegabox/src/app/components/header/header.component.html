@@ -13,9 +13,13 @@
         <a>로그인</a>
       </li>
       <ng-template #seccessLogin>
-        <li title="마이페이지 바로가기"
+        <li title="마이페이지 바로가기" class="success-modal"
         (click)="rootService.myPageModal = !rootService.myPageModal">
-          <a>내정보 보기</a>
+          <img class="profile-img" src="http://image2.megabox.co.kr/mop/home/user/profile_m.png" alt="프로필 사진">
+          <div>
+            <span>{{getUserName()}}님</span>
+            <a routerLink='/booking'>예매확인/취소</a>
+          </div>
         </li>
       </ng-template>
     </ul>
