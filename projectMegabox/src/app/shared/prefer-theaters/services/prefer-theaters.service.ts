@@ -1,12 +1,24 @@
 import { Injectable } from '@angular/core';
 
 import { PreferTheater } from '../models/prefer-theater.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PreferTheatersService {
-  constructor() { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
+
+  getAllPreferTheaters() {
+    const token = localStorage.getItem(this.auth.TOKEN_NAME);
+    // const token = JSON.parse(localStorage.getItem(this.auth.TOKEN_NAME));
+    const headers = new HttpHeaders().set('TOKEN', token);
+
+    // return this.http.get('http://megabox.hellocoding.shop/v1/Myinfo', { headers });
+    // return this.http.get<PreferTheater[]>('http://megabox.hellocoding.shop//accounts/showCreate/', { headers });
+    return this.http.get<PreferTheater[]>('http://megabox.hellocoding.shop/accounts/updatePreferTheater/', { headers });
+  }
 
   // 선호 영화관 모달창 띄우기, 닫기
   preferState = false;

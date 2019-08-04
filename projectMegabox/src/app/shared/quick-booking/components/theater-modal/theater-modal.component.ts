@@ -19,6 +19,8 @@ export class TheaterModalComponent implements OnInit {
       return this.bookingService.transmitTheaters.some(select => theater.name === select) ? {...theater, selected: true} : theater;
     });
 
+    // this.getPrefer();
+
     this.getTheaterName();
   }
 
@@ -28,13 +30,23 @@ export class TheaterModalComponent implements OnInit {
 
   hoverRegion: string;
 
+  // testArray;
+
+  // 선호 영화관
+  // getPrefer() {
+  //   this.testArray = this.preferTheaterService.choieces.filter(({ theater }) => theater !=='영화관선택');
+  //   console.log(this.testArray);
+  //   this.bookingService.transmitTheaters = [...this.testArray.map(({ theater }) => theater)];
+  //   console.log(this.bookingService.transmitTheaters);
+  // }
+
   // 모든 지역 정보가 들어있는 데이터
   getTheaters() {
     return this.bookingService.detailRegions = [
-      { id: 0, name: '강남', city: '서울', selected: false}, 
-      { id: 1, name: '신촌', city: '서울', selected: false}, 
-      { id: 2, name: '코엑스', city: '서울', selected: false}, 
-      { id: 3, name: '고양스타필드', city: '경기', selected: false }, 
+      { id: 0, name: '강남', city: '서울', selected: false},
+      { id: 1, name: '신촌', city: '서울', selected: false},
+      { id: 2, name: '코엑스', city: '서울', selected: false},
+      { id: 3, name: '고양스타필드', city: '경기', selected: false },
       { id: 4, name: '해운대(장산)', city: '부산', selected: false }
     ]
   }

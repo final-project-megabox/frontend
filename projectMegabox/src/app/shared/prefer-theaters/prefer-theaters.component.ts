@@ -16,11 +16,19 @@ export class PreferTheatersComponent implements OnInit {
     this.getFreferTheater();
 
     // 백엔드에서 받을 데이터, 보낼 데이터
-    this.preferTheaterService.choieces = [
-      { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.regionChoiceOne},
-      { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.regionChoiceTwo },
-      { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.regionChoiceThree }
-    ]
+    // this.preferTheaterService.choieces = [
+    //   { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.regionChoiceOne},
+    //   { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.regionChoiceTwo },
+    //   { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.regionChoiceThree }
+    // ]
+    this.getAllPreferTheaters();
+  }
+
+  getAllPreferTheaters() {
+    console.log(this.preferTheaterService.getAllPreferTheaters());
+    this.preferTheaterService.getAllPreferTheaters().subscribe(
+      theaters => this.preferTheaterService.choieces = theaters
+    );
   }
 
   // change 이벤트가 발생하면 선택한 지역을 배열에 할당하고 각각의 state에 할당
@@ -97,8 +105,8 @@ export class PreferTheatersComponent implements OnInit {
     // this.preferTheaterService.choieces = this.preferTheaterService.choieces.filter(({ id }) => id !== delId);
     
     // 뷰는 구현되지만 실제 value 값이 변경되지는 않는다. state가 변경되지 않아서 ????
-    this.preferTheaterService.choieces = this.preferTheaterService.choieces.map(prefer => prefer.id === delId ? 
-    {...prefer, theater: '영화관선택', region: '지역선택'} : prefer );
+    // this.preferTheaterService.choieces = this.preferTheaterService.choieces.map(prefer => prefer.id === delId ? 
+    // {...prefer, theater: '영화관선택', region: '지역선택'} : prefer );
   }
 
   // 순위를 보여주기 위한 자료구조

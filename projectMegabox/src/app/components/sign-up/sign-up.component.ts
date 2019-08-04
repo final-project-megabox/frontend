@@ -78,13 +78,14 @@ export class SignUpComponent implements OnInit {
       birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
       preferTheater: [
-        { id: 0, theater: this.preferOne.value, region: this.theaterOne.value },
-        { id: 1, theater: this.preferTwo.value, region: this.theaterTwo.value },
-        { id: 2, theater: this.preferThree.value, region: this.theaterThree.value }
+        { theater: this.preferOne.value, region: this.theaterOne.value },
+        { theater: this.preferTwo.value, region: this.theaterTwo.value },
+        { theater: this.preferThree.value, region: this.theaterThree.value }
       ]
     };
     console.log(payload);
-    // this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+    this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+    alert('회원가입이 완료되었습니다. 로그인을 통하여 나만의 무비라이프를 즐겨보세요.');
   }
   
   get email() {

@@ -167,7 +167,7 @@
 <!-- 버튼 -->
 <div class="wrap-submit">
   <button class="cancel-btn">취소</button>
-  <button class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()" 
+  <button  routerLink='' class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()" 
   [style.backgroundColor]= "userForm.invalid ? '#dcdcdc' : null">확인
   </button>
 </div>
