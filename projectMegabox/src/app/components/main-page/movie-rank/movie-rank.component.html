@@ -58,7 +58,7 @@
             <div class="rank-info-detail">
               <button class="detail-info">상세정보</button>
               <button class="rank-booking-{{rankmovie.title}}" id="quick-booking"
-               (click)="selectMovie(rankmovie)">예매하기</button>
+               (click)="selectMovie(rankmovie); rankService.confirmTheater()">예매하기</button>
             </div>
           </li>
         </div>
