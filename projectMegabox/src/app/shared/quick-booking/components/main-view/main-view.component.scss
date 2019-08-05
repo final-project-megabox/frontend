@@ -1,5 +1,20 @@
 $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
 
+
+
+// .box{
+//   animation-name: from-to;
+//   animation-duration: 3.3s;
+//   animation-delay: 2s;
+//   animation-fill-mode: forwards;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: linear;
+//   animation-direction: alternate;
+//   animation-play-state: running;
+//   height: auto;
+// }
+
+
 .quick-booking {
   position: fixed;
   top: 0;
@@ -7,23 +22,36 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
   right: 0;
   bottom: 0;
   z-index: 100;
-  
+
   .wrapper {
     position: relative;
    
     .close {
       position: absolute;
-      top: 53px;
       right: 0;
       width: 38px;
       height: 38px;
+      top: 53px;
       border: 1px solid #cdcdcd;
-      background: #ffffff url(http://image2.megabox.co.kr/mop/home/btns/btn_close.png) 9px 9px no-repeat;
+      background: #ffffff url('http://image2.megabox.co.kr/mop/home/btns/btn_close.png') 9px 9px no-repeat;
+
+      animation-name: close;
+      animation-duration: 0.8s;
 
       span {
         display: inline-block;
         text-indent: -9999px;
         overflow: hidden;
+      }
+
+      @keyframes close {
+        0% {
+          top: -710px;
+        }
+        
+        100% {
+          top: 53px;
+        }
       }
     }
   }
@@ -62,6 +90,7 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
       }
     }
   }
+
   .bg {
     position: fixed;
     top: 0;
@@ -69,20 +98,47 @@ $sprite: 'http://image2.megabox.co.kr/mop/home/btns/btn_booking.png';
     bottom: 0;
     right: 0;
     background: rgba(255, 255, 255, 50%);
+
+    animation-name: bgani;
+    animation-duration: 1s;
+
+    @keyframes bgani {
+      0% {
+        background: rgba(255, 255, 255, 0%);
+      }
+
+      100% {
+        background: rgba(255, 255, 255, 50%);
+      }
+    }
   }
   .wrapper {
     width: 970px;
     height: 700px;
     margin: 0 auto;
-    
   
     .main-container {
-      position: relative;
       border: 1px solid #cdcdcd;
       top: 90px;
       background: #fff;
       background-color: #f9f9f9;
       box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+
+      position: absolute;      
+      animation-name: bookingAnimation;
+      animation-duration: 0.8s;
+      
+    
+      @keyframes bookingAnimation{
+        0%{
+          top: -710px;
+        }
+      
+        100%{
+          top: 90px;
+        }
+      }
+        
 
 
       .title {

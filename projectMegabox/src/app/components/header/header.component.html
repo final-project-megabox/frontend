@@ -9,10 +9,7 @@
     </li>
     <li title="영화 바로가기"><a>영화</a></li>
     <li title="영화관 바로가기"><a>영화관</a></li>
-    <li title="빠른 예매" id="quick-booking">
-      <a routerlink='quick-booking'>빠른 예매</a>
-      <!-- <img src="https://ifh.cc/g/1fQ6F.png"> -->
-    </li>
+    <li title="빠른 예매" id="quick-booking" (click)="rootService.quickBookingModalState = true">빠른 예매<img src="https://ifh.cc/g/1fQ6F.png"></li>
     <li title="로그인 바로가기" *ngIf="!authService.loginState; else seccessLogin"
     (click)="rootService.loginModalState = !rootService.loginModalState"
     class="login">

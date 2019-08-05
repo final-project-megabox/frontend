@@ -15,9 +15,9 @@ import { MainViewComponent } from './shared/quick-booking/components/main-view/m
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
-  { path: 'home', component: MainPageComponent, children: [
-    { path: 'quick-booking', component: MainViewComponent }
-  ]},
+  { path: 'home', component: MainPageComponent, 
+    // children: [ { path: 'quick-booking', component: MainViewComponent } ]
+  },
   { path: 'mypage', component: MypageMainComponent, canActivate: [ AuthGuard ] },
   { path: 'booking', component: MypageBookingComponent },
   { path: 'my-movie-story', component: MypageMoviestoryComponent, canActivate: [ AuthGuard ] },
