@@ -42,7 +42,7 @@ export class QuickBookingService {
 
   payLoad = [];
 
-  _postDate =`${this.calendarService.year}-0${this.calendarService.month + ''.length === 1 ? '0' + (this.calendarService.month + 1) : this.calendarService.month + 1}-${this.calendarService.day}`;
+  _postDate =`${this.calendarService.year}-0${this.calendarService.month + ''.length === 1 ? '0' + (this.calendarService.month + 1) : this.calendarService.month + 1}-0${this.calendarService.day + ''.length === 1 ? '0' + this.calendarService.day : this.calendarService.day}`;
   postTheater = '';
   postMovie = '';
 
@@ -74,7 +74,7 @@ export class QuickBookingService {
       if (idx === 0) {
         this.postTheater = `&theater=${item}`;
       } else {
-        this.postTheater = `${this.postTheater}_${item}`;
+        this.postTheater = `${this.postTheater}&theater=${item}`;
       }
     })
 
@@ -99,7 +99,7 @@ export class QuickBookingService {
       if (idx === 0) {
         this.postMovie = `&movie=${item.title}`;
       } else {
-        this.postMovie = `${this.postMovie}_${item.title}`;
+        this.postMovie = `${this.postMovie}&movie=${item.title}`;
       }
     })
     this.addPlusButton();
@@ -118,11 +118,12 @@ export class QuickBookingService {
       return;
     }
 
-    this.http.get<Movies[]>(`http://megabox.hellocoding.shop//database/reservationScheduleList/?date=${this.postDate}${this.postTheater}&movie=${this.postMovie}`)
+    this.http.get<Movies[]>(`http://megabox.hellocoding.shop//database/reservationScheduleList/?date=${this.postDate}${this.postTheater}${this.postMovie}`)
       .subscribe(list => this.movieList = list.filter(item => {
         if (+item.date.split('-')[2] !== date.getDate()) return +item.date.split('-')[2] !== date.getDate();
-        else if (+item['start_time'].slice(0, 2) >= date.getHours()) return +item['start_time'].slice(0, 2) >= date.getHours();
-      }));
+        else if (+item['start_time'].slice(0, 2) > date.getHours()) return +item['start_time'].slice(0, 2) > date.getHours();
+      })
+    );
   }
   
   getAll() {
@@ -183,5 +184,9 @@ export class QuickBookingService {
     } else {
       return `${type[0]}`
     }
+  }
+
+  confirmTheater() {
+    this.alertTheater = this.selectTheaters.length ? false : true;
   }
 }

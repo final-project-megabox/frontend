@@ -1,6 +1,6 @@
 <!-- <div class="ghost"></div> -->
 <nav class="top">
-  <!-- <div class="bg"></div> -->
+  <div class="bg"></div>
   <ul class="nav-list">
     <li class="logo">
       <a routerLink='home' class="img-wrapper hidden">
@@ -9,9 +9,13 @@
     </li>
     <li title="영화 바로가기"><a>영화</a></li>
     <li title="영화관 바로가기"><a>영화관</a></li>
-    <li title="빠른 예매" id="quick-booking" (click)="rootService.quickBookingModalState = true">빠른 예매<img src="https://ifh.cc/g/1fQ6F.png"></li>
+    <li title="빠른 예매" id="quick-booking">
+      <a routerlink='quick-booking'>빠른 예매</a>
+      <!-- <img src="https://ifh.cc/g/1fQ6F.png"> -->
+    </li>
     <li title="로그인 바로가기" *ngIf="!authService.loginState; else seccessLogin"
-    (click)="rootService.loginModalState = !rootService.loginModalState">
+    (click)="rootService.loginModalState = !rootService.loginModalState"
+    class="login">
       <a>로그인</a>
     </li>
     <ng-template #seccessLogin>
@@ -20,7 +24,7 @@
         <img class="profile-img" src="http://image2.megabox.co.kr/mop/home/user/profile_m.png" alt="프로필 사진">
         <img class="membership" src="http://image2.megabox.co.kr/mop/home/common/normal.png" alt="멤버십 정보">
         <div>
-          <span>{{getUserName()}}님</span>
+          <span><strong>{{getUserName()}}</strong>님</span>
           <a routerLink='/booking'
           class="booking">예매확인/취소</a>
           <i class="fa fa-chevron-dowfa fa-chevron-down"></i>
