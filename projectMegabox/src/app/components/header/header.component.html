@@ -29,9 +29,9 @@
         </li>
       </ng-template>
     </ul>
+    <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
+    <app-success *ngIf="rootService.myPageModal"></app-success>
   </div>
-  <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
-  <app-success *ngIf="rootService.myPageModal"></app-success>
 </nav>
 <app-main-view *ngIf="rootService.quickBookingModalState"></app-main-view>
 <app-required-login *ngIf="rootService.requiredLogin"></app-required-login>

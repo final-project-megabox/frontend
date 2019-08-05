@@ -14,6 +14,7 @@ export class LoginModalComponent implements OnInit {
   checked = false;
   failLogin = false;
   loginState = false;
+  userEmail: string;
   
   constructor(private rootService: RootService, private authService: AuthService) { }
 
@@ -59,17 +60,11 @@ export class LoginModalComponent implements OnInit {
       })
   }
 
-
-
   getUserId() {
     if (!localStorage.getItem('id')) return;
 
     this.inputId = localStorage.getItem('id');
     this.checked = true;
-  }
-
-  getUser() {
-    
   }
 
   // 아이디 저장 체크 상태
