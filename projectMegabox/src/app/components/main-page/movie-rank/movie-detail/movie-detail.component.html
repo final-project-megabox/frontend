@@ -3,7 +3,7 @@
     <div class="modal-close" (click)="closeDetail()"></div>
     <!-- movie detail view -->
     <div class="modal-body">
-      <div class="modal-main-content" *ngFor="let rankmovie of this.rankService.selectMovie; index as i">
+      <div class="modal-main-content" *ngFor="let rankmovie of rankMovies.selectMovie; index as i">
         <div *ngIf="i < 1" class="modal-limit">
           <!-- movie detail poster -->
           <div class="modal-main-container">

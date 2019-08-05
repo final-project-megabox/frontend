@@ -12,6 +12,9 @@ import { NewEventComponent } from './new-event/new-event.component';
 import { NoticeComponent } from './notice/notice.component';
 import { MovieDetailComponent } from './movie-rank/movie-detail/movie-detail.component';
 
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BrowserModule } from '@angular/platform-browser';
+
 @NgModule({
   declarations: [
     MainPageComponent,
@@ -24,7 +27,14 @@ import { MovieDetailComponent } from './movie-rank/movie-detail/movie-detail.com
     MovieDetailComponent
   ],
   imports: [
-    CommonModule
+    BrowserModule,
+    CommonModule,
+    CarouselModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [
+    CarouselComponent,
+    NewEventComponent
   ]
 })
 export class MainPageModule { }

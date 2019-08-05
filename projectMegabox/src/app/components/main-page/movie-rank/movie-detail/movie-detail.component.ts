@@ -10,7 +10,8 @@ import { RootService } from 'src/app/core/service/root.service';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-  rankmovie: Movies[];
+  // rankovie: Movies[];
+  rankMovies = this.rankService
 
   tipClick = false;
 
@@ -27,9 +28,9 @@ export class MovieDetailComponent implements OnInit {
     this.movieDetailService.detailModalState = false;
   }
 
-  openDetail() {
-    this.movieDetailService.detailModalState = true;
-  }
+  // openDetail() {
+  //   this.movieDetailService.detailModalState = true;
+  // }
 
   descending(key: string) {
     return function(a: Movies, b: Movies) {

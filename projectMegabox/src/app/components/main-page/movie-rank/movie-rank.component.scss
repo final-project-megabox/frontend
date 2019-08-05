@@ -128,23 +128,23 @@ $sub-color: #188591;
       position: absolute;
       top: 0;
 
-      .contents-container {
+      .rankStar-container {
         // background: #188591;
         margin-top: 100px;
       }
 
-      .rankStar-container {
+      .starRate-container {
         display: flex;
         justify-content: center;
 
-        .rankStar-1 {
+        .rankStar-0 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
-          @extend .rankStar-1;
+        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
+          @extend .rankStar-0;
         }
 
         .hoverActive {
@@ -200,23 +200,23 @@ $sub-color: #188591;
       position: absolute;
       top: 0;
       
-      .contents-container {
+      .rankStar-container {
         // background: #188591;
         margin-top: 100px;
       }
 
-      .rankStar-container {
+      .starRate-container {
         display: flex;
         justify-content: center;
 
-        .rankStar-1 {
+        .rankStar-0 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
-          @extend .rankStar-1;
+        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
+          @extend .rankStar-0;
         }
 
         .hoverActive {
@@ -272,23 +272,23 @@ $sub-color: #188591;
       position: absolute;
       top: 0;
 
-      .contents-container {
+      .rankStar-container {
         // background: #188591;
         margin-top: 100px;
       }
 
-      .rankStar-container {
+      .starRate-container {
         display: flex;
         justify-content: center;
 
-        .rankStar-1 {
+        .rankStar-0 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
-          @extend .rankStar-1;
+        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
+          @extend .rankStar-0;
         }
 
         .hoverActive {
@@ -344,23 +344,23 @@ $sub-color: #188591;
       position: absolute;
       top: 0;
 
-      .contents-container {
+      .rankStar-container {
         // background: #188591;
         margin-top: 100px;
       }
 
-      .rankStar-container {
+      .starRate-container {
         display: flex;
         justify-content: center;
 
-        .rankStar-1 {
+        .rankStar-0 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
-          @extend .rankStar-1;
+        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
+          @extend .rankStar-0;
         }
 
         .hoverActive {

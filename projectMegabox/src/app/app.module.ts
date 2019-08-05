@@ -12,6 +12,7 @@ import { SignUpModule } from './components/sign-up/sign-up.module';
 import { AppComponent } from './app.component';
 import { QuickBookingModule } from './shared/quick-booking/quick-booking.module';
 import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -32,7 +33,9 @@ import { CoreModule } from './core/core.module';
     SignUpModule,
     QuickBookingModule,
 
-    AppRoutingModule
+    AppRoutingModule,
+
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
