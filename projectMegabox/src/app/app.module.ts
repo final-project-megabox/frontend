@@ -12,19 +12,16 @@ import { SignUpModule } from './components/sign-up/sign-up.module';
 import { AppComponent } from './app.component';
 import { QuickBookingModule } from './shared/quick-booking/quick-booking.module';
 import { CoreModule } from './core/core.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-
     CoreModule,
     MainPageModule,
     MyPageModule,
@@ -32,10 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ComponentsModule,
     SignUpModule,
     QuickBookingModule,
-
-    AppRoutingModule,
-
-    BrowserAnimationsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
