@@ -78,9 +78,9 @@ export class SignUpComponent implements OnInit {
       birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
       preferTheater: [
-        { theater: this.preferOne.value, region: this.theaterOne.value },
-        { theater: this.preferTwo.value, region: this.theaterTwo.value },
-        { theater: this.preferThree.value, region: this.theaterThree.value }
+        { region: this.preferOne.value, theater: this.theaterOne.value },
+        { region: this.preferTwo.value, theater: this.theaterTwo.value },
+        { region: this.preferThree.value, theater: this.theaterThree.value }
       ]
     };
     console.log(payload);

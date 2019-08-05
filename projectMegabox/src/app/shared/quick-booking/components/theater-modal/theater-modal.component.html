@@ -1,4 +1,4 @@
-<div class="theater-modal fade in">
+<div class="theater-modal in">
   <div class="theater-modal-wrapper">
     <div class="theater-modal-contents">
       <div class=theater-modal-header>
@@ -36,9 +36,9 @@
             <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
                 [class.list-active]="detailRegion.selected"
                 (click)="detailRegion.selected = !detailRegion.selected"
-                (click)="addRegion(detailRegion.name, detailRegion.selected)"
-                (mouseenter)="hoverArea(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
-              <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
+                (click)="addRegion(detailRegion.theater, detailRegion.selected)"
+                (mouseenter)="hoverArea(detailRegion.theater)" (mouseleave)="hoverRegion = ''" #regionList>
+              <a title="{{ detailRegion.theater }}">{{ detailRegion.theater }}</a>
             </li>
           </ul>
         </div>
@@ -93,3 +93,99 @@
 </div>
 <app-alert-modal *ngIf="bookingService.alertModalState"></app-alert-modal>
 <prefer-theaters *ngIf="preferTheaterService.preferState"></prefer-theaters>
+
+
+
+
+<!-- <div class="theater-modal in">
+  <div class="theater-modal-wrapper">
+    <div class="theater-modal-contents">
+      <div class=theater-modal-header>
+        <h3>
+          <a class="all-theater">지역별</a>
+        </h3>
+      </div>
+      <div class="util">
+        <div class="selected">
+          <p class="selected-theater" *ngFor="let selectTheater of bookingService.selectTheaters">
+            <span>{{ selectTheater }}</span>
+            <button class="deleted-theater" (click)="deleteTheater(selectTheater)">X</button>
+          </p>
+        </div>
+      </div>
+      <div class="theater-body">
+        <div class="theater-list">
+          <ul class="theater-list-depth1">
+            <li [class.active]="depthOneState === selectRegion" *ngFor="let selectRegion of selectRegions" (click)="depthOneState = selectRegion">
+              <a title="{{ selectRegion }}">{{ selectRegion }}</a>
+              <span>
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </li>
+          </ul>
+          <ul class="theater-list-depth2">
+            <div class="favorTheater" *ngIf="depthOneState === '선호 영화관'; else regionList">
+              자주 찾는 영화관을
+              <br>
+              선호 영화관으로
+              <br>
+              등록해주세요
+              <button class="showFavorTheater" (click)="preferTheaterService.preferState = true">선호영화관 등록</button>
+            </div>
+            <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
+                [class.list-active]="detailRegion.selected"
+                (click)="detailRegion.selected = !detailRegion.selected"
+                (click)="addRegion(detailRegion.name, detailRegion.selected)"
+                (mouseenter)="hoverArea(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
+              <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="map">
+          <ul>
+            <li class="mapArea" *ngIf="depthOneState === '서울'">
+              <a title="서울">서울</a>
+              <ul class="seoul"> 
+                <li>
+                  <a class="marker gangnam" title="강남" [class.marker-active]="hoverRegion === '강남'">강남</a>
+                </li>
+                <li>
+                  <a class="marker sinchon" title="신촌" [class.marker-active]="hoverRegion === '신촌'">신촌</a>
+                </li>
+                <li>
+                  <a class="marker coex" title="코엑스" [class.marker-active]="hoverRegion === '코엑스'">코엑스</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="mapArea" *ngIf="depthOneState === '경기'">
+              <a title="경기">경기</a>
+              <ul class="kyunggi"> 
+                <li>
+                  <a class="marker goyang" title="고양스타필드" [class.marker-active]="hoverRegion === '고양스타필드'">고양스타필드</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="mapArea" *ngIf="depthOneState === '부산'">
+              <a title="부산">부산</a>
+              <ul class="busan"> 
+                <li>
+                  <a class="marker haeundae" title="해운대(장산)" [class.marker-active]="hoverRegion === '해운대(장산)'">해운대(장산)</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="theater-btns-wrapper">
+        <button type="button" class="booking-btn booking-cancel" 
+        (click)="cancelSelect()">취소</button>
+        <button type="button" class="booking-btn booking-confirm" 
+        (click)="confirmSelect(); bookingService.addTheaterButton()">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-alert-modal *ngIf="bookingService.alertModalState"></app-alert-modal>
+<prefer-theaters *ngIf="preferTheaterService.preferState"></prefer-theaters> -->
