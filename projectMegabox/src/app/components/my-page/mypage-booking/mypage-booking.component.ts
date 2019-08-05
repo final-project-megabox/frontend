@@ -1,6 +1,6 @@
-import { Bookinginfo } from './../../../userinfo';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Bookinginfo } from '../userinfo';
 
 
 @Component({
@@ -56,7 +56,7 @@ export class MypageBookingComponent implements OnInit {
       theater: '코엑스 컴포트 8관',
       show_date: '2020-08-20 14:55',
       show_time: '2020-08-20 13:40:35',
-      booking_date: '2019-07-16 14:55',
+      booking_date: '2020-08-20 14:55',
       canceled: false
     },
   ];
@@ -69,45 +69,71 @@ export class MypageBookingComponent implements OnInit {
 
   ngOnInit() {
     this.watchedList();
-    this.notCanceled();
+    this.movieCanceled();
   }
 
- // 안 취소한 거 거르기
-
-  notCanceled() {
+ // 취소된것
+  movieCanceled() {
     this.canceledlists = this.bookingInfos.filter(bookingInfo => bookingInfo.canceled);
+    this.watchedlists = this.watchedlists.filter(bookingInfo => !bookingInfo.canceled);
+    this.bookedlists = this.bookedlists.filter(bookingInfo => !bookingInfo.canceled);
   }
 
   //날짜 판별
 
   watchedList() {
-    let today = new Date();
-    const yy = parseInt(today+''.slice(0, 4));
-    const mm = parseInt(today+''.slice(5, 7));
-    const dd = parseInt(today+''.slice(8, 10));
+    const today = new Date();
+    // tslint:disable-next-line: radix
+    // const yy = parseInt((today + '').slice(0, 4), 10);
+    const yy = today.getFullYear();
+    const mm = today.getMonth() + 1;
+    const dd = today.getDate();
 
     const bookingInfo = [...this.bookingInfos];
 
-
+    const kk = parseInt(bookingInfo[3].show_date.slice(0, 4), 10);
 
     const listlength = bookingInfo.length;
     for (let i = 0; i < listlength; i++ ) {
-    if (parseInt(bookingInfo[i].show_date.slice(0, 4)) < yy) {
-      this.watchedlists = [bookingInfo[i],  ...this.watchedlists];
-     } else if (parseInt(bookingInfo[i].show_date.slice(5, 7)) < mm) {
-       this.watchedlists = [bookingInfo[i], ...this.watchedlists];
-      } else if (parseInt(bookingInfo[i].show_date.slice(8, 10)) < dd) {
-        this.watchedlists = [bookingInfo[i], ...this.watchedlists];
-      } else { return; }
+      // tslint:disable-next-line: radix
+      let year = parseInt(bookingInfo[i].show_date.slice(0, 4), 10);
+      let month = parseInt(bookingInfo[i].show_date.slice(5, 7), 10);
+      let day = parseInt(bookingInfo[i].show_date.slice(8, 10), 10);
+
+      if (year < yy) {
+        this.watchedlists = [bookingInfo[i],  ...this.watchedlists];
+        // tslint:disable-next-line: max-line-length
+        }  else if (year === yy && month < mm) {
+          this.watchedlists = [bookingInfo[i], ...this.watchedlists];
+        // tslint:disable-next-line: max-line-length
+        } else if (year === yy && month === mm && day < dd) {
+          this.watchedlists = [bookingInfo[i], ...this.watchedlists];
+        } else {
+          this.bookedlists = [bookingInfo[i], ...this.bookedlists];
+        }
+      this.movieCanceled();
     }
-
-    console.log(this.watchedlists);
-    console.log('11');
-
   }
 
 
+  bookedCanceled(id: number) {
+    // this.canceledlists = [...this.bookingInfos.filter(bookingInfo => bookingInfo.id), ...this.canceledlists]
+    const bookingInfo = [...this.bookingInfos];
 
+    const listlength = bookingInfo.length;
+    for (let i = 0; i < listlength; i++ ) {
+      if (bookingInfo[i].id === id) {
+        bookingInfo[i].canceled = true;
+      }
+    }
+    this.movieCanceled();
+    console.log('aa')
+
+  }
+
+//   this.todos = this.todos.filter(todo => todo.id !== id);
+//   this.countLeft();
+// }
 
   //탭
 

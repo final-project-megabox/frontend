@@ -8,13 +8,10 @@ import { Token } from '../models/token.interface';
 export class AuthService {
   TOKEN_NAME = 'token';
   loginState = false;
+  userName: string;
    
   constructor(private http: HttpClient) { 
-    this.http.post('http://megabox.hellocoding.shop//api/token/verify/', {
-      "token": localStorage.getItem('token')
-    }).subscribe(item => {
-      this.loginState = true;
-    })
+    this.loginState = localStorage.getItem('token') ? true : false;
   }
 
   confirmUser(payLoad) {
