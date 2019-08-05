@@ -5,7 +5,19 @@
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: rgba(210, 210, 210, 0.6);
+  background: rgba(255, 255, 255, 50%);
+  animation-name: bgani;
+  animation-duration: 0.8s;
+
+  @keyframes bgani {
+    0% {
+      background: rgba(255, 255, 255, 0%);
+    }
+
+    100% {
+      background: rgba(255, 255, 255, 50%);
+    }
+  }
 }
 
 .theater-modal-wrapper {
@@ -20,6 +32,20 @@
   min-height: 554px;
   border: 1px solid #cdcdcd;
   background-color: #fff;
+  opacity: 1;
+
+  animation-name: opa;
+  animation-duration: 0.8s;
+
+  @keyframes opa {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 .theater-modal-contents {

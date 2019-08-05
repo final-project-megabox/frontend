@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { PreferTheatersComponent } from './prefer-theaters/prefer-theaters.component';
 import { SuccessComponent } from './success/success.component';
+import { RequiredLoginComponent } from './required-login/required-login.component';
 
 import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-filter.pipe';
 
@@ -18,6 +19,7 @@ import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-
     LoginModalComponent,
     PreferTheatersComponent,
     SuccessComponent,
+    RequiredLoginComponent,
     PreferTheaterFilterPipe
   ],
   imports: [
@@ -30,7 +32,8 @@ import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-
     NotFoundComponent,
     LoginModalComponent,
     PreferTheatersComponent,
-    SuccessComponent
+    SuccessComponent,
+    RequiredLoginComponent
   ]
 })
 export class SharedModule { }
