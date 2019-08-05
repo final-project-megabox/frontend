@@ -1,31 +1,35 @@
-<div class="ghost"></div>
+<!-- <div class="ghost"></div> -->
 <nav class="top">
-  <div class="bg">
-    <a routerLink='home' class="img-wrapper">
-      <span class="hidden">메가박스</span>
-    </a>
-    <ul class="nav-list">
-      <li title="영화 바로가기"><a>영화</a></li>
-      <li title="영화관 바로가기"><a>영화관</a></li>
-      <li title="빠른 예매" id="quick-booking" (click)="rootService.quickBookingModalState = true">빠른 예매 <img src="https://ifh.cc/g/1fQ6F.png"></li>
-      <li title="로그인 바로가기" *ngIf="!authService.loginState; else seccessLogin"
-      (click)="rootService.loginModalState = !rootService.loginModalState">
-        <a>로그인</a>
+  <!-- <div class="bg"></div> -->
+  <ul class="nav-list">
+    <li class="logo">
+      <a routerLink='home' class="img-wrapper hidden">
+        메가박스
+      </a>
+    </li>
+    <li title="영화 바로가기"><a>영화</a></li>
+    <li title="영화관 바로가기"><a>영화관</a></li>
+    <li title="빠른 예매" id="quick-booking" (click)="rootService.quickBookingModalState = true">빠른 예매<img src="https://ifh.cc/g/1fQ6F.png"></li>
+    <li title="로그인 바로가기" *ngIf="!authService.loginState; else seccessLogin"
+    (click)="rootService.loginModalState = !rootService.loginModalState">
+      <a>로그인</a>
+    </li>
+    <ng-template #seccessLogin>
+      <li title="마이페이지 바로가기" class="success-modal"
+      (click)="rootService.myPageModal = !rootService.myPageModal">
+        <img class="profile-img" src="http://image2.megabox.co.kr/mop/home/user/profile_m.png" alt="프로필 사진">
+        <img class="membership" src="http://image2.megabox.co.kr/mop/home/common/normal.png" alt="멤버십 정보">
+        <div>
+          <span>{{getUserName()}}님</span>
+          <a routerLink='/booking'
+          class="booking">예매확인/취소</a>
+          <i class="fa fa-chevron-dowfa fa-chevron-down"></i>
+        </div>  
       </li>
-      <ng-template #seccessLogin>
-        <li title="마이페이지 바로가기" class="success-modal"
-        (click)="rootService.myPageModal = !rootService.myPageModal">
-          <img class="profile-img" src="http://image2.megabox.co.kr/mop/home/user/profile_m.png" alt="프로필 사진">
-          <div>
-            <span>{{getUserName()}}님</span>
-            <a routerLink='/booking'>예매확인/취소</a>
-          </div>
-        </li>
-      </ng-template>
-    </ul>
-    <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
-    <app-success *ngIf="rootService.myPageModal"></app-success>
-  </div>
+    </ng-template>
+  </ul>
+  <app-login-modal *ngIf="rootService.loginModalState"></app-login-modal>
+  <app-success *ngIf="rootService.myPageModal"></app-success>
 </nav>
 <app-main-view *ngIf="rootService.quickBookingModalState"></app-main-view>
 <app-required-login *ngIf="rootService.requiredLogin"></app-required-login>
