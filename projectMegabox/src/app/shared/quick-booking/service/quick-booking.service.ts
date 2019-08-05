@@ -119,11 +119,7 @@ export class QuickBookingService {
     }
 
     this.http.get<Movies[]>(`http://megabox.hellocoding.shop//database/reservationScheduleList/?date=${this.postDate}${this.postTheater}${this.postMovie}`)
-      .subscribe(list => this.movieList = list.filter(item => {
-        if (+item.date.split('-')[2] !== date.getDate()) return +item.date.split('-')[2] !== date.getDate();
-        else if (+item['start_time'].slice(0, 2) > date.getHours()) return +item['start_time'].slice(0, 2) > date.getHours();
-      })
-    );
+      .subscribe(list => this.movieList = list);
   }
   
   getAll() {

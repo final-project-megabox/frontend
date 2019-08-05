@@ -11,6 +11,7 @@ import { Userinfo } from 'src/app/components/my-page/userinfo';
 })
 export class SuccessComponent implements OnInit {
   userInfo: Userinfo;
+  userRegion;
 
   constructor(private authService: AuthService, private rootService: RootService, private http: HttpClient) { }
 
