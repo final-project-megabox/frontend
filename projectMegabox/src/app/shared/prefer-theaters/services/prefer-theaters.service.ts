@@ -11,12 +11,9 @@ export class PreferTheatersService {
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   getAllPreferTheaters() {
-    const token = localStorage.getItem(this.auth.TOKEN_NAME);
-    // const token = JSON.parse(localStorage.getItem(this.auth.TOKEN_NAME));
-    const headers = new HttpHeaders().set('TOKEN', token);
+    const token = `JWT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
 
-    // return this.http.get('http://megabox.hellocoding.shop/v1/Myinfo', { headers });
-    // return this.http.get<PreferTheater[]>('http://megabox.hellocoding.shop//accounts/showCreate/', { headers });
     return this.http.get<PreferTheater[]>('http://megabox.hellocoding.shop/accounts/updatePreferTheater/', { headers });
   }
 

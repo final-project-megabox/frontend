@@ -26,9 +26,8 @@ export class PreferTheatersComponent implements OnInit {
 
   getAllPreferTheaters() {
     console.log(this.preferTheaterService.getAllPreferTheaters());
-    this.preferTheaterService.getAllPreferTheaters().subscribe(
-      theaters => this.preferTheaterService.choieces = theaters
-    );
+    this.preferTheaterService.getAllPreferTheaters()
+    .subscribe(theaters => this.preferTheaterService.choieces = theaters);
   }
 
   // change 이벤트가 발생하면 선택한 지역을 배열에 할당하고 각각의 state에 할당

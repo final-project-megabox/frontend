@@ -15,6 +15,7 @@ export class QuickBookingService {
   calendarModalState = false;
   movieModalState = false;
   theaterModalState = false;
+  seatSelectionModalState = false;
   alertModalState = false;
   selectedMovies = false;
   alertTheater = false;
