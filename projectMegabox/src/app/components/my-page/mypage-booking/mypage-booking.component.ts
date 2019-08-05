@@ -1,5 +1,6 @@
+import { AuthService } from 'src/app/core/service/auth.service';
 import { Bookinginfo } from './../../../userinfo';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -9,55 +10,55 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mypage-booking.component.scss']
 })
 export class MypageBookingComponent implements OnInit {
+  TOKEN_NAME = 'token';
+  loginState = false;
+
   navState = '예매 내역';
+
   bookingInfos: Bookinginfo[] = [
     {
-      id: 0,
       booking_number: 'T90716-008-3566',
-      poster_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      screen_number: 5,
       title: '(디지털) 토이스토리4',
+      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
       theater: '코엑스 컴포트 8관',
+      screen_number: 5,
       show_date: '2018-05-16 14:55',
-      show_time: '2018-05-16 13:40:35',
+      start_time: '2018-05-16 13:40:35',
       booking_date: '2019-07-16 14:55',
       canceled: false
     },
     {
-      id: 1,
-      booking_number: 'T90716-008-3577',
-      poster_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      screen_number: 5,
+      booking_number: 'T90716-018-3567',
       title: '(디지털) 알라딘',
+      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
       theater: '코엑스 컴포트 8관',
-      show_date: '2019-07-16 14:55',
-      show_time: '2019-07-16 13:40:35',
+      screen_number: 6,
+      show_date: '2018-05-16 14:55',
+      start_time: '2018-05-16 13:40:35',
+      booking_date: '2019-07-16 14:55',
+      canceled: false
+    },
+    {
+      booking_number: 'T98756-008-3556',
+      title: '(디지털) 라이온킹',
+      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
+      theater: '코엑스 컴포트 8관',
+      screen_number: 5,
+      show_date: '2020-06-19 14:55',
+      start_time: '2020-07-20 13:40:35',
+      booking_date: '2019-07-16 14:55',
+      canceled: false
+    },
+    {
+      booking_number: 'T90216-108-3676',
+      title: '(디지털) 어쩌고',
+      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
+      theater: '코엑스 컴포트 8관',
+      screen_number: 5,
+      show_date: '2018-05-16 14:55',
+      start_time: '2018-05-16 13:40:35',
       booking_date: '2019-07-16 14:55',
       canceled: true
-    },
-    {
-      id: 2,
-      booking_number: 'T80716-008-3575',
-      poster_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      screen_number: 5,
-      title: '(디지털) 미드소마',
-      theater: '코엑스 컴포트 10관',
-      show_date: '2019-07-16 14:55',
-      show_time: '2019-07-16 13:40:35',
-      booking_date: '2019-07-16 14:55',
-      canceled: false
-    },
-    {
-      id: 4,
-      booking_number: 'T90716-008-3875',
-      poster_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      screen_number: 5,
-      title: '(디지털) 토이스토리4',
-      theater: '코엑스 컴포트 8관',
-      show_date: '2020-08-20 14:55',
-      show_time: '2020-08-20 13:40:35',
-      booking_date: '2020-08-20 14:55',
-      canceled: false
     },
   ];
 
@@ -65,12 +66,38 @@ export class MypageBookingComponent implements OnInit {
   watchedlists: Bookinginfo[] = [];
   canceledlists: Bookinginfo[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
     this.watchedList();
     this.movieCanceled();
   }
+
+  // getConfig() {
+  //   const token = localStorage.getItem(this.auth.TOKEN_NAME);
+  //   const headers = new HttpHeaders().set('TOKEN', token);
+
+  //   this.http.get<>
+  // }
+
+  sortUpperWord() {
+    let bookinginfo = [...this.bookingInfos];
+    console.log(bookinginfo)
+  };
+
+//   var student = [
+//     { name : "재석", age : 21},
+//     { name : "광희", age : 25},
+//     { name : "형돈", age : 13},
+//     { name : "명수", age : 44}
+// ]
+
+// /* 이름순으로 정렬 */
+// student.sort(function(a, b) { // 오름차순
+//     return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+//     // 광희, 명수, 재석, 형돈
+// });
+
 
  // 취소된것
   movieCanceled() {
@@ -116,13 +143,13 @@ export class MypageBookingComponent implements OnInit {
   }
 
 
-  bookedCanceled(id: number) {
+  bookedCanceled(id: string) {
     // this.canceledlists = [...this.bookingInfos.filter(bookingInfo => bookingInfo.id), ...this.canceledlists]
     const bookingInfo = [...this.bookingInfos];
 
     const listlength = bookingInfo.length;
     for (let i = 0; i < listlength; i++ ) {
-      if (bookingInfo[i].id === id) {
+      if (bookingInfo[i].booking_number === id) {
         bookingInfo[i].canceled = true;
       }
     }
