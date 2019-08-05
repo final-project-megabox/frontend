@@ -9,20 +9,19 @@ import { MypageBookingComponent } from './components/my-page/mypage-booking/mypa
 import { MypageMoviestoryComponent } from './components/my-page/mypage-moviestory/mypage-moviestory.component';
 import { MyPageComponent } from './components/my-page/my-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { AuthGuard } from './core/guard/auth.guard';
+import { MainViewComponent } from './shared/quick-booking/components/main-view/main-view.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
-  { path: 'home', component: MainPageComponent},
-  { path: 'mypage', component: MypageMainComponent,
-  //   children: [
-  //     { path: 'booking', component: MypageBookingComponent },
-  //     { path: 'my-movie-story', component: MypageMoviestoryComponent },
-  // ]
-},
-  { path: 'booking', component: MypageBookingComponent},
-  { path: 'my-movie-story', component: MypageMoviestoryComponent},
-  { path: 'sign-up', component: SignUpComponent},
+  { path: 'home', component: MainPageComponent, 
+    // children: [ { path: 'quick-booking', component: MainViewComponent } ]
+  },
+  { path: 'mypage', component: MypageMainComponent, canActivate: [ AuthGuard ] },
+  { path: 'booking', component: MypageBookingComponent },
+  { path: 'my-movie-story', component: MypageMoviestoryComponent, canActivate: [ AuthGuard ] },
+  { path: 'sign-up', component: SignUpComponent },
   { path: '**', component: NotFoundComponent},
 
 ];

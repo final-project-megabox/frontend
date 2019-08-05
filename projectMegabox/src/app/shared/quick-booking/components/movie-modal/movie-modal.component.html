@@ -1,4 +1,4 @@
-<div class="movie-modal fade in">
+<div class="movie-modal">
   <div class="movie-modal-wrapper">
     <div class="movie-modal-contents">
       <div class=movie-modal-header>
@@ -45,7 +45,7 @@
         <button type="button" class="booking-btn booking-cancel" 
         (click)="cancelSelect()">취소</button>
         <button type="button" class="booking-btn booking-confirm" 
-        (click)="confirmSelect(); confirmTheater()"
+        (click)="confirmSelect(); bookingService.confirmTheater()"
         [disabled]="!bookingService.selectTitle.length"
         [style.backgroundColor]= "!bookingService.selectTitle.length ? '#dcdcdc' : null">확인</button>
       </div>
