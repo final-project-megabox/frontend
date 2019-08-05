@@ -5,7 +5,7 @@ export interface RankMovie {
   booking_rate: string,
   release_date: string,
   img_url: string,
-  selected: boolean
+  selected: boolean,
 }
 
 export interface RankStar {
@@ -13,4 +13,17 @@ export interface RankStar {
   rankStar: string,
   starContent: string,
   selected: boolean
+}
+
+export interface MovieDetail {
+  img_url: string;
+  title: string;
+  age: number;
+  booking_rate: string,
+  types: string,
+  release_date: string,
+  director: string,
+  cast: string,
+  genre: string,
+  description: string
 }

@@ -16,26 +16,33 @@ $main-image: 'http://image2.megabox.co.kr//mop/frontbanner/2019/57/79C164-CBF6-4
   height: 600px;
 }
 
-.carousel-sentence {
+.carousel-caption {
   // background: black;
   text-shadow: 1px 1px 1px black;
   display: inline-block;
   margin: 200px 0 0 200px;
   color: white;
+  text-align: left;
+  position: absolute;
+  top: -100px;
+  left: 0px;
+
   strong {
     // font-weight: 800;
     font-size: 2.5em;
+
     em {
       font-size: 1.3rem;
       display: block;
       margin-top: 20px;
     }
   }
+
   p {
     font-size: 1.5rem;
     margin-top: 30px;
     border-top: 1px solid #e2e2e263;
     padding-top: 10px;
-    
+    display: inline-block;
   }
 }
