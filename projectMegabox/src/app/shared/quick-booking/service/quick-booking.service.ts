@@ -15,6 +15,7 @@ export class QuickBookingService {
   calendarModalState = false;
   movieModalState = false;
   theaterModalState = false;
+  seatSelectionModalState = false;
   alertModalState = false;
   selectedMovies = false;
   alertTheater = false;
@@ -38,7 +39,12 @@ export class QuickBookingService {
   _transmitTheaters:string[] = [];
 
   // 극장 정보가 들어가 있는 배열
+  // detailRegions: any;
   detailRegions: DetailRegion[] = [];
+
+  getDetailRegions() {
+    return this.http.get<DetailRegion[]>('http://megabox.hellocoding.shop//database/showregion/');
+  }
 
   payLoad = [];
 

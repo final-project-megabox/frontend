@@ -1,4 +1,4 @@
-<div class="theater-modal fade in">
+<div class="theater-modal in">
   <div class="theater-modal-wrapper">
     <div class="theater-modal-contents">
       <div class=theater-modal-header>
@@ -36,9 +36,9 @@
             <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
                 [class.list-active]="detailRegion.selected"
                 (click)="detailRegion.selected = !detailRegion.selected"
-                (click)="addRegion(detailRegion.name, detailRegion.selected)"
-                (mouseenter)="hoverArea(detailRegion.name)" (mouseleave)="hoverRegion = ''" #regionList>
-              <a title="{{ detailRegion.name }}">{{ detailRegion.name }}</a>
+                (click)="addRegion(detailRegion.theater, detailRegion.selected)"
+                (mouseenter)="hoverArea(detailRegion.theater)" (mouseleave)="hoverRegion = ''" #regionList>
+              <a title="{{ detailRegion.theater }}">{{ detailRegion.theater }}</a>
             </li>
           </ul>
         </div>
@@ -70,8 +70,8 @@
               </ul>
             </li>
 
-            <li class="mapArea" *ngIf="depthOneState === '부산'">
-              <a title="부산">부산</a>
+            <li class="mapArea" *ngIf="depthOneState === '부산/대구/경상'">
+              <a title="부산/대구/경상">부산/대구/경상</a>
               <ul class="busan"> <!-- 부산 지도가 들어가는 부분 -->
                 <li>
                   <a class="marker haeundae" title="해운대(장산)" [class.marker-active]="hoverRegion === '해운대(장산)'">해운대(장산)</a>
