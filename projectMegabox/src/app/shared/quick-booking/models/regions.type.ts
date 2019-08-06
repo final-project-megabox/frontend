@@ -1,1 +1,1 @@
-export type regions = '선호 영화관' | '서울' | '경기' | '부산';
+export type regions = '선호 영화관' | '서울' | '경기' | '부산/대구/경상';

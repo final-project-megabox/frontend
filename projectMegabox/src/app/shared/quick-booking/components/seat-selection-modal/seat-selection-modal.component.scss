@@ -1,0 +1,234 @@
+.seat-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: rgba(210, 210, 210, 0.6);
+}
+
+.seat-modal-wrapper {
+  width: 970px;
+  margin: 0 auto;
+  padding: 90px 0 30px 0;
+  z-index: 1080;
+}
+
+.seat-modal-contents {
+  position: relative;
+  min-height: 554px;
+  border: 1px solid #cdcdcd;
+  background-color: #fff;
+}
+
+.seat-modal-contents {
+  box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+}
+
+.seat-modal-header {
+  overflow: hidden;
+  padding: 13px 20px 12px 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.all-seat {
+  font-size: 24px;
+  color:  #503396;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.util {
+  height: 42px;
+  padding: 9px 19px 0 19px;
+}
+
+.util > label {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.util > select {
+  margin: 0 9px;
+  height: 25px;
+  width: 45px;
+}
+
+.limit {
+  font-size: 12px;
+  float: right;
+  height: 20px;
+  line-height: 20px;
+}
+
+.left-wrap {
+  width: 798px;
+  height: 503px;
+  float: left;
+}
+
+.selected-movie {
+  position: relative;
+  float: left;
+  width: 170px;
+  height: 503px;
+  background-color:#404040;
+}
+
+.seat-wrapper {
+  position: relative;
+  width: 100%;
+  height: 412px;
+  overflow: auto;
+}
+
+.seat {
+  width: 651px;
+  // height: 100%;
+  float: left;
+  padding: 20px;
+}
+
+.seat-info {
+  width: 110px;
+  height: 372px;
+  float: right;
+  margin: 20px 20px 0 0;
+  border: 1px solid #ccc;
+  padding: 13px 16px;
+}
+
+.seat-info > p {
+  font-size: 13px;
+  font-weight: bold;
+  color: #666;
+  padding-bottom: 10px;
+}
+
+.seat-detail > li {
+  position: relative;
+  font-size: 11px;
+  color: #555;
+  font-weight: bold;
+  line-height: 14px;
+  background: none;
+  padding: 0 0 8px 20px;
+}
+
+.seat-detail > li > span {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  left: 0;
+  top: -1px;
+  background: url(http://image2.megabox.co.kr/mop/home/seatselect_160912.png) 0 0 no-repeat;
+}
+
+.seat-detail > li > span.seat-selected {
+  background-position: 50% 0;
+  background-color: #503396;
+}
+
+.seat-detail > li > span.seat-done {
+  background-position: 50% -27px;
+  background-color: #ccc;
+}
+
+.seat-detail > li > span.seat-cant {
+  background-position: 50% -54px;
+  background-color: #ccc;
+}
+
+.seat-detail > li > span.seat-normal {
+  background-position: 50% -80px;
+}
+
+.seat-detail > li > span.seat-wheel {
+  background-position: 50% -187px;
+}
+
+.bottom-info {
+  padding: 13px 20px 0 20px;
+  border-top: 1px solid #e5e5e5;
+  height: 49px;
+  position: relative;
+}
+
+.reset {
+  float: right;
+  height: 22px;
+  margin-top: -3px;
+}
+
+.reset-button {
+  width: 63px;
+  height: 22px;
+  line-height: 22px;
+  background-position: -280px -75px;
+  background-image: url(http://image2.megabox.co.kr/mop/home/btns/btn_booking.png);
+  float: left;
+  margin-left: 10px;
+  overflow: hidden;
+  text-indent: -9999px;
+  border: none;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.screen {
+  overflow: hidden;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  margin: 0 auto 41px auto;
+  background: #ececec url(http://image2.megabox.co.kr/mop/home/tx_screen.png) 50% 50% no-repeat;
+  text-indent: -999em;
+  background-color: #ececec;
+}
+
+.personnel {
+  border-left: 1px solid #e5e5e5;
+  padding-left: 20px;
+  margin-left: 20px;
+  font-size: 12px;
+  color: #333;
+  display: inline-block;
+}
+
+// 이전, 다음 버튼
+
+.seat-btns-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 2px;
+  width: 170px;
+}
+
+.booking-btn {
+  width: 68px;
+  height: 30px;
+  float: left;
+  margin-left: 10px;
+  outline: 0;
+  border: 1px solid #333;
+}
+
+.booking-prev {
+  background-color: #ecebeb;
+}
+
+.booking-prev:hover {
+  background-color: #E1E1E1;
+}
+
+.booking-next {
+  color: #fff;
+  background-color: #503396;
+}
+
+.booking-next:hover {
+  background-color: #351F66;
+}
