@@ -17,13 +17,11 @@ import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-
     CoreModule,
     MainPageModule,
     MyPageModule,
@@ -31,7 +29,6 @@ import { CoreModule } from './core/core.module';
     ComponentsModule,
     SignUpModule,
     QuickBookingModule,
-
     AppRoutingModule
   ],
   providers: [],

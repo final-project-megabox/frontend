@@ -5,19 +5,7 @@
   bottom: 0;
   left: 0;
   z-index: 999999;
-  background: rgba(5, 5, 5, 50%);
-  animation-name: bgani;
-  animation-duration: 0.3s;
-
-  @keyframes bgani {
-    0% {
-      background: rgba(5, 5, 5, 0%);
-    }
-
-    100% {
-      background: rgba(5, 5, 5, 50%);
-    }
-  }
+  background-color: rgba(0,0,0,0.4);
 }
 .custom-alert {
   position: relative;
@@ -28,21 +16,6 @@
   zoom: 1;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  background-color: #fff;
-  opacity: 1;
-
-  animation-name: opa;
-  animation-duration: 0.3s;
-
-  @keyframes opa {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
 }
 
 .alert-header {
