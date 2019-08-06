@@ -13,7 +13,7 @@ export class PreferTheatersComponent implements OnInit {
   
   ngOnInit() {
     // 뷰 구현을 위한 데이터 호출
-    this.getFreferTheater();
+    // this.getFreferTheater();
 
     // 백엔드에서 받을 데이터, 보낼 데이터
     // this.preferTheaterService.choieces = [
@@ -25,9 +25,10 @@ export class PreferTheatersComponent implements OnInit {
   }
 
   getAllPreferTheaters() {
-    console.log(this.preferTheaterService.getAllPreferTheaters());
     this.preferTheaterService.getAllPreferTheaters()
-    .subscribe(theaters => this.preferTheaterService.choieces = theaters);
+    // .subscribe(theaters => this.preferTheaterService.choieces = theaters);
+    // .subscribe(theaters => console.log(theaters['preferTheater']));
+    // .subscribe(theaters => theaters['preferTheater']);
   }
 
   // change 이벤트가 발생하면 선택한 지역을 배열에 할당하고 각각의 state에 할당

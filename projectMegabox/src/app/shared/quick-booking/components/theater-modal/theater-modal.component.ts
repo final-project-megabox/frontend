@@ -12,23 +12,10 @@ import { regions } from '../../models/regions.type';
 })
 export class TheaterModalComponent implements OnInit {
 
-  constructor(private bookingService: QuickBookingService, private preferTheaterService: PreferTheatersService) {
-    this.bookingService.detailRegions = this.getTheaters().map(theater => {
-      console.log(theater);
-      return this.bookingService.transmitTheaters.some(select => theater.theater === select) ? {...theater, selected: true} : theater;
-    });
-  }
+  constructor(private bookingService: QuickBookingService, private preferTheaterService: PreferTheatersService) {}
 
   ngOnInit() {
-    // this.getTheaters();
-
-    // this.bookingService.detailRegions = this.getTheaters().map(theater => {
-    //   console.log(theater);
-    //   return this.bookingService.transmitTheaters.some(select => theater.theater === select) ? {...theater, selected: true} : theater;
-    // });
-    // this.bookingService.detailRegions = this.getTheaters().map(theater => {
-    //   return this.bookingService.transmitTheaters.some(select => theater.name === select) ? {...theater, selected: true} : theater;
-    // });
+    this.getTheaters();
 
     // this.getPrefer();
 
@@ -37,7 +24,7 @@ export class TheaterModalComponent implements OnInit {
 
   depthOneState: regions = '선호 영화관';
 
-  selectRegions: regions[] = ['선호 영화관','서울', '경기', '부산'];
+  selectRegions: regions[] = ['선호 영화관','서울', '경기', '부산/대구/경상'];
 
   hoverRegion: string;
 
@@ -53,21 +40,13 @@ export class TheaterModalComponent implements OnInit {
 
   // 모든 지역 정보가 들어있는 데이터
   getTheaters() {
-     this.bookingService.getDetailRegions().subscribe(theater => console.log('극장',theater));
-     
-     this.bookingService.getDetailRegions().subscribe(theater => this.bookingService.detailRegions = theater);
-
-     return this.bookingService.detailRegions;
-    // this.bookingService.getDetailRegions().subscribe(theater => console.log('서버', theater));
-    // return this.bookingService.detailRegions = [
-    //   { id: 0, name: '강남', city: '서울', selected: false},
-    //   { id: 1, name: '신촌', city: '서울', selected: false},
-    //   { id: 2, name: '코엑스', city: '서울', selected: false},
-    //   { id: 3, name: '고양스타필드', city: '경기', selected: false },
-    //   { id: 4, name: '해운대(장산)', city: '부산', selected: false }
-    // ]
+     this.bookingService.getDetailRegions()
+     .subscribe(theaters => {
+      this.bookingService.detailRegions = theaters.map(theater => {
+          return this.bookingService.transmitTheaters.some(select => theater.theater === select) ? {...theater, selected: true} : theater;
+      })});
   }
-  
+
   // 극장 title을 삭제하고 취소 버튼을 누른 후 다시 들어와도 title이 보이게 하기 위한 함수
   getTheaterName() {
     this.bookingService.selectTheaters = this.bookingService.transmitTheaters.map(theater=> theater);
@@ -81,7 +60,6 @@ export class TheaterModalComponent implements OnInit {
       this.bookingService.selectTheaters = this.bookingService.selectTheaters.filter(theater => theater !== detailArea);
     } else {
       this.bookingService.detailRegions = this.bookingService.detailRegions.map(region => {
-        // return region.name === detailArea ? {...region, selected: false} : region
         return region.theater === detailArea ? {...region, selected: false} : region
       })
       this.bookingService.alertModalState = true;
@@ -93,7 +71,6 @@ export class TheaterModalComponent implements OnInit {
     this.bookingService.selectTheaters = this.bookingService.selectTheaters.filter(theater => theater !== deleteArea);
     this.bookingService.detailRegions = this.bookingService.detailRegions.map(region => {
       return region.theater === deleteArea ? {...region, selected: false} : region
-      // return region.name === deleteArea ? {...region, selected: false} : region
     })
   }
 
