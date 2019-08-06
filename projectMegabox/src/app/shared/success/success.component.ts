@@ -2,7 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { RootService } from 'src/app/core/service/root.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Userinfo } from 'src/app/components/my-page/userinfo';
+
+interface UserInfo {
+  birthDate: string,
+  email: string,
+  getPreferList: [{}],
+  name: string,
+  phoneNumber: string,
+  preferTheater: [{}],
+}
 
 @Component({
   selector: 'app-success',
@@ -10,7 +18,7 @@ import { Userinfo } from 'src/app/components/my-page/userinfo';
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  userInfo: Userinfo;
+  userInfo: UserInfo;
   userRegion;
 
   constructor(private authService: AuthService, private rootService: RootService, private http: HttpClient) { }
@@ -37,7 +45,7 @@ export class SuccessComponent implements OnInit {
     const TOKEN = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', TOKEN);
 
-    this.http.get<Userinfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
+    this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
         this.userInfo = info
       },

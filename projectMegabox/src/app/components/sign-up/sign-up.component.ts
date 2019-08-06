@@ -78,13 +78,13 @@ export class SignUpComponent implements OnInit {
       birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
       preferTheater: [
-        { id: 0, theater: this.preferOne.value, region: this.theaterOne.value },
-        { id: 1, theater: this.preferTwo.value, region: this.theaterTwo.value },
-        { id: 2, theater: this.preferThree.value, region: this.theaterThree.value }
+        { region: this.preferOne.value, theater: this.theaterOne.value },
+        { region: this.preferTwo.value, theater: this.theaterTwo.value },
+        { region: this.preferThree.value, theater: this.theaterThree.value }
       ]
     };
-
     this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+    alert('회원가입이 완료되었습니다. 로그인을 통하여 나만의 무비라이프를 즐겨보세요.');
   }
   
   get email() {
@@ -215,4 +215,21 @@ export class SignUpComponent implements OnInit {
   regionSelectOne = '지역선택';
   regionSelectTwo = '지역선택';
   regionSelectThree = '지역선택';
+
+  duplicateOne = '영화관선택';
+  duplicateTwo = '영화관선택';
+  duplicateThree = '영화관선택';
+
+  // 중복검사
+  DuplicateCheck() {
+    if(this.duplicateOne === '영화관선택' && this.duplicateTwo === '영화관선택' ||
+       this.duplicateOne === '영화관선택' && this.duplicateThree === '영화관선택' ||
+       this.duplicateTwo === '영화관선택' && this.duplicateThree === '영화관선택' 
+    ) 
+    return
+
+    if(this.duplicateOne === this.duplicateTwo || this.duplicateOne === this.duplicateThree || this.duplicateTwo === this.duplicateThree) {
+      alert('이미 선택하신 영화관 입니다.');
+    }
+  }
 }
