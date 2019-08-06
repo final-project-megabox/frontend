@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Bookinginfo } from './../../../userinfo';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+=======
+import { HttpClient } from '@angular/common/http';
+>>>>>>> rmorigin/develop
 import { Component, OnInit } from '@angular/core';
+import { Bookinginfo } from '../userinfo';
 
 
 @Component({

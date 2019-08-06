@@ -76,8 +76,4 @@ export class MovieModalComponent implements OnInit {
   cancelSelect() {
     this.bookingService.movieModalState = false;
   }
-
-  confirmTheater() {
-    this.bookingService.alertTheater = this.bookingService.selectTheaters.length ? false : true;
-  }
 }

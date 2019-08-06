@@ -15,4 +15,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  getUserName() {
+    return localStorage.getItem('userName');
+  }
 }

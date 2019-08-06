@@ -9,6 +9,7 @@ import { MovieModalComponent } from './components/movie-modal/movie-modal.compon
 import { TheaterModalComponent } from './components/theater-modal/theater-modal.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { AlertModalComponent } from './components/alert-modal/alert-modal.component';
+import { SeatSelectionModalComponent } from './components/seat-selection-modal/seat-selection-modal.component';
 
 import { MoviesSortPipe } from './pipes/movies-sort.pipe';
 import { RegionsFilterPipe } from './pipes/regions-filter.pipe';
@@ -29,10 +30,11 @@ import { AlertTheaterComponent } from './components/alert-theater/alert-theater.
     TheaterModalComponent,
     AlertModalComponent,
     AlertTheaterComponent,
+    SeatSelectionModalComponent,
     MoviesSortPipe,
     RegionsFilterPipe,
     PosterBackgroundDirective,
-    CarouselDirective
+    CarouselDirective,
   ],
   imports: [
     CommonModule,

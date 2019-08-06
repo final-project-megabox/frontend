@@ -13,7 +13,9 @@
     <div class="prefer-theater-wrap">
         <ol class="order-line" *ngFor="let prefer of preferTheaterService.choieces">
           <li class="line">
-            <span class="rank">1순위</span>
+            <ng-container *ngFor="let rank of orderNum">
+            <span class="rank" *ngIf= "prefer.id === rank.id">{{ rank.rank }}</span>
+            </ng-container>
             <select id="{{ prefer.id }}" name="region-group" class="region-choice"  (change)="choosenRegion(region.value, region.id)" #region>
               <option value="{{ prefer.region }}">{{ prefer.region }}</option>
               <option value="지역선택" *ngIf="prefer.region !== '지역선택'">지역선택</option>
@@ -30,7 +32,7 @@
               {{ theater.theater }}
               </option>
             </select>
-            <a class="delete-prefer" title="선호 영화관1 삭제">
+            <a class="delete-prefer" title="선호 영화관 삭제" (click)="removePreferTheater(prefer.id)">
               삭제
             </a>
           </li>
