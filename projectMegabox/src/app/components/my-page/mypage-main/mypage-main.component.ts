@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Token } from './../../../core/models/token.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Userinfo } from './../../../userinfo';
-=======
-import { HttpClient } from '@angular/common/http';
->>>>>>> rmorigin/develop
+import { Userinfo } from '../userinfo'
 import { Component, OnInit } from '@angular/core';
-import { Userinfo } from '../userinfo';
-
 
 
 @Component({

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { AuthService } from 'src/app/core/service/auth.service';
-import { Bookinginfo } from './../../../userinfo';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-=======
-import { HttpClient } from '@angular/common/http';
->>>>>>> rmorigin/develop
 import { Component, OnInit } from '@angular/core';
 import { Bookinginfo } from '../userinfo';
 
@@ -70,20 +65,26 @@ export class MypageBookingComponent implements OnInit {
   bookedlists: Bookinginfo[] = [];
   watchedlists: Bookinginfo[] = [];
   canceledlists: Bookinginfo[] = [];
+  testlists: Bookinginfo[] = [];
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
+    this.getConfig();
     this.watchedList();
     this.movieCanceled();
   }
 
-  // getConfig() {
-  //   const token = localStorage.getItem(this.auth.TOKEN_NAME);
-  //   const headers = new HttpHeaders().set('TOKEN', token);
+  getConfig() {
+    const token = `JMT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
 
-  //   this.http.get<>
-  // }
+    const bb = this.http.get<Bookinginfo>('http://megabox.hellocoding.shop//accounts/bookingHistory/', {headers}).subscribe(
+      datas => this.testlists = [datas]
+    );
+    console.log(bb);
+    console.log(this.testlists);
+  }
 
   sortUpperWord() {
     let bookinginfo = [...this.bookingInfos];

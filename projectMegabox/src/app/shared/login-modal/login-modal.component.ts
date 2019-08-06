@@ -14,7 +14,7 @@ export class LoginModalComponent implements OnInit {
   checked = false;
   failLogin = false;
   loginState = false;
-  
+
   constructor(private rootService: RootService, private authService: AuthService) { }
 
   ngOnInit() {
@@ -69,7 +69,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   getUser() {
-    
+
   }
 
   // 아이디 저장 체크 상태
