@@ -1,3 +1,4 @@
+<div class="wrapper-back"></div>
 <div class="movie-modal">
   <div class="modal-container">
     <div class="modal-close" (click)="closeDetail()"></div>
@@ -32,13 +33,13 @@
                   </div>
                   <!-- reservation rate close -->
                   <!-- booking rate -->
-                  <div class="booking-rate"><span class="rate-phrases">예매율 </span><strong>{{ratingNow(rankMovie)}}</strong>위 
+                  <div class="booking-rate"><span class="rate-phrases">예매율 </span><strong>{{ratingNow(detailMovie)}}</strong>위 
                     <span>{{detailMovie['booking_rate']}}%</span></div>
                   <!-- booking rate close -->
                 </div>
                 <!-- rate container close -->
                 <!-- movie reservation -->
-                <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(rankMovie)"></button>
+                <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(detailMovie)"></button>
                 <!-- movie reservation close -->
               </div>
               <!-- information reservation close -->
@@ -50,7 +51,7 @@
                 <li class="movie-cast"><strong>출연진 </strong>: {{detailMovie.cast}}</li>
                 <li class="movie-genre"><strong>장르 </strong>: {{detailMovie.genre}}</li>
                 <div class="audience-container">
-                  <li class="movie-audience"><strong>누적관객 </strong>: <strong>전일관객 </strong>: </li>
+                  <li class="movie-audience"><strong>누적관객 </strong>: 3,380,514명 <strong>전일관객 </strong>: 418,047명</li>
                   <button class="cumulative-audience" title="누적관객 도움말 보기" (click)="toolTip()"></button>
                   <div class="tool-tip" *ngIf="tipClick">
                     누적관객 및 전일 관객은 영화진흥위원회 영화관 입장권 통합전산망 제공 기준입니다. (2019.08.01 기준)</div>
