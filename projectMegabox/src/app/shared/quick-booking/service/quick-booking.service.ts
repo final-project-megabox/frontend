@@ -42,6 +42,14 @@ export class QuickBookingService {
   // detailRegions: any;
   detailRegions: DetailRegion[] = [];
 
+  selectedMovie: {};
+  totalSeat: number
+  
+  secondReservation(movie: {}) {
+    this.selectedMovie = movie;
+    this.seatSelectionModalState = true;
+    this.totalSeat = movie['total_seat'];
+  }
   getDetailRegions() {
     return this.http.get<DetailRegion[]>('http://megabox.hellocoding.shop//database/showregion/');
   }

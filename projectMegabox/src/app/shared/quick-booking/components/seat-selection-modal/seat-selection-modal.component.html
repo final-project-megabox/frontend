@@ -50,9 +50,9 @@
       <div class="seat-wrapper">
         <div class="seat">
           <p class="screen">SCREEN</p>
-          <!-- <app-seat-one-hundred-thirty></app-seat-one-hundred-thirty> -->
-          <app-seat-one-hundred-forty></app-seat-one-hundred-forty>
-          <!-- 이 부분의 좌석을 만들면 됨. -->
+          <app-seat-one-hundred-thirty *ngIf="bookingService.totalSeat === 130"></app-seat-one-hundred-thirty>
+          <app-seat-one-hundred-forty *ngIf="bookingService.totalSeat === 140"></app-seat-one-hundred-forty>
+          <app-thirty-six *ngIf="bookingService.totalSeat === 36"></app-thirty-six>
         </div>
         <div class="seat-info">
           <p>좌석 선택</p>
@@ -90,12 +90,14 @@
       </div>
     </div>
       <div class="selected-movie">
+        <div class="movie-info">
+          <img [src]="bookingService.selectedMovie." alt="">
+        </div>
         <div class="seat-btns-wrapper">
           <button type="button" class="booking-btn booking-prev">이전</button>
-              <button type="button" class="booking-btn booking-next">다음</button>
+          <button type="button" class="booking-btn booking-next">다음</button>
         </div>
       </div>
-      
     </div>
   </div>
 </div>

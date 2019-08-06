@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { SeatService } from '../service/seat.service';
+import { SeatService } from '../../service/seat.service';
 
 @Component({
   selector: 'app-seat-one-hundred-thirty',

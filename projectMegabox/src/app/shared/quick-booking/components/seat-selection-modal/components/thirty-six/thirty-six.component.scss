@@ -1,0 +1,230 @@
+table {
+  margin: 0 auto;
+  position: relative;
+  
+  .text-hidden {
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  tr:nth-child(2) {
+    position: relative;
+    td:nth-child(2) {
+      button {
+        position: absolute;
+        left: 49px;
+      }
+    }
+    td:nth-child(3) {
+      button {
+        position: absolute;
+        left: 72px;
+      }
+    }
+    td:nth-child(4) {
+      button {
+        position: absolute;
+        left: 96px;
+      }
+    }
+    td:nth-child(5) {
+      button {
+        position: absolute;
+        left: 119px;
+      }
+    }
+    td:nth-child(6) {
+      button {
+        position: absolute;
+        left: 142px;
+      }
+    }
+    td:nth-child(7) {
+      button {
+        position: absolute;
+        left: 166px;
+      }
+    }
+    td:nth-child(8) {
+      button {
+        position: absolute;
+        left: 189px;
+      }
+    }
+    td:nth-child(9) {
+      button {
+        position: absolute;
+        left: 212px;
+      }
+    }
+    td:nth-child(10) {
+      button {
+        position: absolute;
+        left: 236px;
+      }
+    }
+  }
+
+  tr:nth-child(3) {
+    position: relative;
+    td:nth-child(2) {
+      button {
+        position: absolute;
+        left: 49+23px;
+      }
+    }
+    td:nth-child(3) {
+      button {
+        position: absolute;
+        left: 72+24px;
+      }
+    }
+    td:nth-child(4) {
+      button {
+        position: absolute;
+        left: 96+23px;
+      }
+    }
+    td:nth-child(5) {
+      button {
+        position: absolute;
+        left: 119+23px;
+      }
+    }
+    td:nth-child(6) {
+      button {
+        position: absolute;
+        left: 142+24px;
+      }
+    }
+    td:nth-child(7) {
+      button {
+        position: absolute;
+        left: 166+23px;
+      }
+    }
+    td:nth-child(8) {
+      button {
+        position: absolute;
+        left: 189+23px;
+      }
+    }
+    td:nth-child(9) {
+      button {
+        position: absolute;
+        left: 212+24px;
+      }
+    }
+    td:nth-child(10) {
+      button {
+        position: absolute;
+        left: 236+23px;
+      }
+    }
+  }
+
+  tr:nth-child(4) {
+    position: relative;
+    td:nth-child(2) {
+      button {
+        position: absolute;
+        left: 49+23+24px;
+      }
+    }
+    td:nth-child(3) {
+      button {
+        position: absolute;
+        left: 72+24+23px;
+      }
+    }
+    td:nth-child(4) {
+      button {
+        position: absolute;
+        left: 96+23+23px;
+      }
+    }
+    td:nth-child(5) {
+      button {
+        position: absolute;
+        left: 119+23+24px;
+      }
+    }
+    td:nth-child(6) {
+      button {
+        position: absolute;
+        left: 142+24+23px;
+      }
+    }
+    td:nth-child(7) {
+      button {
+        position: absolute;
+        left: 166+23+23px;
+      }
+    }
+    td:nth-child(8) {
+      button {
+        position: absolute;
+        left: 189+23+24px;
+      }
+    }
+    td:nth-child(9) {
+      button {
+        position: absolute;
+        left: 212+24+23px;
+      }
+    }
+    td:nth-child(10) {
+      button {
+        position: absolute;
+        left: 236+23+23px;
+      }
+    }
+  }
+
+  tr {
+    td {
+      button {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+      
+      .title {
+        border: 1px solid #c2c2c2;
+        background: #f9f9f9;
+        font-weight: 700;
+        text-align: center;
+        color: #333;
+        margin-right: 5px;
+        margin-bottom: 3px;
+        cursor: unset;
+      }
+      
+      .value {
+        color: #fff;
+        background-color: #707271;
+        margin-right: 3px;
+      }
+
+    }
+  }
+
+  .exit {
+    position: absolute;
+    bottom: -30px;
+    right: -90px;
+    background: url(http://image2.megabox.co.kr/mop/home/movie/bg_seat.png) no-repeat -30px -50px;
+    width: 17px;
+    height: 28px;
+  }
+
+  .entrance {
+    position: absolute;
+    top: -25px;
+    left: -35px;
+    background: url(http://image2.megabox.co.kr/mop/home/movie/bg_seat.png) no-repeat -90px 0px;
+    width: 23px;
+    height: 20px;
+  }
+}
