@@ -40,7 +40,9 @@ export class SuccessComponent implements OnInit {
     this.http.get<Userinfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
         this.userInfo = info
-        console.log(this.userInfo)
+      },
+      errors => {
+        
       });
   }
 }

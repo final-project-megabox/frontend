@@ -83,8 +83,8 @@ export class SignUpComponent implements OnInit {
         { id: 2, theater: this.preferThree.value, region: this.theaterThree.value }
       ]
     };
-    console.log(payload);
-    // this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+
+    this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
   }
   
   get email() {
