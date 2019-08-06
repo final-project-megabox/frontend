@@ -45,7 +45,7 @@ table {
   .exit {
     position: absolute;
     top: 0;
-    right: 0;
+    left: -30px;
     background: url(http://image2.megabox.co.kr/mop/home/movie/bg_seat.png) no-repeat -30px -50px;
     width: 17px;
     height: 28px;
@@ -54,7 +54,7 @@ table {
   .entrance {
     position: absolute;
     bottom: -40px;
-    right: 0;
+    left: -30px;
     background: url(http://image2.megabox.co.kr/mop/home/movie/bg_seat.png) no-repeat 0 -50px;
     width: 17px;
     height: 28px;
