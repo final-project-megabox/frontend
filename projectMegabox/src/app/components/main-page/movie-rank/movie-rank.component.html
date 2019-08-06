@@ -65,7 +65,7 @@
 <!-- box office body end-->
 </div>
 <!-- box office tab end-->
-<app-movie-detail *ngIf="movieDetailService.detailModalState"></app-movie-detail>
+<app-movie-detail *ngIf="movieDetailService.detailModalState" [detailMovie]="detailMovie"></app-movie-detail>
 
 
 <!-- <li *ngFor="let rankStar of RankStars" class="rankStar-{{rankStar.id}}"
