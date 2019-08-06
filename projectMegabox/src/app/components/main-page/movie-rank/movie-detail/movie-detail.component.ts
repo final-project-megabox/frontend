@@ -4,7 +4,7 @@ import { RootService } from 'src/app/core/service/root.service';
 import { MovieDetailService } from '../service/movie-detail.service';
 import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
 
-import { MovieDetail } from '../models/rank-movie-interface';
+import { MovieDetail, RankStar } from '../models/rank-movie-interface';
 import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
 
 
@@ -24,6 +24,8 @@ export class MovieDetailComponent implements OnInit {
   
   tipClick = false;
 
+  RankStars: RankStar[];
+
   constructor(
     private movieDetailService: MovieDetailService,
     private rootService: RootService,
@@ -31,6 +33,13 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.RankStars = [
+      { id: 0, rankStar: 'star0', starContent: '괜히 봤어요', selected: false },
+      { id: 1, rankStar: 'star1', starContent: '기대하진 말아요', selected: false },
+      { id: 2, rankStar: 'star2', starContent: '무난했어요', selected: false },
+      { id: 3, rankStar: 'star3', starContent: '기대해도 좋아요!', selected: false },
+      { id: 4, rankStar: 'star4', starContent: '너무 멋진 영화였어요!', selected: false }
+    ]
   }
   
   ngOnChanges() {

@@ -62,8 +62,8 @@
               <div class="audience-choice">
                 <div class="my-rate-container">
                   <span class="my-rate">내 평점</span>
-                  <span class="movie-my-rate"></span>
-                  <span class="my-rate-comment"></span>
+                  <span class="movie-my-rate" *ngFor="let rankstar of RankStars"><img src="http://image2.megabox.co.kr/mop/home/star_mid_off.png"></span>
+                  <span class="my-rate-comment">평점을 입력해주세요</span>
                 </div>
                 <div class="button-container">
                   <button class="my-wish-movie" (click)="myWishMovie(rankmovie)"></button>
@@ -80,6 +80,9 @@
             <div class="story-body">{{detailMovie.description}}</div>
           </div>
           <!-- movie story close -->
+          <!-- detail carousel -->
+          
+          <!-- detail carousel close-->
         </div>
         <!-- Don't touch -->
       <!-- </div> -->
