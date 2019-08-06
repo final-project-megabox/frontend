@@ -1,7 +1,7 @@
 <section class="after-login">
   <header>
     <div class="id-group">
-      <strong class="id">{{userInfo.email}}</strong>
+      <strong class="id">{{userEmail}}</strong>
       <span>님</span>
     </div>
     <span class="membership">일반</span>
@@ -16,7 +16,7 @@
         <div>
           <span class="info-title">선호영화관</span>
           <ul>
-            <li *ngFor="let item of userInfo.preferTheater"
+            <li *ngFor="let item of userRegion"
             class="prefer-list">{{item.theater}}</li>
           </ul>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeatService } from './components/service/seat.service';
 
 @Component({
   selector: 'app-seat-selection-modal',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeatSelectionModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private seatService: SeatService) { }
 
   ngOnInit() {
   }
+
+  
 
 }

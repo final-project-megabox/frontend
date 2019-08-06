@@ -1,0 +1,55 @@
+table {
+  margin: 0 auto;
+  
+  .text-hidden {
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  tr {
+    td:nth-child(3), td:nth-child(13) {
+      button {
+        margin-right: 25px;
+      }
+    }
+
+    td {
+      button {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+      
+      .title {
+        border: 1px solid #c2c2c2;
+        background: #f9f9f9;
+        font-weight: 700;
+        text-align: center;
+        color: #333;
+        margin-right: 5px;
+        margin-bottom: 3px;
+        cursor: unset;
+      }
+      
+      .value {
+        color: #fff;
+        background-color: #707271;
+        margin-right: 3px;
+      }
+
+    }
+  }
+
+  .exit {
+    background: url(http://image2.megabox.co.kr/mop/home/movie/bg_seat.png) no-repeat -30px -50px;
+    width: 17px;
+    height: 28px;
+  }
+
+  .entrance {
+    background: url(http://image2.megabox.co.kr/mop/home/movie/bg_seat.png) no-repeat 0 -50px;
+    width: 17px;
+    height: 28px;
+  }
+}

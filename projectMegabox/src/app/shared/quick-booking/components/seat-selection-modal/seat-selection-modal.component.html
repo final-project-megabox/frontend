@@ -9,7 +9,7 @@
     <div class="left-wrap">
       <div class="util">
         <label for="normal" name="normal">일반</label>
-        <select id="normal">
+        <select id="normal" (change)="seatService.normal = +normal.value" #normal>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -21,7 +21,7 @@
           <option value="8">8</option>
         </select>
         <label for="youth" name="youth">청소년</label>
-        <select id="youth">
+        <select id="youth" (change)="seatService.youth = +youth.value" #youth>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -33,7 +33,7 @@
           <option value="8">8</option>
         </select>
         <label for="favor" name="favor">우대</label>
-        <select id="favor">
+        <select id="favor" (change)="seatService.favor = +favor.value" #favor>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -50,6 +50,7 @@
       <div class="seat-wrapper">
         <div class="seat">
           <p class="screen">SCREEN</p>
+          <app-seat-one-hundred-thirty></app-seat-one-hundred-thirty>
           <!-- 이 부분의 좌석을 만들면 됨. -->
         </div>
         <div class="seat-info">
