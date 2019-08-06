@@ -3,18 +3,18 @@
     <div class="modal-close" (click)="closeDetail()"></div>
     <!-- movie detail view -->
     <div class="modal-body">
-      <div class="modal-main-content" *ngFor="let rankmovie of rankMovies.selectMovie; index as i">
-        <div *ngIf="i < 1" class="modal-limit">
+      <div class="modal-main-content">
+        <!-- <div *ngIf="i < 1" class="modal-limit"> -->
           <!-- movie detail poster -->
           <div class="modal-main-container">
-            <img class="modal-main-poster" src="{{rankmovie['img_url']}}" alt="{{rankmovie.title}}">
+            <img src="{{detailMovie['img_url']}}" class="modal-main-poster" alt="{{detailMovie.title}}">
             <!-- movie detail information -->
             <div class="modal-main-info">
               <!-- information title -->
               <div class="modal-headline">
-                <span class="modal-age-{{rankmovie.age}}"></span>
-                <p class="modal-title">{{rankmovie.title}}</p>
-                <p class="title-english">{{rankmovie.title}}</p>
+                <span class="modal-age-{{detailMovie.age}}"></span>
+                <p class="modal-title">{{detailMovie.title}}</p>
+                <p class="title-english">{{detailMovie.title}}</p>
               </div>
               <!-- information title close -->
               <!-- information reservation-->
@@ -32,23 +32,23 @@
                   </div>
                   <!-- reservation rate close -->
                   <!-- booking rate -->
-                  <div class="booking-rate"><span class="rate-phrases">예매율 </span><strong>{{ratingNow(rankmovie)}}</strong>위 
-                    <span>{{rankmovie['booking_rate']}}%</span></div>
+                  <div class="booking-rate"><span class="rate-phrases">예매율 </span><strong>{{ratingNow(rankMovie)}}</strong>위 
+                    <span>{{detailMovie['booking_rate']}}%</span></div>
                   <!-- booking rate close -->
                 </div>
                 <!-- rate container close -->
                 <!-- movie reservation -->
-                <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(rankmovie)"></button>
+                <button class="movie-reservation" id="quick-booking" (click)="reservationMovie(rankMovie)"></button>
                 <!-- movie reservation close -->
               </div>
               <!-- information reservation close -->
               <!-- information detail -->
               <ul class="detail-info-container">
-                <li class="movie-type"><strong>타입 </strong>: {{rankmovie.types}}</li>
-                <li class="movie-release"><strong>개봉일 </strong>: {{rankmovie['release_date']}}</li>
-                <li class="movie-director"><strong>감독 </strong>: </li>
-                <li class="movie-cast"><strong>출연진 </strong>: </li>
-                <li class="movie-genre"><strong>장르 </strong>: </li>
+                <li class="movie-type"><strong>타입 </strong>: {{detailMovie.types}}</li>
+                <li class="movie-release"><strong>개봉일 </strong>: {{detailMovie['release_date']}}</li>
+                <li class="movie-director"><strong>감독 </strong>: {{detailMovie.director}}</li>
+                <li class="movie-cast"><strong>출연진 </strong>: {{detailMovie.cast}}</li>
+                <li class="movie-genre"><strong>장르 </strong>: {{detailMovie.genre}}</li>
                 <div class="audience-container">
                   <li class="movie-audience"><strong>누적관객 </strong>: <strong>전일관객 </strong>: </li>
                   <button class="cumulative-audience" title="누적관객 도움말 보기" (click)="toolTip()"></button>
@@ -76,12 +76,12 @@
           <!-- movie story -->
           <div class="story-container">
             <div class="story-headline">줄거리</div>
-            <div class="story-body"></div>
+            <div class="story-body">{{detailMovie.description}}</div>
           </div>
           <!-- movie story close -->
         </div>
         <!-- Don't touch -->
-      </div>
+      <!-- </div> -->
     </div>
     <!-- movie detail view close -->
   </div>

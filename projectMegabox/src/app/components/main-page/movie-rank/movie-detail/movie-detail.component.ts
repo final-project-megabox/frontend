@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MovieDetailService } from '../service/movie-detail.service';
 import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
 import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
 import { RootService } from 'src/app/core/service/root.service';
+import { MovieDetail } from '../models/rank-movie-interface';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,8 +11,12 @@ import { RootService } from 'src/app/core/service/root.service';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
+
+  @Input() detailMovie: MovieDetail;
   // rankovie: Movies[];
-  rankMovies = this.rankService
+  rankMovie = this.rankService;
+
+  movies: Movies[];
 
   tipClick = false;
 
@@ -22,6 +27,11 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+  
+  ngOnChanges() {
+    console.log(this.detailMovie);
+    
   }
   
   closeDetail() {
@@ -39,7 +49,8 @@ export class MovieDetailComponent implements OnInit {
   }
 
   ratingNow(rankmovie: Movies) {
-    return this.rankService.movies.sort(this.descending('booking_rate')).findIndex(i => i['booking_rate'] === rankmovie['booking_rate'])+1;
+    console.log(rankmovie);
+    return this.rankMovie.movies.sort(this.descending('booking_rate')).findIndex(i => i['booking_rate'] === rankmovie['booking_rate'])+1;
   }
 
   reservationMovie(rankmovie: Movies) {
