@@ -10,6 +10,7 @@ import { InformationBackgroundDirective } from './directives/information-backgro
 import { ChoiceEmailDirective } from './directives/choice-email.directive';
 import { PreferTheaterSelectDirective } from './directives/prefer-theater-select.directive';
 import { WelcomeAlertComponent } from './welcome-alert/welcome-alert.component';
+import { DuplicateAlertComponent } from './duplicate-alert/duplicate-alert.component';
 
 @NgModule({
   declarations: [ 
@@ -17,7 +18,8 @@ import { WelcomeAlertComponent } from './welcome-alert/welcome-alert.component';
     InformationBackgroundDirective,
     ChoiceEmailDirective,
     PreferTheaterSelectDirective,
-    WelcomeAlertComponent
+    WelcomeAlertComponent,
+    DuplicateAlertComponent
   ],
   imports: [
     CommonModule,

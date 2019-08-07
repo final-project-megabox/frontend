@@ -9,6 +9,7 @@ export class RootService {
   myPageModal = false;
   requiredLogin = false;
   welcomeState = false;
+  duplicateState = false;
   
   constructor() {
   }
