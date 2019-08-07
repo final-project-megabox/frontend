@@ -42,6 +42,7 @@ export class QuickBookingService {
   // detailRegions: any;
   detailRegions: DetailRegion[] = [];
 
+  // 서버에서 지역 정보를 받아온다
   getDetailRegions() {
     return this.http.get<DetailRegion[]>('http://megabox.hellocoding.shop//database/showregion/');
   }
