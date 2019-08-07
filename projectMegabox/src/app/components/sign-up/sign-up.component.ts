@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,6 +7,7 @@ import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/p
 import { PasswordValidator } from './validators/password-validator';
 import { BirthValidator } from './validators/birth-validator';
 import { PhoneValidator } from './validators/phone-validator';
+import { RootService } from 'src/app/core/service/root.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,7 @@ export class SignUpComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient) { }
+  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient, public root: RootService) { }
 
   ngOnInit() {
     this.getFreferTheater();
@@ -59,6 +60,7 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+
   getFreferTheater() {
     return this.preferTheaterService.ChoosedTheater = [
       { id: 0, theater: '영화관선택', region: '지역선택' },
@@ -83,8 +85,9 @@ export class SignUpComponent implements OnInit {
         { region: this.preferThree.value, theater: this.theaterThree.value }
       ]
     };
-    this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
-    alert('회원가입이 완료되었습니다. 로그인을 통하여 나만의 무비라이프를 즐겨보세요.');
+    // this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+    // alert('회원가입이 완료되었습니다. 로그인을 통하여 나만의 무비라이프를 즐겨보세요.');
+    this.root.welcomeState = true;
   }
   
   get email() {

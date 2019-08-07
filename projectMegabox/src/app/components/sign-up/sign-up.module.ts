@@ -9,13 +9,15 @@ import { SignUpComponent } from './sign-up.component';
 import { InformationBackgroundDirective } from './directives/information-background.directive';
 import { ChoiceEmailDirective } from './directives/choice-email.directive';
 import { PreferTheaterSelectDirective } from './directives/prefer-theater-select.directive';
+import { WelcomeAlertComponent } from './welcome-alert/welcome-alert.component';
 
 @NgModule({
   declarations: [ 
     SignUpComponent,
     InformationBackgroundDirective,
     ChoiceEmailDirective,
-    PreferTheaterSelectDirective
+    PreferTheaterSelectDirective,
+    WelcomeAlertComponent
   ],
   imports: [
     CommonModule,
