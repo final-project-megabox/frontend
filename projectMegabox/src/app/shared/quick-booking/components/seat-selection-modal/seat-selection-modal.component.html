@@ -114,7 +114,8 @@
         <div class="seat-btns-wrapper">
           <button type="button" class="booking-btn booking-prev"
           (click)="bookingService.seatSelectionModalState = false">이전</button>
-          <button type="button" class="booking-btn booking-next">다음</button>
+          <button type="button" class="booking-btn booking-next"
+          (click)="postMovie(bookingService.selectedMovie.schedule_id)">다음</button>
         </div>
       </div>
     </div>

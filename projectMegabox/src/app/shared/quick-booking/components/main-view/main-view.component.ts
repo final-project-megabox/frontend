@@ -47,6 +47,7 @@ export class MainViewComponent implements OnInit {
     setTimeout(() => {
       this.preferTheaterService.bowlPrefer = this.preferTheaterService.choieces.filter(({ theater }) => theater !=='영화관선택');
       this.quickBookingService.transmitTheaters = [...this.preferTheaterService.bowlPrefer.map(({ theater }) => theater)];
+      this.quickBookingService.addTheaterButton();
     }, 1000); 
   }
 

@@ -20,6 +20,10 @@ export class SeatSelectionModalComponent implements OnInit {
     if (age === "15세 관람가") return "age-15 hidden-text";
     if (age === "청소년 관람불가") return "age-adult hidden-text";
   }
-  
 
+  postMovie(schedule: number) {
+    console.log(schedule);
+    this.seatService.postMovie(schedule, this.seatService.selectSeat)
+      .subscribe()
+  }
 }

@@ -7,13 +7,15 @@ import { SeatSelectionModalComponent } from './seat-selection-modal.component';
 import { SeatOneHundredThirtyComponent } from './components/seat-one-hundred-thirty/seat-one-hundred-thirty.component';
 import { SeatOneHundredFortyComponent } from './components/seat-one-hundred-forty/seat-one-hundred-forty.component';
 import { ThirtySixComponent } from './components/thirty-six/thirty-six.component';
+import { ClickSeatDirective } from './directives/click.directive';
 
 @NgModule({
   declarations: [
     SeatSelectionModalComponent,
     SeatOneHundredThirtyComponent,
     SeatOneHundredFortyComponent,
-    ThirtySixComponent
+    ThirtySixComponent,
+    ClickSeatDirective
   ],
   imports: [
     CommonModule,
