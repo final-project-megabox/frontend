@@ -27,9 +27,9 @@ export class MovieDetailComponent implements OnInit {
   RankStars: RankStar[];
 
   constructor(
-    private movieDetailService: MovieDetailService,
-    private rootService: RootService,
-    private rankService: QuickBookingService
+    public movieDetailService: MovieDetailService,
+    public rootService: RootService,
+    public rankService: QuickBookingService
   ) { }
 
   ngOnInit() {
@@ -68,7 +68,7 @@ export class MovieDetailComponent implements OnInit {
     this.tipClick = !this.tipClick;
   }
 
-  myWishMovie(rankmovie: Movies) {
+  myWishMovie() {
     // console.log(rankmovie);
   }
 

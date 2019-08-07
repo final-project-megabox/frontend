@@ -91,9 +91,29 @@
     </div>
       <div class="selected-movie">
         <div class="movie-info">
+          <img src="http://image2.megabox.co.kr/mop/poster/2019/6C/0D7463-7245-4F73-869D-5547D11E1497.medium.jpg" alt="">
+          <ul>
+            <li class="title">
+              <div class="age {{createAgeIcon(bookingService.selectedMovie.age)}}">
+                {{bookingService.selectedMovie.age}}>
+              </div>
+              <div class="title-info">
+                <span>{{bookingService.selectedMovie.movie}}</span>
+                <span>{{bookingService.movieType(bookingService.selectedMovie.types)}}</span>
+              </div>
+            </li>
+            <li class="sub">
+              <div>{{bookingService.selectedMovie.theater}}</div>
+              <div>{{bookingService.selectedMovie.screen}}관</div>
+            </li>
+            <li class="sub">
+              {{bookingService.selectedMovie.date}} {{bookingService.selectedMovie['start_time']}}
+            </li>
+          </ul>
         </div>
         <div class="seat-btns-wrapper">
-          <button type="button" class="booking-btn booking-prev">이전</button>
+          <button type="button" class="booking-btn booking-prev"
+          (click)="bookingService.seatSelectionModalState = false">이전</button>
           <button type="button" class="booking-btn booking-next">다음</button>
         </div>
       </div>

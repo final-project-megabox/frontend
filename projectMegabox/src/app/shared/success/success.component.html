@@ -20,7 +20,7 @@
             class="prefer-list">{{item.theater}}</li>
           </ul>
         </div>
-        <a>변경</a>
+        <a (click)="preferTheaterService.preferState = true">변경</a>
       </div>
       <div class="special-membership">
         <span class="info-title">스페셜멤버십</span>
@@ -40,3 +40,4 @@
     <button class="cancel text-hidden">닫기</button>
   </footer>
 </section>
+<prefer-theaters *ngIf="preferTheaterService.preferState"></prefer-theaters>

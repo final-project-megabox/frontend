@@ -15,8 +15,7 @@ export class LoginModalComponent implements OnInit {
   failLogin = false;
   loginState = false;
   userEmail: string;
-  
-  constructor(private rootService: RootService, private authService: AuthService) { }
+  constructor(public rootService: RootService, public authService: AuthService) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({

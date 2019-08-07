@@ -11,10 +11,8 @@ export class MypageMoviestoryComponent implements OnInit {
 
   userinfos: Userinfo[] = [
     // tslint:disable-next-line: max-line-length
-    { email: 'immsee098@gmail.com', name: '윤해서', phone_number: '010-2605-7621', birth_date: '1995-04-22' },
+    { email: 'immsee098@gmail.com', name: '윤해서', birthDate: '1995-04-22', phoneNumber: '010-2605-7621', PreferTheater:'상봉', getPreferList: '어쩌고'  }
   ];
-
-
 
   mymovieTab = '보고싶어';
 
