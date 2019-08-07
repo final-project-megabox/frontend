@@ -9,7 +9,7 @@
     <div class="left-wrap">
       <div class="util">
         <label for="normal" name="normal">일반</label>
-        <select id="normal">
+        <select id="normal" (change)="seatService.normal = +normal.value" #normal>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -21,7 +21,7 @@
           <option value="8">8</option>
         </select>
         <label for="youth" name="youth">청소년</label>
-        <select id="youth">
+        <select id="youth" (change)="seatService.youth = +youth.value" #youth>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -33,7 +33,7 @@
           <option value="8">8</option>
         </select>
         <label for="favor" name="favor">우대</label>
-        <select id="favor">
+        <select id="favor" (change)="seatService.favor = +favor.value" #favor>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -50,7 +50,9 @@
       <div class="seat-wrapper">
         <div class="seat">
           <p class="screen">SCREEN</p>
-          <!-- 이 부분의 좌석을 만들면 됨. -->
+          <app-seat-one-hundred-thirty *ngIf="bookingService.totalSeat === 130"></app-seat-one-hundred-thirty>
+          <app-seat-one-hundred-forty *ngIf="bookingService.totalSeat === 140"></app-seat-one-hundred-forty>
+          <app-thirty-six *ngIf="bookingService.totalSeat === 36"></app-thirty-six>
         </div>
         <div class="seat-info">
           <p>좌석 선택</p>
@@ -88,12 +90,13 @@
       </div>
     </div>
       <div class="selected-movie">
+        <div class="movie-info">
+        </div>
         <div class="seat-btns-wrapper">
           <button type="button" class="booking-btn booking-prev">이전</button>
-              <button type="button" class="booking-btn booking-next">다음</button>
+          <button type="button" class="booking-btn booking-next">다음</button>
         </div>
       </div>
-      
     </div>
   </div>
 </div>

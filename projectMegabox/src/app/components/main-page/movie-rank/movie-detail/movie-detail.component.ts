@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieDetailService } from '../service/movie-detail.service';
 import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
 import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
 import { RootService } from 'src/app/core/service/root.service';
+import { MovieDetailService } from '../service/movie-detail.service';
 
 @Component({
   selector: 'app-movie-detail',

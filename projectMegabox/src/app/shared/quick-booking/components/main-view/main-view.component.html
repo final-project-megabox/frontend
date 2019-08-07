@@ -147,7 +147,8 @@
           <div class="list-wrapper" *ngIf="!quickBookingService.movieList[0]; else activeList"></div>
           <ng-template #activeList>
             <ul class="movie-list">
-              <li *ngFor="let list of quickBookingService.movieList" class="li-movie-list">
+              <li *ngFor="let list of quickBookingService.movieList" class="li-movie-list"
+              (click)="quickBookingService.secondReservation(list)">
                 <div class="start-time">
                   <span class="start">{{list['start_time']}}</span>
                   <span class="finish">{{quickBookingService.calRunningTime(list['start_time'], list['running_time'])}}</span>
@@ -180,5 +181,5 @@
 </div>
 <app-movie-modal *ngIf="quickBookingService.movieModalState"></app-movie-modal>
 <app-theater-modal *ngIf="quickBookingService.theaterModalState"></app-theater-modal>
-<!-- <app-seat-selection-modal *ngIf="!quickBookingService.seatSelectionModalState"></app-seat-selection-modal> -->
+<app-seat-selection-modal *ngIf="quickBookingService.seatSelectionModalState"></app-seat-selection-modal>
 <app-alert-theater *ngIf="quickBookingService.alertTheater"></app-alert-theater>

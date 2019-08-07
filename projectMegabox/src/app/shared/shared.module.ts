@@ -11,6 +11,7 @@ import { SuccessComponent } from './success/success.component';
 import { RequiredLoginComponent } from './required-login/required-login.component';
 
 import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-filter.pipe';
+import { SeatModule } from './quick-booking/components/seat-selection-modal/seat.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    SeatModule,
     RouterModule
   ],
   exports: [

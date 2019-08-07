@@ -16,11 +16,15 @@ import { RegionsFilterPipe } from './pipes/regions-filter.pipe';
 
 import { PosterBackgroundDirective } from './directives/poster-background.directive';
 import { CarouselDirective } from './directives/carousel.directive';
+
 import { CalendarService } from './service/calendar.service';
 import { QuickBookingService } from './service/quick-booking.service';
+
 import { PreferTheatersComponent } from '../prefer-theaters/prefer-theaters.component';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { AlertTheaterComponent } from './components/alert-theater/alert-theater.component';
+import { SeatModule } from './components/seat-selection-modal/seat.module';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,6 @@ import { AlertTheaterComponent } from './components/alert-theater/alert-theater.
     TheaterModalComponent,
     AlertModalComponent,
     AlertTheaterComponent,
-    SeatSelectionModalComponent,
     MoviesSortPipe,
     RegionsFilterPipe,
     PosterBackgroundDirective,
@@ -39,6 +42,7 @@ import { AlertTheaterComponent } from './components/alert-theater/alert-theater.
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    SeatModule,
     SharedModule
   ],
   exports: [
