@@ -10,7 +10,7 @@ import { QuickBookingService } from '../quick-booking/service/quick-booking.serv
 })
 export class PreferTheatersComponent implements OnInit {
 
-  constructor(private preferTheaterService: PreferTheatersService, private bookingService: QuickBookingService) { }
+  constructor(public preferTheaterService: PreferTheatersService, public bookingService: QuickBookingService) { }
   
   ngOnInit() {
     // 뷰 구현을 위한 데이터 호출

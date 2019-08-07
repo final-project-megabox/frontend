@@ -67,7 +67,7 @@ export class MypageBookingComponent implements OnInit {
   canceledlists: Bookinginfo[] = [];
   testlists: Bookinginfo[] = [];
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(public http: HttpClient, public auth: AuthService) { }
 
   ngOnInit() {
     this.getConfig();

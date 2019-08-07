@@ -16,9 +16,9 @@ import { MovieDetailService } from './service/movie-detail.service';
 })
 export class MovieRankComponent implements OnInit {
   constructor(
-    private rankService: QuickBookingService,
-    private rootService: RootService,
-    private movieDetailService: MovieDetailService
+    public rankService: QuickBookingService,
+    public rootService: RootService,
+    public movieDetailService: MovieDetailService
     ) { }
   
   Ranks: Rank[] = ['박스오피스', '최신개봉작', '상영예정작'];

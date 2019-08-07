@@ -27,7 +27,7 @@ export class MypageMainComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(public http: HttpClient, public auth: AuthService) {
   }
 
   ngOnInit() {

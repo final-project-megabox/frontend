@@ -1,3 +1,9 @@
+.hidden-text {
+  display: block;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
 .seat-modal {
   position: fixed;
   top: 0;
@@ -236,4 +242,84 @@
 app-seat-one-hundred-thirty {
   width: 100%;
   display: inline-block;
+}
+
+.selected-movie {
+  .movie-info {
+    img {
+      display: block;
+      height: 240px;
+      width: 100%;
+    }
+
+    ul {
+      .title {
+        display: flex;
+        padding-left: 8px;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        color: #fff;
+
+        .age {
+          margin: 10px 5px;
+        }
+
+        .title-info {
+          display: flex;
+          flex-direction: column;
+          margin-top: 10px;
+          margin-left: 5px;
+
+          span {
+            margin-bottom: 5px;
+          }
+        }
+
+        .age-all {
+          background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') 0 0 no-repeat;
+          display: inline-block;
+          width: 17px;
+          height: 18px;
+          vertical-align: bottom;
+        }
+
+        .age-12 {
+          background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -60px 0 no-repeat;
+          display: inline-block;
+          width: 17px;
+          height: 18px;
+          vertical-align: bottom;
+        }
+
+        .age-15 {
+          background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -90px 0 no-repeat;
+          display: inline-block;
+          width: 17px;
+          height: 18px;
+          vertical-align: bottom;
+        }
+
+        .age-adult {
+          background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -30px 0 no-repeat;
+          display: inline-block;
+          width: 17px;
+          height: 18px;
+          vertical-align: bottom;
+        }
+      }
+
+      .sub {
+        margin-left: 15px;
+        padding-left: 8px;
+        margin-bottom: 10px;
+        font-size: 0.8rem;
+        color: #fff;
+        background: url('http://image2.megabox.co.kr/mop/home/movie/bg_seat.png') -150px 2px no-repeat;
+
+        div {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
 }
