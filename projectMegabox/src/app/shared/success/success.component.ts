@@ -25,7 +25,7 @@ export class SuccessComponent implements OnInit {
   userRegion;
   userAccessTime;
 
-  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient) { }
+  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { }
 
   ngOnInit() {
     this.getUserInfo();
