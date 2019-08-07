@@ -16,9 +16,9 @@ export class MovieDetailComponent implements OnInit {
   tipClick = false;
 
   constructor(
-    private movieDetailService: MovieDetailService,
-    private rootService: RootService,
-    private rankService: QuickBookingService
+    public movieDetailService: MovieDetailService,
+    public rootService: RootService,
+    public rankService: QuickBookingService
   ) { }
 
   ngOnInit() {

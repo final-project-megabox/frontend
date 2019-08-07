@@ -12,7 +12,7 @@ import { regions } from '../../models/regions.type';
 })
 export class TheaterModalComponent implements OnInit {
 
-  constructor(private bookingService: QuickBookingService, private preferTheaterService: PreferTheatersService) {}
+  constructor(public bookingService: QuickBookingService, public preferTheaterService: PreferTheatersService) {}
 
   ngOnInit() {
     this.getTheaters();

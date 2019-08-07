@@ -65,7 +65,7 @@ export class MypageBookingComponent implements OnInit {
   watchedlists: Bookinginfo[] = [];
   canceledlists: Bookinginfo[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
     this.watchedList();

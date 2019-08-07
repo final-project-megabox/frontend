@@ -20,8 +20,9 @@ interface UserInfo {
 export class SuccessComponent implements OnInit {
   userEmail;
   userRegion;
+  userAccessTime;
 
-  constructor(private authService: AuthService, private rootService: RootService, private http: HttpClient) { }
+  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient) { }
 
   ngOnInit() {
     this.getUserInfo();
@@ -47,6 +48,7 @@ export class SuccessComponent implements OnInit {
 
     this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
+        console.log(info)
         this.userEmail = info.email;
         this.userRegion = info.preferTheater;
       },

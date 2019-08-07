@@ -9,7 +9,7 @@ import { PreferTheatersService } from './services/prefer-theaters.service';
 })
 export class PreferTheatersComponent implements OnInit {
 
-  constructor(private preferTheaterService: PreferTheatersService) { }
+  constructor(public preferTheaterService: PreferTheatersService) { }
   
   ngOnInit() {
     // 뷰 구현을 위한 데이터 호출

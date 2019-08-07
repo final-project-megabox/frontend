@@ -22,7 +22,7 @@ export class MypageMainComponent implements OnInit {
   ];
 
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
     const info = [...this.userinfos]
