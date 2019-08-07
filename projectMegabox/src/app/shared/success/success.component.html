@@ -1,7 +1,7 @@
 <section class="after-login">
   <header>
     <div class="id-group">
-      <strong class="id">아이디</strong>
+      <strong class="id">{{userEmail}}</strong>
       <span>님</span>
     </div>
     <span class="membership">일반</span>
@@ -9,18 +9,21 @@
   <main>
     <section class="summary-information">
       <div class="membership-point">
-        <span>멤버십포인트</span>
+        <span class="info-title">멤버십포인트</span>
         <span>3,700 P</span>
       </div>
       <div class="favorite-theater">
         <div>
-          <span>선호영화관</span>
-          <span>목동</span>
+          <span class="info-title">선호영화관</span>
+          <ul>
+            <li *ngFor="let item of userRegion"
+            class="prefer-list">{{item.theater}}</li>
+          </ul>
         </div>
         <a>변경</a>
       </div>
       <div class="special-membership">
-        <span>스페셜멤버십</span>
+        <span class="info-title">스페셜멤버십</span>
         <a>가입하기</a>
       </div>
     </section>
@@ -32,8 +35,8 @@
     </section>
   </main>
   <footer>
-    <span>마지막 로그인2019-07-2415:34:29</span>
-    <button (click)="logout()">로그아웃</button>
+    <span>마지막 로그인 2019-07-24 15:34:29</span>
+    <button (click)="logout()" class="logout">로그아웃</button>
     <button class="cancel text-hidden">닫기</button>
   </footer>
 </section>
