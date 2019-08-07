@@ -18,7 +18,7 @@ interface UserInfo {
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  userInfo: UserInfo;
+  userEmail;
   userRegion;
 
   constructor(private authService: AuthService, private rootService: RootService, private http: HttpClient) { }
@@ -47,7 +47,8 @@ export class SuccessComponent implements OnInit {
 
     this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
-        this.userInfo = info
+        this.userEmail = info.email;
+        this.userRegion = info.preferTheater;
       },
       errors => {
         

@@ -44,15 +44,16 @@ export class LoginModalComponent implements OnInit {
   loginSubmit(payLoad) {
     this.authService.confirmUser(payLoad)
       .subscribe(login => {
+        console.log(login)
         if (this.checked) {
           localStorage.setItem('token', login.token);
-          localStorage.setItem('id', login.user.username);
+          localStorage.setItem('id', login.user);
           this.userForm.reset();
         } else {
           localStorage.setItem('token', login.token);
           this.userForm.reset();
         }
-        localStorage.setItem('userName', login.user.name);
+        localStorage.setItem('userName', login.name);
         this.authService.loginState = true;
         window.location.reload();
       }, error => {
