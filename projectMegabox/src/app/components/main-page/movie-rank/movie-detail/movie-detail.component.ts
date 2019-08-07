@@ -68,7 +68,7 @@ export class MovieDetailComponent implements OnInit {
     this.tipClick = !this.tipClick;
   }
 
-  myWishMovie(rankmovie: Movies) {
+  myWishMovie() {
     // console.log(rankmovie);
   }
 
