@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RootService } from 'src/app/core/service/root.service';
 
 @Component({
   selector: 'duplicate-alert',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DuplicateAlertComponent implements OnInit {
 
-  constructor() { }
+  constructor(public root: RootService) { }
 
   ngOnInit() {
   }

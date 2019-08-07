@@ -190,15 +190,17 @@ export class SignUpComponent implements OnInit {
   }
 
   // 마우스로 클릭 했을 시 추천 이메일 선택
-  AddEmailClick(email: string) {  
+  AddEmailClick(email: string, input: HTMLInputElement) {  
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
+    input.focus();
   }
 
   // 엔터키 입력 시 추천 이메일 선택
-  AddEmailEnter(email: string) {
+  AddEmailEnter(email: string, input: HTMLInputElement) {
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
+    input.focus();
   }
 
   @ViewChild("li", {static: false}) nameField: ElementRef;
@@ -236,9 +238,17 @@ export class SignUpComponent implements OnInit {
   }
 
   // 이메일 중복 검사
-  duplicateEmail() {
-    const payload = { email: this.email.value }
+  duplicateEmail(email: string, input: HTMLInputElement) {
+    if(email === '') return;
 
-    this.http.post('', payload).subscribe(test => console.log(test));
+    const payload = { email: email }
+
+    this.http.post('http://megabox.hellocoding.shop/accounts/check_email/', payload).subscribe(check => {
+      this.root.duplicateState = !check
+      if(!check) {
+        this.emailVal = ''
+        input.focus();
+      }
+    });
   }
 }
