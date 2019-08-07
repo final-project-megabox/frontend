@@ -68,13 +68,18 @@ export class MovieRankComponent implements OnInit {
       // this.movieState = rankingMovies.map(() => 0);
   })
 }
-
+  detailMovie;
   selectDetail(rankmovie: Movies) {
     // this.rankService.selectMovie = [rankmovie];
     this.movieDetailService.detailModalState = true;
     // console.log(this.rankService.selectMovie);
     console.log(rankmovie.movie_id)
-    this.movieDetailService.getDetail(rankmovie.movie_id).subscribe(res => console.log(res));
+    
+    this.movieDetailService.getDetail(rankmovie.movie_id).subscribe(res => {
+      this.detailMovie = res;
+      console.log(this.detailMovie);
+      
+    });
   }
 
   selectMovie(rankmovie: Movies) {
