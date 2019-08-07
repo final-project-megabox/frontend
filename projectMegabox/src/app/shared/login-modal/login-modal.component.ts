@@ -15,7 +15,6 @@ export class LoginModalComponent implements OnInit {
   failLogin = false;
   loginState = false;
   userEmail: string;
-  
   constructor(private rootService: RootService, private authService: AuthService) { }
 
   ngOnInit() {
