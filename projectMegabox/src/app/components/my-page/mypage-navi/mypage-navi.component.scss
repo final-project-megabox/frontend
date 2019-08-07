@@ -57,6 +57,7 @@
   display: flex;
   align-content: center;
   cursor: pointer;
+  background: url(http://image2.megabox.co.kr/mop/home/mypage/bg_mypage_160114.png) 0 0 no-repeat;
 
   // background: gray;
 }
@@ -65,24 +66,36 @@
   list-style: none;
   width: 121px;
   height: 110px;
-  // background: pink;
-  border: 1px solid #e2e2e2;
+  // border: 1px solid #e2e2e2;
   /* margin: 0 auto; */
 }
 
 .mypage-menu :hover {
-  background-color: #e2e2e2;
+  // background-color: #e2e2e2;
+  // opacity: 0.5;
+  background-position: -727px -150px;
 }
+
+// #my-membership {
+//   background: url(http://image2.megabox.co.kr/mop/home/mypage/bg_mypage_160114.png) 0 0 no-repeat;
+// }
+
+// #point-change {
+//   background: url(http://image2.megabox.co.kr/mop/home/mypage/bg_mypage_160114.png);
+//   background-repeat: no-repeat;
+//   background-position: 121px;
+// }
+
 
 #my-faq {
   width: 122px;
-  border-right: 2px solid #e2e2e2;
+  // border-right: 2px solid #e2e2e2;
   // background: blue;
 }
 
-#my-membership {
-  border-left: 2px solid #e2e2e2;
-}
+// #my-membership {
+//   border-left: 2px solid #e2e2e2;
+// }
 
 li img {
   width: 50px;
