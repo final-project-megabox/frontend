@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from 'src/app/core/service/auth.service';
 import { RootService } from 'src/app/core/service/root.service';
+import { PreferTheatersService } from '../prefer-theaters/services/prefer-theaters.service';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface UserInfo {
@@ -21,7 +24,7 @@ export class SuccessComponent implements OnInit {
   userEmail;
   userRegion;
 
-  constructor(private authService: AuthService, private rootService: RootService, private http: HttpClient) { }
+  constructor(private authService: AuthService, private rootService: RootService, private http: HttpClient, private preferTheaterService: PreferTheatersService) { }
 
   ngOnInit() {
     this.getUserInfo();
@@ -48,7 +51,8 @@ export class SuccessComponent implements OnInit {
     this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
         this.userEmail = info.email;
-        this.userRegion = info.preferTheater;
+        console.log(info.preferTheater);
+        this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
       },
       errors => {
         

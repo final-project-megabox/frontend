@@ -26,8 +26,7 @@
           </ul>
           <ul class="theater-list-depth2">
             <div [class.favorTheater]="!bookingService.transmitTheaters.length" *ngIf="depthOneState === '선호 영화관'; else regionList">
-              <!-- <div *ngIf="!bookingService.transmitTheaters.length"> -->
-              <div>
+              <div *ngIf="!bookingService.transmitTheaters.length">
               자주 찾는 영화관을
               <br>
               선호 영화관으로
@@ -36,11 +35,11 @@
               <button class="showFavorTheater" (click)="preferTheaterService.preferState = true">선호영화관 등록</button>
               </div>
               <!-- 등록된 선호 영화관이 있을 경우 보여줄 뷰 -->
-              <!-- <ng-container *ngIf="bookingService.transmitTheaters.length">
+              <ng-container *ngIf="bookingService.transmitTheaters.length">
                 <li *ngFor="let prefer of bookingService.transmitTheaters">
                   <a title="{{ prefer }}">{{ prefer }}</a>
                 </li>
-              </ng-container> -->
+              </ng-container>
             </div>
             <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
                 [class.list-active]="detailRegion.selected"
