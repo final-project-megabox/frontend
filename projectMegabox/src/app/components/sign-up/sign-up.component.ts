@@ -86,7 +86,6 @@ export class SignUpComponent implements OnInit {
       ]
     };
     // this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
-    // alert('회원가입이 완료되었습니다. 로그인을 통하여 나만의 무비라이프를 즐겨보세요.');
     this.root.welcomeState = true;
   }
   
@@ -223,7 +222,7 @@ export class SignUpComponent implements OnInit {
   duplicateTwo = '영화관선택';
   duplicateThree = '영화관선택';
 
-  // 중복검사
+  // 선호영화관 중복검사
   DuplicateCheck() {
     if(this.duplicateOne === '영화관선택' && this.duplicateTwo === '영화관선택' ||
        this.duplicateOne === '영화관선택' && this.duplicateThree === '영화관선택' ||
@@ -234,5 +233,12 @@ export class SignUpComponent implements OnInit {
     if(this.duplicateOne === this.duplicateTwo || this.duplicateOne === this.duplicateThree || this.duplicateTwo === this.duplicateThree) {
       alert('이미 선택하신 영화관 입니다.');
     }
+  }
+
+  // 이메일 중복 검사
+  duplicateEmail() {
+    const payload = { email: this.email.value }
+
+    this.http.post('', payload).subscribe(test => console.log(test));
   }
 }

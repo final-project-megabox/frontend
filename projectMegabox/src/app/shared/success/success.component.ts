@@ -30,8 +30,9 @@ export class SuccessComponent implements OnInit {
   ngOnInit() {
     this.getUserInfo();
 
+    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater));
   }
-
+ 
   logout() {
     if(!localStorage.getItem('id')) {
       localStorage.removeItem('token');

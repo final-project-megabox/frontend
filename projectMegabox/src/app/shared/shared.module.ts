@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
 
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -26,6 +26,7 @@ import { SeatModule } from './quick-booking/components/seat-selection-modal/seat
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     SeatModule,
     RouterModule
   ],

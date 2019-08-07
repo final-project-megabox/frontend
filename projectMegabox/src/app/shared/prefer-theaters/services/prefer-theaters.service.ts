@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, OnInit } from '@angular/core';
 
 import { PreferTheater } from '../models/prefer-theater.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -7,8 +7,17 @@ import { AuthService } from 'src/app/core/service/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PreferTheatersService {
+export class PreferTheatersService implements OnInit {
   constructor(private http: HttpClient, private auth: AuthService) { }
+
+  ngOnInit() {}
+  
+  preferTheaterUpDated: EventEmitter<any> = new EventEmitter();
+
+  preferChangeDetect() {
+    this.preferTheaterUpDated.emit(this.choieces);
+  }
+  
 
   getAllPreferTheaters() {
     const token = `JWT ${localStorage.getItem('token')}`;
@@ -28,18 +37,17 @@ export class PreferTheatersService {
           { theater: this.theaterChoiceThree, region: this.regionChoiceThree}
       ]
   }
-    return this.http.post<PreferTheater[]>('http://megabox.hellocoding.shop//accounts/updateMyInfo/', payload, { headers }).subscribe();
+    this.http.post<PreferTheater[]>('http://megabox.hellocoding.shop//accounts/updateMyInfo/', payload, { headers }).subscribe();
   }
 
   deletePreferTheaters(delId: number) {
-    console.log('delete');
-    console.log(delId);
     const token = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', token);
 
-    const payload = { region: "지역선택", theater: "영화관선택"}
+    const payload = { region: "지역선택", theater: "영화관선택"};
   
-    return this.http.post<PreferTheater>('http://megabox.hellocoding.shop//accounts/updatePreferTheater/'+delId, payload, { headers }).subscribe();
+    this.http.post<PreferTheater>('http://megabox.hellocoding.shop//accounts/updatePreferTheater/'+delId, payload, { headers }).subscribe(theater => 
+    this.choieces = theater['preferTheater'].map(prefer => prefer.id === delId ? {...prefer, theater: '영화관선택', region: '지역선택'} : prefer ));
   }
 
   // 선호 영화관 배열에서 영화관선택을 제외한 결과를 담는 배열
