@@ -14,7 +14,7 @@ export class LoginModalComponent implements OnInit {
   checked = false;
   failLogin = false;
   loginState = false;
-
+  userEmail: string;
   constructor(private rootService: RootService, private authService: AuthService) { }
 
   ngOnInit() {
@@ -43,15 +43,16 @@ export class LoginModalComponent implements OnInit {
   loginSubmit(payLoad) {
     this.authService.confirmUser(payLoad)
       .subscribe(login => {
+        console.log(login)
         if (this.checked) {
           localStorage.setItem('token', login.token);
-          localStorage.setItem('id', login.user.username);
+          localStorage.setItem('id', login.user);
           this.userForm.reset();
         } else {
           localStorage.setItem('token', login.token);
           this.userForm.reset();
         }
-        localStorage.setItem('userName', login.user.name);
+        localStorage.setItem('userName', login.name);
         this.authService.loginState = true;
         window.location.reload();
       }, error => {
@@ -59,17 +60,11 @@ export class LoginModalComponent implements OnInit {
       })
   }
 
-
-
   getUserId() {
     if (!localStorage.getItem('id')) return;
 
     this.inputId = localStorage.getItem('id');
     this.checked = true;
-  }
-
-  getUser() {
-
   }
 
   // 아이디 저장 체크 상태

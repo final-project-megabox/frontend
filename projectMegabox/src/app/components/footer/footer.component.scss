@@ -1,4 +1,25 @@
-div {
-  width: 100%;
-  background: cornflowerblue;
+.footer-container {
+  background-color: #333;
+
+  .search-theater {
+    width: 960px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    padding: 40px 0;
+  }
+  
+  .about-container {
+    background-color: #221f1f;
+
+    .about-info {
+      width: 960px;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+      color: white;
+      padding: 30px 0 40px 0;
+    }
+  }
 }

@@ -15,10 +15,13 @@ export class TheaterModalComponent implements OnInit {
   constructor(private bookingService: QuickBookingService, private preferTheaterService: PreferTheatersService) {}
 
   ngOnInit() {
+    // 서버에서 선호 영화관 데이터를 받아온다.
+    this.getPrefer();
+
+    this.pref();
+    
     this.getTheaters();
-
-    // this.getPrefer();
-
+    
     this.getTheaterName();
   }
 
@@ -28,15 +31,19 @@ export class TheaterModalComponent implements OnInit {
 
   hoverRegion: string;
 
-  // testArray;
-
-  // 선호 영화관
-  // getPrefer() {
-  //   this.testArray = this.preferTheaterService.choieces.filter(({ theater }) => theater !=='영화관선택');
-  //   console.log(this.testArray);
-  //   this.bookingService.transmitTheaters = [...this.testArray.map(({ theater }) => theater)];
-  //   console.log(this.bookingService.transmitTheaters);
-  // }
+  // 서버에서 선호 영화관 데이터를 받아오고 this.preferTheaterService.choieces 배열에 할당한다.
+  getPrefer() {
+    this.preferTheaterService.getAllPreferTheaters()
+    .subscribe(theaters => this.preferTheaterService.choieces = theaters['preferTheater']);
+  }
+  
+  // 영화관 선택을 제외한 결과를 bowlPrefer에 할당하고 transmitTheaters 배열에 선호 영화관에서 극장 정보만을 할당한다.
+  pref() {
+    setTimeout(() => {
+      this.preferTheaterService.bowlPrefer = this.preferTheaterService.choieces.filter(({ theater }) => theater !=='영화관선택');
+      this.bookingService.transmitTheaters = [...this.preferTheaterService.bowlPrefer.map(({ theater }) => theater)];
+    }, 1000); 
+  }
 
   // 모든 지역 정보가 들어있는 데이터
   getTheaters() {
@@ -49,7 +56,9 @@ export class TheaterModalComponent implements OnInit {
 
   // 극장 title을 삭제하고 취소 버튼을 누른 후 다시 들어와도 title이 보이게 하기 위한 함수
   getTheaterName() {
-    this.bookingService.selectTheaters = this.bookingService.transmitTheaters.map(theater=> theater);
+    setTimeout(()=> {
+      this.bookingService.selectTheaters = this.bookingService.transmitTheaters.map(theater=> theater);
+    }, 1000);
   }
 
   // 극장 선택 최대 개수를 4개로 제한, 클릭 하였을 때 배경색이 변하게 처리
@@ -81,8 +90,8 @@ export class TheaterModalComponent implements OnInit {
 
   // 확인 버튼을 눌렀을 때 선택한 극장을 다른 배열에 넣어줌.
   confirmSelect() {
-    this.bookingService.theaterModalState = false;
     this.bookingService.transmitTheaters = this.bookingService.selectTheaters;
+    this.bookingService.theaterModalState = false;
   }
 
   // 취소 버튼을 눌렀을 때

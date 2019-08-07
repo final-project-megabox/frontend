@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   confirmUser(payLoad) {
-    return this.http.post<Token>('http://megabox.hellocoding.shop//api/token/', payLoad);
+    return this.http.post<Token>('http://megabox.hellocoding.shop//accounts/login/', payLoad)
   }
 
 }

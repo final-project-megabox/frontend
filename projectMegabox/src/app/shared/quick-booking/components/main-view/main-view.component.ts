@@ -5,6 +5,7 @@ import { Days } from '../../models/days.interface';
 import { QuickBookingService } from '../../service/quick-booking.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/prefer-theaters.service';
 
 @Component({
   selector: 'app-main-view',
@@ -24,17 +25,30 @@ export class MainViewComponent implements OnInit {
     private quickBookingService: QuickBookingService,
     private rootService: RootService,
     private calenderService: CalendarService,
-    private http: HttpClient
+    private http: HttpClient,
+    private preferTheaterService: PreferTheatersService
   ) {}
   
 
   ngOnInit() {
+    this.getPrefer();
+    this.pref();
     this.afterToday = [...this.findToday(), ...this.monthAfterToday()];
     this.currentTime = new Date().getHours(); 
     this.timeTableX = (this.currentTime - 4) * -44 < -616 ? -616 : (this.currentTime - 4) * -44;
   }
 
-
+  getPrefer() {
+    this.preferTheaterService.getAllPreferTheaters()
+    .subscribe(theaters => this.preferTheaterService.choieces = theaters['preferTheater']);
+  }
+  
+  pref() {
+    setTimeout(() => {
+      this.preferTheaterService.bowlPrefer = this.preferTheaterService.choieces.filter(({ theater }) => theater !=='영화관선택');
+      this.quickBookingService.transmitTheaters = [...this.preferTheaterService.bowlPrefer.map(({ theater }) => theater)];
+    }, 1000); 
+  }
 
   // 오늘부터 한달 생성
   monthAfterToday() {

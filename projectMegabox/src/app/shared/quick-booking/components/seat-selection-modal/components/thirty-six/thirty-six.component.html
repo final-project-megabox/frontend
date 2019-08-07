@@ -1,0 +1,12 @@
+<table>
+  <tr *ngFor="let seat of allSeat">
+    <td *ngFor="let seatInfo of seat">
+      <button [class]='seatInfo.class' [value]='seatInfo.postSeat'
+      (click)='click($event.target.value)' [disabled]='seatInfo.postSeat === 0'>
+          {{seatInfo.seatNumber}}
+      </button>
+    </td>
+  </tr>
+  <span class="exit text-hidden">출구</span>
+  <span class="entrance text-hidden">입구</span>
+</table>
