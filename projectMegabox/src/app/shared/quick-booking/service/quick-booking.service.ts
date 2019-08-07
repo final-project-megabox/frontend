@@ -51,7 +51,8 @@ export class QuickBookingService {
     this.seatSelectionModalState = true;
     this.totalSeat = movie['total_seat'];
   }
-  
+
+  // 서버에서 지역 정보를 받아온다
   getDetailRegions() {
     return this.http.get<DetailRegion[]>('http://megabox.hellocoding.shop//database/showregion/');
   }

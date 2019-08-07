@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PreferTheatersService } from './services/prefer-theaters.service';
+import { QuickBookingService } from '../quick-booking/service/quick-booking.service';
 
 @Component({
   selector: 'prefer-theaters',
@@ -9,26 +10,19 @@ import { PreferTheatersService } from './services/prefer-theaters.service';
 })
 export class PreferTheatersComponent implements OnInit {
 
-  constructor(public preferTheaterService: PreferTheatersService) { }
+  constructor(public preferTheaterService: PreferTheatersService, public bookingService: QuickBookingService) { }
   
   ngOnInit() {
     // 뷰 구현을 위한 데이터 호출
-    // this.getFreferTheater();
+    this.getFreferTheater();
 
-    // 백엔드에서 받을 데이터, 보낼 데이터
-    // this.preferTheaterService.choieces = [
-    //   { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.regionChoiceOne},
-    //   { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.regionChoiceTwo },
-    //   { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.regionChoiceThree }
-    // ]
     this.getAllPreferTheaters();
   }
 
   getAllPreferTheaters() {
     this.preferTheaterService.getAllPreferTheaters()
-    // .subscribe(theaters => this.preferTheaterService.choieces = theaters);
-    // .subscribe(theaters => console.log(theaters['preferTheater']));
-    // .subscribe(theaters => theaters['preferTheater']);
+    .subscribe(theaters => this.preferTheaterService.choieces = theaters['preferTheater']);
+    console.log('선호영화관 모달', this.preferTheaterService.choieces);
   }
 
   // change 이벤트가 발생하면 선택한 지역을 배열에 할당하고 각각의 state에 할당
@@ -78,9 +72,6 @@ export class PreferTheatersComponent implements OnInit {
 
   // 등록 버튼 클릭 시
   confirm() {
-    // 선호 영화관 모달창 닫기
-    this.preferTheaterService.preferState = false
-    
     // 등록 버튼을 클릭하면 change 이벤트에의해 변경된 state를 할당한다.
     this.preferTheaterService.regionChoiceOne = this.preferTheaterService.preferOneState;
     this.preferTheaterService.regionChoiceTwo = this.preferTheaterService.preferTwoState;
@@ -90,24 +81,21 @@ export class PreferTheatersComponent implements OnInit {
     this.preferTheaterService.theaterChoiceTwo = this.preferTheaterService.theaterTwoState;
     this.preferTheaterService.theaterChoiceThree = this.preferTheaterService.theaterThreeState;
 
-    // 백엔드에서 받을 데이터, 보낼 데이터
-    this.preferTheaterService.choieces = [
-      { id: 0, theater: this.preferTheaterService.theaterChoiceOne,  region: this.preferTheaterService.regionChoiceOne},
-      { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.regionChoiceTwo },
-      { id: 2, theater: this.preferTheaterService.theaterChoiceThree,  region: this.preferTheaterService.regionChoiceThree }
-    ]
+    this.preferTheaterService.postPreferTheaters();
 
-    console.log(this.preferTheaterService.choieces);
+    // 선호 영화관 모달창 닫기
+    this.preferTheaterService.preferState = false
   }
 
   // 삭제 버튼 클릭 시
-  removePreferTheater(delId) {
+  // removePreferTheater() {
+    // this.preferTheaterService.deletePreferTheaters(id);
     // this.preferTheaterService.choieces = this.preferTheaterService.choieces.filter(({ id }) => id !== delId);
     
     // 뷰는 구현되지만 실제 value 값이 변경되지는 않는다. state가 변경되지 않아서 ????
     // this.preferTheaterService.choieces = this.preferTheaterService.choieces.map(prefer => prefer.id === delId ? 
     // {...prefer, theater: '영화관선택', region: '지역선택'} : prefer );
-  }
+  // }
 
   // 순위를 보여주기 위한 자료구조
   orderNum = [

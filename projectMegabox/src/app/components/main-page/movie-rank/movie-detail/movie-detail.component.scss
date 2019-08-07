@@ -4,27 +4,33 @@ $reservation: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
 $help: 'http://image2.megabox.co.kr/mop/home/btns/icon_help.png';
 $movie-wish: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie2.png';
 $schedule: 'http://image2.megabox.co.kr/mop/home/btns/btn_timeSchedule.png';
+
 $detail-main: #333;
 $detail-sub: #666;
 
-.movie-modal {
+.wrapper-back {
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  z-index: 99;
+  z-index: 100;
   background-color: rgba(210, 210, 210, 0.6);
+}
+
+.movie-modal {
+  position: absolute;
+  // top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
 
   .modal-container {
     width: 960px;
     position: relative;
     left: 50%;
     transform: translate(-50%);
-
-    // .modal-container::-webkit-scrollbar {
-    //   display:none;
-    //   }
 
     .modal-close {
       position: absolute;
@@ -45,13 +51,13 @@ $detail-sub: #666;
       justify-content: center;
       margin-top: 38px;
       width: 100%;
-      // height: 1000px;
+      // height: 2000px;
       background-color: white;
       box-shadow: 0 6px 10px rgba(0,0,0,0.5);
 
       .modal-main-content {
-        background-color: yellow;
-        margin: 30px 0;
+        // background-color: yellow;
+        margin: 40px 40px;
 
         .modal-main-container {
           display: flex;
@@ -67,7 +73,7 @@ $detail-sub: #666;
   
           // movie detail information
           .modal-main-info {
-            background-color: aquamarine;
+            // background-color: aquamarine;
             width: 623px;
             height: 336px;
   
@@ -198,14 +204,15 @@ $detail-sub: #666;
   
             // information detail
             .detail-info-container {
-              background-color: lightblue;
+              // background-color: lightblue;
               padding: 16px 0;
-              border-bottom: 1px solid #e5e5e5;
+              // border-bottom: 1px solid #e5e5e5;
+              width: 80%;
   
               & li {
                 color: $detail-main;
                 font-size: .9rem;
-                line-height: 22px;
+                line-height: 25px;
 
                 & strong {
                   font-weight: 700;
@@ -238,8 +245,9 @@ $detail-sub: #666;
                   text-align: center;
                   padding: 10px;
                   position: absolute;
-                  top: 195px;
+                  // top: 220px;
                   left: 500px;
+                  bottom: 370px;
 
                   &:after {
                     content:'';
@@ -258,13 +266,27 @@ $detail-sub: #666;
             // information detail close
             // audience choice
             .audience-choice {
-              background-color: aliceblue;
+              // background-color: aliceblue;
               padding-top: 15px;
               display: flex;
               justify-content: space-between;
+              border-top: 1px solid #e5e5e5;
+              align-items: center;
 
               .my-rate-container {
-                background-color: aquamarine;
+                // background-color: aquamarine;
+                font-size: .9rem;
+                color: $detail-sub;
+
+                .movie-my-rate {
+                  position: relative;
+                  top: 5px;
+                  cursor: pointer;
+                }
+
+                .my-rate-comment {
+                  font-size: .8rem;
+                }
               }
 
               .button-container {
@@ -297,21 +319,28 @@ $detail-sub: #666;
         }
         // movie story
         .story-container {
-          background-color: aliceblue;
+          // background-color: aliceblue;
 
           .story-headline {
+            color: $detail-main;
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 15px;
           }
 
           .story-body {
+            color: $detail-sub;
             width: 100%;
-            height: 100px;
-            background-color: peru;
+            height: 130px;
+            line-height: 25px;
+            font-size: .9rem;
+            // background-color: peru;
           }
         }
         // movie story close
+        // detail carousel
+        
+        // detail carousel close
       }
     }
 
