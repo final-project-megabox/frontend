@@ -17,6 +17,34 @@ export class PreferTheatersService {
     return this.http.get<PreferTheater[]>('http://megabox.hellocoding.shop/accounts/updatePreferTheater/', { headers });
   }
 
+  postPreferTheaters() {
+    const token = `JWT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    const payload = {
+      preferTheater: [
+          { theater: this.theaterChoiceOne, region: this.regionChoiceOne},
+          { theater: this.theaterChoiceTwo, region: this.regionChoiceTwo},
+          { theater: this.theaterChoiceThree, region: this.regionChoiceThree}
+      ]
+  }
+    return this.http.post<PreferTheater[]>('http://megabox.hellocoding.shop//accounts/updateMyInfo/', payload, { headers }).subscribe();
+  }
+
+  deletePreferTheaters(delId: number) {
+    console.log('delete');
+    console.log(delId);
+    const token = `JWT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    const payload = { region: "지역선택", theater: "영화관선택"}
+  
+    return this.http.post<PreferTheater>('http://megabox.hellocoding.shop//accounts/updatePreferTheater/'+delId, payload, { headers }).subscribe();
+  }
+
+  // 선호 영화관 배열에서 영화관선택을 제외한 결과를 담는 배열
+  bowlPrefer;
+
   // 선호 영화관 모달창 띄우기, 닫기
   preferState = false;
 
