@@ -18,14 +18,14 @@ export class MovieDetailService {
     return this.http.get<MovieDetail[]>(`${this.apiDetail}${id}`);
   }
 
-  // wishMovie() {
-  //   const token = `JWT ${localStorage.getItem('token')}`;
-  //   const headers = new HttpHeaders().set('Authorization', token);
+  wishMovie(id: number) {
+    const token = `JWT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
 
-  //   const payload = {
-  //     "is_wished": "true"
-  //   }
+    const payload = {
+      "movie_id": id
+    }
 
-  //   return this.http.post('http://megabox.hellocoding.shop//database/checkwish/', payload, { headers}).subscribe();
-  // }
+    return this.http.post('http://megabox.hellocoding.shop//database/checkwish/', payload, { headers }).subscribe();
+  }
 }
