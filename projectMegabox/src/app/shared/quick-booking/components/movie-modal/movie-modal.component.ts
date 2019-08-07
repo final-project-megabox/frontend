@@ -12,7 +12,7 @@ import { SortItem } from '../../models/sortItem.type';
 })
 
 export class MovieModalComponent implements OnInit {
-  constructor(private bookingService: QuickBookingService) { }
+  constructor(public bookingService: QuickBookingService) { }
   
   ngOnInit() {
     this.getMovies();

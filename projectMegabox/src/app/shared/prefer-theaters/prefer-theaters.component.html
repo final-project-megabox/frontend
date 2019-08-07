@@ -32,7 +32,7 @@
               {{ theater.theater }}
               </option>
             </select>
-            <a class="delete-prefer" title="선호 영화관 삭제" (click)="removePreferTheater(prefer.id)">
+            <a class="delete-prefer" title="선호 영화관 삭제" (click)="preferTheaterService.deletePreferTheaters(prefer.id)">
               삭제
             </a>
           </li>

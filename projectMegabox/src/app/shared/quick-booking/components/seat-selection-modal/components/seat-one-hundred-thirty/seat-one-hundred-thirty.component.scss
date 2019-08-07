@@ -39,6 +39,16 @@ table {
         margin-right: 3px;
       }
 
+      
+      .value:hover {
+        background-color: #503396;
+        text-decoration-line: underline;
+      }
+
+      .active {
+        background-color: #503396;
+        text-decoration-line: underline;
+      }
     }
   }
 
