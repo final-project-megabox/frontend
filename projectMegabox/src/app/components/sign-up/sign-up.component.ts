@@ -83,7 +83,6 @@ export class SignUpComponent implements OnInit {
         { region: this.preferThree.value, theater: this.theaterThree.value }
       ]
     };
-    console.log(payload);
     this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
     alert('회원가입이 완료되었습니다. 로그인을 통하여 나만의 무비라이프를 즐겨보세요.');
   }

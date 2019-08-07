@@ -4,7 +4,7 @@
 }
 
 .after-login {
-  width: 305px;
+  width: 310px;
   background: #fff;
   box-shadow: 0 5px 6px rgba(0,0,0,0.5);
   border-radius: 2% 2% 0 0;
@@ -18,10 +18,9 @@
       display: inline-block;
 
       .id {
-      }
-
-      span {
-        
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-right: 5px;
       }
     }
     
@@ -37,21 +36,56 @@
     .summary-information {
       padding: 15px;
       border-bottom: 1px solid #e5e5e5;
+      font-size: 0.8rem;
 
       .membership-point {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 15px;
+
       }
 
       .favorite-theater {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 15px;
+        
+        div {
+          display: flex;
+
+          .info-title {
+            margin-right: 15px;
+          }
+          
+          ul {
+            display: flex;
+            justify-content: flex-start;
+  
+            .prefer-list {
+              font-size: 0.8rem;
+              color: #999;
+              margin-right: 7px;
+            }
+          }
+        }
+
+
+
+        a {
+          color: #503396;
+          cursor: pointer;
+        }
       }
 
       .special-membership {
         display: flex;
         justify-content: space-between;
+
+        a {
+          color: #503396;
+        }
       }
+
     }
 
     .move-link {
@@ -86,10 +120,22 @@
   footer {
     background-color: #f2f2f2;
     height: 35px;
-    padding: 12px 15px;
+    padding: 0 15px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
 
     span {
-      font-size: 0.8rem;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .logout {
+      border: 1px solid #c1c1c1;
+      background-color: #fff;
+      text-align: center;
+      color: #666;
+      padding: 3px 8px;
     }
 
     .cancel {
