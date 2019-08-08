@@ -146,8 +146,11 @@ export class MovieRankComponent implements OnInit {
     // this.wishMovie = [rankmovie]
     this.movieDetailService.wishMovie(rankmovie.movie_id).subscribe(res => {
       this.wishMovies = res;
-      console.log(this.wishMovies);
+      // console.log(this.wishMovies);
     })
+    // this.movieDetailService.getWished();
+    // console.log(this.movieDetailService.getWished());
+    
     
   }
 

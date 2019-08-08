@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MovieDetail } from '../models/rank-movie-interface';
 import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
 import { Token } from 'src/app/core/models/token.interface';
+import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,10 @@ export class MovieDetailService {
 
   selectMovie: MovieDetail[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    public http: HttpClient,
+    public rankService: QuickBookingService
+    ) { }
 
   getDetail(id: number) {
     const token = `JWT ${localStorage.getItem('token')}`;
@@ -33,4 +37,11 @@ export class MovieDetailService {
 
     return this.http.post<Movies>('http://megabox.hellocoding.shop//database/checkwish/?movie=${id}', payload, { headers });
   }
+
+//   getMovies()  {
+//     const token = `JWT ${localStorage.getItem('token')}`;
+//     const headers = new HttpHeaders().set('Authorization', token);
+
+//     return this.http.get<Movies[]>('http://megabox.hellocoding.shop//database/showMovies/', { headers });
+// }
 }

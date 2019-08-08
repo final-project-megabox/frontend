@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { RootService } from 'src/app/core/service/root.service';
 import { MovieDetailService } from '../service/movie-detail.service';
@@ -6,6 +6,7 @@ import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-
 
 import { MovieDetail, RankStar } from '../models/rank-movie-interface';
 import { Movies } from 'src/app/shared/quick-booking/models/movies.interface';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 
 @Component({
@@ -41,6 +42,32 @@ export class MovieDetailComponent implements OnInit {
       { id: 4, rankStar: 'star4', starContent: '너무 멋진 영화였어요!', selected: false }
     ]
   }
+
+  @ViewChild('galleryTop', { static: true }) galleryTop;
+  @ViewChild('galleryThumbs', { static: true }) galleryThumbs;
+  isOpen = false;
+
+  galleryTopConfig: SwiperConfigInterface = {
+    spaceBetween: 10,
+    effect: 'fade',
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  };
+  galleryThumbsConfig: SwiperConfigInterface = {
+    spaceBetween: 10,
+    slidesPerView: 9,
+    centeredSlides: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    slideToClickedSlide: true,
+  };
+
+  ngAfterViewInit() {
+    this.galleryTop.nativeElement.swiper.controller.control = this.galleryThumbs.nativeElement.swiper;
+    this.galleryThumbs.nativeElement.swiper.controller.control = this.galleryTop.nativeElement.swiper;
+  }
   
   ngOnChanges() {
   }
@@ -68,8 +95,13 @@ export class MovieDetailComponent implements OnInit {
     this.tipClick = !this.tipClick;
   }
 
-  myWishMovie() {
+  wishMovies;
+  myWishMovie(detailMovie) {
     // console.log(rankmovie);
+    this.movieDetailService.wishMovie(detailMovie.movie_id).subscribe(res => {
+      this.wishMovies = res;
+      console.log(this.wishMovies);
+    })
   }
 
 }

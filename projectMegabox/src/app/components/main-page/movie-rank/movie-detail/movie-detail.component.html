@@ -29,7 +29,7 @@
                       <span class="little-star-fill"></span>
                       <span class="cumulative-star">1773명 참여</span>
                     </div>
-                    <p class="rate-average">7.8</p>
+                    <p class="rate-average">{{detailMovie['avg_rate']}}</p>
                   </div>
                   <!-- reservation rate close -->
                   <!-- booking rate -->
@@ -66,7 +66,7 @@
                   <span class="my-rate-comment">평점을 입력해주세요</span>
                 </div>
                 <div class="button-container">
-                  <button class="my-wish-movie" (click)="myWishMovie()"></button>
+                  <button class="my-wish-movie" (click)="myWishMovie(detailMovie)"></button>
                   <button class="movie-schedule"></button>
                 </div>
               </div>
@@ -81,7 +81,50 @@
           </div>
           <!-- movie story close -->
           <!-- detail carousel -->
-          
+          <div class="all-wrpper">
+
+            <div class="swiper-container gallery-thumbs" #galleryThumbs [swiper]="galleryThumbsConfig">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="http://image2.megabox.co.kr/mop/poster/2019/DD/3BE1A4-7541-4DAA-9C63-E41480F065D3.large.jpg">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://image2.megabox.co.kr/mop/still/2019/1C/465047-47FE-4D3D-AD29-CD0B1FFADF10.large.jpg">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://image2.megabox.co.kr/mop/still/2019/C3/C3F9AA-B3C8-498F-90D6-BFA35B4A52E4.large.jpg">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://image2.megabox.co.kr/mop/still/2019/AC/D5387C-207E-4B87-AC2B-6A796D862E69.large.jpg">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://image2.megabox.co.kr/mop/still/2019/98/65206D-B747-4AF2-BAED-2F4E885CDACB.large.jpg">
+                  </div>
+                </div>
+              </div>
+        
+            <div class="swiper-container gallery-top" #galleryTop [swiper]="galleryTopConfig">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="http://image2.megabox.co.kr/mop/poster/2019/DD/3BE1A4-7541-4DAA-9C63-E41480F065D3.large.jpg">
+                </div>
+                <div class="swiper-slide">
+                  <img src="http://image2.megabox.co.kr/mop/still/2019/1C/465047-47FE-4D3D-AD29-CD0B1FFADF10.large.jpg">
+                </div>
+                <div class="swiper-slide">
+                  <img src="http://image2.megabox.co.kr/mop/still/2019/C3/C3F9AA-B3C8-498F-90D6-BFA35B4A52E4.large.jpg">
+                </div>
+                <div class="swiper-slide">
+                  <img src="http://image2.megabox.co.kr/mop/still/2019/AC/D5387C-207E-4B87-AC2B-6A796D862E69.large.jpg">
+                </div>
+                <div class="swiper-slide">
+                  <img src="http://image2.megabox.co.kr/mop/still/2019/98/65206D-B747-4AF2-BAED-2F4E885CDACB.large.jpg">
+                </div>
+              </div>
+              <div class="swiper-button-next swiper-button-white"></div>
+              <div class="swiper-button-prev swiper-button-white"></div>
+            </div>
+          </div>
           <!-- detail carousel close-->
         </div>
         <!-- Don't touch -->
