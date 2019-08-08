@@ -137,14 +137,14 @@ $sub-color: #188591;
         display: flex;
         justify-content: center;
 
-        .rankStar-0 {
+        .rankStar-1 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
-          @extend .rankStar-0;
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
         }
 
         .hoverActive {
@@ -209,14 +209,14 @@ $sub-color: #188591;
         display: flex;
         justify-content: center;
 
-        .rankStar-0 {
+        .rankStar-1 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
-          @extend .rankStar-0;
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
         }
 
         .hoverActive {
@@ -281,14 +281,14 @@ $sub-color: #188591;
         display: flex;
         justify-content: center;
 
-        .rankStar-0 {
+        .rankStar-1 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
-          @extend .rankStar-0;
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
         }
 
         .hoverActive {
@@ -353,14 +353,14 @@ $sub-color: #188591;
         display: flex;
         justify-content: center;
 
-        .rankStar-0 {
+        .rankStar-1 {
           width: 32px;
           height: 30px;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
-        .rankStar-1, .rankStar-2, .rankStar-3, .rankStar-4 {
-          @extend .rankStar-0;
+        .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
+          @extend .rankStar-1;
         }
 
         .hoverActive {

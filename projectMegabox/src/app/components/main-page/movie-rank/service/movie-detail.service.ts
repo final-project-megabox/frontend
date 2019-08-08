@@ -27,21 +27,20 @@ export class MovieDetailService {
     return this.http.get<MovieDetail[]>(`${this.apiDetail}${id}`, { headers });
   }
 
+  getRate(id: number, starRate: number) {
+    const token = `JWT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    return this.http.get(`http://megabox.hellocoding.shop//accounts/star_rate/?movie_id=${id}&star_rate=${starRate}`, { headers })
+  }
+
   wishMovie(id: number) {
     const token = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Content-type', 'application/json').set('Authorization', token);
 
-    const payload = {
-      "movie_id": id
-    }
+    const payload = { "movie_id": id }
 
-    return this.http.post<Movies>('http://megabox.hellocoding.shop//database/checkwish/?movie=${id}', payload, { headers });
+    return this.http.post<Movies>(`http://megabox.hellocoding.shop//database/checkwish/?movie=${id}`, payload, { headers });
   }
 
-//   getMovies()  {
-//     const token = `JWT ${localStorage.getItem('token')}`;
-//     const headers = new HttpHeaders().set('Authorization', token);
-
-//     return this.http.get<Movies[]>('http://megabox.hellocoding.shop//database/showMovies/', { headers });
-// }
 }

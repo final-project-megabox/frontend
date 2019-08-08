@@ -28,7 +28,7 @@ export class MovieRankComponent implements OnInit {
   RankStars: RankStar[];
   rateState: number;
 
-  starState: number[];
+  starState: number;
   // commentState: number = 5;
 
   movieState: number[];
@@ -44,11 +44,11 @@ export class MovieRankComponent implements OnInit {
     
     
     this.RankStars = [
-      { id: 0, rankStar: 'star0', starContent: '괜히 봤어요', selected: false },
-      { id: 1, rankStar: 'star1', starContent: '기대하진 말아요', selected: false },
-      { id: 2, rankStar: 'star2', starContent: '무난했어요', selected: false },
-      { id: 3, rankStar: 'star3', starContent: '기대해도 좋아요!', selected: false },
-      { id: 4, rankStar: 'star4', starContent: '너무 멋진 영화였어요!', selected: false }
+      { starRate: 1, starContent: '괜히 봤어요' },
+      { starRate: 2, starContent: '기대하진 말아요' },
+      { starRate: 3, starContent: '무난했어요' },
+      { starRate: 4, starContent: '기대해도 좋아요!' },
+      { starRate: 5, starContent: '너무 멋진 영화였어요!' }
     ]
   }
 
@@ -72,22 +72,15 @@ export class MovieRankComponent implements OnInit {
 }
   detailMovie;
   selectDetail(rankmovie: Movies) {
-    // this.rankService.selectMovie = [rankmovie];
     this.movieDetailService.detailModalState = true;
-    // console.log(this.rankService.selectMovie);
-    console.log(rankmovie.movie_id)
-    
     this.movieDetailService.getDetail(rankmovie.movie_id).subscribe(res => {
       this.detailMovie = res;
-      console.log(this.detailMovie);
-      
     });
   }
 
   selectMovie(rankmovie: Movies) {
     this.rankService.selectMovie = [rankmovie];
     this.rootService.quickBookingModalState = true;
-    // console.log(this.rankService.selectMovie);
   }
   
   hoverStar(id: number, idx:number, index: number) {
@@ -96,24 +89,14 @@ export class MovieRankComponent implements OnInit {
     this.hoverState = true;
   }
 
-  chageSelect() {
-    return this.RankStars = this.RankStars.map(rankstar => rankstar.selected ? {...rankstar, selected: false} : rankstar);
-  }
+  // chageSelect() {
+  //   return this.RankStars = this.RankStars.map(rankstar => rankstar.selected ? {...rankstar, selected: false} : rankstar);
+  // }
   // chageSelect(index: number) {
   //   return this.RankStars[index] = this.RankStars[index].map(rankstar => rankstar.selected ? {...rankstar, selected: false} : rankstar);
   // }
 
-  rateSelect(rate: RankStar, index: number) {
-    this.chageSelect()
-    this.starState[index] = rate.id;
-    this.RankStars = this.RankStars.map(rankstar => rankstar.id === rate.id ? {...rankstar, selected: true} : rankstar);
-    this.starclick = true;
-    // console.log("p", this.RankStars[index][this.starState[index]].starContent)
-    // console.log(this.starclick);
-    // console.log(this.starState);
-    // console.log(rate);
-    // console.log(this.RankStars);
-  }
+
   // rateSelect(rate: RankStar, index: number) {
   //   this.chageSelect(index)
   //   this.starState[index] = rate.id;
@@ -125,13 +108,7 @@ export class MovieRankComponent implements OnInit {
   //   // console.log(rate);
   //   // console.log(this.RankStars);
   // }
-
-  outStar(index: number) {
-    this.hoverState = false;
-    // console.log(this.RankStars[index]);    
-    this.starState = this.RankStars.filter(({selected}) => selected === true).map(rankstar => rankstar.id);
-    // console.log(this.starState);
-  }
+  
   // outStar(index: number) {
   //   this.hoverState = false;
   //   // console.log(this.RankStars[index]);    
@@ -140,25 +117,20 @@ export class MovieRankComponent implements OnInit {
   // }
 
   wishMovies;
-
   rankWish(rankmovie: Movies) {
-    // this.wishMovie = [rankmovie]
     this.movieDetailService.wishMovie(rankmovie.movie_id).subscribe(res => {
       this.wishMovies = res;
-      // console.log(this.wishMovies);
     })
-    // this.movieDetailService.getWished();
-    // console.log(this.movieDetailService.getWished());
-    
-    
   }
 
+  clickId;
+  saveStar;
   clickStar(rankmovie, rate) {
-    this.chageSelect();
-    this.RankStars = this.RankStars.map(rankstar => rankstar.id === rate.id ? {...rankstar, selected: true} : rankstar);
-    console.log(rankmovie);
-    console.log(this.RankStars);
-    
+    this.clickId = rankmovie.movie_id
+    this.movieDetailService.getRate(this.clickId, rate.starRate).subscribe(res => {
+      this.saveStar = res;
+      console.log(this.saveStar);
+    })
   }
 
   hoverRate(rankmovie, id) {
