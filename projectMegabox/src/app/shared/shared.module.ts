@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
 
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -12,6 +12,7 @@ import { RequiredLoginComponent } from './required-login/required-login.componen
 
 import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-filter.pipe';
 import { SeatModule } from './quick-booking/components/seat-selection-modal/seat.module';
+import { DeletePreferComponent } from './prefer-theaters/delete-prefer/delete-prefer.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,13 @@ import { SeatModule } from './quick-booking/components/seat-selection-modal/seat
     PreferTheatersComponent,
     SuccessComponent,
     RequiredLoginComponent,
-    PreferTheaterFilterPipe
+    PreferTheaterFilterPipe,
+    DeletePreferComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     SeatModule,
     RouterModule
   ],
