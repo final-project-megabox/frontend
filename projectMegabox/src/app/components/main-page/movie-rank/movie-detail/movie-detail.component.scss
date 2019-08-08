@@ -1,3 +1,5 @@
+@import '~swiper/dist/css/swiper.min.css';
+
 $watch-age-large: 'http://image2.megabox.co.kr/mop/home/bg_age_l.png';
 $star: 'http://image2.megabox.co.kr/mop/home/star.png';
 $reservation: 'http://image2.megabox.co.kr/mop/home/btns/btn_movie.png';
@@ -339,7 +341,49 @@ $detail-sub: #666;
         }
         // movie story close
         // detail carousel
+        html, body {
+          position: relative;
+          height: 100%;
+        }
+        body {
+          background: #000;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color:#000;
+          margin: 0;
+          padding: 0;
+        }
+        .all-wrpper {
+          width: 900px;
+          margin: 0 auto;
+        }
+        .gallery-top .swiper-slide {
+          text-align: center;
+          background-color: rgb(0, 0, 0);
+        }
+        .gallery-top .swiper-slide img {
+          height: 600px;
+        }
         
+        .swiper-slide-visible {
+          // margin-right: -20px !important;
+          // background: #000;
+          padding-left: 17px;
+        }
+        .gallery-thumbs {
+          width: 100%;
+          margin: 0 0 10px 0;
+        }
+        .gallery-thumbs .swiper-slide {
+          // overflow: hidden;
+          opacity: 0.4;
+        }
+        .gallery-thumbs .swiper-slide img {
+          height: 100px;
+        }
+        .gallery-thumbs .swiper-slide-active {
+          opacity: 1;
+        }
         // detail carousel close
       }
     }

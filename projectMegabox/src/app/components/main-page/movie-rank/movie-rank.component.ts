@@ -40,6 +40,8 @@ export class MovieRankComponent implements OnInit {
 
   ngOnInit() {
     this.getRanking()
+    console.log(this.getRanking());
+    
     
     this.RankStars = [
       { id: 0, rankStar: 'star0', starContent: '괜히 봤어요', selected: false },
@@ -137,9 +139,18 @@ export class MovieRankComponent implements OnInit {
   //   // console.log(this.starState);
   // }
 
+  wishMovies;
+
+  // 변수에 res 정보를 담아서 그걸 html에 활용해보자
   rankWish(rankmovie: Movies) {
-    this.wishMovie = [rankmovie]
-    console.log(this.wishMovie);
+    // this.wishMovie = [rankmovie]
+    this.movieDetailService.wishMovie(rankmovie.movie_id).subscribe(res => {
+      this.wishMovies = res;
+      // console.log(this.wishMovies);
+    })
+    // this.movieDetailService.getWished();
+    // console.log(this.movieDetailService.getWished());
+    
     
   }
 
