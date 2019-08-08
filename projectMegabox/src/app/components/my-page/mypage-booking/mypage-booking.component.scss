@@ -117,7 +117,7 @@
 }
 
 .name-text {
-  // background: pink;
+  background: red;
   margin-bottom: 20px;
 }
 
@@ -132,16 +132,24 @@
 }
 
 .tab-bookedDate {
+  padding-top: 1px;
   width: 80px;
+  font-size: 10px;
 }
 
 .tab-cancel {
   width: 109.33px;
+  padding-bottom: 5px;
 }
 
 .tab-contents {
   display: none;
   border-bottom: 1.5px solid #D3D2D2;
+}
+
+.tab-contents img {
+  // background: pink;
+  margin-top: 10px;
 }
 
 .tab-contents ul {
