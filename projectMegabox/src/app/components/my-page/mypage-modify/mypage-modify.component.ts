@@ -1,12 +1,14 @@
 import { PhoneValidator } from './../../sign-up/validators/phone-validator';
 import { BirthValidator } from './../../sign-up/validators/birth-validator';
 import { PasswordValidator } from './../../sign-up/validators/password-validator';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/prefer-theaters.service';
+import { Userinfo } from '../userinfo';
 
 
 
@@ -16,16 +18,34 @@ import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/p
   styleUrls: ['./mypage-modify.component.scss']
 })
 export class MypageModifyComponent implements OnInit {
+  TOKEN_NAME = 'token';
+  loginState = false;
 
   userForm: FormGroup;
+  dateCutting = [];
+  
 
-  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient) { }
+  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient, public auth: AuthService) { }
+
+  userinfos: Userinfo[] = [
+    // tslint:disable-next-line: max-line-length
+    //{ email: 'immsee098@gmail.com', name: '윤해서', birthDate: '1995-04-22', phoneNumber: '010-2605-7621', PreferTheater:'상봉', getPreferList: '어쩌고'  }
+  ];
+
+  userinfo = [...this.userinfos];
+
+  myemail;
+  myname;
+  mybirthdate;
+  myphonenumber;
 
   ngOnInit() {
-    this.getFreferTheater();
+    this.getMyinfo();
+    // this.getFreferTheater();
 
     this.userForm = this.fb.group({
-      email: ['', [
+      email: [ 
+        'this.userinfo[0].email' , [
         Validators.required,
         Validators.pattern('^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$')
       ]],
@@ -59,7 +79,20 @@ export class MypageModifyComponent implements OnInit {
       theaterTwo: ['영화관선택'],
       theaterThree: ['영화관선택']
     });
+
   }
+
+  getMyinfo() {
+    const token = `JWT ${localStorage.getItem('token')}`;
+
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    const aa = this.http.get<Userinfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', {headers}).subscribe(
+      datas => this.userinfos = [datas],
+      datas => this.myemail = datas[0]
+    );
+    console.log(this.myemail);
+   }
 
   getFreferTheater() {
     return this.preferTheaterService.ChoosedTheater = [

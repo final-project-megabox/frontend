@@ -5,6 +5,8 @@ export interface Userinfo {
   phoneNumber: string;
   PreferTheater: string;
   getPreferList: string;
+  last_login: string;
+  mileage: number;
 }
 
 
@@ -22,6 +24,7 @@ export interface Bookinginfo {
 }
 
 
+
 export interface Watchedmovie {
   img_url: string;
   age: string;
@@ -32,6 +35,7 @@ export interface Watchedmovie {
 
 
 export interface Wishmovie {
+  movie_id: string;
   img_url: string;
   age: string;
   title: string;
