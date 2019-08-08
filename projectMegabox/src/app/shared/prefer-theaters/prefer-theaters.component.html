@@ -32,7 +32,10 @@
               {{ theater.theater }}
               </option>
             </select>
-            <a class="delete-prefer" title="선호 영화관 삭제" (click)="preferTheaterService.deletePreferTheaters(prefer.id)">
+            <a class="delete-prefer" title="선호 영화관 삭제" (click)="preferTheaterService.deletePreferTheaters(prefer.id)" (click)="choosenTheater('영화관선택', theater.id)"
+            (click)="choosenRegion('지역선택', region.id)"
+            (click)="preferTheaterService.deletePreferState = true"
+            >
               삭제
             </a>
           </li>
@@ -46,3 +49,4 @@
     <i class="fas fa-times" (click)="preferTheaterService.preferState = false"></i>
   </div>
 </div>
+<delete-prefer *ngIf="preferTheaterService.deletePreferState"></delete-prefer>

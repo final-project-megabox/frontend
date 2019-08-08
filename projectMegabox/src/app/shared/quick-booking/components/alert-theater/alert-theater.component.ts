@@ -8,7 +8,7 @@ import { QuickBookingService } from '../../service/quick-booking.service';
 })
 export class AlertTheaterComponent implements OnInit {
 
-  constructor(private bookingService: QuickBookingService) { }
+  constructor(public bookingService: QuickBookingService) { }
 
   ngOnInit() {
   }

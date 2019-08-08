@@ -22,11 +22,11 @@ export class MainViewComponent implements OnInit {
   
 
   constructor(
-    private quickBookingService: QuickBookingService,
-    private rootService: RootService,
-    private calenderService: CalendarService,
-    private http: HttpClient,
-    private preferTheaterService: PreferTheatersService
+    public quickBookingService: QuickBookingService,
+    public rootService: RootService,
+    public calenderService: CalendarService,
+    public http: HttpClient,
+    public preferTheaterService: PreferTheatersService
   ) {}
   
 

@@ -8,7 +8,7 @@ import { SeatService } from '../../service/seat.service';
 })
 export class SeatOneHundredThirtyComponent implements OnInit {
   allSeat = [];
-  constructor(private seatService: SeatService) { }
+  constructor(public seatService: SeatService) { }
 
   ngOnInit() {
     this.createSeat();

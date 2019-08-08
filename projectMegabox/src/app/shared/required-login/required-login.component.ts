@@ -8,7 +8,7 @@ import { RootService } from 'src/app/core/service/root.service';
 })
 export class RequiredLoginComponent implements OnInit {
   
-  constructor(private rootService: RootService) { }
+  constructor(public rootService: RootService) { }
 
   ngOnInit() {
   }

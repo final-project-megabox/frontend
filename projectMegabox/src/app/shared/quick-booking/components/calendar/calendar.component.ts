@@ -8,7 +8,7 @@ import { CalendarService } from '../../service/calendar.service';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  constructor(private quickBookingService: QuickBookingService, private calendarService: CalendarService){}
+  constructor(public quickBookingService: QuickBookingService, public calendarService: CalendarService){}
   
   ngOnInit() {
   }

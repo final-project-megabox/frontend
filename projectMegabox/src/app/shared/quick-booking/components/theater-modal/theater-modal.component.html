@@ -41,13 +41,15 @@
                 </li>
               </ng-container>
             </div>
-            <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
-                [class.list-active]="detailRegion.selected"
-                (click)="detailRegion.selected = !detailRegion.selected"
-                (click)="addRegion(detailRegion.theater, detailRegion.selected)"
-                (mouseenter)="hoverArea(detailRegion.theater)" (mouseleave)="hoverRegion = ''" #regionList>
-              <a title="{{ detailRegion.theater }}">{{ detailRegion.theater }}</a>
-            </li>
+            <ng-template #regionList>
+              <li *ngFor="let detailRegion of bookingService.detailRegions | regionsFilter :depthOneState"
+                  [class.list-active]="detailRegion.selected"
+                  (click)="detailRegion.selected = !detailRegion.selected"
+                  (click)="addRegion(detailRegion.theater, detailRegion.selected)"
+                  (mouseenter)="hoverArea(detailRegion.theater)" (mouseleave)="hoverRegion = ''">
+                <a title="{{ detailRegion.theater }}">{{ detailRegion.theater }}</a>
+              </li>
+            </ng-template>
           </ul>
         </div>
         <!-- 지도 -->

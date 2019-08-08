@@ -6,6 +6,7 @@ import { Movies } from '../models/movies.interface';
 import { environment } from 'src/environments/environment';
 import { DetailRegion } from '../models/detail-region.interface';
 import { CalendarService } from './calendar.service';
+import { SecondMovie } from '../models/secondmovie.interface';
 
 
 @Injectable({
@@ -42,10 +43,10 @@ export class QuickBookingService {
   // detailRegions: any;
   detailRegions: DetailRegion[] = [];
 
-  selectedMovie: {};
+  selectedMovie: SecondMovie;
   totalSeat: number
   
-  secondReservation(movie: {}) {
+  secondReservation(movie: SecondMovie) {
     this.selectedMovie = movie;
     this.seatSelectionModalState = true;
     this.totalSeat = movie['total_seat'];
@@ -64,7 +65,7 @@ export class QuickBookingService {
 
   movieList = [];
   
-  constructor(private http: HttpClient, private calendarService: CalendarService) { }
+  constructor(public http: HttpClient, public calendarService: CalendarService) { }
   
   ngOnInit() { }
 
@@ -190,7 +191,7 @@ export class QuickBookingService {
   }
 
   // 영화 타입 가공
-  movieType(type: ['', '']) {
+  movieType(type = ['', '']) {
     if(type[1]) {
       return `${type[0]}(${type[1]})`
     } else {

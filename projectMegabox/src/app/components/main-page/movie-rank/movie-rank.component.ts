@@ -16,9 +16,9 @@ import { MovieDetailService } from './service/movie-detail.service';
 })
 export class MovieRankComponent implements OnInit {
   constructor(
-    private rankService: QuickBookingService,
-    private rootService: RootService,
-    private movieDetailService: MovieDetailService
+    public rankService: QuickBookingService,
+    public rootService: RootService,
+    public movieDetailService: MovieDetailService
     ) { }
   
   Ranks: Rank[] = ['박스오피스', '최신개봉작', '상영예정작'];
@@ -68,13 +68,18 @@ export class MovieRankComponent implements OnInit {
       // this.movieState = rankingMovies.map(() => 0);
   })
 }
-
+  detailMovie;
   selectDetail(rankmovie: Movies) {
     // this.rankService.selectMovie = [rankmovie];
     this.movieDetailService.detailModalState = true;
     // console.log(this.rankService.selectMovie);
     console.log(rankmovie.movie_id)
-    this.movieDetailService.getDetail(rankmovie.movie_id).subscribe(res => console.log(res));
+    
+    this.movieDetailService.getDetail(rankmovie.movie_id).subscribe(res => {
+      this.detailMovie = res;
+      console.log(this.detailMovie);
+      
+    });
   }
 
   selectMovie(rankmovie: Movies) {
