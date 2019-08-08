@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,6 +7,7 @@ import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/p
 import { PasswordValidator } from './validators/password-validator';
 import { BirthValidator } from './validators/birth-validator';
 import { PhoneValidator } from './validators/phone-validator';
+import { RootService } from 'src/app/core/service/root.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,7 @@ export class SignUpComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient) { }
+  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient, public root: RootService) { }
 
   ngOnInit() {
     this.getFreferTheater();
@@ -59,6 +60,7 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+
   getFreferTheater() {
     return this.preferTheaterService.ChoosedTheater = [
       { id: 0, theater: '영화관선택', region: '지역선택' },
@@ -84,7 +86,7 @@ export class SignUpComponent implements OnInit {
       ]
     };
     this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
-    alert('회원가입이 완료되었습니다. 로그인을 통하여 나만의 무비라이프를 즐겨보세요.');
+    this.root.welcomeState = true;
   }
   
   get email() {
@@ -188,15 +190,17 @@ export class SignUpComponent implements OnInit {
   }
 
   // 마우스로 클릭 했을 시 추천 이메일 선택
-  AddEmailClick(email: string) {  
+  AddEmailClick(email: string, input: HTMLInputElement) {  
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
+    input.focus();
   }
 
   // 엔터키 입력 시 추천 이메일 선택
-  AddEmailEnter(email: string) {
+  AddEmailEnter(email: string, input: HTMLInputElement) {
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
+    input.focus();
   }
 
   @ViewChild("li", {static: false}) nameField: ElementRef;
@@ -220,7 +224,7 @@ export class SignUpComponent implements OnInit {
   duplicateTwo = '영화관선택';
   duplicateThree = '영화관선택';
 
-  // 중복검사
+  // 선호영화관 중복검사
   DuplicateCheck() {
     if(this.duplicateOne === '영화관선택' && this.duplicateTwo === '영화관선택' ||
        this.duplicateOne === '영화관선택' && this.duplicateThree === '영화관선택' ||
@@ -231,5 +235,20 @@ export class SignUpComponent implements OnInit {
     if(this.duplicateOne === this.duplicateTwo || this.duplicateOne === this.duplicateThree || this.duplicateTwo === this.duplicateThree) {
       alert('이미 선택하신 영화관 입니다.');
     }
+  }
+
+  // 이메일 중복 검사
+  duplicateEmail(email: string, input: HTMLInputElement) {
+    if(email === '') return;
+
+    const payload = { email: email }
+
+    this.http.post('http://megabox.hellocoding.shop/accounts/check_email/', payload).subscribe(check => {
+      this.root.duplicateState = !check
+      if(!check) {
+        this.emailVal = ''
+        input.focus();
+      }
+    });
   }
 }

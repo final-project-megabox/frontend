@@ -11,6 +11,7 @@ interface UserInfo {
   email: string,
   getPreferList: [{}],
   name: string,
+  last_login: string,
   phoneNumber: string,
   preferTheater: [{}],
 }
@@ -24,14 +25,16 @@ export class SuccessComponent implements OnInit {
   userEmail;
   userRegion;
   userAccessTime;
+  userLastLogin;
 
   constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { }
 
   ngOnInit() {
     this.getUserInfo();
-
+    
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
   }
-
+ 
   logout() {
     if(!localStorage.getItem('id')) {
       localStorage.removeItem('token');
@@ -51,10 +54,9 @@ export class SuccessComponent implements OnInit {
 
     this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
-        console.log(info)
         this.userEmail = info.email;
-        console.log(info.preferTheater);
         this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
+        this.userLastLogin = info.last_login;
       },
       errors => {
         

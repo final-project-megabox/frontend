@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeatService } from '../../service/seat.service';
+import { QuickBookingService } from 'src/app/shared/quick-booking/service/quick-booking.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-thirty-six',
@@ -8,7 +10,8 @@ import { SeatService } from '../../service/seat.service';
 })
 export class ThirtySixComponent implements OnInit {
   allSeat = [];
-  constructor(public seatService: SeatService) { }
+
+  constructor(public seatService: SeatService, public bookingService: QuickBookingService) { }
 
   ngOnInit() {
     this.createSeat();
@@ -26,8 +29,8 @@ export class ThirtySixComponent implements OnInit {
 
         this.allSeat[i] = [ ...this.allSeat[i], 
           { 
-            class: j === 0 ? 'title' : 'value',
-            postSeat: j === 0 ? 0 : `${currentAsc}${j}`,
+            class: j === 0 ? 'title' : this.disableSeat(`${currentAsc}${j}`) === 'disabled' ? 'disabled' : 'value',
+            postSeat: j === 0 || this.disableSeat(`${currentAsc}${j}`) === 'disabled' ? 'disabled' : `${currentAsc}${j}`,
             seatNumber: j === 0 ? String.fromCharCode(ascii) : j 
           }
         ];
@@ -36,8 +39,38 @@ export class ThirtySixComponent implements OnInit {
     }
   }
 
-  click(value: string) {
-    console.log(value)
-    console.log(this.seatService.normal, this.seatService.youth, this.seatService.favor);
+  disableSeat(seatNumber: string) {
+    let className: string;
+
+    if (this.bookingService.selectedMovie.seat_number === null) return;
+
+    this.bookingService.selectedMovie.seat_number.forEach(item => {
+      if (item === seatNumber) className = 'disabled';
+    })
+
+    return className;
+  }
+
+  addSeat(seat: string) {
+    let state = true;
+
+    if (!this.seatService.normal && !this.seatService.youth && !this.seatService.favor) {
+      return this.seatService.seatAlertState = true;
+    }
+
+    this.seatService.selectSeat.forEach(item => {
+      if (item === seat) {
+        state = false
+        return this.seatService.selectSeat = this.seatService.selectSeat.filter(Seat => Seat !== seat)
+      }
+    })
+
+    if (this.seatService.totalPeople < this.seatService.selectSeat.length + 1) {
+      return this.seatService.completeAlertState = true
+    }
+    
+    if (state) {
+      this.seatService.selectSeat = [...this.seatService.selectSeat, seat];
+    }
   }
 }

@@ -14,14 +14,13 @@
         </div>
         <div class="email-wrap">
           <input type="text" class="email-input" formControlName="email" [(ngModel)]="emailVal" 
-          (keyup)="emailChoice()" (keyup.arrowdown)="toList()" InformationBackground autofocus>
-          <button class="double-check">중복확인</button>
+          (keyup)="emailChoice()" (keyup.arrowdown)="toList()" (blur)="duplicateEmail(emailVal, input)" InformationBackground autofocus #input>
           <em *ngIf="!!email.errors?.required && email.touched" class="email-alert">이메일을 입력하세요.</em>
           <em *ngIf="!!email.errors?.pattern && email.touched" class="email-alert">형식에 맞는 이메일을 입력하세요.</em>
           <em *ngIf="!email.errors?.pattern && !email.errors?.required && email.touched" class="email-alert"><i class="fas fa-check"></i></em>
           <ul *ngIf="emailRecommendation" class="mail-recommendation" tabindex="0">
             <li *ngFor="let email of emailAddress" [textContent]="emailVal + email" ChoiceEmail (keyup.arrowup)="moveUp(li)"
-            (keyup.arrowdown)="moveDown(li)" (click)="AddEmailClick(email)"(keyup.enter)="AddEmailEnter(email)" tabindex="0" #li></li>
+            (keyup.arrowdown)="moveDown(li)" (click)="AddEmailClick(email, input)"(keyup.enter)="AddEmailEnter(email, input)" tabindex="0" #li></li>
           </ul>
         </div>
       </div>
@@ -167,8 +166,10 @@
 <!-- 버튼 -->
 <div class="wrap-submit">
   <button class="cancel-btn">취소</button>
-  <button  routerLink='' class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()" 
+  <button class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()" 
   [style.backgroundColor]= "userForm.invalid ? '#dcdcdc' : null">확인
   </button>
 </div>
 </form>
+<welcome-alert *ngIf="root.welcomeState"></welcome-alert>
+<duplicate-alert *ngIf="root.duplicateState"></duplicate-alert>

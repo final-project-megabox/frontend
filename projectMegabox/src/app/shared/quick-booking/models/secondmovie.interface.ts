@@ -1,4 +1,5 @@
 export interface SecondMovie {
+  img_url: string;
   schedule_id: number;
   theater: string;
   screen: number;
