@@ -50,6 +50,7 @@ export class QuickBookingService {
     this.selectedMovie = movie;
     this.seatSelectionModalState = true;
     this.totalSeat = movie['total_seat'];
+    console.log(this.selectedMovie)
   }
 
   // 서버에서 지역 정보를 받아온다

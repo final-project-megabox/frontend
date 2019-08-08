@@ -51,8 +51,8 @@ export class SeatOneHundredFortyComponent implements OnInit {
     }
   }
 
-  click(value: string) {
-    console.log(value)
-    console.log(this.seatService.normal, this.seatService.youth, this.seatService.favor);
+  addSeat(seat: string) {
+    this.seatService.selectSeat = [...this.seatService.selectSeat, seat]
+    console.log(this.seatService.selectSeat)
   }
 }

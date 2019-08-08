@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+
+import { AuthService } from './../../../core/service/auth.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Userinfo } from '../userinfo';
+import { Userinfo, Watchedmovie, Wishmovie } from '../userinfo';
 
 @Component({
   selector: 'app-mypage-moviestory',
@@ -16,10 +18,38 @@ export class MypageMoviestoryComponent implements OnInit {
 
   mymovieTab = '보고싶어';
 
-  constructor() { }
+  wishmovieList: Wishmovie[] = [];
+  watchedmovieList: Watchedmovie[] = [];
+
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
   }
+
+  getWishMovieConfig() {
+    const token = `JWT ${localStorage.getItem('token')}`;
+
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    const aa = this.http.get<Wishmovie>('http://megabox.hellocoding.shop//database/showWishMovies/', {headers}).subscribe(
+      data => this.wishmovieList = [data]
+    );
+    console.log(this.wishmovieList);
+   }
+
+   getWatchedMovieConfig() {
+    const token = `JWT ${localStorage.getItem('token')}`;
+
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    const bb = this.http.get<Watchedmovie>('http://megabox.hellocoding.shop//database/showWishMovies/', {headers}).subscribe(
+      data => this.watchedmovieList = [data]
+    );
+    console.log(this.watchedmovieList);
+   }
+
+
+
 
   tabActive(event) {
     console.log(event);
