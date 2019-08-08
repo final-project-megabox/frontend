@@ -35,11 +35,11 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.RankStars = [
-      { starRate: 1, starContent: '괜히 봤어요' },
-      { starRate: 2, starContent: '기대하진 말아요' },
-      { starRate: 3, starContent: '무난했어요' },
-      { starRate: 4, starContent: '기대해도 좋아요!' },
-      { starRate: 5, starContent: '너무 멋진 영화였어요!' }
+      { id: 0, starRate: 1, starContent: '괜히 봤어요' },
+      { id: 1, starRate: 2, starContent: '기대하진 말아요' },
+      { id: 2, starRate: 3, starContent: '무난했어요' },
+      { id: 3, starRate: 4, starContent: '기대해도 좋아요!' },
+      { id: 4, starRate: 5, starContent: '너무 멋진 영화였어요!' }
     ]
   }
 

@@ -153,8 +153,14 @@ $sub-color: #188591;
           background: url('http://image2.megabox.co.kr/mop/home/star_big_off.png');
           cursor: pointer;
         }
+        
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
+        }
+
+        .hoverActive {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
         }
       }
 
@@ -218,6 +224,11 @@ $sub-color: #188591;
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
         }
+
+        .hoverActive {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
       }
 
       .activeComment {
@@ -280,6 +291,11 @@ $sub-color: #188591;
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
         }
+
+        .hoverActive {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
+        }
       }
 
       .activeComment {
@@ -341,6 +357,11 @@ $sub-color: #188591;
         }
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
+        }
+
+        .hoverActive {
+          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+          cursor: pointer;
         }
       }
 

@@ -9,6 +9,7 @@ export interface RankMovie {
 }
 
 export interface RankStar {
+  id: number,
   starRate: number,
   starContent: string
 }

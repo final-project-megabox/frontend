@@ -28,7 +28,7 @@ export class MovieRankComponent implements OnInit {
   RankStars: RankStar[];
   rateState: number;
 
-  starState: number;
+  starState;
   // commentState: number = 5;
 
   movieState: number[];
@@ -40,15 +40,13 @@ export class MovieRankComponent implements OnInit {
 
   ngOnInit() {
     this.getRanking()
-    console.log(this.getRanking());
-    
     
     this.RankStars = [
-      { starRate: 1, starContent: '괜히 봤어요' },
-      { starRate: 2, starContent: '기대하진 말아요' },
-      { starRate: 3, starContent: '무난했어요' },
-      { starRate: 4, starContent: '기대해도 좋아요!' },
-      { starRate: 5, starContent: '너무 멋진 영화였어요!' }
+      { id: 0, starRate: 1, starContent: '괜히 봤어요' },
+      { id: 1, starRate: 2, starContent: '기대하진 말아요' },
+      { id: 2, starRate: 3, starContent: '무난했어요' },
+      { id: 3, starRate: 4, starContent: '기대해도 좋아요!' },
+      { id: 4, starRate: 5, starContent: '너무 멋진 영화였어요!' }
     ]
   }
 
@@ -83,11 +81,11 @@ export class MovieRankComponent implements OnInit {
     this.rootService.quickBookingModalState = true;
   }
   
-  hoverStar(id: number, idx:number, index: number) {
-    this.starState[index] = id;
-    this.movieState[index] = idx;
-    this.hoverState = true;
-  }
+  // hoverStar(id: number, idx:number, index: number) {
+  //   this.starState[index] = id;
+  //   this.movieState[index] = idx;
+  //   this.hoverState = true;
+  // }
 
   // chageSelect() {
   //   return this.RankStars = this.RankStars.map(rankstar => rankstar.selected ? {...rankstar, selected: false} : rankstar);
@@ -131,13 +129,27 @@ export class MovieRankComponent implements OnInit {
       this.saveStar = res;
       console.log(this.saveStar);
     })
+    // this.starclick = true;
+    // console.log(this.starclick);
   }
 
   hoverRate(rankmovie, id) {
-    console.log(rankmovie);
+    this.starState = id;
+    // console.log(this.starState);
+    this.hoverState = true;
+    // console.log(this.hoverState);
+    // this.starclick = true;
+    // console.log(this.starclick);
+    // this.movieState = rankmovie;
+    // console.log(this.movieState);
     
-    console.log(id);
-    
+  }
+
+  outRate(rankmovie, rate) {
+    this.hoverState = false;
+    // console.log(this.hoverState);
+    this.starState = this.RankStars.filter(rating => rating.starRate === rate.starRate)
+    // console.log(this.starState);    
   }
 
 }
