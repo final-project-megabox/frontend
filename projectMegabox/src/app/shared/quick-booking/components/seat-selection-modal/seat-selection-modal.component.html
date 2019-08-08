@@ -91,7 +91,7 @@
     </div>
       <div class="selected-movie">
         <div class="movie-info">
-          <img src="http://image2.megabox.co.kr/mop/poster/2019/6C/0D7463-7245-4F73-869D-5547D11E1497.medium.jpg" alt="">
+          <img src="{{bookingService.selectedMovie.img_url}}" alt="">
           <ul>
             <li class="title">
               <div class="age {{createAgeIcon(bookingService.selectedMovie.age)}}">
@@ -109,15 +109,28 @@
             <li class="sub">
               {{bookingService.selectedMovie.date}} {{bookingService.selectedMovie['start_time']}}
             </li>
+            <li class="sub">
+              {{seatService.normal ? '일반' + seatService.normal + '명' : ''}}
+              {{seatService.youth ? '청소년' + seatService.youth + '명' : ''}}
+              {{seatService.favor ? '우대' + seatService.favor + '명' : ''}}
+            </li> 
+          </ul>
+          <ul class="seat-info-list">
+            <li *ngFor="let item of seatService.selectSeat">
+                {{item}}
+            </li>
           </ul>
         </div>
         <div class="seat-btns-wrapper">
           <button type="button" class="booking-btn booking-prev"
           (click)="bookingService.seatSelectionModalState = false">이전</button>
           <button type="button" class="booking-btn booking-next"
-          (click)="postMovie(bookingService.selectedMovie.schedule_id)">다음</button>
+          (click)="seatService.paymentModalState = true">다음</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-alret-modal *ngIf="seatService.seatAlertState"></app-alret-modal>
+<app-select-complete-modal *ngIf="seatService.completeAlertState"></app-select-complete-modal>
+<app-payment-modal *ngIf="seatService.paymentModalState"></app-payment-modal>

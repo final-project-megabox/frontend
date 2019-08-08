@@ -10,6 +10,7 @@ import { stringify } from 'querystring';
 })
 export class ThirtySixComponent implements OnInit {
   allSeat = [];
+
   constructor(public seatService: SeatService, public bookingService: QuickBookingService) { }
 
   ngOnInit() {
@@ -41,8 +42,6 @@ export class ThirtySixComponent implements OnInit {
   disableSeat(seatNumber: string) {
     let className: string;
 
-    console.log(this.bookingService.selectedMovie.seat_number)
-
     if (this.bookingService.selectedMovie.seat_number === null) return;
 
     this.bookingService.selectedMovie.seat_number.forEach(item => {
@@ -53,7 +52,25 @@ export class ThirtySixComponent implements OnInit {
   }
 
   addSeat(seat: string) {
-    this.seatService.selectSeat = [...this.seatService.selectSeat, seat]
-    console.log(this.seatService.selectSeat)
+    let state = true;
+
+    if (!this.seatService.normal && !this.seatService.youth && !this.seatService.favor) {
+      return this.seatService.seatAlertState = true;
+    }
+
+    this.seatService.selectSeat.forEach(item => {
+      if (item === seat) {
+        state = false
+        return this.seatService.selectSeat = this.seatService.selectSeat.filter(Seat => Seat !== seat)
+      }
+    })
+
+    if (this.seatService.totalPeople < this.seatService.selectSeat.length + 1) {
+      return this.seatService.completeAlertState = true
+    }
+    
+    if (state) {
+      this.seatService.selectSeat = [...this.seatService.selectSeat, seat];
+    }
   }
 }

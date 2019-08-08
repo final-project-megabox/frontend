@@ -239,6 +239,24 @@
   background-color: #351F66;
 }
 
+.seat-info-list {
+  display: flex;
+  margin-left: 15px;
+  flex-wrap: wrap;
+
+  li {
+    width: 29px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #b19bc3;
+    color: #000;
+    font-size: 0.9rem;
+    margin-right: 10px;
+    margin-bottom: 8px;
+  }
+}
+
 app-seat-one-hundred-thirty {
   width: 100%;
   display: inline-block;
