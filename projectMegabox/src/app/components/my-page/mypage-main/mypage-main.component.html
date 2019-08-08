@@ -25,7 +25,7 @@
             <div class= "point-wrap">
               <strong class="nowpoint-text">현재 보유 포인트</strong>
               <div class="nowpoint-img"></div>
-              <strong class="nowpoint-num">0P</strong>
+              <strong class="nowpoint-num" *ngFor="let userinfo of userinfos">{{userinfo.mileage}}P</strong>
             </div>
             <div class= "point-amount">
               <ul>
