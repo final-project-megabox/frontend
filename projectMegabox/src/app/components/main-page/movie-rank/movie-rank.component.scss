@@ -7,6 +7,16 @@ $ranking-left: 245px;
 
 $sub-color: #188591;
 
+// .hoverActive {
+//   background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+//   cursor: pointer;
+// }
+
+// .rateSelect {
+//   background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
+//   cursor: pointer;
+// }
+
 // All container
 .rank-container {
   position: relative;
@@ -146,16 +156,6 @@ $sub-color: #188591;
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
         }
-
-        .hoverActive {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
-        }
-
-        .rateSelect {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
-        }
       }
 
       .activeComment {
@@ -217,16 +217,6 @@ $sub-color: #188591;
         }
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
-        }
-
-        .hoverActive {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
-        }
-
-        .rateSelect {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
         }
       }
 
@@ -290,16 +280,6 @@ $sub-color: #188591;
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
         }
-
-        .hoverActive {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
-        }
-
-        .rateSelect {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
-        }
       }
 
       .activeComment {
@@ -361,16 +341,6 @@ $sub-color: #188591;
         }
         .rankStar-2, .rankStar-3, .rankStar-4, .rankStar-5 {
           @extend .rankStar-1;
-        }
-
-        .hoverActive {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
-        }
-
-        .rateSelect {
-          background: url('http://image2.megabox.co.kr/mop/home/star_big_on.png');
-          cursor: pointer;
         }
       }
 
