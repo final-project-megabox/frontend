@@ -4,7 +4,7 @@ import { PasswordValidator } from './../../sign-up/validators/password-validator
 import { AuthService } from 'src/app/core/service/auth.service';
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/prefer-theaters.service';
@@ -23,7 +23,7 @@ export class MypageModifyComponent implements OnInit {
 
   userForm: FormGroup;
   dateCutting = [];
-  
+
 
   constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient, public auth: AuthService) { }
 
@@ -44,8 +44,8 @@ export class MypageModifyComponent implements OnInit {
     // this.getFreferTheater();
 
     this.userForm = this.fb.group({
-      email: [ 
-        'this.userinfo[0].email' , [
+      email: [
+        '' , [
         Validators.required,
         Validators.pattern('^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$')
       ]],
@@ -106,11 +106,15 @@ export class MypageModifyComponent implements OnInit {
   }
 
   confirmJoin() {
+    const token = `JWT ${localStorage.getItem('token')}`;
+
+    const headers = new HttpHeaders().set('Authorization', token);
     const payload = {
-      email: this.email.value,
-      name: this.name.value,
+
+      // email: this.email.value,
+      // name: this.name.value,
       password: this.password.value,
-      birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
+      // birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
       preferTheater: [
         { region: this.preferOne.value, theater: this.theaterOne.value },
@@ -118,9 +122,11 @@ export class MypageModifyComponent implements OnInit {
         { region: this.preferThree.value, theater: this.theaterThree.value }
       ]
     };
-    this.http.patch('http://megabox.hellocoding.shop//accounts/update/', payload).subscribe();
-    alert('회원정보 수정이 완료되었습니다.');
+
+    this.http.post('http://megabox.hellocoding.shop//accounts/updateMyInfo/', payload, { headers }).subscribe();
+    // this.root.welcomeState = true;
   }
+
 
   get email() {
     return this.userForm.get('email');
@@ -207,7 +213,7 @@ export class MypageModifyComponent implements OnInit {
   // 웹사이트 이메일 주소
   emailAddress = ['naver.com','gmail.com','daum.net','hanmail.net','nate.com','hotmail.com','icloud.com'];
 
-  // @ 입력 시 email 선택지 보여주기
+  //@ 입력 시 email 선택지 보여주기
   emailChoice(){
     const regxr = /@+[A-Z]+/gi;
     const atSign ='@';
