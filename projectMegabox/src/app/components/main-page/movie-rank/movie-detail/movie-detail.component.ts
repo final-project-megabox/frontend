@@ -96,11 +96,11 @@ export class MovieDetailComponent implements OnInit {
   }
 
   wishMovies;
+  movieInfo ;
   myWishMovie(detailMovie) {
-    // console.log(rankmovie);
-    this.movieDetailService.wishMovie(detailMovie.movie_id).subscribe(res => {
+    this.movieInfo = this.rankMovie.filter(movie => movie.title === detailMovie.title)
+    this.movieDetailService.wishMovie(this.movieInfo[0]['movie_id']).subscribe(res => {
       this.wishMovies = res;
-      console.log(this.wishMovies);
     })
   }
 

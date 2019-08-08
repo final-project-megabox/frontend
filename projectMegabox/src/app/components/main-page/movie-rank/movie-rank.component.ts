@@ -141,7 +141,6 @@ export class MovieRankComponent implements OnInit {
 
   wishMovies;
 
-  // 변수에 res 정보를 담아서 그걸 html에 활용해보자
   rankWish(rankmovie: Movies) {
     // this.wishMovie = [rankmovie]
     this.movieDetailService.wishMovie(rankmovie.movie_id).subscribe(res => {

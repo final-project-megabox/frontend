@@ -356,6 +356,13 @@ $detail-sub: #666;
         .all-wrpper {
           width: 900px;
           margin: 0 auto;
+
+          .image-headline {
+            color: $detail-main;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+          }
         }
         .gallery-top .swiper-slide {
           text-align: center;
