@@ -29,9 +29,10 @@ export class SuccessComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
-
+    
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
   }
-
+ 
   logout() {
     if(!localStorage.getItem('id')) {
       localStorage.removeItem('token');
