@@ -85,7 +85,7 @@ export class SignUpComponent implements OnInit {
         { region: this.preferThree.value, theater: this.theaterThree.value }
       ]
     };
-    // this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
+    this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
     this.root.welcomeState = true;
   }
   

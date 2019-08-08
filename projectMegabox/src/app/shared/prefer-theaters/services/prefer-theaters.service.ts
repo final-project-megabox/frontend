@@ -56,6 +56,8 @@ export class PreferTheatersService implements OnInit {
   // 선호 영화관 모달창 띄우기, 닫기
   preferState = false;
 
+  deletePreferState = false;
+
   // change 이벤트가 발생하면 지역 선택의 state를 변경하면서 지역에 맞는 도시들 만을 보여줌
   preferOneState = '지역선택';
   preferTwoState = '지역선택';

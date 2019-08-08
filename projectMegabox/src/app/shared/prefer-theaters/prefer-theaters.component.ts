@@ -41,6 +41,7 @@ export class PreferTheatersComponent implements OnInit {
   choosenTheater(theaterValue, theaterId) {
     console.log('영화관 체인지 이벤트 감지',theaterValue,theaterId);
     this.preferTheaterService.preferTheaterChoices = [...this.preferTheaterService.preferTheaterChoices, { id: theaterId, value: theaterValue}];
+
     console.log('preferTheaterChoices',this.preferTheaterService.preferTheaterChoices);
     this.preferTheaterService.preferTheaterChoices.forEach(theater => {
       if(+theater.id === 0) { this.preferTheaterService.theaterOneState = theater.value }
