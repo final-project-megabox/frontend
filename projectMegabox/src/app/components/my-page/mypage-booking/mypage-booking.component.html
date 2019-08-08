@@ -24,7 +24,7 @@
     <li class="tab-bookedDate"><a>예매일</a></li>
     <li class="tab-cancel"><a>예매취소</a></li>
   </ul>
-
+<!--  -->
   <div class= "tab-contents booked" [ngClass]="{active: navState == '예매 내역'}">
     <ul *ngFor="let bookedlist of bookedlists">
       <li class="tab-no"><div class="content-align">1</div></li>
@@ -53,7 +53,7 @@
       <ul *ngFor="let canceledlist of canceledlists">
         <li class="tab-no"><div class="content-align">3</div></li>
         <li class="tab-bookNum"><div class="content-align">{{canceledlist.booking_number}}</div></li>
-        <li class="tab-movieName"><div class="content-align2"><img src="{{canceledlist.img_url}}" class="poster"><a class="name-text">{{canceledlist.title}}</a></div></li>
+        <li class="tab-movieName"><div class="content-align2"><img src="{{canceledlist.img_url}}" class="poster"><div class="name-text">{{canceledlist.title}}</div></div></li>
         <li class="tab-screen"><div class="content-align">{{canceledlist.theater}}</div></li>
         <li class="tab-screenDate"><div class="content-align">{{canceledlist.show_date}}</div></li>
         <li class="tab-bookedDate"><div class="content-align">{{canceledlist.booking_date}}</div></li>

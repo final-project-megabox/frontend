@@ -81,10 +81,10 @@ export class MypageBookingComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', token);
 
     const bb = this.http.get<Bookinginfo>('http://megabox.hellocoding.shop//accounts/bookingHistory/', {headers}).subscribe(
-      datas => this.testlists = [datas]
+      datas => this.bookingInfos = [datas]
     );
     console.log(bb);
-    console.log(this.testlists);
+    console.log(this.bookingInfos);
   }
 
   sortUpperWord() {
