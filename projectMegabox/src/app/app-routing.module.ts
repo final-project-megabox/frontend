@@ -1,3 +1,4 @@
+import { MypageModifyComponent } from './components/my-page/mypage-modify/mypage-modify.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -15,13 +16,14 @@ import { MainViewComponent } from './shared/quick-booking/components/main-view/m
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
-  { path: 'home', component: MainPageComponent, 
+  { path: 'home', component: MainPageComponent,
     // children: [ { path: 'quick-booking', component: MainViewComponent } ]
   },
   { path: 'mypage', component: MypageMainComponent, canActivate: [ AuthGuard ] },
   { path: 'booking', component: MypageBookingComponent },
   { path: 'my-movie-story', component: MypageMoviestoryComponent, canActivate: [ AuthGuard ] },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'info-modify', component: MypageModifyComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent},
 
 ];

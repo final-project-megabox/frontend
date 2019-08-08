@@ -10,4 +10,5 @@ export interface Movies {
   type: string[];
   show_time?: string;
   running_time?: number;
+  is_wished: boolean;
 }
