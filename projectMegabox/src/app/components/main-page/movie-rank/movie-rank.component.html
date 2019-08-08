@@ -40,8 +40,8 @@
               <p class="activeComment">평점을 입력해주세요</p>
             </ng-template>
           </div> -->
-          <div class="rank-movie-wish-{{i}}" (click)="rankmovie.selected=!rankmovie.selected"
-          (click)="rankWish(rankmovie)" [class.like-select]="rankmovie.selected"></div>
+          <div class="rank-movie-wish-{{i}}" (click)="rankmovie['is_wished']=!rankmovie['is_wished']"
+          (click)="rankWish(rankmovie)" [class.like-select]="rankmovie['is_wished']"></div>
         </div>
       </div>
       

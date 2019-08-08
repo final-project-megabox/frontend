@@ -13,11 +13,9 @@ import { AppComponent } from './app.component';
 import { QuickBookingModule } from './shared/quick-booking/quick-booking.module';
 import { CoreModule } from './core/core.module';
 
-
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

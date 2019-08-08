@@ -1,5 +1,7 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 import { AppRoutingModule } from './../../app-routing.module';
 
@@ -8,6 +10,8 @@ import { MypageMoviestoryComponent } from './mypage-moviestory/mypage-moviestory
 import { MypageBookingComponent } from './mypage-booking/mypage-booking.component';
 import { MypageNaviComponent } from './mypage-navi/mypage-navi.component';
 import { MypageMainComponent } from './mypage-main/mypage-main.component';
+import { MypageModifyComponent } from './mypage-modify/mypage-modify.component';
+
 
 
 
@@ -17,12 +21,14 @@ import { MypageMainComponent } from './mypage-main/mypage-main.component';
     MypageMainComponent,
     MypageNaviComponent,
     MypageBookingComponent,
-    MypageMoviestoryComponent
+    MypageMoviestoryComponent,
+    MypageModifyComponent
 
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
 
 })

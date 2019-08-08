@@ -141,10 +141,14 @@ export class QuickBookingService {
   }
   
   getAll() {
-    // const token = localStorage.getItem('token');
-    // const headers = new HttpHeaders().set('Authorization', 'JWT ' + token);
+    const token = `JWT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
 
-    return this.http.get<Movies[]>('http://megabox.hellocoding.shop//database/showMovies/');
+    if (token ===`JWT null`) {
+      return this.http.get<Movies[]>('http://megabox.hellocoding.shop//database/showMovies/');
+    } else {
+      return this.http.get<Movies[]>('http://megabox.hellocoding.shop//database/showMovies/', { headers });
+    }
   }
 
   // 선택한 영화 갯수 구해서 add 버튼추가
