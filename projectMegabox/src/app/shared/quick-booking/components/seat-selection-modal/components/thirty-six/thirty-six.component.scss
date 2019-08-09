@@ -7,6 +7,14 @@ table {
     text-indent: -9999px;
     overflow: hidden;
   }
+  
+  .disabled {
+    background: #ccc url('http://image2.megabox.co.kr/mop/home/seatselect_160912.png') 2px -25px no-repeat;
+    cursor: unset;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin-right: 3px;
+  }
 
   tr:nth-child(2) {
     position: relative;
@@ -206,7 +214,11 @@ table {
         background-color: #707271;
         margin-right: 3px;
       }
-
+            
+      .value:hover {
+        background-color: #503396;
+        text-decoration-line: underline;
+      }
     }
   }
 

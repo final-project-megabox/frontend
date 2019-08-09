@@ -64,10 +64,10 @@ export class SignUpComponent implements OnInit {
   getFreferTheater() {
     return this.preferTheaterService.ChoosedTheater = [
       { id: 0, theater: '영화관선택', region: '지역선택' },
-      { id: 1, theater: '강남', region: '서울' }, 
-      { id: 2, theater: '신촌', region: '서울' }, 
-      { id: 3, theater: '코엑스', region: '서울' }, 
-      { id: 4, theater: '고양스타필드', region: '경기' }, 
+      { id: 1, theater: '강남', region: '서울' },
+      { id: 2, theater: '신촌', region: '서울' },
+      { id: 3, theater: '코엑스', region: '서울' },
+      { id: 4, theater: '고양스타필드', region: '경기' },
       { id: 5, theater: '해운대(장산)', region: '부산' }
     ]
   }
@@ -88,7 +88,7 @@ export class SignUpComponent implements OnInit {
     this.http.post('http://megabox.hellocoding.shop/accounts/create/', payload).subscribe();
     this.root.welcomeState = true;
   }
-  
+
   get email() {
     return this.userForm.get('email');
   }
@@ -100,7 +100,7 @@ export class SignUpComponent implements OnInit {
   get password() {
     return this.userForm.get('passwordGroup.password');
   }
-  
+
   get confirmPassword() {
     return this.userForm.get('passwordGroup.confirmPassword');
   }
@@ -190,7 +190,7 @@ export class SignUpComponent implements OnInit {
   }
 
   // 마우스로 클릭 했을 시 추천 이메일 선택
-  AddEmailClick(email: string, input: HTMLInputElement) {  
+  AddEmailClick(email: string, input: HTMLInputElement) {
     this.emailVal = this.emailVal + email;
     this.emailRecommendation = false;
     input.focus();
@@ -228,8 +228,8 @@ export class SignUpComponent implements OnInit {
   DuplicateCheck() {
     if(this.duplicateOne === '영화관선택' && this.duplicateTwo === '영화관선택' ||
        this.duplicateOne === '영화관선택' && this.duplicateThree === '영화관선택' ||
-       this.duplicateTwo === '영화관선택' && this.duplicateThree === '영화관선택' 
-    ) 
+       this.duplicateTwo === '영화관선택' && this.duplicateThree === '영화관선택'
+    )
     return
 
     if(this.duplicateOne === this.duplicateTwo || this.duplicateOne === this.duplicateThree || this.duplicateTwo === this.duplicateThree) {

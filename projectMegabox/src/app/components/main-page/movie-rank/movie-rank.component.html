@@ -18,14 +18,19 @@
           <div class="poster-hover-{{i}}">
             <div class="rankStar-container">
               <ul class="starRate-container">
-                <li *ngFor="let rankstar of RankStars" class="rankStar-{{rankstar.id}}"
-                (mouseenter)="hoverRate(rankmovie, rankstar.id)"
-                  (click)="clickStar(rankmovie, rankstar)"></li>
+                <li *ngFor="let rankstar of RankStars" class="rankStar-{{rankstar.starRate}}"
+                 (mouseenter)="hoverRate(rankmovie, rankstar.id)"
+                 (click)="clickStar(rankmovie, rankstar)" [ngClass]="{hoverActive: starState>=rankstar.id}"
+                 (mouseleave)="outRate(rankmovie, rankstar.starRate)"></li>
               </ul>
-              <div class="activeComment">
-                <p>평점을 입력해주세요</p>
+              <div *ngIf="hoverState; else inputComment" class="activeComment">
+                <p>{{RankStars[starState].starContent}}</p>
               </div>
-            </div>
+              <ng-template #inputComment>
+                <p class="activeComment">평점을 입력해주세요</p>
+              </ng-template>
+              </div>
+            <!-- </div> -->
             <!-- <div class="contents-container">
               <ul class="rankStar-container">
                 <li *ngFor="let rankStar of RankStars[i]" class="rankStar-{{rankStar.id}}"
@@ -40,7 +45,7 @@
               <p class="activeComment">평점을 입력해주세요</p>
             </ng-template>
           </div> -->
-          <div class="rank-movie-wish-{{i}}" (click)="rankmovie['is_wished']=!rankmovie['is_wished']"
+          <div class="rank-movie-wish-{{i}}" 
           (click)="rankWish(rankmovie)" [class.like-select]="rankmovie['is_wished']"></div>
         </div>
       </div>

@@ -50,6 +50,9 @@ export class MypageMainComponent implements OnInit {
     );
     // this.phoneNumMaker();
     console.log(this.userinfos);
+
+    this.http.get('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
+      .subscribe(item => console.log(item))
    }
 
   // phoneNumMaker() {

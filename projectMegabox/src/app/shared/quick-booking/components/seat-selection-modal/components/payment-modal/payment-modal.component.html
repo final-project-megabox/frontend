@@ -1,0 +1,103 @@
+<section>
+  <div class="wrapper">
+    <header>
+      <h2>결제 선택</h2>
+      <span>멤버십 포인트는 월~금(주말 및 공휴일 제외) 평일에만 사용 가능합니다.</span>
+    </header>
+    <main>
+      <ul>
+        <li>관람권</li>
+        <li>메가박스 멤버십</li>
+        <li>영화관람권/VIP쿠폰</li>
+        <li>G마켓 예매권</li>
+        <li>기프티콘</li>
+        <li>키프티쇼</li>
+        <li>도넛북</li>
+        <li>스마트콘</li>
+        <li>스토어 관람권</li>
+        <li>제휴예매권</li>
+        <li>메가박스 스타카드</li>
+        <li>메가박스 아너스카드</li>
+        <li>메가박스 프렌즈멤버십</li>
+      </ul>
+      <ul>
+        <li>할인수단</li>
+        <li>할인쿠폰</li>
+        <li>SKT멤버십</li>
+        <li>하나 SK Touch1 VIP</li>
+        <li>현대 M포인트카드</li>
+        <li>GS&Point</li>
+        <li>현대오일뱅크</li>
+        <li>해피포인트</li>
+        <li>블루멤버스 포인트</li>
+        <li>문화누리카드</li>
+        <li class="ok">OK캐쉬백</li>
+        <li>중앙 멤버십</li>
+      </ul>
+      <ul class="payment">
+        <li>결제</li>
+        <li>휴대폰 결제</li>
+        <li>신용/체크카드</li>
+        <li>카카오페이</li>
+        <li>페이코</li>
+      </ul>
+      <ul class="total-pay">
+        <li class="total-money">
+          <div>총 결제 금액</div>
+          <span>{{seatService.price}} 원</span>
+        </li>
+        <li>
+          <div>할인수단/관람권</div>
+          <span>0 원</span>
+        </li>
+        <li>
+          <div>일반결제</div>
+          <span>0 원</span>
+        </li>
+        <li class="left-money">
+          <div>남은 결제금액</div>
+          <span>0 원</span>
+        </li>
+      </ul>
+      <div class="selected-movie">
+        <div class="movie-info">
+          <img src="{{bookingService.selectedMovie.img_url}}" alt="">
+          <ul>
+            <li class="title">
+              <div class="age {{createAgeIcon(bookingService.selectedMovie.age)}}">
+                {{bookingService.selectedMovie.age}}>
+              </div>
+              <div class="title-info">
+                <span>{{bookingService.selectedMovie.movie}}</span>
+                <span>{{bookingService.movieType(bookingService.selectedMovie.types)}}</span>
+              </div>
+            </li>
+            <li class="sub">
+              <div>{{bookingService.selectedMovie.theater}}</div>
+              <div>{{bookingService.selectedMovie.screen}}관</div>
+            </li>
+            <li class="sub">
+              {{bookingService.selectedMovie.date}} {{bookingService.selectedMovie['start_time']}}
+            </li>
+            <li class="sub">
+              {{seatService.normal ? '일반' + seatService.normal + '명' : ''}}
+              {{seatService.youth ? '청소년' + seatService.youth + '명' : ''}}
+              {{seatService.favor ? '우대' + seatService.favor + '명' : ''}}
+            </li>
+          </ul>
+          <ul class="seat-info-list">
+            <li *ngFor="let item of seatService.selectSeat">
+                {{item}}
+            </li>
+          </ul>
+        </div>
+        <div class="seat-btns-wrapper">
+          <button type="button" class="booking-btn booking-prev"
+          (click)="seatService.paymentModalState = false">이전</button>
+          <button type="button" class="booking-btn booking-next"
+          (click)="postMovie(bookingService.selectedMovie.schedule_id)">결제</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>

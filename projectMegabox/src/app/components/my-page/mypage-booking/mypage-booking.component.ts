@@ -15,52 +15,52 @@ export class MypageBookingComponent implements OnInit {
 
   navState = '예매 내역';
 
-  bookingInfos: Bookinginfo[] = [
-    {
-      booking_number: 'T90716-008-3566',
-      title: '(디지털) 토이스토리4',
-      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      theater: '코엑스 컴포트 8관',
-      screen_number: 5,
-      show_date: '2018-05-16 14:55',
-      start_time: '2018-05-16 13:40:35',
-      booking_date: '2019-07-16 14:55',
-      canceled: false
-    },
-    {
-      booking_number: 'T90716-018-3567',
-      title: '(디지털) 알라딘',
-      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      theater: '코엑스 컴포트 8관',
-      screen_number: 6,
-      show_date: '2018-05-16 14:55',
-      start_time: '2018-05-16 13:40:35',
-      booking_date: '2019-07-16 14:55',
-      canceled: false
-    },
-    {
-      booking_number: 'T98756-008-3556',
-      title: '(디지털) 라이온킹',
-      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      theater: '코엑스 컴포트 8관',
-      screen_number: 5,
-      show_date: '2020-06-19 14:55',
-      start_time: '2020-07-20 13:40:35',
-      booking_date: '2019-07-16 14:55',
-      canceled: false
-    },
-    {
-      booking_number: 'T90216-108-3676',
-      title: '(디지털) 어쩌고',
-      img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
-      theater: '코엑스 컴포트 8관',
-      screen_number: 5,
-      show_date: '2018-05-16 14:55',
-      start_time: '2018-05-16 13:40:35',
-      booking_date: '2019-07-16 14:55',
-      canceled: true
-    },
-  ];
+  bookingInfos: Bookinginfo[] = [];
+    // {
+    //   booking_number: 'T90716-008-3566',
+    //   title: '(디지털) 토이스토리4',
+    //   img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
+    //   theater: '코엑스 컴포트 8관',
+    //   screen_number: 5,
+    //   show_date: '2018-05-16 14:55',
+    //   start_time: '2018-05-16 13:40:35',
+    //   booking_date: '2019-07-16 14:55',
+    //   canceled: false
+    // },
+    // {
+    //   booking_number: 'T90716-018-3567',
+    //   title: '(디지털) 알라딘',
+    //   img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
+    //   theater: '코엑스 컴포트 8관',
+    //   screen_number: 6,
+    //   show_date: '2018-05-16 14:55',
+    //   start_time: '2018-05-16 13:40:35',
+    //   booking_date: '2019-07-16 14:55',
+    //   canceled: false
+    // },
+    // {
+    //   booking_number: 'T98756-008-3556',
+    //   title: '(디지털) 라이온킹',
+    //   img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
+    //   theater: '코엑스 컴포트 8관',
+    //   screen_number: 5,
+    //   show_date: '2020-06-19 14:55',
+    //   start_time: '2020-07-20 13:40:35',
+    //   booking_date: '2019-07-16 14:55',
+    //   canceled: false
+    // },
+    // {
+    //   booking_number: 'T90216-108-3676',
+    //   title: '(디지털) 어쩌고',
+    //   img_url: 'http://image2.megabox.co.kr/mop/poster/2019/08/2A0450-B477-4367-A065-85236F25C540.small.jpg',
+    //   theater: '코엑스 컴포트 8관',
+    //   screen_number: 5,
+    //   show_date: '2018-05-16 14:55',
+    //   start_time: '2018-05-16 13:40:35',
+    //   booking_date: '2019-07-16 14:55',
+    //   canceled: true
+    // },
+
 
   bookedlists: Bookinginfo[] = [];
   watchedlists: Bookinginfo[] = [];
@@ -70,27 +70,23 @@ export class MypageBookingComponent implements OnInit {
   constructor(public http: HttpClient, public auth: AuthService) { }
 
   ngOnInit() {
+    this.movieCanceled();
     this.getConfig();
     this.watchedList();
-    this.movieCanceled();
   }
 
   getConfig() {
     const token = `JWT ${localStorage.getItem('token')}`;
-
     const headers = new HttpHeaders().set('Authorization', token);
 
-    const bb = this.http.get<Bookinginfo>('http://megabox.hellocoding.shop//accounts/bookingHistory/', {headers}).subscribe(
-      datas => this.bookingInfos = [datas]
-    );
-    console.log(bb);
-    console.log(this.bookingInfos);
+    this.http.get<Bookinginfo[]>('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
+      .subscribe(item => this.bookingInfos = item)
   }
 
-  sortUpperWord() {
-    let bookinginfo = [...this.bookingInfos];
-    console.log(bookinginfo)
-  };
+  // sortUpperWord() {
+  //   let bookinginfo = [...this.bookingInfos];
+  //   console.log(bookinginfo)
+  // };
 
 //   var student = [
 //     { name : "재석", age : 21},
