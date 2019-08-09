@@ -19,7 +19,7 @@
             <div class="rankStar-container">
               <ul class="starRate-container">
                 <li *ngFor="let rankstar of RankStars" class="rankStar-{{rankstar.id}}"
-                 (mouseenter)="hoverRate(rankmovie, rankstar.id)"
+                (mouseenter)="hoverRate(rankmovie, rankstar.id)"
                   (click)="clickStar(rankmovie, rankstar)"></li>
               </ul>
               <div class="activeComment">
