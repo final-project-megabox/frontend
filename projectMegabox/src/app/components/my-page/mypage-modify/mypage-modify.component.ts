@@ -1,3 +1,4 @@
+import { Theater } from './../../main-page/notice/models/theater.type';
 import { PhoneValidator } from './../../sign-up/validators/phone-validator';
 import { BirthValidator } from './../../sign-up/validators/birth-validator';
 import { PasswordValidator } from './../../sign-up/validators/password-validator';
@@ -40,15 +41,18 @@ export class MypageModifyComponent implements OnInit {
   myphonenumber;
 
   ngOnInit() {
+
     this.getMyinfo();
     // this.getFreferTheater();
 
     this.userForm = this.fb.group({
       email: [
-        '' , [
-        Validators.required,
-        Validators.pattern('^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$')
-      ]],
+        '' ,
+      //   [
+      //   Validators.required,
+      //   Validators.pattern('^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$')
+      // ]
+    ],
 
       passwordGroup: this.fb.group({
         password: ['', [
@@ -58,16 +62,21 @@ export class MypageModifyComponent implements OnInit {
         confirmPassword : ['', Validators.required]
       }, { validator: PasswordValidator.match}),
 
-      name: ['', Validators.required],
+      name: ['',
+      // Validators.required
+    ],
 
       birthGroup: this.fb.group({
         year: [''],
         month: [''],
         day: ['']
-      }, { validator: BirthValidator.birthValid}),
+      },
+      // { validator:
+      //   BirthValidator.birthValid}
+        ),
 
       phoneGroup: this.fb.group({
-        firstNum: [''],
+        firstNum: ['010'],
         middleNum: [''],
         lastNum: ['']
       }, { validator: PhoneValidator.phoneValid}),
@@ -89,9 +98,13 @@ export class MypageModifyComponent implements OnInit {
 
     const aa = this.http.get<Userinfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', {headers}).subscribe(
       datas => this.userinfos = [datas],
-      datas => this.myemail = datas[0]
     );
-    console.log(this.myemail);
+    console.log(this.userinfos);
+   }
+
+
+   insertEmail() {
+     this.myemail = this.userinfos[0].email;
    }
 
   getFreferTheater() {
@@ -111,10 +124,10 @@ export class MypageModifyComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', token);
     const payload = {
 
-      // email: this.email.value,
-      // name: this.name.value,
+      email: this.email.value,
+      name: this.name.value,
       password: this.password.value,
-      // birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
+      birthDate: this.year.value + '-' + this.month.value + '-' + this.day.value,
       phoneNumber: this.firstNum.value + '-' + this.middleNum.value + '-' + this.lastNum.value,
       preferTheater: [
         { region: this.preferOne.value, theater: this.theaterOne.value },

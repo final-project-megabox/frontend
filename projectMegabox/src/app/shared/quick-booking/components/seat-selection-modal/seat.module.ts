@@ -11,6 +11,7 @@ import { ClickSeatDirective } from './directives/click.directive';
 import { AlretModalComponent } from './components/alret-modal/alret-modal.component';
 import { SelectCompleteModalComponent } from './components/select-complete-modal/select-complete-modal.component';
 import { PaymentModalComponent } from './components/payment-modal/payment-modal.component';
+import { CompletedPaymentComponent } from './components/completed-payment/completed-payment.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PaymentModalComponent } from './components/payment-modal/payment-modal.
     ClickSeatDirective,
     AlretModalComponent,
     SelectCompleteModalComponent,
-    PaymentModalComponent
+    PaymentModalComponent,
+    CompletedPaymentComponent
   ],
   imports: [
     CommonModule,

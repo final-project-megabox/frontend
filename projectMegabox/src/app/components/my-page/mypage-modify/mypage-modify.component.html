@@ -10,8 +10,8 @@
             <span>이메일</span>
           </div>
           <div class="email-wrap" *ngFor="let userinfo of userinfos">
-            <input type="text" class="email-input" formControlName="email" [(ngModel)]="emailVal"
-            (keyup)="emailChoice()" (keyup.arrowdown)="toList()" value="{{userinfo.email}}" InformationBackground autofocus>
+            <input type="text" class="email-input" formControlName="email" [(ngModel)]="emailVal" value="{{userinfo.email}}"
+            (keyup)="emailChoice()" (keyup.arrowdown)="toList()"  InformationBackground autofocus>
             <button class="double-check">중복확인</button>
             <em *ngIf="!!email.errors?.required && email.touched" class="email-alert">이메일을 입력하세요.</em>
             <em *ngIf="!!email.errors?.pattern && email.touched" class="email-alert">형식에 맞는 이메일을 입력하세요.</em>
@@ -162,10 +162,12 @@
     </div>
   </div>
 
+
+
   <!-- 버튼 -->
   <div class="wrap-submit">
     <button class="cancel-btn">취소</button>
-    <button  routerLink='' class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()"
+    <button class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()"
     [style.backgroundColor]= "userForm.invalid ? '#dcdcdc' : null">확인
     </button>
   </div>

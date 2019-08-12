@@ -31,6 +31,12 @@ export class SuccessComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
+
+    const token = `JWT ${localStorage.getItem('token')}`;
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    this.http.get('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
+      .subscribe(item => console.log(item))
     
     // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
   }

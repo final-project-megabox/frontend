@@ -13,9 +13,11 @@ export class SeatSelectionModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  // calMoney() {
-  //   this.seatService.normal
-  // }
+  calMoney() {
+    this.seatService.price = this.bookingService.selectedMovie.price.normal * this.seatService.normal;
+    this.seatService.price = this.seatService.price + (this.bookingService.selectedMovie.price.youth * this.seatService.youth);
+    this.seatService.price = this.seatService.price + (this.bookingService.selectedMovie.price.favor * this.seatService.favor);
+  }
 
   createAgeIcon(age: string) {
     if (age === "전체 관람") return "age-all hidden-text";

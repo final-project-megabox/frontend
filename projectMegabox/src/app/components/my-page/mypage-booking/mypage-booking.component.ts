@@ -79,8 +79,13 @@ export class MypageBookingComponent implements OnInit {
     const token = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', token);
 
+    
     this.http.get<Bookinginfo[]>('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
-      .subscribe(item => this.bookingInfos = item)
+    .subscribe(item => {
+      
+      console.log(item)
+        this.bookingInfos = item
+      } )
   }
 
   // sortUpperWord() {

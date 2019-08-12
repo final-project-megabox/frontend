@@ -125,7 +125,7 @@
           <button type="button" class="booking-btn booking-prev"
           (click)="bookingService.seatSelectionModalState = false">이전</button>
           <button type="button" class="booking-btn booking-next"
-          (click)="seatService.paymentModalState = true">다음</button>
+          (click)="seatService.paymentModalState = true; calMoney()">다음</button>
         </div>
       </div>
     </div>

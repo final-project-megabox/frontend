@@ -11,7 +11,19 @@
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: rgba(210, 210, 210, 0.6);
+  background: rgba(255, 255, 255, 50%);
+  animation-name: bgani;
+  animation-duration: 0.3s;
+
+  @keyframes bgani {
+    0% {
+      background: rgba(255, 255, 255, 0);
+    }
+
+    100% {
+      background: rgba(255, 255, 255, 50%);
+    }
+  }
 }
 
 .seat-modal-wrapper {
@@ -30,6 +42,20 @@
 
 .seat-modal-contents {
   box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+  opacity: 1;
+
+  animation-name: opa;
+  animation-duration: 0.3s;
+
+  @keyframes opa {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 .seat-modal-header {

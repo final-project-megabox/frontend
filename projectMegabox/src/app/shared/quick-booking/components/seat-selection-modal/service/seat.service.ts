@@ -4,6 +4,7 @@ export class SeatService {
   seatAlertState = false;
   completeAlertState = false;
   paymentModalState = false;
+  completedPaymentState = false;
 
   _normal = 0;
   _youth = 0;
@@ -11,7 +12,7 @@ export class SeatService {
 
   price: number;
   st_count: number;
-
+  
   totalPeople: number;
 
   selectSeat = [];
