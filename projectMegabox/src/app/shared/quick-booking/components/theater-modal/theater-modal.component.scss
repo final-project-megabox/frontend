@@ -8,6 +8,7 @@
   background: rgba(255, 255, 255, 50%);
   animation-name: bgani;
   animation-duration: 0.8s;
+  overflow-y: scroll;
 
   @keyframes bgani {
     0% {
