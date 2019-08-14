@@ -6,14 +6,15 @@ import { PreferTheatersService } from '../prefer-theaters/services/prefer-theate
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-interface UserInfo {
+interface UserInfoo {
   birthDate: string,
   email: string,
   getPreferList: [{}],
   name: string,
   last_login: string,
   phoneNumber: string,
-  preferTheater: [{}],
+  preferTheater: [],
+  mileage: number
 }
 
 @Component({
@@ -22,21 +23,21 @@ interface UserInfo {
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  userEmail;
   userRegion;
-  userAccessTime;
-  userLastLogin;
+  userInfo: UserInfoo;
 
-  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { }
+  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { 
+    
+  }
 
   ngOnInit() {
     this.getUserInfo();
 
-    const token = `JWT ${localStorage.getItem('token')}`;
-    const headers = new HttpHeaders().set('Authorization', token);
+    // const token = `JWT ${localStorage.getItem('token')}`;
+    // const headers = new HttpHeaders().set('Authorization', token);
 
-    this.http.get('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
-      .subscribe(item => console.log(item))
+    // this.http.get('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
+    //   .subscribe(item => console.log(item))
     
     // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
   }
@@ -58,11 +59,10 @@ export class SuccessComponent implements OnInit {
     const TOKEN = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', TOKEN);
 
-    this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
+    this.http.get<UserInfoo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
-        this.userEmail = info.email;
+        this.userInfo = info
         this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
-        this.userLastLogin = info.last_login;
       },
       errors => {
         

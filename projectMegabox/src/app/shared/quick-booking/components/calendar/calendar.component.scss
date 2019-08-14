@@ -11,6 +11,13 @@ table {
     border-radius: 50%;
   }
 
+  .possible {
+    color: #fff;
+    font-weight: bold;
+    background-color: #d5cddc;
+    border-radius: 50%;
+  }
+
   .disable {
     color: gray;
   }
@@ -52,6 +59,27 @@ table {
     span {
       display: inline-block;
       width: 50%;
+      font-size: 0.8rem;
+    }
+
+    .selected-date::before {
+      content: "";
+      display: inline-block;
+      background-color: #503396;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      vertical-align: text-top;
+    }
+
+    .posible-date::before {
+      content: "";
+      display: inline-block;
+      background-color: #d5cddc;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      vertical-align: text-top;
     }
   }
 }

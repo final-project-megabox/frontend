@@ -73,7 +73,9 @@ export class MovieDetailComponent implements OnInit {
   }
   
   closeDetail() {
-    this.movieDetailService.detailModalState = false;
+    setTimeout(() => {
+      this.movieDetailService.detailModalState = false;
+    }, 1);
   }
 
   descending(key: string) {

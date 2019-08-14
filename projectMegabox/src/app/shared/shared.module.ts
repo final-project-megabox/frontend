@@ -13,6 +13,7 @@ import { RequiredLoginComponent } from './required-login/required-login.componen
 import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-filter.pipe';
 import { SeatModule } from './quick-booking/components/seat-selection-modal/seat.module';
 import { DeletePreferComponent } from './prefer-theaters/delete-prefer/delete-prefer.component';
+import { ModalStyleDirective } from './directives/modal-style.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DeletePreferComponent } from './prefer-theaters/delete-prefer/delete-pr
     SuccessComponent,
     RequiredLoginComponent,
     PreferTheaterFilterPipe,
-    DeletePreferComponent
+    DeletePreferComponent,
+    ModalStyleDirective
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { DeletePreferComponent } from './prefer-theaters/delete-prefer/delete-pr
     LoginModalComponent,
     PreferTheatersComponent,
     SuccessComponent,
-    RequiredLoginComponent
+    RequiredLoginComponent,
+    ModalStyleDirective
   ]
 })
 export class SharedModule { }
