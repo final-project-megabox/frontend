@@ -5,6 +5,7 @@ import { RootService } from 'src/app/core/service/root.service';
 import { PreferTheatersService } from '../prefer-theaters/services/prefer-theaters.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PreferService } from '../prefer/services/prefer.service';
 
 interface UserInfo {
   birthDate: string,
@@ -31,8 +32,10 @@ export class SuccessComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
+
+    this.preferTheaterService.preferChangeDetect();
     
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
+    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
   }
  
   logout() {
@@ -55,7 +58,7 @@ export class SuccessComponent implements OnInit {
     this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
         this.userEmail = info.email;
-        this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
+        // this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
         this.userLastLogin = info.last_login;
       },
       errors => {

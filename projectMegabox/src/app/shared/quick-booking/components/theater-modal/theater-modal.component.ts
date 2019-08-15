@@ -33,7 +33,7 @@ export class TheaterModalComponent implements OnInit {
 
   // 서버에서 선호 영화관 데이터를 받아오고 this.preferTheaterService.choieces 배열에 할당한다.
   getPrefer() {
-    this.preferTheaterService.getAllPreferTheaters()
+    this.preferTheaterService.getAll()
     .subscribe(theaters => this.preferTheaterService.choieces = theaters['preferTheater']);
   }
   

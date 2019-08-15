@@ -12,14 +12,16 @@ export class PreferTheatersService implements OnInit {
 
   ngOnInit() {}
   
+  // 선호 영화관 커스텀 이벤트 생성
   preferTheaterUpDated: EventEmitter<any> = new EventEmitter();
 
+  // 선호 영화관 커스텀 이벤트를 감지하는 메소드 정의
   preferChangeDetect() {
     this.preferTheaterUpDated.emit(this.choieces);
   }
   
 
-  getAllPreferTheaters() {
+  getAll() {
     const token = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', token);
 

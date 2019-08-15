@@ -16,11 +16,16 @@ export class PreferTheatersComponent implements OnInit {
     // 뷰 구현을 위한 데이터 호출
     this.getFreferTheater();
 
+    // 서버에서 받아오는 선호 영화관 데이터
     this.getAllPreferTheaters();
+  
+    // choices 배열의 변화를 감지
+    this.preferTheaterService.preferChangeDetect();
   }
 
+  // 서버에서 받아오는 선호 영화관 데이터
   getAllPreferTheaters() {
-    this.preferTheaterService.getAllPreferTheaters()
+    this.preferTheaterService.getAll()
     .subscribe(theaters => this.preferTheaterService.choieces = theaters['preferTheater']);
     console.log('선호영화관 모달', this.preferTheaterService.choieces);
   }
@@ -92,7 +97,7 @@ export class PreferTheatersComponent implements OnInit {
 
     this.preferTheaterService.postPreferTheaters();
 
-    this.preferTheaterService.preferChangeDetect();
+    // this.preferTheaterService.preferChangeDetect();
   
     // 선호 영화관 모달창 닫기
     this.preferTheaterService.preferState = false
