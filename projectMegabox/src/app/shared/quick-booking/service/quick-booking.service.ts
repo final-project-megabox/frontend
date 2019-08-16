@@ -45,7 +45,7 @@ export class QuickBookingService {
 
   selectedMovie: SecondMovie;
   totalSeat: number
-  
+
   secondReservation(movie: SecondMovie) {
     this.selectedMovie = movie;
     this.seatSelectionModalState = true;
@@ -60,7 +60,7 @@ export class QuickBookingService {
 
   payLoad = [];
 
-  _postDate =`${this.calendarService.year}-0${this.calendarService.month + ''.length === 1 ? '0' + (this.calendarService.month + 1) : this.calendarService.month + 1}-0${this.calendarService.day + ''.length === 1 ? '0' + this.calendarService.day : this.calendarService.day}`;
+  _postDate =`${this.calendarService.year}-0${this.calendarService.month + ''.length === 1 ? '0' + (this.calendarService.month + 1) : this.calendarService.month + 1}-${this.calendarService.day + ''.length === 1 ? '0' + this.calendarService.day : this.calendarService.day}`;
   postTheater = '';
   postMovie = '';
 
@@ -135,6 +135,8 @@ export class QuickBookingService {
     if (!this.postTheater) {
       return;
     }
+
+    console.log(`${this.postDate}${this.postTheater}${this.postMovie}`)
 
     this.http.get<Movies[]>(`http://megabox.hellocoding.shop//database/reservationScheduleList/?date=${this.postDate}${this.postTheater}${this.postMovie}`)
       .subscribe(list => this.movieList = list);

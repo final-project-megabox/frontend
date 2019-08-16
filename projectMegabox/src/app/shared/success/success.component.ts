@@ -5,16 +5,16 @@ import { RootService } from 'src/app/core/service/root.service';
 import { PreferTheatersService } from '../prefer-theaters/services/prefer-theaters.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { PreferService } from '../prefer/services/prefer.service';
 
-interface UserInfo {
+interface UserInfoo {
   birthDate: string,
   email: string,
   getPreferList: [{}],
   name: string,
   last_login: string,
   phoneNumber: string,
-  preferTheater: [{}],
+  preferTheater: [],
+  mileage: number
 }
 
 @Component({
@@ -23,19 +23,28 @@ interface UserInfo {
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  userEmail;
   userRegion;
-  userAccessTime;
-  userLastLogin;
+  userInfo:UserInfoo = {birthDate: '', email: '', getPreferList: [{}], name: '', last_login: '', phoneNumber: '', preferTheater:[], mileage: 0 };
 
-  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { }
-
+  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { 
+  }
   ngOnInit() {
     this.getUserInfo();
 
-    this.preferTheaterService.preferChangeDetect();
+    // const token = `JWT ${localStorage.getItem('token')}`;
+    // const headers = new HttpHeaders().set('Authorization', token);
+
+    // this.http.get('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
+    //   .subscribe(item => console.log(item))
     
-    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detect',test.value));
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detect',test.id));
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detail',test[0]["value"]));
+    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detect',test.map(theater => theater)));
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test["value"]);
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(detail => detail.value));
+    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
+    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater));
   }
  
   logout() {
@@ -55,11 +64,11 @@ export class SuccessComponent implements OnInit {
     const TOKEN = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', TOKEN);
 
-    this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
+    this.http.get<UserInfoo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
-        this.userEmail = info.email;
+        console.log(info);
+        this.userInfo = info
         // this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
-        this.userLastLogin = info.last_login;
       },
       errors => {
         

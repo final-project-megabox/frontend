@@ -1,4 +1,4 @@
-<div class="quick-booking">
+<div class="quick-booking" (appModalStyle)="$event.target">
   <div class="bg"></div>
   <div class="wrapper">
     <div class="main-container">
@@ -174,8 +174,7 @@
       </div>
       <div class="advertisement"></div>
     </div>
-    <button class="close" (click)="rootService.quickBookingModalState = false">
-      <span>닫기</span>
+    <button class="close" (click)="closeModal()">
     </button>
   </div>
 </div>

@@ -12,6 +12,19 @@ section {
   left: 0;
   z-index: 1050;
   background: rgba(255, 255, 255, 50%);
+  animation-name: bgani;
+  animation-duration: 0.3s;
+  overflow-y: scroll;
+
+  @keyframes bgani {
+    0% {
+      background: rgba(255, 255, 255, 0);
+    }
+
+    100% {
+      background: rgba(255, 255, 255, 50%);
+    }
+  }
   
   .wrapper {
     position: relative;
@@ -22,6 +35,20 @@ section {
     border: 1px solid #cdcdcd;
     background: #fff;
     box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+    opacity: 1;
+
+    animation-name: opa;
+    animation-duration: 0.3s;
+  
+    @keyframes opa {
+      0% {
+        opacity: 0;
+      }
+  
+      100% {
+        opacity: 1;
+      }
+    }
 
     header {
       display: flex;

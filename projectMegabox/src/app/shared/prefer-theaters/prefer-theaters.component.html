@@ -43,10 +43,63 @@
     </div>
   
     <div class="alert-footer">
-        <button class="alert-cancel" (click)="preferTheaterService.preferState = false">취소</button>
+        <button class="alert-cancel" (click)="cancel()">취소</button>
+        <!-- <button class="alert-cancel" (click)="preferTheaterService.preferState = false">취소</button> -->
         <button class="alert-confirm" (click)="confirm()">등록</button>
     </div>
     <i class="fas fa-times" (click)="preferTheaterService.preferState = false"></i>
   </div>
 </div>
 <delete-prefer *ngIf="preferTheaterService.deletePreferState"></delete-prefer>
+<!-- <div class="container">
+  <div class="wrapper">
+    <div class="alert-header">
+      <h1>선호 영화관 등록</h1>
+    </div>
+    <div class="alert-body">
+      <p>
+        선호 영화관은 최대3개까지 등록 가능하며, 1순위 영화관이 나의 선호영화관으로 우선 지정됩니다.<br>
+        등록된 선호 영화관은 <em class="puple">나의 메가박스>회원정보 수정</em> 에서 확인 및 수정하실 수 있습니다.
+      </p>
+    </div>
+
+    <div class="prefer-theater-wrap">
+        <ol class="order-line" *ngFor="let prefer of preferTheaterService.choieces">
+          <li class="line">
+            <ng-container *ngFor="let rank of orderNum">
+            <span class="rank" *ngIf= "prefer.id === rank.id">{{ rank.rank }}</span>
+            </ng-container>
+            <select id="{{ prefer.id }}" name="region-group" class="region-choice"  (change)="choosenRegion(region.value, region.id)" #region>
+              <option value="{{ prefer.region }}">{{ prefer.region }}</option>
+              <option value="지역선택" *ngIf="prefer.region !== '지역선택'">지역선택</option>
+              <option value="서울" *ngIf="prefer.region !== '서울'">서울</option>
+              <option value="경기" *ngIf="prefer.region !== '경기'">경기</option>
+              <option value="부산" *ngIf="prefer.region !== '부산'">부산</option>
+            </select>
+            <select id="{{ prefer.id }}" name="theater-group" class="theater-choice" (change)="choosenTheater(theater.value, theater.id)" #theater>
+              <option *ngIf="region.value === prefer.region" value="{{ prefer.theater }}">
+                {{ prefer.theater }}
+              </option>
+              <option *ngFor="let theater of preferTheaterService.ChoosedTheater | preferTheaterFilter : prefer.id : preferTheaterService.preferOneState
+              : preferTheaterService.preferTwoState : preferTheaterService.preferThreeState" value="{{theater.theater}}">
+              {{ theater.theater }}
+              </option>
+            </select>
+            <a class="delete-prefer" title="선호 영화관 삭제" (click)="preferTheaterService.deletePreferTheaters(prefer.id)" (click)="choosenTheater('영화관선택', theater.id)"
+            (click)="choosenRegion('지역선택', region.id)"
+            (click)="preferTheaterService.deletePreferState = true"
+            >
+              삭제
+            </a>
+          </li>
+        </ol>
+    </div>
+  
+    <div class="alert-footer">
+        <button class="alert-cancel" (click)="preferTheaterService.preferState = false">취소</button>
+        <button class="alert-confirm" (click)="confirm()">등록</button>
+    </div>
+    <i class="fas fa-times" (click)="preferTheaterService.preferState = false"></i>
+  </div>
+</div>
+<delete-prefer *ngIf="preferTheaterService.deletePreferState"></delete-prefer> -->

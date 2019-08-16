@@ -16,7 +16,7 @@ export class PaymentModalComponent implements OnInit {
 
   postMovie(schedule: number) {
     this.seatService.postMovie(schedule, this.seatService.selectSeat)
-      .subscribe()
+      .subscribe(item => this.bookingService.selectedMovie = {...this.bookingService.selectedMovie, ...item})
   }
 
   createAgeIcon(age: string) {

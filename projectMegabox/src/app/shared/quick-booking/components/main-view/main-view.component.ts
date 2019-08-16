@@ -18,8 +18,7 @@ export class MainViewComponent implements OnInit {
   timeTableX = 0;
   currentTime: number;
   afterToday: Days[];
-  addPlus = [];
-  
+  addPlus = [];  
 
   constructor(
     public quickBookingService: QuickBookingService,
@@ -133,8 +132,9 @@ export class MainViewComponent implements OnInit {
     if (age === "청소년 관람불가") return "age-adult hidden-text";
   }
 
-  // 상영관 버튼
-  theaterSelect() {
-    
+  closeModal() {
+    setTimeout(() => {
+      this.rootService.quickBookingModalState = false
+    }, 1);
   }
 }

@@ -17,8 +17,9 @@ export class PreferTheatersService implements OnInit {
 
   // 선호 영화관 커스텀 이벤트를 감지하는 메소드 정의
   preferChangeDetect() {
+    // this.preferTheaterUpDated.emit(this.preferTheaterChoices);
     this.preferTheaterUpDated.emit(this.choieces);
-  }
+  }                                                                      
   
 
   getAll() {

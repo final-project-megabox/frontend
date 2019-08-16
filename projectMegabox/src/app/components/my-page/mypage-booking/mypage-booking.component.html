@@ -26,7 +26,7 @@
   </ul>
 <!--  -->
   <div class= "tab-contents booked" [ngClass]="{active: navState == '예매 내역'}">
-    <ul *ngFor="let bookedlist of bookedlists">
+    <ul *ngFor="let bookedlist of bookingInfos">
       <li class="tab-no"><div class="content-align">1</div></li>
       <li class="tab-bookNum"><div class="content-align">{{bookedlist.booking_number}}</div></li>
       <li class="tab-movieName"><div class="content-align2"><img src="{{bookedlist.img_url}}" class="poster"><a class="name-text">{{bookedlist.title}}</a></div></li>

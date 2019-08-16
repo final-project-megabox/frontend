@@ -95,9 +95,10 @@
           <button type="button" class="booking-btn booking-prev"
           (click)="seatService.paymentModalState = false">이전</button>
           <button type="button" class="booking-btn booking-next"
-          (click)="postMovie(bookingService.selectedMovie.schedule_id)">결제</button>
+          (click)="postMovie(bookingService.selectedMovie.schedule_id); seatService.completedPaymentState = true">결제</button>
         </div>
       </div>
     </main>
   </div>
 </section>
+<app-completed-payment *ngIf="seatService.completedPaymentState"></app-completed-payment>
