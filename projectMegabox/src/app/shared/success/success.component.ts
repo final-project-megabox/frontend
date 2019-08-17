@@ -23,7 +23,7 @@ interface UserInfoo {
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  userRegion;
+  userRegion=[];
   userInfo:UserInfoo = {birthDate: '', email: '', getPreferList: [{}], name: '', last_login: '', phoneNumber: '', preferTheater:[], mileage: 0 };
 
   constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { 
@@ -37,14 +37,12 @@ export class SuccessComponent implements OnInit {
     // this.http.get('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
     //   .subscribe(item => console.log(item))
     
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detect',test.value));
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detect',test.id));
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detail',test[0]["value"]));
     this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detect',test.map(theater => theater)));
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test["value"]);
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(detail => detail.value));
     // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
-    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater));
+
+    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> {
+      this.userRegion = test.map(theater => theater)
+    });
   }
  
   logout() {
@@ -68,7 +66,10 @@ export class SuccessComponent implements OnInit {
       .subscribe(info => {
         console.log(info);
         this.userInfo = info
-        // this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
+        // info.preferTheater.filter(prefer => console.log( prefer['theater']));
+        // console.log( info.preferTheater.filter(prefer => prefer['theater']));
+        this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
+        // this.userRegion = info.preferTheater.filter(prefer => prefer['theater']);
       },
       errors => {
         

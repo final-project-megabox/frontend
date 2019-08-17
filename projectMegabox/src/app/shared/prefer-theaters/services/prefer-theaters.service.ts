@@ -8,12 +8,16 @@ import { AuthService } from 'src/app/core/service/auth.service';
   providedIn: 'root'
 })
 export class PreferTheatersService implements OnInit {
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService) {
+    this.preferTheaterUpDated = new EventEmitter();
+   }
 
-  ngOnInit() {}
-  
+  ngOnInit() {
+  }
+
   // 선호 영화관 커스텀 이벤트 생성
-  preferTheaterUpDated: EventEmitter<any> = new EventEmitter();
+  preferTheaterUpDated: EventEmitter<any>;
+  // preferTheaterUpDated: EventEmitter<any> = new EventEmitter();
 
   // 선호 영화관 커스텀 이벤트를 감지하는 메소드 정의
   preferChangeDetect() {

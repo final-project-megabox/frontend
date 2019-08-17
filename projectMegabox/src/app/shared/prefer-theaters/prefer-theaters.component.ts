@@ -21,6 +21,7 @@ export class PreferTheatersComponent implements OnInit {
   
     // choices 배열의 변화를 감지
     this.preferTheaterService.preferChangeDetect();
+    
   }
 
   // 서버에서 받아오는 선호 영화관 데이터
@@ -47,7 +48,16 @@ export class PreferTheatersComponent implements OnInit {
     // console.log('영화관 체인지 이벤트 감지',theaterValue,theaterId);
     this.preferTheaterService.preferTheaterChoices = [...this.preferTheaterService.preferTheaterChoices, { id: theaterId, value: theaterValue}];
 
-    // console.log('preferTheaterChoices',this.preferTheaterService.preferTheaterChoices);
+    console.log('preferTheaterChoices',this.preferTheaterService.preferTheaterChoices);
+
+    console.log(this.preferTheaterService.preferTheaterChoices.map(({id})=> id));
+    const preferId = this.preferTheaterService.preferTheaterChoices.map(({id})=> id);
+    const duplicate = this.preferTheaterService.preferTheaterChoices.filter((content, idx ) => {
+      if(idx === +preferId.lastIndexOf(content.id)) return content;
+    });
+    console.log(duplicate);
+    this.preferTheaterService.preferTheaterChoices = duplicate;
+
     this.preferTheaterService.preferTheaterChoices.forEach(theater => {
       if(+theater.id === 0) { this.preferTheaterService.theaterOneState = theater.value }
       if(+theater.id === 1) { this.preferTheaterService.theaterTwoState = theater.value }
@@ -55,17 +65,17 @@ export class PreferTheatersComponent implements OnInit {
     });
 
     // 중복 검사
-    if(this.preferTheaterService.theaterOneState === '영화관선택' && this.preferTheaterService.theaterTwoState === '영화관선택' ||
-       this.preferTheaterService.theaterOneState === '영화관선택' && this.preferTheaterService.theaterThreeState === '영화관선택' ||
-       this.preferTheaterService.theaterTwoState === '영화관선택' && this.preferTheaterService.theaterThreeState === '영화관선택'
-    ) 
-    return
+    // if(this.preferTheaterService.theaterOneState === '영화관선택' && this.preferTheaterService.theaterTwoState === '영화관선택' ||
+    //    this.preferTheaterService.theaterOneState === '영화관선택' && this.preferTheaterService.theaterThreeState === '영화관선택' ||
+    //    this.preferTheaterService.theaterTwoState === '영화관선택' && this.preferTheaterService.theaterThreeState === '영화관선택'
+    // ) 
+    // return
 
-    if(this.preferTheaterService.theaterOneState === this.preferTheaterService.theaterTwoState ||
-       this.preferTheaterService.theaterOneState === this.preferTheaterService.theaterThreeState ||
-       this.preferTheaterService.theaterTwoState === this.preferTheaterService.theaterThreeState
-    )
-    { alert('이미 선택하신 영화관 입니다.') }
+    // if(this.preferTheaterService.theaterOneState === this.preferTheaterService.theaterTwoState ||
+    //    this.preferTheaterService.theaterOneState === this.preferTheaterService.theaterThreeState ||
+    //    this.preferTheaterService.theaterTwoState === this.preferTheaterService.theaterThreeState
+    // )
+    // { alert('이미 선택하신 영화관 입니다.') }
   }
 
 
@@ -97,7 +107,7 @@ export class PreferTheatersComponent implements OnInit {
 
     this.preferTheaterService.postPreferTheaters();
 
-    this.getAllPreferTheaters();
+    // this.getAllPreferTheaters();
 
     this.preferTheaterService.preferChangeDetect();
   
