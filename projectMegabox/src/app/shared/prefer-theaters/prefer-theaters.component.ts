@@ -28,7 +28,6 @@ export class PreferTheatersComponent implements OnInit {
   getAllPreferTheaters() {
     this.preferTheaterService.getAll()
     .subscribe(theaters => {
-      console.log(theaters);
       this.preferTheaterService.choieces = theaters['preferTheater'];
       theaters['preferTheater'].forEach(theaters => {
         if(theaters.id === 0) { this.preferTheaterService.preferOneState = theaters.region; this.preferTheaterService.theaterOneState = theaters.theater};
