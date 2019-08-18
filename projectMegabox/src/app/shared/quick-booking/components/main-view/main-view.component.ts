@@ -45,8 +45,10 @@ export class MainViewComponent implements OnInit {
   pref() {
     setTimeout(() => {
       this.preferTheaterService.bowlPrefer = this.preferTheaterService.choieces.filter(({ theater }) => theater !=='영화관선택');
-     
-    }, 1000); 
+      this.quickBookingService.transmitTheaters = [...this.preferTheaterService.bowlPrefer.map(({ theater }) => theater), ...this.quickBookingService.transmitTheaters];
+      const uniqueTransmit = Array.from(new Set(this.quickBookingService.transmitTheaters));
+      this.quickBookingService.transmitTheaters = uniqueTransmit;
+    }); 
   }
 
   // 오늘부터 한달 생성
