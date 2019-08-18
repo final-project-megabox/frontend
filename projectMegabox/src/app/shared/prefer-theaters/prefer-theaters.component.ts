@@ -27,16 +27,28 @@ export class PreferTheatersComponent implements OnInit {
   // 서버에서 받아오는 선호 영화관 데이터
   getAllPreferTheaters() {
     this.preferTheaterService.getAll()
-    .subscribe(theaters => this.preferTheaterService.choieces = theaters['preferTheater']);
-    // console.log('선호영화관 모달', this.preferTheaterService.choieces);
+    .subscribe(theaters => {
+      console.log(theaters);
+      this.preferTheaterService.choieces = theaters['preferTheater'];
+      theaters['preferTheater'].forEach(theaters => {
+        if(theaters.id === 0) { this.preferTheaterService.preferOneState = theaters.region; this.preferTheaterService.theaterOneState = theaters.theater};
+        if(theaters.id === 1) { this.preferTheaterService.preferTwoState = theaters.region; this.preferTheaterService.theaterTwoState = theaters.theater};
+        if(theaters.id === 2) { this.preferTheaterService.preferThreeState = theaters.region; this.preferTheaterService.theaterThreeState = theaters.theater};
+      })
+    });
   }
 
   // change 이벤트가 발생하면 선택한 지역을 배열에 할당하고 각각의 state에 할당
-
   choosenRegion(regionValue, regionId) {
-    // console.log('지역 체인지 이벤트 감지');
-    // 덮어쓰게 만들어야 함.
     this.preferTheaterService.preferRegionChoices = [...this.preferTheaterService.preferRegionChoices, { id: regionId, value: regionValue}];
+
+    const preferId = this.preferTheaterService.preferRegionChoices.map(({id})=> id);
+    const duplicate = this.preferTheaterService.preferRegionChoices.filter((content, idx ) => {
+      if(idx === +preferId.lastIndexOf(content.id)) return content;
+    });
+
+    this.preferTheaterService.preferRegionChoices = duplicate;
+
     this.preferTheaterService.preferRegionChoices.forEach(region => {
       if(+region.id === 0) { this.preferTheaterService.preferOneState = region.value }
       if(+region.id === 1) { this.preferTheaterService.preferTwoState = region.value }
@@ -44,18 +56,15 @@ export class PreferTheatersComponent implements OnInit {
     });
   }
 
+  // change 이벤트가 발생하면 선택한 영화관을 배열에 할당하고 각각의 state에 할당
   choosenTheater(theaterValue, theaterId) {
-    // console.log('영화관 체인지 이벤트 감지',theaterValue,theaterId);
     this.preferTheaterService.preferTheaterChoices = [...this.preferTheaterService.preferTheaterChoices, { id: theaterId, value: theaterValue}];
 
-    console.log('preferTheaterChoices',this.preferTheaterService.preferTheaterChoices);
-
-    console.log(this.preferTheaterService.preferTheaterChoices.map(({id})=> id));
     const preferId = this.preferTheaterService.preferTheaterChoices.map(({id})=> id);
     const duplicate = this.preferTheaterService.preferTheaterChoices.filter((content, idx ) => {
       if(idx === +preferId.lastIndexOf(content.id)) return content;
     });
-    console.log(duplicate);
+
     this.preferTheaterService.preferTheaterChoices = duplicate;
 
     this.preferTheaterService.preferTheaterChoices.forEach(theater => {
@@ -102,23 +111,24 @@ export class PreferTheatersComponent implements OnInit {
     this.preferTheaterService.theaterChoiceTwo = this.preferTheaterService.theaterTwoState;
     this.preferTheaterService.theaterChoiceThree = this.preferTheaterService.theaterThreeState;
 
-    // console.log(this.preferTheaterService.theaterChoiceOne);
-    // console.log(this.preferTheaterService.regionChoiceOne);
-
     this.preferTheaterService.postPreferTheaters();
 
-    // this.getAllPreferTheaters();
+    this.preferTheaterService.choieces = [
+      { id: 0, theater: this.preferTheaterService.theaterChoiceOne, region: this.preferTheaterService.regionChoiceOne},
+      { id: 1, theater: this.preferTheaterService.theaterChoiceTwo, region: this.preferTheaterService.regionChoiceTwo},
+      { id: 2, theater: this.preferTheaterService.theaterChoiceThree, region: this.preferTheaterService.regionChoiceThree}
+    ]
 
     this.preferTheaterService.preferChangeDetect();
   
     // 선호 영화관 모달창 닫기
-    this.preferTheaterService.preferState = false
+    this.preferTheaterService.preferState = false;
   }
 
   cancel() {
     this.preferTheaterService.preferChangeDetect();
 
-    this.preferTheaterService.preferState = false
+    this.preferTheaterService.preferState = false;
   }
 
   // 순위를 보여주기 위한 자료구조

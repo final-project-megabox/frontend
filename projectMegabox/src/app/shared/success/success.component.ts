@@ -26,23 +26,14 @@ export class SuccessComponent implements OnInit {
   userRegion=[];
   userInfo:UserInfoo = {birthDate: '', email: '', getPreferList: [{}], name: '', last_login: '', phoneNumber: '', preferTheater:[], mileage: 0 };
 
-  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { 
-  }
+  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { }
+
   ngOnInit() {
-    this.getUserInfo();
-
-    // const token = `JWT ${localStorage.getItem('token')}`;
-    // const headers = new HttpHeaders().set('Authorization', token);
-
-    // this.http.get('http://megabox.hellocoding.shop//accounts/bookingHistory/', { headers })
-    //   .subscribe(item => console.log(item))
-    
-    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> console.log('detect',test.map(theater => theater)));
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
-
-    this.preferTheaterService.preferTheaterUpDated.subscribe(test=> {
-      this.userRegion = test.map(theater => theater)
+    this.preferTheaterService.preferTheaterUpDated.subscribe(detect=> {
+      this.userRegion = detect.filter(theater => theater['theater'] !== '영화관선택');
     });
+
+    this.getUserInfo();
   }
  
   logout() {
@@ -64,12 +55,8 @@ export class SuccessComponent implements OnInit {
 
     this.http.get<UserInfoo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
-        console.log(info);
         this.userInfo = info
-        // info.preferTheater.filter(prefer => console.log( prefer['theater']));
-        // console.log( info.preferTheater.filter(prefer => prefer['theater']));
         this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
-        // this.userRegion = info.preferTheater.filter(prefer => prefer['theater']);
       },
       errors => {
         
