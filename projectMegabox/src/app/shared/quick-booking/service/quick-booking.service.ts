@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Movies } from '../models/movies.interface';
 
-import { environment } from 'src/environments/environment';
 import { DetailRegion } from '../models/detail-region.interface';
 import { CalendarService } from './calendar.service';
 import { SecondMovie } from '../models/secondmovie.interface';
