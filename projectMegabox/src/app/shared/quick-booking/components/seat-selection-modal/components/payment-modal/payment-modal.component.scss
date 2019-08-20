@@ -1,0 +1,268 @@
+.hidden-text {
+  display: block;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+section {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  background: rgba(255, 255, 255, 50%);
+  animation-name: bgani;
+  animation-duration: 0.3s;
+  overflow-y: scroll;
+
+  @keyframes bgani {
+    0% {
+      background: rgba(255, 255, 255, 0);
+    }
+
+    100% {
+      background: rgba(255, 255, 255, 50%);
+    }
+  }
+  
+  .wrapper {
+    position: relative;
+    width: 970px;
+    height: 555px;
+    margin: 0 auto;
+    margin-top: 90px;
+    border: 1px solid #cdcdcd;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+    opacity: 1;
+
+    animation-name: opa;
+    animation-duration: 0.3s;
+  
+    @keyframes opa {
+      0% {
+        opacity: 0;
+      }
+  
+      100% {
+        opacity: 1;
+      }
+    }
+
+    header {
+      display: flex;
+      align-items: flex-end;
+      padding: 20px 25px;
+
+      h2 {
+        color:  #503396;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+      span {
+        color: #222;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-left: 15px;
+      }
+    }
+
+    main {
+      display: flex;
+      height: 487px;
+
+      > ul {
+        border-top: 3px solid #bbb;
+        border-right: 1px solid #cdcdcd;
+        width: 200px;
+
+        li:nth-child(1) {
+          color: #666;
+          text-align: center;
+          font-size: 1rem;
+
+        }
+
+        li {
+          color: rgb(51, 51, 51);
+          border-bottom: 1px solid #cdcdcd;
+          padding: 11px 20px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+
+      .payment {
+        border-top: 3px solid #503396;
+        border-right: 1px solid #cdcdcd;
+      }
+
+      .total-pay {
+        border-top: 3px solid #503396;
+        border-right: 1px solid #cdcdcd;
+
+        li {
+          div {
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+          }
+        }
+
+        .total-money {
+          background-color: #f6f4f9;
+          text-align: unset;
+
+          span {
+            color: #503396;
+            font-size: 1.2rem;
+          }
+        }
+
+        .left-money {
+          background-color: #f6f4f9;
+
+          span {
+            color: #503396;
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .selected-movie {
+        width: 175px;
+        background: #404040;
+        
+        .movie-info {
+          img {
+            display: block;
+            height: 240px;
+            width: 100%;
+          }
+      
+          ul {
+            .title {
+              display: flex;
+              padding-left: 8px;
+              margin-bottom: 5px;
+              font-size: 0.9rem;
+              color: #fff;
+      
+              .age {
+                margin: 10px 5px;
+              }
+      
+              .title-info {
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-left: 5px;
+      
+                span {
+                  margin-bottom: 5px;
+                }
+              }
+      
+              .age-all {
+                background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') 0 0 no-repeat;
+                display: inline-block;
+                width: 17px;
+                height: 18px;
+                vertical-align: bottom;
+              }
+      
+              .age-12 {
+                background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -60px 0 no-repeat;
+                display: inline-block;
+                width: 17px;
+                height: 18px;
+                vertical-align: bottom;
+              }
+      
+              .age-15 {
+                background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -90px 0 no-repeat;
+                display: inline-block;
+                width: 17px;
+                height: 18px;
+                vertical-align: bottom;
+              }
+      
+              .age-adult {
+                background: url('http://image2.megabox.co.kr/mop/home/bg_age2.png') -30px 0 no-repeat;
+                display: inline-block;
+                width: 17px;
+                height: 18px;
+                vertical-align: bottom;
+              }
+            }
+      
+            .sub {
+              margin-left: 15px;
+              padding-left: 8px;
+              margin-bottom: 10px;
+              font-size: 0.8rem;
+              color: #fff;
+              background: url('http://image2.megabox.co.kr/mop/home/movie/bg_seat.png') -150px 2px no-repeat;
+      
+              div {
+                margin-bottom: 5px;
+              }
+            }
+          }
+        }
+
+        .seat-info-list {
+          display: flex;
+          margin-left: 15px;
+          flex-wrap: wrap;
+
+          li {
+            width: 29px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            background-color: #b19bc3;
+            color: #000;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 8px;
+          }
+        }
+
+        .seat-btns-wrapper {
+          position: absolute;
+          bottom: 10px;
+          right: 0px;
+          width: 170px;
+
+          .booking-btn {
+            width: 68px;
+            height: 30px;
+            float: left;
+            margin-left: 10px;
+            outline: 0;
+            border: 1px solid #333;
+          }
+
+          .booking-prev {
+            background-color: #ecebeb;
+          }
+    
+          .booking-prev:hover {
+            background-color: #E1E1E1;
+          }
+    
+          .booking-next {
+            color: #fff;
+            background-color: #503396;
+          }
+    
+          .booking-next:hover {
+            background-color: #351F66;
+          }
+        }
+      }
+    }
+  }
+}

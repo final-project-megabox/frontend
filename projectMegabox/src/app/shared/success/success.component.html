@@ -1,7 +1,7 @@
 <section class="after-login">
   <header>
     <div class="id-group">
-      <strong class="id">{{userEmail}}</strong>
+      <strong class="id">{{userInfo.email}}</strong>
       <span>님</span>
     </div>
     <span class="membership">일반</span>
@@ -10,7 +10,7 @@
     <section class="summary-information">
       <div class="membership-point">
         <span class="info-title">멤버십포인트</span>
-        <span>3,700 P</span>
+        <span>{{userInfo.mileage}} P</span>
       </div>
       <div class="favorite-theater">
         <div>
@@ -35,9 +35,10 @@
     </section>
   </main>
   <footer>
-    <span>마지막 로그인 2019-07-24 15:34:29</span>
+    <span>마지막 로그인 {{userInfo.last_login}}</span>
     <button (click)="logout()" class="logout">로그아웃</button>
-    <button class="cancel text-hidden">닫기</button>
+    <button class="cancel text-hidden" (click)="rootService.myPageModal = false">닫기</button>
   </footer>
 </section>
+<div class="wrapper" (click)="rootService.myPageModal = false"></div>
 <prefer-theaters *ngIf="preferTheaterService.preferState"></prefer-theaters>

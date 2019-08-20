@@ -16,15 +16,15 @@
         <a>로그인</a>
       </li>
       <ng-template #seccessLogin>
-        <li title="마이페이지 바로가기" class="success-modal"
-        (click)="rootService.myPageModal = !rootService.myPageModal">
-          <img class="profile-img" src="http://image2.megabox.co.kr/mop/home/user/profile_m.png" alt="프로필 사진">
-          <img class="membership" src="http://image2.megabox.co.kr/mop/home/common/normal.png" alt="멤버십 정보">
+        <li title="마이페이지 바로가기" class="success-modal">
+          <img (click)="rootService.myPageModal = !rootService.myPageModal"
+          class="profile-img" src="http://image2.megabox.co.kr/mop/home/user/profile_m.png" alt="프로필 사진">
+          <img (click)="rootService.myPageModal = !rootService.myPageModal"
+          class="membership" src="http://image2.megabox.co.kr/mop/home/common/normal.png" alt="멤버십 정보">
           <div>
-            <span><strong>{{getUserName()}}</strong>님</span>
-            <a routerLink='/booking'
-            class="booking">예매확인/취소</a>
-            <i class="fa fa-chevron-dowfa fa-chevron-down"></i>
+            <span (click)="rootService.myPageModal = !rootService.myPageModal"><strong>{{getUserName()}}</strong>님</span>
+            <a routerLink='/booking' class="booking">예매확인/취소</a>
+            <i (click)="rootService.myPageModal = !rootService.myPageModal" class="fa fa-chevron-dowfa fa-chevron-down"></i>
           </div>  
         </li>
       </ng-template>

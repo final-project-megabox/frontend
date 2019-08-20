@@ -1,7 +1,7 @@
 <app-mypage-navi></app-mypage-navi>
 <router-outlet></router-outlet>
 <form [formGroup] ="userForm">
-  <h1 class="join-info">개인정보 수정 <small>회원님의 정보를 정확히 입력해주세요.</small></h1>
+  <h1 class="join-info" (click)="getMyinfo()">개인정보 수정 <small>회원님의 정보를 정확히 입력해주세요.</small></h1>
   <div class="main-content">
     <h4 class="basic-info">기본정보(필수입력)</h4>
       <div id="userJoinContainer" class="form-style">
@@ -9,9 +9,9 @@
           <div class="email">
             <span>이메일</span>
           </div>
-          <div class="email-wrap">
-            <input type="text" class="email-input" formControlName="email" [(ngModel)]="emailVal"
-            (keyup)="emailChoice()" (keyup.arrowdown)="toList()" InformationBackground autofocus>
+          <div class="email-wrap" *ngFor="let userinfo of userinfos">
+            <input type="text" class="email-input" formControlName="email" [(ngModel)]="emailVal" value="{{userinfo.email}}"
+            (keyup)="emailChoice()" (keyup.arrowdown)="toList()"  InformationBackground autofocus>
             <button class="double-check">중복확인</button>
             <em *ngIf="!!email.errors?.required && email.touched" class="email-alert">이메일을 입력하세요.</em>
             <em *ngIf="!!email.errors?.pattern && email.touched" class="email-alert">형식에 맞는 이메일을 입력하세요.</em>
@@ -50,11 +50,11 @@
           <div class="name">
             <span>이름</span>
           </div>
-          <div class="name-wrap">
-            <input type="text" class="name-input" formControlName="name" InformationBackground>
-            <em *ngIf="!!name.errors?.required && name.touched" class="alert">이름을 입력하세요.</em>
-            <em *ngIf="!name.errors?.required && name.touched" class="alert"><i class="fas fa-check"></i></em>
+          <div class="name-wrap"  *ngFor="let userinfo of userinfos">
+            <input type="text" class="name-input" formControlName="name" value="{{userinfo.name}}" InformationBackground>
             <button class="name-btn">이름변경</button>
+            <em *ngIf="!!name.errors?.required && name.touched" class="name-alert">이름을 입력하세요.</em>
+            <em *ngIf="!name.errors?.required && name.touched" class="alert"><i class="fas fa-check"></i></em>
           </div>
         </div>
 
@@ -63,10 +63,10 @@
             <span>생년월일</span>
           </div>
           <ng-container formGroupName="birthGroup">
-          <div class="birth-wrap">
-            <input type="text" class="year-input" formControlName="year" maxlength="4" InformationBackground> 년
-            <input type="text" class="month-input" formControlName="month" maxlength="2" InformationBackground> 월
-            <input type="text" class="day-input" formControlName="day" maxlength="2" InformationBackground> 일
+          <div class="birth-wrap"  *ngFor="let userinfo of userinfos">
+            <input type="text" class="year-input" formControlName="year" maxlength="4" value="{{userinfo.birthDate.slice(0,4)}}" InformationBackground> 년
+            <input type="text" class="month-input" formControlName="month" maxlength="2" value="{{userinfo.birthDate.slice(5,7)}}" InformationBackground> 월
+            <input type="text" class="day-input" formControlName="day" maxlength="2" value="{{userinfo.birthDate.slice(8,10)}}" InformationBackground> 일
             <em *ngIf="!!birthGroup.errors?.birthValid && birthGroup.touched" class="birth-alert">유효한 생년월일를 입력하세요. ex) 2001-05-08</em>
             <em *ngIf="!birthGroup.errors?.birthValid && birthGroup.touched" class="birth-alert"><i class="fas fa-check"></i></em>
           </div>
@@ -78,10 +78,10 @@
             <div class="phone">
               <span>휴대폰</span>
             </div>
-            <div class="phone-wrap">
-              <input type="text" class="phone-input" formControlName="firstNum" maxlength="3" InformationBackground> -
-              <input type="text" class="phone-input" formControlName="middleNum" maxlength="4" InformationBackground> -
-              <input type="text" class="phone-input" formControlName="lastNum" maxlength="4" InformationBackground>
+            <div class="phone-wrap" *ngFor="let userinfo of userinfos">
+              <input type="text" class="phone-input" formControlName="firstNum" maxlength="3" value="{{userinfo.phoneNumber.slice(0,3)}}" InformationBackground> -
+              <input type="text" class="phone-input" formControlName="middleNum" maxlength="4" value="{{userinfo.phoneNumber.slice(4,8)}}" InformationBackground> -
+              <input type="text" class="phone-input" formControlName="lastNum" maxlength="4" value="{{userinfo.phoneNumber.slice(9,13)}}" InformationBackground>
               <em *ngIf="!!phoneGroup.errors?.phoneValid && phoneGroup.touched" class="phone-alert">유효한 휴대전화 번호를 입력하세요.</em>
               <em *ngIf="!phoneGroup.errors?.phoneValid && phoneGroup.touched" class="phone-alert"><i class="fas fa-check"></i></em>
             </div>
@@ -162,10 +162,12 @@
     </div>
   </div>
 
+
+
   <!-- 버튼 -->
   <div class="wrap-submit">
     <button class="cancel-btn">취소</button>
-    <button  routerLink='' class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()"
+    <button class="confirm-btn" [disabled]="userForm.invalid" (click)="confirmJoin()"
     [style.backgroundColor]= "userForm.invalid ? '#dcdcdc' : null">확인
     </button>
   </div>

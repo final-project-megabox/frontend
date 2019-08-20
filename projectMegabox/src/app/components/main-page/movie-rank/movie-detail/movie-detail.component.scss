@@ -10,7 +10,7 @@ $schedule: 'http://image2.megabox.co.kr/mop/home/btns/btn_timeSchedule.png';
 $detail-main: #333;
 $detail-sub: #666;
 
-.wrapper-back {
+.movie-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,21 +18,16 @@ $detail-sub: #666;
   bottom: 0;
   z-index: 100;
   background-color: rgba(210, 210, 210, 0.6);
-}
-
-.movie-modal {
-  position: absolute;
-  // top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 200;
+  overflow-y: scroll;
 
   .modal-container {
+    position: absolute;
     width: 960px;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
+    top: 53px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    z-index: 200;
 
     .modal-close {
       position: absolute;
@@ -356,6 +351,13 @@ $detail-sub: #666;
         .all-wrpper {
           width: 900px;
           margin: 0 auto;
+
+          .image-headline {
+            color: $detail-main;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+          }
         }
         .gallery-top .swiper-slide {
           text-align: center;

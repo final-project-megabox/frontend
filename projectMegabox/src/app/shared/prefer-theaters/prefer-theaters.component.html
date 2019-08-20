@@ -16,7 +16,7 @@
             <ng-container *ngFor="let rank of orderNum">
             <span class="rank" *ngIf= "prefer.id === rank.id">{{ rank.rank }}</span>
             </ng-container>
-            <select id="{{ prefer.id }}" name="region-group" class="region-choice"  (change)="choosenRegion(region.value, region.id)" #region>
+            <select id="{{ prefer.id }}" name="region-group" class="region-choice"  (change)="choosenRegion(region.value, region.id)" appPreferTheaterSelect #region>
               <option value="{{ prefer.region }}">{{ prefer.region }}</option>
               <option value="지역선택" *ngIf="prefer.region !== '지역선택'">지역선택</option>
               <option value="서울" *ngIf="prefer.region !== '서울'">서울</option>
@@ -43,10 +43,10 @@
     </div>
   
     <div class="alert-footer">
-        <button class="alert-cancel" (click)="preferTheaterService.preferState = false">취소</button>
+        <button class="alert-cancel" (click)="cancel()">취소</button>
         <button class="alert-confirm" (click)="confirm()">등록</button>
     </div>
-    <i class="fas fa-times" (click)="preferTheaterService.preferState = false"></i>
+    <i class="fas fa-times" (click)="cancel()"></i>
   </div>
 </div>
 <delete-prefer *ngIf="preferTheaterService.deletePreferState"></delete-prefer>

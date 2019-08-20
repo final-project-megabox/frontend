@@ -8,10 +8,15 @@ import { QuickBookingService } from '../../service/quick-booking.service';
   styleUrls: ['./seat-selection-modal.component.scss']
 })
 export class SeatSelectionModalComponent implements OnInit {
-
   constructor(public seatService: SeatService, public bookingService: QuickBookingService) { }
 
   ngOnInit() {
+  }
+
+  calMoney() {
+    this.seatService.price = this.bookingService.selectedMovie.price.normal * this.seatService.normal;
+    this.seatService.price = this.seatService.price + (this.bookingService.selectedMovie.price.youth * this.seatService.youth);
+    this.seatService.price = this.seatService.price + (this.bookingService.selectedMovie.price.favor * this.seatService.favor);
   }
 
   createAgeIcon(age: string) {
@@ -20,6 +25,4 @@ export class SeatSelectionModalComponent implements OnInit {
     if (age === "15세 관람가") return "age-15 hidden-text";
     if (age === "청소년 관람불가") return "age-adult hidden-text";
   }
-  
-
 }

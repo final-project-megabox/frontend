@@ -6,13 +6,15 @@ import { PreferTheatersService } from '../prefer-theaters/services/prefer-theate
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-interface UserInfo {
+interface UserInfoo {
   birthDate: string,
   email: string,
   getPreferList: [{}],
   name: string,
+  last_login: string,
   phoneNumber: string,
-  preferTheater: [{}],
+  preferTheater: [],
+  mileage: number
 }
 
 @Component({
@@ -21,16 +23,17 @@ interface UserInfo {
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  userEmail;
-  userRegion;
-  userAccessTime;
+  userRegion=[];
+  userInfo:UserInfoo = {birthDate: '', email: '', getPreferList: [{}], name: '', last_login: '', phoneNumber: '', preferTheater:[], mileage: 0 };
 
   constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { }
 
   ngOnInit() {
+    this.preferTheaterService.preferTheaterUpDated.subscribe(detect=> {
+      this.userRegion = detect.filter(theater => theater['theater'] !== '영화관선택');
+    });
+
     this.getUserInfo();
-    
-    // this.preferTheaterService.preferTheaterUpDated.subscribe(test=> this.userRegion = test.map(theater => theater != '영화관선택' ? theater : ''));
   }
  
   logout() {
@@ -50,11 +53,9 @@ export class SuccessComponent implements OnInit {
     const TOKEN = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', TOKEN);
 
-    this.http.get<UserInfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
+    this.http.get<UserInfoo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', { headers })
       .subscribe(info => {
-        console.log(info)
-        this.userEmail = info.email;
-        console.log(info.preferTheater);
+        this.userInfo = info
         this.userRegion = info.preferTheater.filter(prefer => prefer['theater'] !== '영화관선택');
       },
       errors => {

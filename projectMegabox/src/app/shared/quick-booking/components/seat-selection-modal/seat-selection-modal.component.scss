@@ -11,7 +11,20 @@
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: rgba(210, 210, 210, 0.6);
+  background: rgba(255, 255, 255, 50%);
+  animation-name: bgani;
+  animation-duration: 0.3s;
+  overflow-y: scroll;
+
+  @keyframes bgani {
+    0% {
+      background: rgba(255, 255, 255, 0);
+    }
+
+    100% {
+      background: rgba(255, 255, 255, 50%);
+    }
+  }
 }
 
 .seat-modal-wrapper {
@@ -30,6 +43,20 @@
 
 .seat-modal-contents {
   box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+  opacity: 1;
+
+  animation-name: opa;
+  animation-duration: 0.3s;
+
+  @keyframes opa {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 .seat-modal-header {
@@ -237,6 +264,24 @@
 
 .booking-next:hover {
   background-color: #351F66;
+}
+
+.seat-info-list {
+  display: flex;
+  margin-left: 15px;
+  flex-wrap: wrap;
+
+  li {
+    width: 29px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #b19bc3;
+    color: #000;
+    font-size: 0.9rem;
+    margin-right: 10px;
+    margin-bottom: 8px;
+  }
 }
 
 app-seat-one-hundred-thirty {

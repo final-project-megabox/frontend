@@ -26,12 +26,12 @@
   </ul>
 <!--  -->
   <div class= "tab-contents booked" [ngClass]="{active: navState == '예매 내역'}">
-    <ul *ngFor="let bookedlist of bookedlists">
+    <ul *ngFor="let bookedlist of bookingInfos">
       <li class="tab-no"><div class="content-align">1</div></li>
       <li class="tab-bookNum"><div class="content-align">{{bookedlist.booking_number}}</div></li>
-      <li class="tab-movieName"><div class="content-align2"><img src="{{bookedlist.img_url}}" class="poster">{{bookedlist.title}}</div></li>
+      <li class="tab-movieName"><div class="content-align2"><img src="{{bookedlist.img_url}}" class="poster"><a class="name-text">{{bookedlist.title}}</a></div></li>
       <li class="tab-screen"><div class="content-align">{{bookedlist.theater}}</div></li>
-      <li class="tab-screenDate"><div class="content-align">{{bookedlist.show_date}}</div></li>
+      <!-- <li class="tab-screenDate"><div class="content-align">{{bookedlist.show_date}}</div></li> -->
       <li class="tab-bookedDate"><div class="content-align">{{bookedlist.booking_date}}</div></li>
       <li class="tab-cancel"><div class="content-align"><button class="cancel-btn" (click)="bookedCanceled(bookedlist.booking_number)">취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
     </ul>
@@ -43,7 +43,7 @@
         <li class="tab-bookNum"><div class="content-align">{{watchedlist.booking_number}}</div></li>
         <li class="tab-movieName"><div class="content-align2"><img src="{{watchedlist.img_url}}" class="poster"><a class="name-text">{{watchedlist.title}}</a></div></li>
         <li class="tab-screen"><div class="content-align">{{watchedlist.theater}}</div></li>
-        <li class="tab-screenDate"><div class="content-align">{{watchedlist.show_date}}</div></li>
+        <!-- <li class="tab-screenDate"><div class="content-align">{{watchedlist.show_date}}</div></li> -->
         <li class="tab-bookedDate"><div class="content-align">{{watchedlist.booking_date}}</div></li>
         <li class="tab-cancel"><div class="content-align"><button class="cancel-btn" (click)="bookedCanceled(watchedlist.booking_number)">취소</button></div></li> <!--누르면 아이디 불러와서 지우기-->
       </ul>
@@ -53,9 +53,9 @@
       <ul *ngFor="let canceledlist of canceledlists">
         <li class="tab-no"><div class="content-align">3</div></li>
         <li class="tab-bookNum"><div class="content-align">{{canceledlist.booking_number}}</div></li>
-        <li class="tab-movieName"><div class="content-align2"><img src="{{canceledlist.img_url}}" class="poster"><div class="name-text">{{canceledlist.title}}</div></div></li>
+        <li class="tab-movieName"><div class="content-align2"><img src="{{canceledlist.img_url}}" class="poster"><a class="name-text">{{canceledlist.title}}</a></div></li>
         <li class="tab-screen"><div class="content-align">{{canceledlist.theater}}</div></li>
-        <li class="tab-screenDate"><div class="content-align">{{canceledlist.show_date}}</div></li>
+        <!-- <li class="tab-screenDate"><div class="content-align">{{canceledlist.show_date}}</div></li> -->
         <li class="tab-bookedDate"><div class="content-align">{{canceledlist.booking_date}}</div></li>
         <li class="tab-cancel"><div class="content-align"><button class="cancel-btn">취소됨</button></div></li> <!--누르면 아이디 불러와서 지우기-->
       </ul>

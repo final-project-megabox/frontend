@@ -35,11 +35,11 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.RankStars = [
-      { id: 0, rankStar: 'star0', starContent: '괜히 봤어요', selected: false },
-      { id: 1, rankStar: 'star1', starContent: '기대하진 말아요', selected: false },
-      { id: 2, rankStar: 'star2', starContent: '무난했어요', selected: false },
-      { id: 3, rankStar: 'star3', starContent: '기대해도 좋아요!', selected: false },
-      { id: 4, rankStar: 'star4', starContent: '너무 멋진 영화였어요!', selected: false }
+      { id: 0, starRate: 1, starContent: '괜히 봤어요' },
+      { id: 1, starRate: 2, starContent: '기대하진 말아요' },
+      { id: 2, starRate: 3, starContent: '무난했어요' },
+      { id: 3, starRate: 4, starContent: '기대해도 좋아요!' },
+      { id: 4, starRate: 5, starContent: '너무 멋진 영화였어요!' }
     ]
   }
 
@@ -73,7 +73,9 @@ export class MovieDetailComponent implements OnInit {
   }
   
   closeDetail() {
-    this.movieDetailService.detailModalState = false;
+    setTimeout(() => {
+      this.movieDetailService.detailModalState = false;
+    }, 1);
   }
 
   descending(key: string) {
@@ -96,11 +98,11 @@ export class MovieDetailComponent implements OnInit {
   }
 
   wishMovies;
+  movieInfo ;
   myWishMovie(detailMovie) {
-    // console.log(rankmovie);
-    this.movieDetailService.wishMovie(detailMovie.movie_id).subscribe(res => {
+    this.movieInfo = this.rankMovie.filter(movie => movie.title === detailMovie.title)
+    this.movieDetailService.wishMovie(this.movieInfo[0]['movie_id']).subscribe(res => {
       this.wishMovies = res;
-      console.log(this.wishMovies);
     })
   }
 

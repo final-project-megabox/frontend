@@ -8,18 +8,20 @@ import { AuthService } from 'src/app/core/service/auth.service';
   providedIn: 'root'
 })
 export class PreferTheatersService implements OnInit {
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   ngOnInit() {}
-  
+
+  // 선호 영화관 커스텀 이벤트 생성
   preferTheaterUpDated: EventEmitter<any> = new EventEmitter();
 
+  // 선호 영화관 커스텀 이벤트를 감지하는 메소드 정의
   preferChangeDetect() {
     this.preferTheaterUpDated.emit(this.choieces);
-  }
+  }                                                                      
   
 
-  getAllPreferTheaters() {
+  getAll() {
     const token = `JWT ${localStorage.getItem('token')}`;
     const headers = new HttpHeaders().set('Authorization', token);
 
@@ -53,30 +55,36 @@ export class PreferTheatersService implements OnInit {
   // 선호 영화관 배열에서 영화관선택을 제외한 결과를 담는 배열
   bowlPrefer;
 
+  // bowlPrefer에서 극장만을 뽑아낸 배열
+  // onlyTheater;
+
+  // bowlPrefer에서 극장만을 뽑아내고 중복을 제거한 배열
+  // noneDuplicatePrefer;
+
   // 선호 영화관 모달창 띄우기, 닫기
   preferState = false;
 
   deletePreferState = false;
 
   // change 이벤트가 발생하면 지역 선택의 state를 변경하면서 지역에 맞는 도시들 만을 보여줌
-  preferOneState = '지역선택';
-  preferTwoState = '지역선택';
-  preferThreeState = '지역선택';
+  preferOneState;
+  preferTwoState;
+  preferThreeState;
 
   // 등록 버튼을 클릭하면 선택한 지역을 저장
-  regionChoiceOne = '지역선택';
-  regionChoiceTwo = '지역선택';
-  regionChoiceThree = '지역선택';
+  regionChoiceOne;
+  regionChoiceTwo;
+  regionChoiceThree;
 
   // change 이벤트가 발생하면 선택한 영화관 상태를 저장
-  theaterOneState = '영화관선택';
-  theaterTwoState = '영화관선택';
-  theaterThreeState = '영화관선택';
+  theaterOneState;
+  theaterTwoState;
+  theaterThreeState;
 
   // 등록 버튼을 클릭하면 선택한 극장을 저장
-  theaterChoiceOne = '영화관선택';
-  theaterChoiceTwo = '영화관선택';
-  theaterChoiceThree = '영화관선택';
+  theaterChoiceOne;
+  theaterChoiceTwo;
+  theaterChoiceThree;
 
   // 선택한 요소들 저장
   choieces: PreferTheater[] = [];

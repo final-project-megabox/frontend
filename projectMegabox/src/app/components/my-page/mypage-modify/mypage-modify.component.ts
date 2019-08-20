@@ -1,12 +1,15 @@
+import { Theater } from './../../main-page/notice/models/theater.type';
 import { PhoneValidator } from './../../sign-up/validators/phone-validator';
 import { BirthValidator } from './../../sign-up/validators/birth-validator';
 import { PasswordValidator } from './../../sign-up/validators/password-validator';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/prefer-theaters.service';
+import { Userinfo } from '../userinfo';
 
 
 
@@ -16,19 +19,40 @@ import { PreferTheatersService } from 'src/app/shared/prefer-theaters/services/p
   styleUrls: ['./mypage-modify.component.scss']
 })
 export class MypageModifyComponent implements OnInit {
+  TOKEN_NAME = 'token';
+  loginState = false;
 
   userForm: FormGroup;
+  dateCutting = [];
 
-  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient) { }
+
+  constructor(public fb: FormBuilder, public preferTheaterService: PreferTheatersService, public http: HttpClient, public auth: AuthService) { }
+
+  userinfos: Userinfo[] = [
+    // tslint:disable-next-line: max-line-length
+    //{ email: 'immsee098@gmail.com', name: '윤해서', birthDate: '1995-04-22', phoneNumber: '010-2605-7621', PreferTheater:'상봉', getPreferList: '어쩌고'  }
+  ];
+
+  userinfo = [...this.userinfos];
+
+  myemail;
+  myname;
+  mybirthdate;
+  myphonenumber;
 
   ngOnInit() {
-    this.getFreferTheater();
+
+    this.getMyinfo();
+    // this.getFreferTheater();
 
     this.userForm = this.fb.group({
-      email: ['', [
-        Validators.required,
-        Validators.pattern('^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$')
-      ]],
+      email: [
+        '' ,
+      //   [
+      //   Validators.required,
+      //   Validators.pattern('^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$')
+      // ]
+    ],
 
       passwordGroup: this.fb.group({
         password: ['', [
@@ -38,16 +62,21 @@ export class MypageModifyComponent implements OnInit {
         confirmPassword : ['', Validators.required]
       }, { validator: PasswordValidator.match}),
 
-      name: ['', Validators.required],
+      name: ['',
+      // Validators.required
+    ],
 
       birthGroup: this.fb.group({
         year: [''],
         month: [''],
         day: ['']
-      }, { validator: BirthValidator.birthValid}),
+      },
+      // { validator:
+      //   BirthValidator.birthValid}
+        ),
 
       phoneGroup: this.fb.group({
-        firstNum: [''],
+        firstNum: ['010'],
         middleNum: [''],
         lastNum: ['']
       }, { validator: PhoneValidator.phoneValid}),
@@ -59,7 +88,24 @@ export class MypageModifyComponent implements OnInit {
       theaterTwo: ['영화관선택'],
       theaterThree: ['영화관선택']
     });
+
   }
+
+  getMyinfo() {
+    const token = `JWT ${localStorage.getItem('token')}`;
+
+    const headers = new HttpHeaders().set('Authorization', token);
+
+    const aa = this.http.get<Userinfo>('http://megabox.hellocoding.shop//accounts/showMyInfo/', {headers}).subscribe(
+      datas => this.userinfos = [datas],
+    );
+    console.log(this.userinfos);
+   }
+
+
+   insertEmail() {
+     this.myemail = this.userinfos[0].email;
+   }
 
   getFreferTheater() {
     return this.preferTheaterService.ChoosedTheater = [
@@ -73,7 +119,11 @@ export class MypageModifyComponent implements OnInit {
   }
 
   confirmJoin() {
+    const token = `JWT ${localStorage.getItem('token')}`;
+
+    const headers = new HttpHeaders().set('Authorization', token);
     const payload = {
+
       email: this.email.value,
       name: this.name.value,
       password: this.password.value,
@@ -85,9 +135,11 @@ export class MypageModifyComponent implements OnInit {
         { region: this.preferThree.value, theater: this.theaterThree.value }
       ]
     };
-    this.http.patch('http://megabox.hellocoding.shop//accounts/update/', payload).subscribe();
-    alert('회원정보 수정이 완료되었습니다.');
+
+    this.http.post('http://megabox.hellocoding.shop//accounts/updateMyInfo/', payload, { headers }).subscribe();
+    // this.root.welcomeState = true;
   }
+
 
   get email() {
     return this.userForm.get('email');
@@ -174,7 +226,7 @@ export class MypageModifyComponent implements OnInit {
   // 웹사이트 이메일 주소
   emailAddress = ['naver.com','gmail.com','daum.net','hanmail.net','nate.com','hotmail.com','icloud.com'];
 
-  // @ 입력 시 email 선택지 보여주기
+  //@ 입력 시 email 선택지 보여주기
   emailChoice(){
     const regxr = /@+[A-Z]+/gi;
     const atSign ='@';
