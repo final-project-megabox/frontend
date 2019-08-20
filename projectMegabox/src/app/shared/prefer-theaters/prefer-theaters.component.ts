@@ -57,7 +57,14 @@ export class PreferTheatersComponent implements OnInit {
 
   // change 이벤트가 발생하면 선택한 영화관을 배열에 할당하고 각각의 state에 할당
   choosenTheater(theaterValue, theaterId) {
-    this.preferTheaterService.preferTheaterChoices = [...this.preferTheaterService.preferTheaterChoices, { id: theaterId, value: theaterValue}];
+    this.preferTheaterService.preferTheaterChoices = [
+      { id: 0, value: this.preferTheaterService.theaterOneState },
+      { id: 1, value: this.preferTheaterService.theaterTwoState },
+      { id: 2, value: this.preferTheaterService.theaterThreeState },
+      ...this.preferTheaterService.preferTheaterChoices, { id: +theaterId, value: theaterValue}
+    ];
+
+    // this.preferTheaterService.preferTheaterChoices = [...this.preferTheaterService.preferTheaterChoices, { id: theaterId, value: theaterValue}];
 
     const preferId = this.preferTheaterService.preferTheaterChoices.map(({id})=> id);
     const duplicate = this.preferTheaterService.preferTheaterChoices.filter((content, idx ) => {
@@ -70,20 +77,17 @@ export class PreferTheatersComponent implements OnInit {
       if(+theater.id === 0) { this.preferTheaterService.theaterOneState = theater.value }
       if(+theater.id === 1) { this.preferTheaterService.theaterTwoState = theater.value }
       if(+theater.id === 2) { this.preferTheaterService.theaterThreeState = theater.value }
-    });
+    }); 
+
 
     // 중복 검사
-    // if(this.preferTheaterService.theaterOneState === '영화관선택' && this.preferTheaterService.theaterTwoState === '영화관선택' ||
-    //    this.preferTheaterService.theaterOneState === '영화관선택' && this.preferTheaterService.theaterThreeState === '영화관선택' ||
-    //    this.preferTheaterService.theaterTwoState === '영화관선택' && this.preferTheaterService.theaterThreeState === '영화관선택'
-    // ) 
-    // return
-
-    // if(this.preferTheaterService.theaterOneState === this.preferTheaterService.theaterTwoState ||
-    //    this.preferTheaterService.theaterOneState === this.preferTheaterService.theaterThreeState ||
-    //    this.preferTheaterService.theaterTwoState === this.preferTheaterService.theaterThreeState
-    // )
-    // { alert('이미 선택하신 영화관 입니다.') }
+    // 영화관 선택을 제외한 value만 모은 배열에서 중복을 제거한 배열을 생성하고 두 배열의 길이를 비교
+    const preferVal = this.preferTheaterService.preferTheaterChoices.map(({ value }) => value);
+    const onlyTheaterChoieces = preferVal.filter(value => value !== '영화관선택');
+    const delDuplicate = Array.from(new Set(onlyTheaterChoieces));
+    if(delDuplicate.length < onlyTheaterChoieces.length ) {
+      alert('이미 선택하신 영화관 입니다.');
+    }
   }
 
 

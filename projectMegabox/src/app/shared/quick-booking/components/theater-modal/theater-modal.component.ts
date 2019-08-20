@@ -58,7 +58,6 @@ export class TheaterModalComponent implements OnInit {
       this.bookingService.detailRegions = theaters.map(theater => {
           return this.bookingService.transmitTheaters.some(select => theater.theater === select) ? {...theater, selected: true} : theater;
       })});
-      console.log( this.bookingService.detailRegions);
   }
 
   // 극장 title을 삭제하고 취소 버튼을 누른 후 다시 들어와도 title이 보이게 하기 위한 함수
@@ -78,7 +77,6 @@ export class TheaterModalComponent implements OnInit {
       this.bookingService.detailRegions = this.bookingService.detailRegions.map(region => {
         return region.theater === detailArea ? {...region, selected: false} : region
       })
-      console.log( this.bookingService.detailRegions);
       this.bookingService.alertModalState = true;
     }
   }
@@ -89,7 +87,6 @@ export class TheaterModalComponent implements OnInit {
     this.bookingService.detailRegions = this.bookingService.detailRegions.map(region => {
       return region.theater === deleteArea ? {...region, selected: false} : region
     })
-    console.log( this.bookingService.detailRegions);
   }
 
   // 지역 리스트를 호버 하였을 때 지도에 해당 위치를 표시하기 위해

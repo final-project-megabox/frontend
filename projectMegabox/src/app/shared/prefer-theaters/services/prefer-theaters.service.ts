@@ -55,6 +55,12 @@ export class PreferTheatersService implements OnInit {
   // 선호 영화관 배열에서 영화관선택을 제외한 결과를 담는 배열
   bowlPrefer;
 
+  // bowlPrefer에서 극장만을 뽑아낸 배열
+  // onlyTheater;
+
+  // bowlPrefer에서 극장만을 뽑아내고 중복을 제거한 배열
+  // noneDuplicatePrefer;
+
   // 선호 영화관 모달창 띄우기, 닫기
   preferState = false;
 
