@@ -14,6 +14,7 @@ import { PreferTheaterFilterPipe } from './prefer-theaters/pipes/prefer-theater-
 import { SeatModule } from './quick-booking/components/seat-selection-modal/seat.module';
 import { DeletePreferComponent } from './prefer-theaters/delete-prefer/delete-prefer.component';
 import { ModalStyleDirective } from './directives/modal-style.directive';
+import { PreferTheaterSelectDirective } from './prefer-theaters/directives/prefer-theater-select.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ModalStyleDirective } from './directives/modal-style.directive';
     RequiredLoginComponent,
     PreferTheaterFilterPipe,
     DeletePreferComponent,
-    ModalStyleDirective
+    ModalStyleDirective,
+    PreferTheaterSelectDirective
   ],
   imports: [
     CommonModule,

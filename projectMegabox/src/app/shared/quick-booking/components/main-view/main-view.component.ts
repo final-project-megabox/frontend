@@ -38,16 +38,17 @@ export class MainViewComponent implements OnInit {
   }
 
   getPrefer() {
-    this.preferTheaterService.getAllPreferTheaters()
+    this.preferTheaterService.getAll()
     .subscribe(theaters => this.preferTheaterService.choieces = theaters['preferTheater']);
   }
   
   pref() {
     setTimeout(() => {
       this.preferTheaterService.bowlPrefer = this.preferTheaterService.choieces.filter(({ theater }) => theater !=='영화관선택');
-      this.quickBookingService.transmitTheaters = [...this.preferTheaterService.bowlPrefer.map(({ theater }) => theater)];
-      this.quickBookingService.addTheaterButton();
-    }, 1000); 
+      this.quickBookingService.transmitTheaters = [...this.preferTheaterService.bowlPrefer.map(({ theater }) => theater), ...this.quickBookingService.transmitTheaters];
+      const uniqueTransmit = Array.from(new Set(this.quickBookingService.transmitTheaters));
+      this.quickBookingService.transmitTheaters = uniqueTransmit;
+    }); 
   }
 
   // 오늘부터 한달 생성

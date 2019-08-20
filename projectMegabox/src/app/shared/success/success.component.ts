@@ -23,14 +23,16 @@ interface UserInfoo {
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  userRegion;
-  userInfo: UserInfoo;
+  userRegion=[];
+  userInfo:UserInfoo = {birthDate: '', email: '', getPreferList: [{}], name: '', last_login: '', phoneNumber: '', preferTheater:[], mileage: 0 };
 
-  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { 
-    
-  }
+  constructor(public authService: AuthService, public rootService: RootService, public http: HttpClient, public preferTheaterService: PreferTheatersService) { }
 
   ngOnInit() {
+    this.preferTheaterService.preferTheaterUpDated.subscribe(detect=> {
+      this.userRegion = detect.filter(theater => theater['theater'] !== '영화관선택');
+    });
+
     this.getUserInfo();
   }
  
