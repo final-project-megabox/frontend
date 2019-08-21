@@ -121,7 +121,7 @@ export class CalendarService {
   }
 
   // 캐러셀과 캘린더의 연동.
-  checkDayActive(day: string, elem?: HTMLUListElement) {
+  checkDayActive(day: string) {
     this.activeToday = day;
     
     const idx = this.afterToday.findIndex(item => item.fullDate === day);
