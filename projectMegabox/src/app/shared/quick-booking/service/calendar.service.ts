@@ -78,7 +78,7 @@ export class CalendarService {
     }
 
     this.splitThisDays = this.splitThisDays.filter(item => item.length)
-    
+
     if (this.splitThisDays[0].length === 7) return;
 
     // 첫째주 빈칸 채우기
@@ -120,6 +120,7 @@ export class CalendarService {
     this.month = this.month - 1;
   }
 
+  // 캐러셀과 캘린더의 연동.
   checkDayActive(day: string, elem?: HTMLUListElement) {
     this.activeToday = day;
     
