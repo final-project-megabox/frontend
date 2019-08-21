@@ -49,7 +49,7 @@ export class MainViewComponent implements OnInit {
       const uniqueTransmit = Array.from(new Set(this.quickBookingService.transmitTheaters));
       this.quickBookingService.transmitTheaters = uniqueTransmit;
       this.quickBookingService.addTheaterButton();
-    });
+    }, 500); 
   }
 
   // 오늘부터 한달 생성
