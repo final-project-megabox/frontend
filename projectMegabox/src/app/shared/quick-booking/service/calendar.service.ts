@@ -15,7 +15,7 @@ export class CalendarService {
   dayTableX = 0;    // 일자 캐러셀 X값
   
   constructor() {
-    this.createThisDays();
+    this.createThisDays();  // 캐러셀만들기
     this.splitDay();
   }
   
